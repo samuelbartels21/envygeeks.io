@@ -1,0 +1,110 @@
+# --
+# When you plan to develop the site.
+# CMDS: docker-compose -f docker/compose.yml up/run command.
+# NOTE: This is inherited by most of the stuff around here.
+#   Except for production.
+# --
+development: &def
+  hostname: envygeeks
+  image: jekyll/jekyll
+  container_name: envygeeks
+  environment: { BUNDLE_CACHE: "true" }
+  restart: never
+
+  #
+
+  volumes:
+    - .:/srv/jekyll
+
+  #
+
+  ports:
+    - 4000:4000
+
+  #
+
+  command: "\
+    chpst -u jekyll sh -c '\
+      rm -rf _site;\
+      rm -rf .asset-cache;\
+      bundle exec jekyll serve --watch \\\
+        -H 0.0.0.0 --trace
+    '\
+  "
+
+# --
+# Production build.
+# This is used in our deploy scripts.
+# --
+production-build:
+  <<: *def
+
+  #
+
+  environment:
+    JEKYLL_ENV: production
+    BUNDLE_CACHE: "true"
+
+  #
+
+  command: "\
+    chpst -u jekyll sh -c '\
+      rm -rf _site;\
+      rm -rf .asset-cache;\
+      bundle exec jekyll build \\\
+        --trace\
+    '\
+  "
+
+# --
+# So you can clean up the source.
+# --
+clean:
+  <<: *def
+  command: "\
+    chpst -u jekyll sh -c '\
+      bundle exec jekyll clean;\
+      rm -rf .asset-cache\
+      rm -rf _site\
+    '\
+  "
+
+# --
+# Simply just build the source.
+# --
+build:
+  <<: *def
+  command: "\
+    chpst -u jekyll sh -c '\
+      rm -rf _site;\
+      rm -rf .asset-cache;\
+      bundle exec jekyll build \\\
+         --trace\
+    '\
+  "
+
+# --
+# Update the Gems.
+# --
+update:
+  <<: *def
+  command: "\
+    chpst -u jekyll sh -c '\
+      bundle update;\
+      bundle clean\
+    '\
+  "
+
+# --
+# Test the site.
+# --
+test:
+  <<: *def
+  command: "\
+    chpst -u jekyll sh -c '\
+    rm -rf .asset-cache;\
+      bundle exec jekyll clean;\
+      bundle exec jekyll build; \
+      bundle exec htmlproofer site\
+    '\
+  "

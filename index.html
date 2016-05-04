@@ -1,0 +1,54 @@
+---
+main: true
+---
+
+{% for post in site.posts limit:3 %}
+  <article>
+    <header>
+      <h2>
+        <a href="{{ post.url | pretty }}">
+          {{
+            post.title | markdownify_title
+          }}
+        </a>
+      </h2>
+    </header>
+
+    <div>
+      {{
+        post.excerpt
+      }}
+    </div>
+
+    <footer>
+      <div class="avatar">
+        <a href="https://github.com/{{ post.author.handle }}" target="_blank">
+          <img src="{{
+            post.author.handle | github_avatar
+          }}">
+        </a>
+      </div>
+
+      <div>
+        <p class="author">
+          <a href="https://github.com/{{ post.author.handle }}" target="_blank">
+            {{
+              post.author.name
+            }}
+          </a>
+        </p>
+
+        <ul class="tags">
+          <li>tag</li>
+          <li>tag</li>
+        </ul>
+
+        <time>
+          {{
+            post.date | fancy_time
+          }}
+        </time>
+      </div>
+    </footer>
+  </article>
+{% endfor %}

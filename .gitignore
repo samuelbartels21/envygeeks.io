@@ -1,0 +1,6 @@
+/vendor
+/.sass-cache
+/.jekyll-metadata
+/.asset-cache
+/.bundle
+/_site

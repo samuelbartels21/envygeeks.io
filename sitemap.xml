@@ -1,0 +1,13 @@
+---
+layout: null
+---
+
+<?xml version="1.0" encoding="UTF-8"?>
+<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  {% for page in site.pages %}
+    <sitemap>
+      <loc>{{ page.url | pretty }}</loc>
+      <lastmod>{{ page | modified_or_xmldate }}</lastmod>
+    </sitemap>
+  {% endfor %}
+</sitemapindex>

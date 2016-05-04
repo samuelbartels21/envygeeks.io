@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+  <head>
+
+    <!--
+      Design-License: MIT.
+      Copyright 2016 Jordon Bedwell.
+      Source: https://github.com/envygeeks/envygeeks.io
+      Content-License: Reserved.
+    -->
+
+    <title>{{ site.title }}</title>
+    <meta name="generator" content="Jekyll {{ jekyll.version }}">
+    <link rel="canonical" href="{{ page | canonical_url }}">
+    <link rel="alternate" type="application/rss+xml" title="{{ site.title }}" href="{{ site.base_domain }}/feed.xml" />
+    {{ 'css:bundle.css "js:bundle.js async:true"' | jekyll_asset_multi }}
+  </head>
+
+  <body id="envygeeks">
+    <div class="wrapper">
+      <header>
+        <nav>
+          <ul>
+
+            <!--
+              If you would like a page to land inside of the navigation
+              you should add the frontmatter:
+
+              ```yaml
+              nav:
+                title: Title
+              ```
+            -->
+
+            <li>
+              <a href="/">
+                Home
+              </a>
+            </li>
+
+            {% for page in site.pages %}
+              {% if page.nav %}
+                <li>
+                  <a href="{{ page.url | append:site.baseurl | pretty }}">
+                    {{
+                      page.nav.title
+                    }}
+                  </a>
+                </li>
+              {% endif %}
+            {% endfor %}
+          </ul>
+        </nav>
+
+        <h1 class="title">
+          <a href="/">
+            {{
+              site.title
+            }}
+          </a>
+        </h1>
+
+        {% if site.sub_title %}
+          <p class="sub-title">
+            {{
+              site.sub_title
+            }}
+          </p>
+        {% endif %}
+
+        {% if site.secondary_sub_title %}
+          <p class="sub-title">
+            {{
+              site.secondary_sub_title
+            }}
+          </p>
+        {% endif %}
+
+        <div class="social">
+          {% for account in site.social %}
+            <a target="_blank" href="{{ account[1] }}">
+              <i class="fa fa-{{ account[0] }}-square" aria-hidden="true">
+                <!-- EMPTY -->
+              </i>
+            </a>
+          {% endfor %}
+        </div>
+      </header>
+
+      <main>
+        {% if page.main %}
+          {{
+            content
+          }}
+
+        {% else %}
+          <article class="page">
+            <header>
+              <h1>
+                {{
+                  page.title | markdownify_title
+                }}
+              </h1>
+            </header>
+
+            <div>
+              {{
+                content
+              }}
+            </div>
+          </article>
+        {% endif %}
+      </main>
+    </div>
+  </body>
+</html>

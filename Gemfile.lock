@@ -1,0 +1,154 @@
+GIT
+  remote: git://github.com/envygeeks/docker-template.git
+  revision: fce5fd6f1e1e7a4c74a2f02a04a1a112beae0876
+  specs:
+    docker-template (0.8.0)
+      activesupport (~> 4.2)
+      docker-api (~> 1.28)
+      extras (~> 0.1)
+      json (~> 1.8)
+      pathutil (~> 0.7)
+      simple-ansi (~> 1.0)
+      thor (~> 0.19)
+
+GEM
+  remote: https://rubygems.org/
+  specs:
+    activesupport (4.2.6)
+      i18n (~> 0.7)
+      json (~> 1.7, >= 1.7.7)
+      minitest (~> 5.1)
+      thread_safe (~> 0.3, >= 0.3.4)
+      tzinfo (~> 1.1)
+    addressable (2.4.0)
+    autoprefixer-rails (6.3.6)
+      execjs
+    coderay (1.1.1)
+    colorator (0.1)
+    colored (1.2)
+    concurrent-ruby (1.0.2)
+    diff-lcs (1.2.5)
+    docker-api (1.28.0)
+      excon (>= 0.38.0)
+      json
+    ethon (0.9.0)
+      ffi (>= 1.3.0)
+    excon (0.49.0)
+    execjs (2.6.0)
+    extras (0.1.0)
+      forwardable-extended (~> 2.5)
+    fastimage (2.0.0)
+      addressable (~> 2)
+    ffi (1.9.10)
+    font-awesome-sass (4.5.0)
+      sass (>= 3.2)
+    forwardable-extended (2.6.0)
+    gemoji (2.1.0)
+    html-proofer (3.0.5)
+      activesupport (~> 4.2)
+      addressable (~> 2.3)
+      colored (~> 1.2)
+      mercenary (~> 0.3.2)
+      nokogiri (~> 1.5)
+      parallel (~> 1.3)
+      typhoeus (~> 0.7)
+      yell (~> 2.0)
+    i18n (0.7.0)
+    jekyll (3.1.3)
+      colorator (~> 0.1)
+      jekyll-sass-converter (~> 1.0)
+      jekyll-watch (~> 1.1)
+      kramdown (~> 1.3)
+      liquid (~> 3.0)
+      mercenary (~> 0.3.3)
+      rouge (~> 1.7)
+      safe_yaml (~> 1.0)
+    jekyll-assets (2.2.5)
+      extras (~> 0.1)
+      fastimage (~> 2.0, >= 1.8)
+      jekyll (~> 3.1, >= 3.0)
+      pathutil (>= 0.8)
+      sprockets (~> 3.3)
+    jekyll-sass-converter (1.4.0)
+      sass (~> 3.4)
+    jekyll-sitemap (0.10.0)
+    jekyll-watch (1.4.0)
+      listen (~> 3.0, < 3.1)
+    json (1.8.3)
+    kramdown (1.11.1)
+    liquid (3.0.6)
+    listen (3.0.7)
+      rb-fsevent (>= 0.9.3)
+      rb-inotify (>= 0.9.7)
+    luna-rspec-formatters (3.7.4)
+      rspec (>= 2.14, < 4.0)
+    mercenary (0.3.6)
+    method_source (0.8.2)
+    mini_portile2 (2.0.0)
+    minitest (5.8.4)
+    nokogiri (1.6.7.2)
+      mini_portile2 (~> 2.0.0.rc2)
+    parallel (1.8.0)
+    pathutil (0.9.0)
+      forwardable-extended (~> 2.6)
+    pry (0.10.3)
+      coderay (~> 1.1.0)
+      method_source (~> 0.8.1)
+      slop (~> 3.4)
+    rack (1.6.4)
+    rake (11.1.2)
+    rb-fsevent (0.9.7)
+    rb-inotify (0.9.7)
+      ffi (>= 0.5.0)
+    rouge (1.10.1)
+    rspec (3.4.0)
+      rspec-core (~> 3.4.0)
+      rspec-expectations (~> 3.4.0)
+      rspec-mocks (~> 3.4.0)
+    rspec-core (3.4.4)
+      rspec-support (~> 3.4.0)
+    rspec-expectations (3.4.0)
+      diff-lcs (>= 1.2.0, < 2.0)
+      rspec-support (~> 3.4.0)
+    rspec-mocks (3.4.1)
+      diff-lcs (>= 1.2.0, < 2.0)
+      rspec-support (~> 3.4.0)
+    rspec-support (3.4.1)
+    safe_yaml (1.0.4)
+    sass (3.4.22)
+    simple-ansi (1.0.2)
+    slop (3.6.0)
+    sprockets (3.6.0)
+      concurrent-ruby (~> 1.0)
+      rack (> 1, < 3)
+    thor (0.19.1)
+    thread_safe (0.3.5)
+    typhoeus (0.8.0)
+      ethon (>= 0.8.0)
+    tzinfo (1.2.2)
+      thread_safe (~> 0.1)
+    uglifier (3.0.0)
+      execjs (>= 0.3.0, < 3)
+    yell (2.0.6)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  autoprefixer-rails
+  docker-template!
+  font-awesome-sass
+  gemoji
+  html-proofer
+  jekyll
+  jekyll-assets
+  jekyll-sitemap
+  luna-rspec-formatters
+  nokogiri
+  pry
+  rake
+  rspec
+  uglifier
+
+BUNDLED WITH
+   1.12.1

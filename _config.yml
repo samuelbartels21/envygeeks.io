@@ -1,0 +1,84 @@
+secondary_sub_title: Systems and Programming
+sub_title: I do it wrong so you can learn a new way to do it right.
+title: Jordon Bedwell
+markdown: kramdown
+
+# --
+# If your assets don't show up disable this, Firefox sometimes has
+# trouble using this feature, for reasons unknown to me, it will trip up
+# nad start rejecting assets.
+# --
+
+assets:
+  features:
+    integrity: true
+
+# --
+# This theme comes with Highlight.js instead of Rouge or Pygments,
+# so I can speed up builds since this is a dev blog.
+# --
+
+kramdown:
+  syntax_highlighter_opts:
+    disable: true
+
+# --
+# If you use Github Pages then you can certainly use the Github-Metadata
+# theme provided by Jekyll itself, but since I host my own stuff with Docker
+# and my own servers, I use this method to do all that.
+# --
+
+repo:
+  allow_pulls: true
+  web: https://github.com/envygeeks/envygeeks.io
+  git: git@github.com:envygeeks/envygeeks.io
+
+# --
+
+social:
+  twitter: https://twitter.com/envygeeks
+  github:  https://github.com/envygeeks
+
+# --
+
+exclude:
+  - docker/
+  - Readme.md
+  - Gemfile.lock
+  - Dockerfile
+  - Rakefile
+  - Gemfile
+
+  - .gitignore
+  - .gitattributes
+  - .git
+
+  - vendor/
+  - .sass-cache/
+  - .jekyll-metadata/
+  - .asset-cache/
+  - .bundle/
+
+# --
+
+defaults:
+  - scope:
+      type: pages
+      path: ""
+
+    values:
+      layout: default
+      type: page
+
+  # --
+
+  - scope:
+      type: posts
+      path: ""
+
+    values:
+      layout: default
+      type: page
+      author:
+        handle: envygeeks
+        name: Jordon Bedwell

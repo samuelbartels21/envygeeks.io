@@ -1,0 +1,348 @@
+@import "font-awesome-sprockets";
+@import "font-awesome";
+
+// --
+@font-face {
+  font-style: normal;
+  font-family: "Roboto Slab";
+  font-weight: 300;
+
+  src: local("Roboto Slab Regular"), local("RobotoSlab-Regular"), local("Roboto-Slab-Regular"),
+    font_url("roboto-slab.ttf") format(
+      "truetype"
+    );
+}
+
+// --
+@font-face {
+  font-style: normal;
+  font-family: "Raleway";
+  font-weight: 300;
+
+  src: local("Raleway"),
+    font_url("raleway.ttf") format(
+      "truetype"
+    );
+}
+
+// --
+// Some of the Woff2 fonts have trouble with their weights,
+// so I stick to using the TTF for now until that issue can be
+// resolved upstream.
+// --
+@font-face {
+  font-style: normal;
+  font-family: "Merriweather";
+  font-weight: 300;
+
+  src: local("Merriweather"),
+    font_url("merriweather.ttf") format(
+      "truetype"
+    );
+}
+
+// --
+body {
+  font-size: 18px;
+  font-family: "Merriweather";
+  color: rgb(80, 80, 80);
+  font-weight: 300;
+  margin: 2rem 0;
+}
+
+//--
+pre,
+code,
+p.code-file,
+p.code-header,
+p.file {
+  font-family: "Monaco", "Menlo", "Consolas", monospace;
+}
+
+// --
+.wrapper {
+  max-width: 776px;
+  flex-direction: row;
+  justify-content: center;
+  flex-flow: row wrap;
+  margin: 0px auto;
+  display: flex;
+}
+
+//--
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Raleway";
+}
+
+// --
+header {
+  color: #333;
+  font-size: 1.2rem;
+  text-align: center;
+  border-bottom: 1px solid rgb(240, 240, 240);
+  width: 100%;
+
+  h1 {
+    margin: 2rem 0 0;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+    display: block;
+  }
+
+  .sub-title {
+    color: rgb(149, 165, 166);
+    font-family: "Merriweather";
+    margin: 0;
+  }
+
+  nav {
+    font-family: "Raleway";
+    border-bottom: 1px solid rgb(
+      240, 240, 240
+    );
+
+    ul {
+      margin:  0 0 1rem;
+      list-style-type: none;
+      padding: 0;
+
+      li {
+        display: inline-block;
+
+        a {
+          display: block;
+          padding: 1rem;
+        }
+      }
+    }
+  }
+}
+
+// --
+.social {
+  font-size: 2rem;
+  margin: 2rem 0;
+
+  a {
+    display: inline-block;
+  }
+}
+
+// --
+main {
+  width: 100%;
+
+  article {
+    border-bottom: 1px solid rgb(
+      240, 240, 240
+    );
+
+    &:last-child {
+      border-bottom: none;
+    }
+
+    header {
+      margin-top: 4rem;
+      border-bottom: none;
+      font-weight: bold;
+      text-align: left;
+
+      h1,
+      h2 {
+        margin-bottom: 0;
+        a:hover {
+          color: #3498db;
+        }
+      }
+    }
+
+    h2 {
+      margin-top: 4rem;
+    }
+
+    // --
+    // Since Chrome trips out on ultra thin REM we need to do pixels here,
+    // to enforce the font size that we want displayed for this text.
+    // --
+
+    footer {
+      display: flex;
+      font-size: 16px;
+      font-family: "Raleway";
+      color: rgb(149, 165, 166);
+      align-items: center;
+      margin: 0 0 2rem;
+
+      div,
+      time,
+      img,
+      p,
+      ul {
+        padding: 0;
+        display: inline-block;
+        margin: 0;
+      }
+
+      p.author {
+        font-weight: bold;
+        color: rgb(180, 180, 180);
+        margin: 0;
+
+        &:after {
+          content: " on ";
+        }
+
+        &:before {
+          content: " by ";
+        }
+
+        &:after,
+        &:before {
+          font-weight: normal;
+          color: rgb(
+            201, 201, 201
+          );
+        }
+      }
+
+      ul.tags {
+        margin: 0;
+        display: inline-block;
+        list-style-type: none;
+        padding: 0;
+
+        &:after {
+          content: "\a"
+        }
+
+        li {
+          display: inline;
+          &:after {
+            content: ", ";
+          }
+
+          &:last-child {
+            &:after {
+              content: ""
+            }
+          }
+        }
+      }
+
+      time {
+        width: 100%;
+      }
+
+      .avatar {
+        margin-right: 1rem;
+
+        img {
+          width: 60px;
+          border-radius: 40px;
+          height: 60px;
+        }
+      }
+    }
+
+    p {
+      margin: 1rem 0 2rem 0;
+      line-height: 1.9rem;
+
+      &:first-child {
+        margin-top: 0.4rem;
+      }
+    }
+
+    &.page {
+      header {
+        h1 {
+          font-size: 3rem;
+          font-weight: bolder;
+          margin-bottom: 3rem;
+        }
+      }
+    }
+
+    blockquote {
+      color: rgb(149, 165, 166);
+      border-left: 4px solid rgb(189, 195, 199);
+      box-sizing: border-box;
+      padding: 0 1rem 0;
+    }
+
+    p.code-file,
+    p.code-header,
+    p.file {
+      padding: 0.4rem 0.8rem;
+      margin-bottom: -1.2rem;
+      background: rgb(
+        237, 237, 237
+      );
+    }
+  }
+}
+
+a {
+  text-decoration: none;
+  color: #3498db;
+
+  &:hover {
+    color: #18bc9c;
+  }
+}
+
+.archives {
+  article {
+    align-items: center;
+    display: flex;
+
+    header,
+    footer {
+      margin: 1rem 0;
+    }
+
+    header {
+      width: auto;
+      margin-right: 0.4rem;
+      i.fa-archives, i.fa-archive {
+        color: rgba(
+          149, 165, 166, 0.4
+        );
+      }
+
+      h1 {
+        font-size: 1.2rem;
+        margin: 0;
+
+        a {
+          display: inline-block;
+        }
+      }
+    }
+  }
+
+  h2 {
+    color: #3498db;
+    margin-top: 4rem;
+  }
+}
+
+// --
+// Highlight.js overrides, these come from Github.CSS but that is a vendor
+// file so I would prefer not to override it there so I can update it any time
+// that I wish without affecting the main part of my site.
+// --
+
+.hljs {
+  border: none;
+  background: rgb(247, 247, 247);
+  font-size: 1rem;
+}
