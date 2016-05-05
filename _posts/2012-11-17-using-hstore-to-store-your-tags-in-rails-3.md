@@ -1,5 +1,11 @@
 ---
 title: Using HStore to store your tags in Rails 3
+tags:
+  - hstore
+  - postgresql
+  - rails3
+  - rails
+  - ruby
 ---
 
 There are many ways to store tags in a `database`, one of the original and oldest is to just create a one to many relation with a possible join with `ActiveRecord` and another is a way that I haven't ever seen before that I _like to think_ I came up with that uses HStore to reduce the need for an extra query in some cases.

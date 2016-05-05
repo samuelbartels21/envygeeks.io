@@ -1,5 +1,11 @@
 ---
 title: Rid of those extra tables, use PostgreSQL arrays.
+tags:
+  - arrays
+  - postgresql
+  - rails4
+  - rails
+  - ruby
 ---
 
 Rails 4 final release is nearing soon and over the last few months I've had the "pleasure" of playing with it in both production testing and in just standard testing and over that time I've accumlated a list of things that I most look forward to. I can say that I'm a little bit excited for once about a Rails release, mostly because of some of the features I've been using since long before Rails thought about it.

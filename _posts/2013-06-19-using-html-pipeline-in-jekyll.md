@@ -1,5 +1,8 @@
 ---
 title: Using `html-pipeline` in Jekyll.
+tags:
+  - jekyll
+  - ruby
 ---
 
 With the Jekyll team pretty much having rejected my idea on custom markdown based on the notion that they "have them all" (which is actually wrong but whatever.) I had to think of a way to get `html-pipeline` to replace the built in Markdown processors they had.  This reduced several hacks that were needed to get better Pygments and even gives me the flexibility to add just about anything I want to the pipeline of my content.

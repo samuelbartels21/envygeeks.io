@@ -1,5 +1,7 @@
 ---
 title: Link Dereferencing in Ruby.
+tags:
+  - ruby
 ---
 
 In all of my years of programming Ruby I never once cared (or even really thought) about link dereferencing until recently, and then when I needed it, it didn't exist.  Of course you can dereference the root, that's easy, I don't need you to do that for me Ruby.  I needed to dereference the links inside of the root.  Why can't you do that for me instead, Ruby? Maybe even with some of that safety? It can't... so I came up with a solution that allows me to dereference safely.

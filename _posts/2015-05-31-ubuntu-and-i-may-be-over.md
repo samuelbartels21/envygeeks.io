@@ -1,5 +1,8 @@
 ---
 title: Ubuntu and I May Be Over
+tags:
+  - thoughts
+  - ubuntu
 ---
 
 Over the last month I have experienced the **worst** there is about Ubuntu, and less about Ubuntu itself and more about the UCC and Canonical (the corporation that runs Ubuntu.) Again, not in general to do with anything about the operating system itself (for some parts,) but what the project seems to stand for and what I want to stand for. There are way too many diverging principles that force me to no longer recommend the operating system to people and those same diverging principles drive me away from anything to do with Ubuntu as a whole because I can't support it and won't.

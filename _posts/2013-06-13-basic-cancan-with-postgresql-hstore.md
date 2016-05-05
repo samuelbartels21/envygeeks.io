@@ -1,5 +1,12 @@
 ---
 title: Basic CanCan with PostgreSQL HStore.
+tags:
+  - hstore
+  - postgresql
+  - rails3
+  - rails4
+  - rails
+  - ruby
 ---
 
 With Rails 4 coming soon I thought I would bang out a few of my new favorite features and post some tutorials on what I am doing with Rails 4. The second in this series is doing a basic CanCan style permissions handler with PostgreSQL's HStore.

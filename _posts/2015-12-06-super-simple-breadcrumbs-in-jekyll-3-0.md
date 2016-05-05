@@ -1,5 +1,9 @@
 ---
 title: "Super-simple breadcrumbs in Jekyll 3.0"
+tags:
+  - jekyll
+  - jekyll-hooks
+  - ruby
 ---
 
 More tips for Jekyll 3.0: Breadcrumbs.  Over the years I've seen some overly complicated breadcrumb stuff for Jekyll, many of which do really complicated stuff for a trivial topic.  For Jekyll 3.0 lets show you how to do super simple breadcrumbs.

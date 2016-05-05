@@ -1,5 +1,7 @@
 ---
-title: On Shell Escaping in Ruby
+title: On Shell Escaping in Ruby.
+tags:
+  - ruby
 ---
 
 Its standard is too low, you can't accidentally double escape.  Here let me fix that:

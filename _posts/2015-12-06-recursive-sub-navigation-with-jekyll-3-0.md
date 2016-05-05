@@ -1,5 +1,9 @@
 ---
 title: Recursive (sub-)navigation with Jekyll 3.0
+tags:
+  - jekyll
+  - jekyll-hooks
+  - ruby
 ---
 
 Here it is, Jekyll 3 is finally stable and a lot of the sites I help manage that use Jekyll have all updated and a lot of them had some hefty customization's but with Jekyll 3.0 things got tons easier.  Here is how you can go about making recursive navigation with Jekyll 3.0 with very little code:

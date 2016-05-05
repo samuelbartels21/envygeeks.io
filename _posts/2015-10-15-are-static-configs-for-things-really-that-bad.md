@@ -1,5 +1,7 @@
 ---
 title: Are static configs for things really all that bad?
+tags:
+  - ruby
 ---
 
 They say: "Don't build static configurations into software," well, in this case lets talk libraries or CLI's.  The kind you consume as a programmer.

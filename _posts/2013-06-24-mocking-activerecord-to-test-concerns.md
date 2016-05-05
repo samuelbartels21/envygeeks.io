@@ -1,5 +1,11 @@
 ---
 title: Mocking ActiveRecord to test concerns.
+tags:
+  - rspec
+  - rails3
+  - active-record
+  - rails4
+  - ruby
 ---
 
 Part three of my series on Rails 4 (previously: [Rid of those extra tables and use PostgreSQL arrays](2013/06/12/rid-of-those-extra-tables-use-postgresql-arrays) and [Basic CanCan with PostgreSQL HStore](/2013/06/22/basic-cancan-with-postgresql-hstore) is about mocking `ActiveRecord` to test conerns and other modules in a more independent way. _**I was doing this long before Rails 4 was out but now that Rails 4 is promoting skinny models and controllers it might be good for me to explain how I test "concerns".**_

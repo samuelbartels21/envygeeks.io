@@ -1,5 +1,10 @@
 ---
 title: Apache Cordova the Easy Way on Ubuntu.
+tags:
+  - apache
+  - cordova
+  - android
+  - ubuntu
 ---
 
 Today I had the pleasure of working on an Apache cordova app, my first experience with the project and my first time debugging a JS app that is supposedly compiled to "native" Java code and deployed as an APK. What I can say so far as that it was not a pleasure since the docs are not very well formed when it comes to explaining to people how to get started. Luckily for me I have had tons of experience with AndroidSDK and it was easy enough for me to make up for the documentation short-falls but I thought I would document for future people how to install Apache Cordova on Ubuntu the easiest way from start to finish.

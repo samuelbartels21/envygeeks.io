@@ -1,5 +1,7 @@
 ---
 title: Dog Fooding Jekyll
+tags:
+  - jekyll
 ---
 
 In the past I had always used Jekyll to blog.  However, when I started doing other stuff I ended up on Ghost.  Why has escaped my memory, probably because it was a shallow reason to begin with. And while I still help maintain quite a few blogs that are powered by Ghost (and even have a Ghost Docker image.) I have decided to move back to Jekyll and dog food what I help maintain, because it seems weird to maintain something I don't even use, right?  Well, technically I use it on a daily basis.
