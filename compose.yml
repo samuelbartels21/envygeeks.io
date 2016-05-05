@@ -42,9 +42,8 @@ production-build:
   #
 
   environment:
-    BUNDLE_CACHE: "true"
     JEKYLL_ENV: production
-    FORCE_APK: true
+    BUNDLE_CACHE: "true"
 
   #
 
