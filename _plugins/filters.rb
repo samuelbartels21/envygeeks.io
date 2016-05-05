@@ -8,21 +8,22 @@ module Filters
   # --
   # Reverse, Reverse and organize by waterfall.
   # --
-  def post_waterfall(array)
-    array.group_by { |v| v.date.year }.map do |_, v|
-      sorted_posts = v.sort_by { |p| p.data["title"].size }.reverse
-      a, b = [], []
-
-      sorted_posts.each_with_index do |p, i|
-        i.even?? (a << p) : (
-          b << p
-        )
+  def post_waterfall(array, by_year = true)
+    if by_year
+      array = array.group_by do |v|
+        v.date.year
       end
 
-      a.reverse.push(
-        *b
+      array.map do |_, v|
+        _waterfall(
+          v
+        )
+      end.flatten
+    else
+      _waterfall(
+        array
       )
-    end.flatten
+    end
   end
 
   # --
@@ -159,6 +160,25 @@ module Filters
         "baseurl"
       ]
     end
+  end
+
+  # --
+  # The actual work behind making a waterfall array.
+  # --
+  private
+  def _waterfall(array)
+    a, b = [], []
+
+    array.sort_by { |p| p.data["title"].size }.reverse
+      .each_with_index do |p, i|
+        i.even?? (a << p) : (
+          b << p
+        )
+      end
+
+    a.reverse.push(
+      *b
+    )
   end
 end
 

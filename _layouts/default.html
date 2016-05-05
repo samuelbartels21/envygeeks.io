@@ -120,8 +120,8 @@
                 </h1>
               </header>
 
-              {% assign archives = site.tags[page.tag] | post_waterfall %}
-              {% for post in archives %}
+              {% assign tags = site.tags[page.tag] | post_waterfall:false %}
+              {% for post in tags %}
                 <article>
                   <header>
                     <h1>
@@ -139,7 +139,7 @@
                   <footer>
                     <time>
                       {{
-                        post.date | archive_time
+                        post.date | fancy_time
                       }}
                     </time>
                   </footer>
