@@ -7,7 +7,6 @@
 development: &def
   hostname: envygeeks
   image: jekyll/jekyll
-  container_name: envygeeks
   environment: { BUNDLE_CACHE: "true" }
   restart: never
 
