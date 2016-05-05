@@ -30,7 +30,7 @@ rsync -av --quiet vendor/bundle/ \
 # --
 
 cp nginx.conf /srv/docker/etc/nginx/site.d/envygeeks.io.conf
-docker-compose -f /srv/docker/compose.yml exec nginx \
+docker-compose -f /srv/docker/compose.yml exec -T nginx \
   nginx -s reload
 
 
