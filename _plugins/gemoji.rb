@@ -5,6 +5,7 @@ module Jekyll
 
   # --
   # Integrates Github's Gemoji with Jekyll Assets.
+  # I need to give credit to both Jemogi and HTMLPipeline.
   # Gemoji for Jekyll Assets
   # --
   class Emoji
