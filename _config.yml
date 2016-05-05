@@ -80,7 +80,7 @@ defaults:
 
     values:
       layout: default
-      type: page
+      type: post
       author:
         handle: envygeeks
         name: Jordon Bedwell
