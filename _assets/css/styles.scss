@@ -98,8 +98,8 @@ header {
   }
 
   .sub-title {
+    font-family: "Raleway";
     color: rgb(149, 165, 166);
-    font-family: "Merriweather";
     margin: 0;
   }
 
@@ -235,6 +235,11 @@ main {
 
         li {
           display: inline;
+
+          a {
+            color: inherit;
+          }
+
           &:after {
             content: ", ";
           }
@@ -255,9 +260,9 @@ main {
         margin-right: 1rem;
 
         img {
-          width: 60px;
+          width: 40px;
           border-radius: 40px;
-          height: 60px;
+          height: 40px;
         }
       }
     }
