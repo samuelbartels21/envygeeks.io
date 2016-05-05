@@ -42,7 +42,6 @@ social:
 # --
 
 exclude:
-  - docker/
   - Readme.md
   - Gemfile.lock
   - Dockerfile
@@ -54,6 +53,8 @@ exclude:
   - .git
 
   - vendor/
+  - nginx.conf
+  - compose.yml
   - post-receive
   - .sass-cache/
   - .jekyll-metadata/
