@@ -54,6 +54,7 @@ exclude:
   - .git
 
   - vendor/
+  - post-receive
   - .sass-cache/
   - .jekyll-metadata/
   - .asset-cache/
