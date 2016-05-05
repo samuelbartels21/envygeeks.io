@@ -1,6 +1,6 @@
 GIT
   remote: git://github.com/envygeeks/docker-template.git
-  revision: fce5fd6f1e1e7a4c74a2f02a04a1a112beae0876
+  revision: afa172370b3ce5741eb42e32ea54cd9ced5e81e8
   specs:
     docker-template (0.8.0)
       activesupport (~> 4.2)
@@ -40,7 +40,7 @@ GEM
     fastimage (2.0.0)
       addressable (~> 2)
     ffi (1.9.10)
-    font-awesome-sass (4.5.0)
+    font-awesome-sass (4.6.2)
       sass (>= 3.2)
     forwardable-extended (2.6.0)
     gemoji (2.1.0)
