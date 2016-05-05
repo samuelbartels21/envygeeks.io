@@ -21,7 +21,7 @@ docker-compose -f compose.yml rm --all
 # --
 
 mkdir -p $CACHE_DIR/vendor/bundle
-rsync -av vendor/bundle/ \
+rsync -av --quiet vendor/bundle/ \
   $CACHE_DIR/vendor/bundle
 
 # --
