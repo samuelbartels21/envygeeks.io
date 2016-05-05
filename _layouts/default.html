@@ -94,21 +94,59 @@
           }}
 
         {% else %}
-          <article class="page">
-            <header>
-              <h1>
-                {{
-                  page.title | markdownify_title
-                }}
-              </h1>
-            </header>
+          {% if page.type != "tag" %}
+            <article class="page">
+              <header>
+                <h1>
+                  {{
+                    page.title | markdownify_title
+                  }}
+                </h1>
+              </header>
 
-            <div>
-              {{
-                content
-              }}
+              <div>
+                {{
+                  content
+                }}
+              </div>
+            </article>
+          {% else %}
+            <div class="tag archives">
+              <header>
+                <h1>
+                  {{
+                    page.title
+                  }}
+                </h1>
+              </header>
+
+              {% assign archives = site.tags[page.tag] | post_waterfall %}
+              {% for post in archives %}
+                <article>
+                  <header>
+                    <h1>
+                      <i class="fa fa-archive" aria-hidden="true">
+                        <!-- EMPTY -->
+                      </i>
+
+                      <a href="{{ post.url || pretty }}">
+                        {{
+                          post.title
+                        }}
+                      </a>
+                    </h1>
+                  </header>
+                  <footer>
+                    <time>
+                      {{
+                        post.date | archive_time
+                      }}
+                    </time>
+                  </footer>
+                </article>
+              {% endfor %}
             </div>
-          </article>
+          {% endif %}
         {% endif %}
       </main>
     </div>

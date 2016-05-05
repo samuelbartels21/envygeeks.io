@@ -140,6 +140,16 @@ header {
 main {
   width: 100%;
 
+  .tag {
+    header {
+      text-align: left;
+
+      h1 {
+        margin-bottom: 3rem;
+      }
+    }
+  }
+
   article {
     border-bottom: 1px solid rgb(
       240, 240, 240

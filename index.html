@@ -39,8 +39,15 @@ main: true
         </p>
 
         <ul class="tags">
-          <li>tag</li>
-          <li>tag</li>
+          {% for tag in post.tags %}
+            <li>
+              <a href="{{ tag.url | pretty }}">
+                {{
+                  tag
+                }}
+              </a>
+            </li>
+          {% endfor %}
         </ul>
 
         <time>
