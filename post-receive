@@ -8,7 +8,7 @@ cd $tmpdir
 
 # --
 
-cp -R $CACHE_DIR .
+cp -RTp $CACHE_DIR .
 docker-compose -f compose.yml run production-build
 rsync -av _site/ /srv/docker/srv/nginx/envygeeks.io
 
