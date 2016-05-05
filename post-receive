@@ -25,15 +25,16 @@ rsync -av --quiet vendor/bundle/ \
   $CACHE_DIR/vendor/bundle
 
 # --
-
-rm -rf $tmpdir
-cd -
-
-# --
 # Users with access to this compose.yml have access to hup
 # this nginx instance and provide their own configurations.
 # --
 
 cp nginx.conf /srv/docker/etc/nginx/site.d/envygeeks.io.conf
-docker-compose -f /srv/docker/compose.yml exec -it \
+docker-compose -f /srv/docker/compose.yml exec nginx \
   nginx -s reload
+
+
+# --
+
+rm -rf $tmpdir
+cd -
