@@ -29,9 +29,9 @@ module Filters
   # Deal with dates in a clean way.
   # --
   def modified_or_xmldate(doc)
-    if doc["date"]
+    if doc.key?("date") && doc["date"]
       return date_to_xmlschema(
-        doc
+        doc["date"]
       )
 
     else
@@ -47,8 +47,7 @@ module Filters
   # @return [String]
   # --
   def canonical_url(page)
-    url  = @context.registers[:site].config["base_domain"] || ""
-    url += @context.registers[:site].config["baseurl"]
+    url  = base_prefix
     url += page["url"]
 
     if url == "/"
@@ -137,6 +136,25 @@ module Filters
       .gsub(
         /<\/?p>/, ""
       )
+  end
+
+  # --
+  # Get the base URL.
+  # --
+  private
+  def base_prefix
+    if Jekyll.env == "development"
+      domain = "http://%s:%s"
+      domain = format(domain, *@context.registers[:site].config.values_at("host", "port"))
+      domain + @context.registers[:site].config[
+        "baseurl"
+      ]
+    else
+      domain = @context.registers[:site].config["base_domain"] || ""
+      domain + @context.registers[:site].config[
+        "baseurl"
+      ]
+    end
   end
 end
 
