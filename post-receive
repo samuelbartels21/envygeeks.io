@@ -1,0 +1,29 @@
+#!/usr/bin/env bash
+set -e
+
+tmpdir=$(mktemp -d)
+CACHE_DIR=/srv/cache/srv/git/envygeeks.io.git
+GIT_WORK_TREE=$tmpdir git checkout -f master
+cd $tmpdir
+
+# --
+
+cp -R $CACHE_DIR .
+docker-compose -f compose.yml run production-build
+rsync -av _site/ /srv/docker/srv/nginx/envygeeks.io
+
+# --
+# Update the caches with the latest stuff that we get when
+# building out the current site, this will rarely get updated
+# but it does none-the-less, so we need to make sure that we
+# keep it updated.
+# --
+
+mkdir -p $CACHE_DIR/vendor/bundle
+rsync -av vendor/bundle/ \
+  $CACHE_DIR/vendor/bundle
+
+# --
+
+rm -rf $tmpdir
+cd -
