@@ -10,8 +10,8 @@ cd $tmpdir
 
 cp -RTp $CACHE_DIR .
 docker-compose -f compose.yml run production-build
-docker-compose -f compose.yml rm --all
 rsync -av --quiet _site/ /srv/docker/srv/nginx/envygeeks.io
+docker-compose -f compose.yml rm -f --all
 
 # --
 # Update the caches with the latest stuff that we get when
