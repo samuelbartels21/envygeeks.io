@@ -39,6 +39,10 @@ module Filters
         @context.registers[:site].in_source_dir(doc["path"])
       ).mtime)
     end
+  rescue
+    date_to_xmlschema(
+      Time.now
+    )
   end
 
   # --
