@@ -17,7 +17,7 @@ Other than that, I can't stand long walks on the beech, WIFI/Cell is spotty, and
     {% for project in site.data.projects %}
       <li>
         <div class="left">
-          <a href="{{ project.url }}" target="_blank">
+          <a href="{{ project.url }}" target="_blank" rel="noopener noreferrer">
             {{
               project.name
             }}
@@ -25,7 +25,7 @@ Other than that, I can't stand long walks on the beech, WIFI/Cell is spotty, and
         </div>
 
         <div class="right">
-          <a href="{{ project.url }}/fork" target="_blank">
+          <a href="{{ project.url }}/fork" target="_blank" rel="noopener noreferrer">
             <i class="fa fa-code-fork" aria-hidden="true">
               <!-- Empty -->
             </i>

@@ -22,7 +22,7 @@ main: true
 
     <footer>
       <div class="avatar">
-        <a href="https://github.com/{{ post.author.handle }}" target="_blank">
+        <a href="https://github.com/{{ post.author.handle }}" target="_blank" rel="noopener noreferrer">
           <img src="{{
             post.author.handle | github_avatar
           }}">
@@ -31,7 +31,7 @@ main: true
 
       <div>
         <p class="author">
-          <a href="https://github.com/{{ post.author.handle }}" target="_blank">
+          <a href="https://github.com/{{ post.author.handle }}" target="_blank" rel="noopener noreferrer">
             {{
               post.author.name
             }}
