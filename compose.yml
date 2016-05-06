@@ -5,7 +5,6 @@
 #   Except for production.
 # --
 development: &def
-  hostname: envygeeks
   image: jekyll/jekyll
   environment: { BUNDLE_CACHE: "true" }
   restart: never
