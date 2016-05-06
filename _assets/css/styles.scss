@@ -350,6 +350,42 @@ a {
   }
 }
 
+.projects {
+  width: 100%;
+
+  ul {
+    margin: 0;
+    width: 100%;
+    padding: 0;
+
+    li {
+      float: left;
+      display: inline-block;
+      font-family: "Raleway";
+      border-bottom: 1px solid rgba(149, 165, 166, 0.1);
+      box-sizing: border-box;
+      padding: 1rem 0;
+      width: 48%;
+
+      &:nth-child(even) {
+        float: right;
+      }
+    }
+  }
+}
+
+.right {
+  float: right;
+  text-align: right;
+  width: 50%;
+}
+
+.left {
+  float: left;
+  text-align: left;
+  width: 50%;
+}
+
 // --
 // Highlight.js overrides, these come from Github.CSS but that is a vendor
 // file so I would prefer not to override it there so I can update it any time

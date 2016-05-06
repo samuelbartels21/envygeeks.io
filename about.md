@@ -12,5 +12,26 @@ Other than that, I can't stand long walks on the beech, WIFI/Cell is spotty, and
 
 ## Some Projects
 
-- [Jekyll](https://github.com/jekyll/jekyll), [Jekyll Docker](https://github.com/jekyll/docker), [Jekyll Assets](https://github.com/jekyll/jekyll-assets)
-- [Docker Template](https://github.com/envygeeks/docker-template), [Docker Images](https://github.com/envygeeks/docker)
+<div class="projects">
+  <ul>
+    {% for project in site.data.projects %}
+      <li>
+        <div class="left">
+          <a href="{{ project.url }}" target="_blank">
+            {{
+              project.name
+            }}
+          </a>
+        </div>
+
+        <div class="right">
+          <a href="{{ project.url }}/fork" target="_blank">
+            <i class="fa fa-code-fork" aria-hidden="true">
+              <!-- Empty -->
+            </i>
+          </a>
+        </div>
+      </li>
+    {% endfor %}
+  </ul>
+</div>

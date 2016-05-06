@@ -85,3 +85,6 @@ defaults:
       author:
         handle: envygeeks
         name: Jordon Bedwell
+
+collections:
+  - projects
