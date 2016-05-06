@@ -42,7 +42,7 @@ list = {
 }
 ```
 
-So every hash has a `_reply` key with an array and every hash can have (relatively) infinite other keys with hashes that each have their own `_reply`, so we can dig deeply into sub-commands in a command system.  We have no root key so that we can remain agnostic with our script and even alias our parent script and still get completion.  We will then serialize that into `bin/comp-list.pak` so that we can read and load it quickly, [`msgpack`](//msgpack.org/) is far faster than JSON or YAML.
+So every hash has a `_reply` key with an array and every hash can have (relatively) infinite other keys with hashes that each have their own `_reply`, so we can dig deeply into sub-commands in a command system.  We have no root key so that we can remain agnostic with our script and even alias our parent script and still get completion.  We will then serialize that into `bin/comp-list.pak` so that we can read and load it quickly, [`msgpack`](//msgpack.org/){:target="_blank"}{:rel="noopener noreferrer"} is far faster than JSON or YAML.
 
 ### Generate the list with Ruby
 

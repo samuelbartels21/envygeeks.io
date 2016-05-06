@@ -21,19 +21,19 @@ If it was his persistence and behavior that led to his removal my question is, w
 
 ## Re-reading the CoC (Code of Conduct.)
 
-> [Scott Kitterman][1] says:
+> [Scott Kitterman][1]{:target="_blank"}{:rel="noopener noreferrer"} says:
 >
 > I invite people to re-read the Code of Conduct and consider how that relates to how the Ubuntu Community Council has handled their dispute with Jonathan Riddell.
 
 I have, and it seems that I don't believe they follow the code of conduct themselves either. I don't think they followed the spirit of it at all and I think they are hypocrites for it and it's just not on this occasion that this has happened in my opinion, but this is the first time I've actually thought about it in any extensive manner.
 
-> [Ubuntu Code of Conduct][2] says:
+> [Ubuntu Code of Conduct][2]{:target="_blank"}{:rel="noopener noreferrer"} says:
 >
 > **Be considerate:** Our work will be used by other people, and we in turn will depend on the work of others. Any decision we take will affect users and colleagues, and we should consider them when making decisions.
 
 When you kick out a team leader of a team that does not accept your removal of their leader and has their own community council. You are not being considerate of the community when making decisions. When Mark Shuttleworth inserts himself and states that their decision is final and implies an uproar in the community doesn't matter, you are also not being considerate.
 
-> [Ubuntu Code of Conduct][2] says:
+> [Ubuntu Code of Conduct][2]{:target="_blank"}{:rel="noopener noreferrer"} says:
 >
 > **Be collaborative:** What we produce is a complex whole made of many parts, it is the sum of many dreams. Collaboration between teams that each have their own goal and vision is essential; for the whole to be more than the sum of its parts, each part must make an effort to understand the whole.
 >

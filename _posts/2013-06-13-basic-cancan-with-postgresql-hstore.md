@@ -332,4 +332,4 @@ Users.first.can?(
 #=> true
 ```
 
-Now, in my eyes, you can run home and say that Rails 4 and `hstore` have both made your life easier (not that CanCan is hard, bad or anything, this is just "homegrown",) and also tell your boss that you invented your own user permissions in about 20 minutes. I hope you guys and gals enjoyed and if you enjoyed it make sure to follow me on [Twitter](https://twitter.com/envygeeks) and tweet this!
+Now, in my eyes, you can run home and say that Rails 4 and `hstore` have both made your life easier (not that CanCan is hard, bad or anything, this is just "homegrown",) and also tell your boss that you invented your own user permissions in about 20 minutes. I hope you guys and gals enjoyed and if you enjoyed it make sure to follow me on [Twitter](https://twitter.com/envygeeks){:target="_blank"}{:rel="noopener noreferrer"} and tweet this!

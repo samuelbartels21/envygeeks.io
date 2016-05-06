@@ -8,7 +8,7 @@ tags:
   - ruby
 ---
 
-Part three of my series on Rails 4 (previously: [Rid of those extra tables and use PostgreSQL arrays](2013/06/12/rid-of-those-extra-tables-use-postgresql-arrays) and [Basic CanCan with PostgreSQL HStore](/2013/06/22/basic-cancan-with-postgresql-hstore) is about mocking `ActiveRecord` to test conerns and other modules in a more independent way. _**I was doing this long before Rails 4 was out but now that Rails 4 is promoting skinny models and controllers it might be good for me to explain how I test "concerns".**_
+Part three of my series on Rails 4 (previously: [Rid of those extra tables and use PostgreSQL arrays](2013/06/12/rid-of-those-extra-tables-use-postgresql-arrays){:target="_blank"}{:rel="noopener noreferrer"} and [Basic CanCan with PostgreSQL HStore](/2013/06/22/basic-cancan-with-postgresql-hstore){:target="_blank"}{:rel="noopener noreferrer"} is about mocking `ActiveRecord` to test conerns and other modules in a more independent way. _**I was doing this long before Rails 4 was out but now that Rails 4 is promoting skinny models and controllers it might be good for me to explain how I test "concerns".**_
 
 ## The back story on why.
 
@@ -112,4 +112,4 @@ end
 
 ## Bringing it all together and using it.
 
-Bringing it all together and using it is pretty easy if you use RSpec (or even if you use MinitTest, you'll just have to adjust it a bit.) I simply dropped it inside of `spec/support/active_record_mocks.rb` and then started using it. Actually, you might be able to just copy and paste and do exactly that and play with it because all of the code here was extracted from a live project, but... if you would like to see how it all plays together, you can read my last article about Rails [here](/2013/06/22/basic-cancan-with-postgresql-hstore), where I directly use this code to test out everything that is going on! And be sure that you Tweet this article if you liked it!
+Bringing it all together and using it is pretty easy if you use RSpec (or even if you use MinitTest, you'll just have to adjust it a bit.) I simply dropped it inside of `spec/support/active_record_mocks.rb` and then started using it. Actually, you might be able to just copy and paste and do exactly that and play with it because all of the code here was extracted from a live project, but... if you would like to see how it all plays together, you can read my last article about Rails [here](/2013/06/22/basic-cancan-with-postgresql-hstore){:target="_blank"}{:rel="noopener noreferrer"}, where I directly use this code to test out everything that is going on! And be sure that you Tweet this article if you liked it!

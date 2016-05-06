@@ -61,7 +61,7 @@ class Posts < ActiveRecord::Base
 end
 ```
 
-Just like before we got "native" support for array and HStore you must build your own helper methods. I for one do not disagree with this approach but others might, so I've build a basic `with_tag` helper. If you would like to know more ways you can query PostgreSQL please check out the [documentation](https://www.postgresql.org/docs/9.2/static/arrays.html)
+Just like before we got "native" support for array and HStore you must build your own helper methods. I for one do not disagree with this approach but others might, so I've build a basic `with_tag` helper. If you would like to know more ways you can query PostgreSQL please check out the [documentation](https://www.postgresql.org/docs/9.2/static/arrays.html){:target="_blank"}{:rel="noopener noreferrer"}
 
 ## The Data.
 
