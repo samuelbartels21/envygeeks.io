@@ -47,7 +47,7 @@ body {
   font-family: "Merriweather";
   color: rgb(80, 80, 80);
   font-weight: 300;
-  margin: 2rem 0;
+  margin: 2rem 0 8rem;
 }
 
 //--
@@ -274,6 +274,11 @@ main {
       &:first-child {
         margin-top: 0.4rem;
       }
+    }
+
+    ol,
+    ul {
+      margin: 2rem 1rem;
     }
 
     &.page {
