@@ -5,7 +5,7 @@ nav:
 ---
 
 <div class="archives">
-  {% assign archives = site.posts | post_waterfall %}
+  {% assign archives = site.posts | waterfall:true %}
   {% for post in archives %}
     {% capture this_year %}
       {{

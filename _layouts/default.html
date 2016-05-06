@@ -120,7 +120,7 @@
                 </h1>
               </header>
 
-              {% assign tags = site.tags[page.tag] | post_waterfall:false %}
+              {% assign tags = site.tags[page.tag] | waterfall %}
               {% for post in tags %}
                 <article>
                   <header>

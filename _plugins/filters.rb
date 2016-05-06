@@ -8,21 +8,25 @@ module Filters
   # --
   # Reverse, Reverse and organize by waterfall.
   # --
-  def post_waterfall(array, by_year = true)
-    if by_year
+  def waterfall(array, posts = false)
+    if posts
       array = array.group_by do |v|
         v.date.year
       end
 
-      array.map do |_, v|
+      out = array.map do |_, v|
         _waterfall(
           v
         )
-      end.flatten
-    else
-      _waterfall(
-        array
+      end
+
+      return (
+        out.flatten
       )
+    else
+      _waterfall(array, {
+        :hash => array[0].is_a?(Hash)
+      })
     end
   end
 
@@ -166,19 +170,17 @@ module Filters
   # The actual work behind making a waterfall array.
   # --
   private
-  def _waterfall(array)
+  def _waterfall(array, hash: false)
     a, b = [], []
 
-    array.sort_by { |p| p.data["title"].size }.reverse
+    array.sort_by { |p| (hash ? p.fetch("title", p["name"]) : p.data["title"]).size }
       .each_with_index do |p, i|
         i.even?? (a << p) : (
           b << p
         )
       end
 
-    a.reverse.push(
-      *b
-    )
+    b | a.reverse
   end
 end
 
