@@ -26,7 +26,7 @@ development: &def
       rm -rf _site;\
       rm -rf .asset-cache;\
       bundle exec jekyll serve --watch \\\
-        -H 0.0.0.0 --trace
+        --drafts -H 0.0.0.0 --trace
     '\
   "
 
