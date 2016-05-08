@@ -5,11 +5,15 @@
 @font-face {
   font-style: normal;
   font-family: "Roboto Slab";
-  font-weight: 300;
+  font-weight: 400;
 
   src: local("Roboto Slab Regular"), local("RobotoSlab-Regular"), local("Roboto-Slab-Regular"),
     font_url("roboto-slab.ttf") format(
       "truetype"
+    ),
+
+    font_url("roboto-slab.woff2") format(
+      "woff2"
     );
 }
 
@@ -22,6 +26,10 @@
   src: local("Raleway"),
     font_url("raleway.ttf") format(
       "truetype"
+    ),
+
+    font_url("raleway.woff2") format(
+      "woff2"
     );
 }
 
@@ -38,13 +46,17 @@
   src: local("Merriweather"),
     font_url("merriweather.ttf") format(
       "truetype"
+    ),
+
+    font_url("merriweather.woff2") format(
+      "woff2"
     );
 }
 
 // --
 body {
-  font-size: 18px;
-  font-family: "Merriweather";
+  font-size: 19px;
+  font-family: "Roboto Slab";
   color: rgb(80, 80, 80);
   font-weight: 300;
   margin: 2rem 0 8rem;
@@ -57,6 +69,7 @@ p.code-file,
 p.code-header,
 p.file {
   font-family: "Monaco", "Menlo", "Consolas", monospace;
+  font-size: 1rem;
 }
 
 // --
@@ -70,13 +83,11 @@ p.file {
 }
 
 //--
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
+h1, h2,
+h3, h4,
+h5, h6 {
   font-family: "Raleway";
+  * { font-size: inherit; }
 }
 
 // --
@@ -269,10 +280,10 @@ main {
 
     p {
       margin: 1rem 0 2rem 0;
-      line-height: 1.9rem;
+      line-height: 2.2rem;
 
       &:first-child {
-        margin-top: 0.4rem;
+        margin-top: 1rem;
       }
     }
 

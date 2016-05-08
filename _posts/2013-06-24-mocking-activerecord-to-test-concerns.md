@@ -14,7 +14,7 @@ Part three of my series on Rails 4 (previously: [Rid of those extra tables and u
 
 When I first started working with Rails I had always thought that a lot of Rails people put too much into one spot, and not enough was extractable as independent modules that had dependencies on certain things (like `ActiveRecord` or a certain column and such.) I knew I wasn't original in my idea that things should be decoupled, but it seemed to me that it wasn't such a big idea within the Rails community at the time.
 
-In Rails 4 we finally saw people talking about it, split shit up and turn them into concerns, make your code more independent (though I don't remember if that was part of the full message over just making skinny models.) Still though, we never saw a way to mock `ActiveRecord` (that I was able to find at least.) So I ended up having to extract my oldest mocks over to Rails 4 so I that I could test the new (in path) concerns.
+In Rails 4 we finally saw people talking about it, split shit up and turn a lot of it into concerns, make your code more independent (though I don't remember if that was part of the full message over just making skinny models.) Still though, we never saw a way to mock `ActiveRecord` (that I was able to find.) So I ended up having to extract my oldest mocks over to Rails 4 so I that I could test the new (in path) concerns.
 
 ## Creating the helpers to Mock
 
@@ -98,11 +98,11 @@ You can see it in this interaction:
 # ]
 ```
 
-***Note: Don't pay attention if it says the table does not exist because it's a temporary table.***
+***Note: Don't pay attention if it says the table does not exist because it's temporary.***
 
 ## Tying it into RSpec.
 
-Since I didn't want to have to use meta-data to have it extend the base class it was going into I also needed to just straight up `config.extend` instead of `config.extend :condition => true` (note the `:condition => true` because this will be the default in RSpec 3)
+Since I didn't want to have to use meta-data to have it extend the base class it was going into I also needed to just straight up `config.extend` instead of `config.extend :condition => true` (note the `:condition => true` it's the default in RSpec 3)
 
 ```ruby
 RSpec.configure do |config|
@@ -112,4 +112,4 @@ end
 
 ## Bringing it all together and using it.
 
-Bringing it all together and using it is pretty easy if you use RSpec (or even if you use MinitTest, you'll just have to adjust it a bit.) I simply dropped it inside of `spec/support/active_record_mocks.rb` and then started using it. Actually, you might be able to just copy and paste and do exactly that and play with it because all of the code here was extracted from a live project, but... if you would like to see how it all plays together, you can read my last article about Rails [here](/2013/06/22/basic-cancan-with-postgresql-hstore){:target="_blank"}{:rel="noopener noreferrer"}, where I directly use this code to test out everything that is going on! And be sure that you Tweet this article if you liked it!
+Bringing it all together and using it is pretty easy if you use RSpec (or even if you use MinitTest, I assume, you'll just have to adjust it a bit.) I simply dropped it inside of `spec/support/active_record_mocks.rb` and then started using it. Actually, you might be able to just copy and paste and do exactly that and play with it because all of the code here was extracted from a live project, but... if you would like to see how it all plays together, you can read my last article about Rails [here](/2013/06/22/basic-cancan-with-postgresql-hstore){:target="_blank"}{:rel="noopener noreferrer"}, where I directly use this code to test out everything that is going on! And be sure that you Tweet this article!

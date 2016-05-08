@@ -7,13 +7,13 @@ tags:
   - ubuntu
 ---
 
-Today I had the pleasure of working on an Apache cordova app, my first experience with the project and my first time debugging a JS app that is supposedly compiled to "native" Java code and deployed as an APK. What I can say so far as that it was not a pleasure since the docs are not very well formed when it comes to explaining to people how to get started. Luckily for me I have had tons of experience with AndroidSDK and it was easy enough for me to make up for the documentation short-falls but I thought I would document for future people how to install Apache Cordova on Ubuntu the easiest way from start to finish.
+Today I had the pleasure (?) of working on an Apache cordova application, my first experience with the project and my first time debugging a JS app that is supposedly compiled to "native" Java code and deployed as an APK. What I can say so far as that it was not a pleasure since the docs are not very well formed when it comes time for explaining to people how to get started. Luckily for me I have had tons of experience with AndroidSDK and it was easy enough for me to make up for the documentation short-falls but I thought I would document for future people how to install Apache Cordova on Ubuntu the easiest way from start to finish.
 
 ***This tutorial is based off Ubuntu 14.04 but you can use any version.***
 
 ## Installing AndroidSDK.
 
-The best way to install AndroidSDK (in my not so humble opinion) is to always install it in the home folder. The way some of them recommend you do it is just flat out ignorant of file-system organization and pretty dumb to say the least. I will not tell you to install it in `~/android-sdk` because that is a stupid place to put it, instead, you should first create a few folders:
+The best way to install AndroidSDK (in my not so humble opinion) is to always install it in the home folder (unless you are on Ubuntu 16.04.) The way some of people tell you do it is just flat out ignorant of file-system organization and pretty dumb to say the least. I will not tell you to install it in `~/android-sdk` because that is a stupid place to put it, instead, you should first create a few folders:
 
 ```sh
 mkdir -p ~/.local/lib/android/{sdk,studio}
@@ -28,7 +28,7 @@ PATH=$PATH:$HOME/.local/lib/android/sdk/platform-tools:\
 
 ### Android Emulation
 
-The first thing you should do after sourcing your `~/.bashrc` is create a new Android image for your `cordova emulate` command. This will require you to first run `android` so that you can gain access to the SDK tools, then to update (because there always seems to be an update even for an "up to date new install") and then to install the x86 Intel image for Android v4.4\. This is all pretty much self-explanitory if you have ever worked with any UI, almost like ever, but if you need a pro-tip: The Update popup will happen when it first loads, if it doesn't the button to update is on the bottom right. The Intel X86 image will be in the main UI where all the tree menus are, look under "Android 4.4.2 (API 19)" and then "Intel x86 Atom System Image."
+The first thing you should do after sourcing your `~/.bashrc` is create a new Android image for your `cordova emulate` command. This will require you to first run `android` so that you can gain access to the SDK tools, then to update (there always seems to be an update even for an "up to date new install") and then to install the x86 Intel image for Android v4.4\. This is all pretty much self-explanitory if you have ever worked with any UI, almost like ever, but if you need a pro-tip: The Update popup will happen when it first loads, if it doesn't the button to update is on the bottom right. The Intel X86 image will be in the main UI where all the tree menus are, look under "Android 4.4.2 (API 19)" and then "Intel x86 Atom System Image."
 
 You should probably never use the ARM emulation unless you need ARM features or some shit because it can be slower than frozen water but if you really don't want to take my word for it, create an image with it and see for yourself.
 

@@ -6,7 +6,7 @@ tags:
 
 They say: "Don't build static configurations into software," well, in this case lets talk libraries or CLI's.  The kind you consume as a programmer.
 
-Recently as I was working on open sourcing a CLI application that takes my concept of Docker repos and puts it into an app that anybody can consume. It soon came to me that I have some static stuff in there, stuff that one user, at one point... might want to change. Then the question came along: "how often do we even get requests for stuff like that?"
+Recently as I was working on open sourcing a CLI application that takes my personal concept of Docker repos and puts it into an application that anybody can consume. It soon came to me that I have some static stuff in there, stuff that one user, might want to change. Then the question came along: "how often do I even get requests for that?"
 
 Lets take the following:
 
@@ -82,4 +82,4 @@ How many people are going to step into the source and edit that? We could make i
 
 Those aren't really questions, they are just thoughts posed as questions since I already know what I'm going to do: I'm going to build a damn configuration class because I wouldn't want to be stuck without flexibility so I'm not going to stick you without it but at the same point I don't think some convention is bad.
 
-This is especially true when you go look at Rails and there are 10,000 papercuts in the configuration alone.  Seriously, there is stuff that should take convention and stuff that needs configuration, should we bring up some past security problems that immediately made me think: That shit should have been configurable and off by default.  Some-bitches.
+This is especially true when you go look at Rails and there are 10,000 papercuts in the configuration alone.  Seriously, there is stuff that should take convention and stuff that needs configuration, should we bring up some past security problems that immediately made me think: That should have been configurable and off by default.

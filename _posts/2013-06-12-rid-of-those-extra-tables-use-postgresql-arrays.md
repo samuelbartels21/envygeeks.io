@@ -12,7 +12,7 @@ Rails 4 final release is nearing soon and over the last few months I've had the 
 
 One of my absolute favorites coming into Rails 4 is the addition of "native" support for PostgreSQL arrays. To some people this can have a huge impact on how they build their code and can even simplify the management of not only that code but the tables they use. We no longer need multiple tables for tagging (not that we did before since Arrays have been in existence since I can remember.)
 
-What I mean by that is, now that Rails has "native" support for PostgreSQL arrays, maybe people will start to use them more, and instead of seeing things like "skills" and "tags" in different tables we will see them on the user themselves and now instead of using flexibility as an excuse for MongoDB we will now see people use HStore instead, unless Mongo is something they actually want to use (which has to be judged on a case by case basis, I am absolutely not against MongoDB and actually use it on a few projects.)
+What I mean is, now that Rails has "native" support for PostgreSQL arrays, maybe people will start to use them more, and instead of seeing things like "skills" and "tags" in different tables we will see them on the user themselves and now instead of using flexibility as an excuse for MongoDB we will now see people use HStore instead, unless Mongo is something they actually want to use (which has to be judged on a case by case basis, I am absolutely not against MongoDB and actually use it.)
 
 ## The Migration.
 

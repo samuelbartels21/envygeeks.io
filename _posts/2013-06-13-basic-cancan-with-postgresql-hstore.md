@@ -9,17 +9,17 @@ tags:
   - ruby
 ---
 
-With Rails 4 coming soon I thought I would bang out a few of my new favorite features and post some tutorials on what I am doing with Rails 4. The second in this series is doing a basic CanCan style permissions handler with PostgreSQL's HStore.
+With Rails 4 coming soon so I thought I would bang out a few of my new favorite features and post some tutorials on what I am doing with Rails 4. The second in this series is doing a basic CanCan style permissions handler with PostgreSQL's HStore.
 
 Prior to Rails 4 I would always opt to use CanCan because I did not want to have to build my own serializer or to use the hstore gem which had a few minor bugs in some data I would store but when Rails 4 first did it's RC I decided it was time I move to my own "home grown" solution. So here is how I went about it in a basic manner!
 
 ## The Challenge
 
-The challenge here is not if they have permissions to do this on a specific page, it is not if the role allows it, it's whether or not the user has the permission to complete the task. Tying it into a role and doing a fall back for special circumstances is not that hard to dream up and add so we'll save that for an additional tutorial since this purpose serves quite well. That is if you were to ask me, however you might not be so decide for yourself.
+The challenge here is not if they have permissions to do this on a specific page, it is not if the role allows it, it's whether or not the user has the permission to complete the task. Tying it into a role and doing a fall back for special circumstances is not that hard to dream up and add so we'll save that for later since this purpose serves quite well. That is if you were to ask me, however you might not be so decide for yourself.
 
 ## Building The `Users` Model
 
-The `Users` model was easy enough to start, we know we wanted to use Omniauth and Github auth because we all have Github accounts and that was the quickest solution, unless we used Devise but still: Omniauth. So we design our `Users` migration and model around that, but you can design your migration and model any way you want, just take notes of the important parts!
+The `Users` model was easy enough to start, we know we wanted to use Omniauth and Github authentication because we all have Github accounts and that was the quickest solution, unless we used Devise but still: Omniauth. So we design our `Users` migration and model around that, but you can design your migration and model any way you want, just take notes of the important parts!
 
 ```ruby
 class CreateUsers < ActiveRecord::Migration
@@ -98,7 +98,7 @@ But *wait*, what is going on here? Why is `true` coming out as "true"? Does Rail
 
 ## Primitives.
 
-The first thing I needed to decide was whether I wanted to convert all of the possibles over to primitives... or... should I stick with the straight conversions. The basic example is do I want: "t(rue)?", "1" and "y(es)?" to be `true` or do I just want "true" to be `true`? In the end for me it was decided that I only want "true" to be `true`, this way I do not get too intrusive.
+The first thing I needed to decide was whether I wanted to convert all of the possibles over to primitives ... or ... should I stick with the values. The basic example is do I want: "t(rue)?", "1" and "y(es)?" to be `true` or do I just want "true" to be `true`? In the end for me it was decided that I only want "true" to be `true`, it's easier.
 
 I also needed to decide if I wanted to be explicit or implicit. Meaning do I want to automatically convert all hstore fields and have to decide which hstore columns would not get converted or should I decide which ones do get converted? This was an easy one for me, most of the time I will be storing true, false and 1/0 values so I decided I would be explicit on exclude. And after all that deciding I ended up with:
 
