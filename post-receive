@@ -22,7 +22,7 @@ docker-compose -f compose.yml rm -f --all
 # --
 
 mkdir -p $CACHE_DIR/vendor/bundle
-docker-compose -f compose.yml update
+docker-compose -f compose.yml run update
 rsync -av --quiet vendor/bundle/ \
   $CACHE_DIR/vendor/bundle
 
