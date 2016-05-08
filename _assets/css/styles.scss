@@ -55,11 +55,17 @@
 
 // --
 body {
-  font-size: 19px;
-  font-family: "Roboto Slab";
-  color: rgb(80, 80, 80);
-  font-weight: 300;
+  font-size: 16px;
+  font-family: "Merriweather";
   margin: 2rem 0 8rem;
+  font-weight: 300;
+  color: #000000;
+}
+
+@media (max-width: 1024px) {
+  body {
+    font-size: 21px;
+  }
 }
 
 //--
@@ -110,7 +116,7 @@ header {
 
   .sub-title {
     font-family: "Raleway";
-    color: rgb(149, 165, 166);
+    color: rgba(149, 165, 166, 0.4);
     margin: 0;
   }
 
@@ -287,6 +293,12 @@ main {
       }
     }
 
+    @media (max-width: 1024px) {
+      p {
+        line-height: 2.8rem;
+      }
+    }
+
     ol,
     ul {
       margin: 2rem 1rem;
@@ -350,7 +362,8 @@ a {
       }
 
       h1 {
-        font-size: 1.2rem;
+        font-size: 1rem;
+        font-weight: normal;
         margin: 0;
 
         a {
