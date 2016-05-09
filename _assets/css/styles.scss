@@ -69,6 +69,12 @@ body {
 }
 
 //--
+b,
+strong {
+  font-weight: bold;
+}
+
+//--
 pre,
 code,
 p.code-file,
@@ -94,6 +100,16 @@ h3, h4,
 h5, h6 {
   font-family: "Raleway";
   * { font-size: inherit; }
+}
+
+// --
+
+hr {
+  border: none;
+  margin: 4rem 0;
+  border-bottom: 1px solid rgb(
+    240, 240, 240
+  );
 }
 
 // --
