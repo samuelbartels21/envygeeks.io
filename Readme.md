@@ -4,7 +4,7 @@ This is the source to my website.  The content license is proprietary, the desig
 
 ## Building/Running
 
-* Build: `docker-compose -f compose.yml up build`
-* Production: `docker-compose -f compose.yml up production-build`
-* Development: `docker-compose -f compose.yml up development`
-* Test: `docker-compose -f compose.yml up test`
+* Build: `docker-compose -f compose.yml run build`
+* Production: `docker-compose -f compose.yml run production-build`
+* Development: `docker-compose -f compose.yml run --service-ports development`
+* Test: `docker-compose -f compose.yml run test`
