@@ -5,12 +5,12 @@
 require_relative "tag_helpers"
 
 class TagDrop < Liquid::Drop
-  extend  Forwardable::Extended
+  extend Forwardable::Extended
   include TagHelpers
 
-  def initialize(site, tag)
-    @tag, @site = \
-      tag, site
+  def initialize(site:, tag:)
+    @tag = tag.to_s
+    @site = site
   end
 
   # --
@@ -34,10 +34,12 @@ end
 # without having to do it all again, manually.
 # --
 
-Jekyll::Hooks.register :site, :pre_render do |site|
+Jekyll::Hooks.register :site, :pre_render do |site, payload|
   site.posts.docs.each do |post|
-    post.data["tags"] = post.data["tags"].map do |tag|
-      TagDrop.new(site, tag)
+    post.data["tag_drops"] = post.data["tags"].map do |tag|
+      TagDrop.new({
+        :tag => tag, :site => site
+      })
     end
   end
 end
