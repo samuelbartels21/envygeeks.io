@@ -1,3 +1,7 @@
+# Frozen-String-Literal: true
+# Copyright 2016 Jordon Bedwell - MIT License
+# Encoding: UTF-8
+
 require_relative "tag_helpers"
 
 class TagPage < Jekyll::Page
