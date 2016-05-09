@@ -130,9 +130,9 @@ module Filters
   # Fancy time without the year.
   # --
   def archive_time(time)
-    return fancy_time(time, {
-      :archive => true
-    })
+    time.strftime(
+      "%m/%d"
+    )
   end
 
   # --
