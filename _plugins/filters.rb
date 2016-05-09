@@ -10,11 +10,9 @@ module Filters
   # --
   def waterfall(array, posts = false)
     if posts
-      array = array.group_by do |v|
-        v.date.year
-      end
-
-      out = array.map do |_, v|
+      array = array. sort_by { |v| v.date.year }.reverse
+      array = array.group_by { |v| v.date.year }
+      out   = array.map do |_, v|
         _waterfall(
           v
         )
@@ -173,14 +171,28 @@ module Filters
   def _waterfall(array, hash: false)
     a, b = [], []
 
-    array.sort_by { |p| (hash ? p.fetch("title", p["name"]) : p.data["title"]).size }
-      .each_with_index do |p, i|
+    _a = array.sort_by do |p|
+      if hash
+        p.fetch("title",
+          p["name"]
+        )
+
+      else
+        p.data[
+          "title"
+        ]
+      end \
+      .size
+    end
+
+    # Reverse so smallest is last.
+    _a.reverse.each_with_index do |p, i|
         i.even?? (a << p) : (
           b << p
         )
       end
 
-    b | a.reverse
+    a.reverse | b
   end
 end
 
