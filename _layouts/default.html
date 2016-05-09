@@ -131,7 +131,7 @@
 
                       <a href="{{ post.url || pretty }}">
                         {{
-                          post.title
+                          post.title | markdownify_title
                         }}
                       </a>
                     </h1>
