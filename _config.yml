@@ -45,24 +45,26 @@ social:
 # --
 
 exclude:
-  - Readme.md
-  - Gemfile.lock
-  - Dockerfile
-  - Rakefile
+  - _idea/
+
   - Gemfile
+  - Readme.md
+  - Dockerfile
+  - Gemfile.lock
+  - post-receive
+  - compose.yml
+  - nginx.conf
+  - Rakefile
+  - vendor/
 
   - .gitignore
+  - .asset-cache/
+  - .jekyll-metadata/
   - .gitattributes
+  - .sass-cache/
+  - .bundle/
   - .git
 
-  - vendor/
-  - nginx.conf
-  - compose.yml
-  - post-receive
-  - .sass-cache/
-  - .jekyll-metadata/
-  - .asset-cache/
-  - .bundle/
 
 # --
 
