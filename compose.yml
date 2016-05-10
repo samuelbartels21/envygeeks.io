@@ -89,7 +89,7 @@ update:
   <<: *def
   command: "\
     chpst -u jekyll sh -c '\
-      bundle update;\
+      bundle update >/dev/null;\
       bundle clean\
     '\
   "
