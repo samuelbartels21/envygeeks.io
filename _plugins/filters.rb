@@ -5,6 +5,15 @@
 require "addressable"
 module Filters
 
+  #--
+  # DateTime format for HTML5 <time> tag.
+  # --
+  def tt_datetime(time)
+    time.utc.strftime(
+      "%Y-%m-%dT%H:%M"
+    )
+  end
+
   # --
   # Reverse, Reverse and organize by waterfall.
   # --
