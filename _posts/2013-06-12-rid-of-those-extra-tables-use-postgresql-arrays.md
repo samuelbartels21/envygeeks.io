@@ -1,9 +1,8 @@
 ---
 title: Rid of those extra tables, use PostgreSQL arrays.
 tags:
-  - arrays
-  - postgresql
   - rails4
+  - postgresql
   - rails
   - ruby
 ---

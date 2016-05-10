@@ -2,7 +2,6 @@
 title: Recursive (sub-)navigation with Jekyll 3.0
 tags:
   - jekyll
-  - jekyll-hooks
   - ruby
 ---
 

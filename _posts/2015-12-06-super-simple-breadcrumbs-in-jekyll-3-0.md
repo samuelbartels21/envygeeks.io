@@ -2,7 +2,6 @@
 title: "Super-simple breadcrumbs in Jekyll 3.0"
 tags:
   - jekyll
-  - jekyll-hooks
   - ruby
 ---
 
