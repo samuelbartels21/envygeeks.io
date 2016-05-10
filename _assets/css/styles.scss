@@ -378,6 +378,18 @@ a {
       margin-right: 1rem;
       line-height: 1.6em;
 
+      &.weight-1 {
+        a {
+          color: #18bc9c;
+        }
+      }
+
+      &.weight-2 {
+        a {
+          color: #3498db;
+        }
+      }
+
       &:after {
         content: "";
       }
