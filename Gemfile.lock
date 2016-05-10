@@ -1,6 +1,6 @@
 GIT
   remote: git://github.com/jekyll/jekyll-assets.git
-  revision: 4b27166074f8ed9381b52685bf27e9c73f1b0a7a
+  revision: 1d5c4651e25e32e20dfbbc414a80124dc4d6588f
   specs:
     jekyll-assets (2.2.5)
       extras (~> 0.1)
