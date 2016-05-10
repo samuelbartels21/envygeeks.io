@@ -60,10 +60,10 @@
 // --
 body {
   font-size: 16px;
+  color: rgb(0, 0, 0);
   font-family: "Merriweather";
   margin: 2rem 0 8rem;
   font-weight: 300;
-  color: #000000;
 }
 
 @media (max-width: 1024px) {
@@ -121,8 +121,10 @@ header {
   color: #333;
   font-size: 1.2rem;
   text-align: center;
-  border-bottom: 1px solid rgb(240, 240, 240);
   width: 100%;
+  border-bottom: 1px solid rgb(
+    240, 240, 240
+  );
 
   h1 {
     margin: 2rem 0 0;
@@ -206,7 +208,9 @@ main {
       h2 {
         margin-bottom: 0;
         a:hover {
-          color: #3498db;
+          color: rgb(
+            52, 152, 219
+          );
         }
       }
     }
@@ -355,10 +359,14 @@ main {
 
 a {
   text-decoration: none;
-  color: #3498db;
+  color: rgb(
+    52, 152, 219
+  );
 
   &:hover {
-    color: #18bc9c;
+    color: rgb(
+      24, 188, 156
+    );
   }
 }
 
@@ -378,19 +386,25 @@ a {
 
       &.weight-1 {
         a {
-          color: #18bc9c;
+          color: rgb(
+            24, 188, 156
+          );
         }
       }
 
       &.weight-2 {
         a {
-          color: #3498db;
+          color: rgb(
+            52, 152, 219
+          );
         }
       }
 
       &.weight-3 {
         a {
-          color: #8e44ad;
+          color: rgb(
+            142, 68, 173
+          );
         }
       }
 
@@ -432,8 +446,10 @@ a {
   }
 
   h2 {
-    color: #3498db;
     margin-top: 4rem;
+    color: rgb(
+      52, 152, 219
+    );
   }
 }
 
