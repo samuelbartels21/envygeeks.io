@@ -3,6 +3,8 @@
 # Encoding: UTF-8
 
 require_relative "tag_drop"
+require_relative "filters"
+
 class ArchiveDrop < Liquid::Drop
   include Filters
 
