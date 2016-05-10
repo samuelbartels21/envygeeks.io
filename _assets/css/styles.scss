@@ -364,14 +364,12 @@ a {
 
 .archives {
   ul.tags {
-    width: 90%;
     flex-wrap: wrap;
     line-height: 1.6rem;
     font-family: "Raleway";
     justify-content: center;
+    margin: 4rem 0 6rem 0;
     align-items: center;
-    margin: 4rem auto;
-    max-width: 90%;
     display: flex;
 
     li {
@@ -387,6 +385,12 @@ a {
       &.weight-2 {
         a {
           color: #3498db;
+        }
+      }
+
+      &.weight-3 {
+        a {
+          color: #8e44ad;
         }
       }
 

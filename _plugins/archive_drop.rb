@@ -22,6 +22,8 @@ class ArchiveDrop < Liquid::Drop
   # --
   def initialize(site)
     @site = site
+    @site.config["archive"] \
+      ||= {}
   end
 
   # --
@@ -42,8 +44,9 @@ class ArchiveDrop < Liquid::Drop
   # --
   def weighted_tags
     return @weighted_tags ||= begin
-      div = 2.0 / tags.size.to_f
-      _t = @site.posts.docs.each_with_object({}) do |post, hash|
+      div = @site.config["archive"].fetch("weights", {}).fetch("int", 2.0).to_f / tags.size.to_f
+      max = @site.config["archive"].fetch("weights", {}).fetch("max", 3.0).to_f
+      _t  = @site.posts.docs.each_with_object({}) do |post, hash|
         post.data["tags"].each do |tag|
           (hash[tag.to_s] ||= []).push(
             post
@@ -55,11 +58,11 @@ class ArchiveDrop < Liquid::Drop
         .to_enum.with_index(1.0).map do |key, index|
           weight = div * index + 1
           weight = weight.round(
-            2
+            1
           )
 
-          if weight > 2
-            then weight = 2.0
+          if weight > max
+            then weight = max
           end
 
           TagDrop.new({
@@ -69,10 +72,11 @@ class ArchiveDrop < Liquid::Drop
           })
         end
 
+      # Tries to mitigate an ugly output of the tags.
+      @site.config["archive"].fetch("shuffle", 3).times do
+        out = out.shuffle
+      end
       out
-        .shuffle
-        .shuffle
-        .shuffle
     end
   end
 
