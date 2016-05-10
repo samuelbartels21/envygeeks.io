@@ -21,8 +21,8 @@ module Jekyll
     # Initialize a new instance.
     # --
     def initialize(doc)
-      @doc = doc
-      @frag = Nokogiri::HTML.fragment(
+      @doc  = doc
+      @frag = Nokogiri::HTML.parse(
         doc.output
       )
     end
