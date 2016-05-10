@@ -31,10 +31,11 @@ rsync -av --quiet vendor/bundle/ \
 # this nginx instance and provide their own configurations.
 # --
 
-cp nginx.conf /srv/docker/etc/nginx/site.d/envygeeks.io.conf
-docker-compose -f /srv/docker/compose.yml exec -T nginx \
-  nginx -s reload
-
+if [ -r /srv/docker/compose.yml ] && [ -d nginx ]; then
+  cp nginx.conf /srv/docker/etc/nginx/site.d
+  docker-compose -f /srv/docker/compose.yml exec -T nginx \
+    nginx -s reload
+fi
 
 # --
 

@@ -59,6 +59,8 @@ social:
 # --
 
 exclude:
+  - nginx/
+  - vendor/
   - _idea/
 
   - Gemfile
@@ -69,7 +71,6 @@ exclude:
   - compose.yml
   - nginx.conf
   - Rakefile
-  - vendor/
 
   - .gitignore
   - .asset-cache/
