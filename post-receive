@@ -32,7 +32,7 @@ rsync -av --quiet vendor/bundle/ \
 # --
 
 if [ -r /srv/docker/compose.yml ] && [ -d nginx ]; then
-  cp nginx.conf /srv/docker/etc/nginx/site.d
+  cp nginx/*.conf /srv/docker/etc/nginx/site.d
   docker-compose -f /srv/docker/compose.yml exec -T nginx \
     nginx -s reload
 fi
