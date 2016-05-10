@@ -1,5 +1,8 @@
 ---
 title: Removing Nginx from Jekyll Docker, and other updates
+tags:
+  - jekyll
+  - docker
 ---
 
 Today Jekyll Docker removed Nginx from the image entirely.  In the past it existed solely to make it easy for GitHub Pages users to get almost GitHub pages like behavior, however, in 3.0 we merged updates to serve that did that directly inside of our WEBRick instance so it really isn't necessary anymore, and users who still need it can always wait until next week when I work on the super image to update, this will give you some nice new stuff meant for people who want a one-stop shop for Jekyll on their servers.
