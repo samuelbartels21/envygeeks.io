@@ -61,6 +61,7 @@ clean:
   <<: *def
   command: "\
     chpst -u jekyll sh -c '\
+      bundle clean;\
       bundle exec jekyll clean;\
       rm -rf .asset-cache\
       rm -rf _site\
