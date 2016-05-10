@@ -6,10 +6,12 @@ require_relative "tag_helpers"
 
 class TagDrop < Liquid::Drop
   extend Forwardable::Extended
+  attr_reader :weight
   include TagHelpers
 
-  def initialize(site:, tag:)
+  def initialize(site:, tag:, weight: 0.0)
     @tag = tag.to_s
+    @weight = weight.to_f
     @site = site
   end
 

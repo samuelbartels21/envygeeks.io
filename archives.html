@@ -5,42 +5,32 @@ nav:
 ---
 
 <div class="archives">
-  {% assign archives = site.posts | waterfall:true %}
-  {% for post in archives %}
-    {% capture this_year %}
-      {{
-        post.date | date: "%Y"
-      }}
-    {% endcapture %}
+  <ul class="tags">
+    {% for tag in archive.weighted_tags %}
+    <li style="font-size: {{ tag.weight }}rem">
+      <a title="Tag: {{ tag }}" href="{{ tag.url | pretty }}">
+        {{ tag }}
+      </a>
+    </li>
+    {% endfor %}
+  </ul>
 
-    {% unless year == this_year %}
-      {% assign year = this_year %}
-      <h2>
-        {{
-          year
-        }}
-      </h2>
+  {% for post in archive.posts %}
+    {% assign ty = post.date | date: "%Y" %}{% unless year == ty %}{% assign year = ty %}
+      <h2>{{ year }}</h2>
     {% endunless %}
 
     <article>
       <header>
-        <h1>
-          <i class="fa fa-archive" aria-hidden="true">
-            <!-- EMPTY -->
-          </i>
-
-          <a href="{{ post.url || pretty }}">
-            {{
-              post.title
-            }}
+        <h1 class="fa fa-archive">
+          <a href="{{ post.url | pretty }}">
+            {{ post.title | markdownify_title }}
           </a>
         </h1>
       </header>
       <footer>
         <time>
-          {{
-            post.date | archive_time
-          }}
+          {{ post.date | archive_time }}
         </time>
       </footer>
     </article>
