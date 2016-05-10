@@ -11,7 +11,7 @@ cd $tmpdir
 cp -RTp $CACHE_DIR .
 docker-compose -f compose.yml pull >/dev/null
 docker-compose -f compose.yml run production-build
-rsync -av --quiet _site/ /srv/docker/srv/nginx/envygeeks.io
+rsync -av --delete --quiet _site/ /srv/docker/srv/nginx/envygeeks.io
 docker-compose -f compose.yml rm -f --all
 
 # --
@@ -23,7 +23,7 @@ docker-compose -f compose.yml rm -f --all
 
 mkdir -p $CACHE_DIR/vendor/bundle
 docker-compose -f compose.yml run update
-rsync -av --quiet vendor/bundle/ \
+rsync -av --quiet --delete vendor/bundle/ \
   $CACHE_DIR/vendor/bundle
 
 # --
