@@ -42,7 +42,7 @@ production-build:
   #
 
   environment:
-    SILENCE_BUNDLER: 1
+    # SILENCE_BUNDLER: 1
     JEKYLL_ENV: production
     BUNDLE_CACHE: 1
 
