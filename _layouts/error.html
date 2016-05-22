@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+
+    <!--
+      Design-License: MIT.
+      Copyright 2016 Jordon Bedwell.
+      Source: https://github.com/envygeeks/envygeeks.io
+      Content-License: Reserved.
+    -->
+
+    <title>{{ site.title }}</title>
+    <link rel="canonical" href="{{ page | canonical_url }}">
+    <meta name="generator" content="Jekyll {{ jekyll.version }}">
+    <link rel="alternate" type="application/rss+xml" title="{{ site.title }}" href="{{ site.base_domain }}/feed.xml" />
+    {{ 'css:bundle.css "js:bundle.js async:true"' | jekyll_asset_multi }}
+    <meta charset="UTF-8">
+  </head>
+
+  <body id="envygeeks">
+    <div class="wrapper">
+      <main>
+        <div class="error">
+          <h1>{{ page.title }}</h1>
+          {{ content }}
+          <p><a href="/">Return Home</a></p>
+        </div>
+      </main>
+    </div>
+  </body>
+</html>

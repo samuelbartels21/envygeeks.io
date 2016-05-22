@@ -498,6 +498,13 @@ a {
 }
 
 // --
+.error {
+  text-align: center;
+  font-family: Raleway;
+  width: 100%;
+}
+
+// --
 // Highlight.js overrides, these come from Github.CSS but that is a vendor
 // file so I would prefer not to override it there so I can update it any time
 // that I wish without affecting the main part of my site.

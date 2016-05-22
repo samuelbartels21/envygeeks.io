@@ -11,7 +11,7 @@ cd $tmpdir
 cp -RTp $CACHE_DIR .
 docker-compose -f compose.yml pull >/dev/null
 docker-compose -f compose.yml run production-build
-rsync -av --delete --quiet _site/ /srv/docker/srv/nginx/envygeeks.io
+rsync -av --delete --quiet _site/ /srv/docker/envygeeks/srv/nginx/envygeeks.io
 docker-compose -f compose.yml rm -f --all
 
 # --
@@ -25,17 +25,6 @@ mkdir -p $CACHE_DIR/vendor/bundle
 docker-compose -f compose.yml run update
 rsync -av --quiet --delete vendor/bundle/ \
   $CACHE_DIR/vendor/bundle
-
-# --
-# Users with access to this compose.yml have access to hup
-# this nginx instance and provide their own configurations.
-# --
-
-if [ -r /srv/docker/compose.yml ] && [ -d nginx ]; then
-  cp nginx/*.conf /srv/docker/etc/nginx/site.d
-  docker-compose -f /srv/docker/compose.yml exec -T nginx \
-    nginx -s reload
-fi
 
 # --
 
