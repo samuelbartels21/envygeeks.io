@@ -7,7 +7,7 @@
 development: &def
   image: jekyll/jekyll
   environment:
-    SILENCE_BUNDLER: 1
+    # SILENCE_BUNDLER: 1
     BUNDLE_CACHE: 1
   restart: never
 
