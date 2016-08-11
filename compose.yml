@@ -6,23 +6,15 @@
 # --
 development: &def
   image: jekyll/jekyll
+  restart: never
   environment:
     SILENCE_BUNDLER: 1
+    JEKYLL_ENV: development
     BUNDLE_CACHE: 1
-  restart: never
-
-  #
-
   volumes:
     - .:/srv/jekyll
-
-  #
-
   ports:
     - 4000:4000
-
-  #
-
   command: "\
     chpst -u jekyll sh -c '\
       rm -rf _site;\
@@ -38,16 +30,10 @@ development: &def
 # --
 production-build:
   <<: *def
-
-  #
-
   environment:
     SILENCE_BUNDLER: 1
     JEKYLL_ENV: production
     BUNDLE_CACHE: 1
-
-  #
-
   command: "\
     chpst -u jekyll sh -c '\
       rm -rf _site;\
