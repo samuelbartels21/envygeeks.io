@@ -97,9 +97,9 @@ module Filters
   # Pull an avatar from Github.
   # @return [String]
   # --
-  def github_avatar(user)
-    format("https://avatars3.githubusercontent.com/%s?v=3&s=80",
-      user
+  def github_avatar(user, width = 80)
+    format("https://avatars3.githubusercontent.com/%s?v=3&s=%d",
+      user, width.to_i
     )
   end
 
