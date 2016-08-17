@@ -60,10 +60,10 @@
 // --
 body {
   font-size: 16px;
-  color: rgb(0, 0, 0);
-  font-family: "Merriweather";
   margin: 2rem 0 8rem;
+  font-family: "Merriweather";
   font-weight: 300;
+  color: #40586e;
 }
 
 @media (max-width: 1024px) {
@@ -219,6 +219,14 @@ main {
       margin-top: 4rem;
     }
 
+    &.post.page {
+      footer {
+        margin-top: 2rem;
+        border-top: 1px solid #f0f0f0;
+        padding-top: 2rem;
+      }
+    }
+
     // --
     // Since Chrome trips out on ultra thin REM we need to do pixels here,
     // to enforce the font size that we want displayed for this text.
@@ -270,6 +278,15 @@ main {
 
       .avatar {
         margin-right: 1rem;
+
+        a {
+          width: 40px;
+          height: 40px;
+          border-radius: 40px;
+          border: 2px solid rgba(0, 0, 0, 0.1);
+          padding: 1px;
+          float: left;
+        }
 
         img {
           width: 40px;
@@ -514,4 +531,34 @@ a {
   border: none;
   background: rgb(247, 247, 247);
   font-size: 1rem;
+}
+
+// ---
+
+.pricebox {
+  display: flex;
+  border: 1px solid #ccc;
+  width: 100%;
+
+  > h2 {
+    flex: 1 1 100%;
+  }
+
+  > div {
+    flex: 1 1 50%;
+    align-items: flex-start;
+    flex-direction: column;
+    display: flex;
+    padding: 1rem;
+
+    h3 {
+      margin: 0;
+    }
+
+    .price, .slots {
+      font-size: 2rem;
+      text-align: center;
+      width: 100%;
+    }
+  }
 }
