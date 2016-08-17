@@ -53,8 +53,9 @@ repo:
 # --
 
 social:
-  twitter: https://twitter.com/envygeeks
   github:  https://github.com/envygeeks
+  twitter: https://twitter.com/envygeeks
+  envelope: mailto:jordon@envygeeks.io
 
 # --
 
