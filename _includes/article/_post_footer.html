@@ -1,0 +1,33 @@
+<footer>
+  <div class="avatar">
+    <a href="https://github.com/{{ post.author.handle }}" target="_blank" rel="noopener noreferrer">
+      <img alt="Avatar of: {{ post.author.handle }}" src="{{
+        post.author.handle | github_avatar
+      }}">
+    </a>
+  </div>
+
+  <div>
+    <p class="author">
+      <a href="https://github.com/{{ post.author.handle }}" target="_blank" rel="noopener noreferrer">
+        {{ post.author.name }}
+      </a>
+    </p>
+
+    <ul class="tags">
+      {% for tag in post.tag_drops %}
+        <li>
+          <a href="{{ tag.url | pretty }}">
+            {{
+              tag
+            }}
+          </a>
+        </li>
+      {% endfor %}
+    </ul>
+
+    <time datetime="{{ post.date | tt_datetime }}">
+      {{ post.date | fancy_time }}
+    </time>
+  </div>
+</footer>

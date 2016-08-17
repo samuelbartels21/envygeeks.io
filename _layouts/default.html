@@ -85,7 +85,7 @@
 
         {% else %}
           {% if page.type != "tag" %}
-            <article class="page">
+            <article class="page {{ page.type }}">
               <header>
                 <h1>
                   {{
@@ -99,6 +99,11 @@
                   content
                 }}
               </div>
+
+              {% if page.type == "post" %}
+                {% assign post = page %}
+                {% include article/_post_footer.html %}
+              {% endif %}
             </article>
           {% else %}
             <div class="tag archives">
