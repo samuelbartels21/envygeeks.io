@@ -2,6 +2,7 @@
 title: Hire Me
 nav:
   title: Hire Me
+  class: flare
 ---
 
 I offer programming services, both custom and those with pre-determined

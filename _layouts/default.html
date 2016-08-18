@@ -13,7 +13,7 @@
     <link rel="canonical" href="{{ page | canonical_url }}">
     <meta name="generator" content="Jekyll {{ jekyll.version }}">
     <link rel="alternate" type="application/rss+xml" title="{{ site.title }}" href="{{ site.base_domain }}/feed.xml" />
-    {{ 'css:bundle.css "js:bundle.js async:true"' | jekyll_asset_multi }}
+    {{ 'css:bundle.css css:fonts.css "js:bundle.js async:true"' | jekyll_asset_multi }}
     <meta charset="UTF-8">
   </head>
 
@@ -31,7 +31,10 @@
             {% for page in site.pages %}
               {% if page.nav %}
                 <li>
-                  <a href="{{ page.url | append:site.baseurl | pretty }}">
+                  <a
+                      href="{{ page.url | append:site.baseurl | pretty }}"
+                      {% if page.nav.class %}class="{{ page.nav.class }}"{% endif %}>
+
                     {{
                       page.nav.title
                     }}
