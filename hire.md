@@ -17,9 +17,9 @@ e-mail if you would like to hire me.
   <div>
     <h3>On-The-Side</h3>
     <ul>
-      <li>Typically 1-2 hours a day max</li>
-      <li>Rails, Phoenix, Custom, Sys/Other</li>
-      <li>Ruby, Go, Rust, PHP, Elixir</li>
+      <li>Questions answered 24/7</li>
+      <li>Completed within 1-4 weeks</li>
+      <li>1-2 hours a day</li>
     </ul>
 
     <p class="price">
@@ -30,9 +30,9 @@ e-mail if you would like to hire me.
   <div>
     <h3>As-Soon-As-Possible</h3>
     <ul>
-      <li>Rails, Phoenix, Custom, Sys/Other</li>
-      <li>Upto 6 hours a day (typically 4-5)</li>
-      <li>Ruby, Go, Rust, PHP, Elixir</li>
+      <li>Questions answered 24/7</li>
+      <li>Upto 6/h a day, 4-5/h average</li>
+      <li>On a guaranteed schedule</li>
     </ul>
 
     <p class="price">
@@ -52,21 +52,21 @@ and Ember (at a discount, still learning.)***
     <h3>Conversion</h3>
     <ul>
       <li>20/pages, 40/posts maximum</li>
-      <li>Theme tweaks and conversion</li>
+      <li>Theme conversion, w/ tweaks</li>
       <li>Deployment tools</li>
     </ul>
 
     <p class="price">
-      $200/site
+      $240/site
     </p>
   </div>
 
   <div>
     <h3>Theme</h3>
     <ul>
-      <li>Theme tweaks and conversion</li>
+      <li>Tweaks, additions; corrections</li>
       <li>Conversion of current Jekyll theme</li>
-      <li>Private Themes</li>
+      <li><b><i>Your themes only</i></b></li>
     </ul>
 
     <p class="price">
@@ -86,7 +86,7 @@ can opt to do it yourself to learn a bit more about Jekyll***
     <h3>On-The-Side</h3>
     <ul>
       <li>Open Source</li>
-      <li>Takes up to 1/4 weeks</li>
+      <li>Takes up to 1-4 weeks</li>
       <li>Ruby</li>
     </ul>
 
@@ -99,7 +99,7 @@ can opt to do it yourself to learn a bit more about Jekyll***
     <h3>As-Fast-As-Possible</h3>
     <ul>
       <li>Closed Source</li>
-      <li>Typically takes a week</li>
+      <li>Guaranteed deadlines</li>
       <li>Ruby</li>
     </ul>
 
@@ -116,7 +116,7 @@ can opt to do it yourself to learn a bit more about Jekyll***
   <div>
     <h3>Basic Bugs</h3>
     <ul>
-      <li>1/2 hours maximum.</li>
+      <li>1-2 hours maximum.</li>
       <li>Pull Request with Review</li>
       <li>Debugging</li>
     </ul>
@@ -130,7 +130,7 @@ can opt to do it yourself to learn a bit more about Jekyll***
     <h3>Complex Bugs</h3>
     <ul>
       <li>Basic Features</li>
-      <li>4/6 hours maximum</li>
+      <li>4-6 hours maximum</li>
       <li>Debugging</li>
     </ul>
 
