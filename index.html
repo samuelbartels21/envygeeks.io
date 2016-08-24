@@ -3,23 +3,7 @@ main: true
 ---
 
 {% for post in site.posts limit:3 %}
-  <article>
-    <header>
-      <h2>
-        <a href="{{ post.url | pretty }}">
-          {{ post.title | markdownify_title }}
-        </a>
-      </h2>
-    </header>
-
-    <div>
-      {{
-        post.excerpt
-      }}
-    </div>
-
-    {% include
-      article/_post_footer.html
-    %}
-  </article>
+  {% include
+    _excerpt.html
+  %}
 {% endfor %}

@@ -1,14 +1,6 @@
 <!DOCTYPE html>
 <html>
   <head>
-
-    <!--
-      Design-License: MIT.
-      Copyright 2016 Jordon Bedwell.
-      Source: https://github.com/envygeeks/envygeeks.io
-      Content-License: Reserved.
-    -->
-
     <title>{{ site.title }}</title>
     <link rel="canonical" href="{{ page | canonical_url }}">
     <meta name="generator" content="Jekyll {{ jekyll.version }}">
@@ -33,7 +25,10 @@
                 <li>
                   <a
                       href="{{ page.url | append:site.baseurl | pretty }}"
-                      {% if page.nav.class %}class="{{ page.nav.class }}"{% endif %}>
+                      {% if page.nav.class %}
+                        class="{{ page.nav.class }}"
+                      {% endif %}
+                    >
 
                     {{
                       page.nav.title
@@ -82,68 +77,17 @@
 
       <main>
         {% if page.main %}
-          {{
-            content
-          }}
+          {{ content }}
 
         {% else %}
           {% if page.type != "tag" %}
-            <article class="page {{ page.type }}">
-              <header>
-                <h1>
-                  {{
-                    page.title | markdownify_title
-                  }}
-                </h1>
-              </header>
-
-              <div>
-                {{
-                  content
-                }}
-              </div>
-
-              {% if page.type == "post" %}
-                {% assign post = page %}
-                {% include article/_post_footer.html %}
-              {% endif %}
-            </article>
+            {% include
+              _article.html
+            %}
           {% else %}
-            <div class="tag archives">
-              <header>
-                <h1>
-                  {{
-                    page.title
-                  }}
-                </h1>
-              </header>
-
-              {% assign tags = site.tags[page.tag] | waterfall %}
-              {% for post in tags %}
-                <article>
-                  <header>
-                    <h1>
-                      <i class="fa fa-archive" aria-hidden="true">
-                        <!-- EMPTY -->
-                      </i>
-
-                      <a href="{{ post.url | pretty }}">
-                        {{
-                          post.title | markdownify_title
-                        }}
-                      </a>
-                    </h1>
-                  </header>
-                  <footer>
-                    <time>
-                      {{
-                        post.date | fancy_time
-                      }}
-                    </time>
-                  </footer>
-                </article>
-              {% endfor %}
-            </div>
+            {% include
+              _tags.html
+            %}
           {% endif %}
         {% endif %}
       </main>

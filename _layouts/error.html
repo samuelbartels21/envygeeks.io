@@ -1,14 +1,6 @@
 <!DOCTYPE html>
 <html>
   <head>
-
-    <!--
-      Design-License: MIT.
-      Copyright 2016 Jordon Bedwell.
-      Source: https://github.com/envygeeks/envygeeks.io
-      Content-License: Reserved.
-    -->
-
     <title>{{ page.title }}</title>
     <base href="https://envygeeks.io">
     {{ 'css:bundle.css css:fonts.css "js:bundle.js async:true"' | jekyll_asset_multi }}
@@ -21,10 +13,16 @@
         <div class="error">
           <h1>{{ page.title }}</h1>
           {{ content }}
-          <p><a href="#" id="home">Return Home</a></p>
+
+          <p>
+            <a href="#" id="home">
+              Return Home
+            </a>
+          </p>
+
           <script type="text/javascript">
-            // Defeats the base that we use across hosts so we can have generic error pages.
-            document.querySelector("#home").href = window.location.protocol + "//" +
+            document.querySelector("#home").href =
+              window.location.protocol + "//" +
               window.location.host
           </script>
         </div>
