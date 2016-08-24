@@ -10,7 +10,7 @@ layout: null
   http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
 
   {% for page in site.pages %}
-    {% unless page.url == "/sitemap.xml" %}
+    {% unless page.url == "/sitemap.xml" or page.url contains "/errors/" %}
       {% capture frequency %}
         {% if page.url == "/" %}
           daily {% else %} weekly
