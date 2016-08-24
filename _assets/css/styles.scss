@@ -24,7 +24,7 @@ code,
 p.code-file,
 p.code-header,
 p.file {
-  font-family: "Monaco", "Menlo", "Consolas", monospace;
+  font-family: "Inconsolata", "Monaco", "Menlo", "Consolas", monospace;
   font-size: 1rem;
 }
 
@@ -478,10 +478,15 @@ a {
 // that I wish without affecting the main part of my site.
 // --
 
-.hljs {
+.hljs, .well {
   border: none;
   background: rgb(247, 247, 247);
   font-size: 1rem;
+}
+
+.well {
+  padding: 1rem;
+  text-align: center;
 }
 
 // ---
