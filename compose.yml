@@ -62,6 +62,9 @@ clean:
 # --
 build:
   <<: *def
+  environment:
+    JEKYLL_ENV: development
+    BUNDLE_CACHE: 1
   command: "\
     chpst -u jekyll sh -c '\
       rm -rf _site;\
