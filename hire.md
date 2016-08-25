@@ -122,7 +122,7 @@ can opt to do it yourself to learn a bit more about Jekyll***
     </ul>
 
     <p class="price">
-      $40/ticket
+      $20/ticket
     </p>
   </div>
 
@@ -135,7 +135,7 @@ can opt to do it yourself to learn a bit more about Jekyll***
     </ul>
 
     <p class="price">
-      $80/ticket
+      $40/ticket
     </p>
   </div>
 </div>
