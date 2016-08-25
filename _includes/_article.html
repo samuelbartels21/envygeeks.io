@@ -1,4 +1,5 @@
 <article class="page {{ page.type }}">
+  {% if page.title %}
   <header>
     <h1>
       {{ page.title |
@@ -6,6 +7,7 @@
       }}
     </h1>
   </header>
+  {% endif %}
 
   <div id="content">
     {{ content }}
