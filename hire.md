@@ -1,15 +1,8 @@
 ---
-title: Hire Me
 nav:
   title: Hire Me
   class: flare
 ---
-
-I offer programming services, both custom and those with pre-determined
-pricing, and hourage, or by problem. All of my programming is done between
-2:00PM and 8:00PM Monday-Friday. E-Mails and questions are handled all
-day, regardless of day, if I am available and can answer timely. Please
-e-mail if you would like to hire me.
 
 ## Custom Programming
 
@@ -144,3 +137,33 @@ can opt to do it yourself to learn a bit more about Jekyll***
 me upon payment and a pull-request made as soon as possible, with you being
 pinged so that you can test it locally as well.  It would be preferable you
 are able to replicate it or show me how to replicate it so I can debug it.***
+
+## Software Auditing
+
+<div class="pricebox">
+  <div>
+    <h3>Ruby Security</h3>
+    <ul>
+      <li>Takes 1-2 weeks</li>
+      <li>Examples if applicable</li>
+      <li>Audit Report</li>
+    </ul>
+
+    <p class="price">
+      $40/hour<br />$240 (6/h) down
+    </p>
+  </div>
+
+  <div>
+    <h3>Ruby Performance</h3>
+    <ul>
+      <li>Takes 1-2 weeks</li>
+      <li>Examples and cases</li>
+      <li>Explanations</li>
+    </ul>
+
+    <p class="price">
+      $40/hour<br />$120 (3/h) down
+    </p>
+  </div>
+</div>
