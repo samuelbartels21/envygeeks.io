@@ -11,7 +11,7 @@ layout: null
   <updated>{{ site.time | date_to_xmlschema }}</updated>
   <id>{{ url_base | xml_escape }}/</id>
 
-  {% for post in site.posts limit: 10 %}
+  {% for post in site.posts limit:4 %}
   {% unless post.draft %}
     <entry{% if post.lang %} xml:lang="{{ post.lang }}"{% endif %}>
       <title>{{ post.title | smartify | strip_html | replace: '\n', ' ' | strip | xml_escape }}</title>
