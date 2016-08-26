@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>{{ site.title }}</title>
+    <title>{{ site.title }}{% if page.title %} - {{ page.title }}{% endif %}</title>
     <link rel="canonical" href="{{ page | canonical_url }}">
     <meta name="generator" content="Jekyll {{ jekyll.version }}">
     <link rel="alternate" type="application/rss+xml" title="{{ site.title }}" href="{{ site.base_domain }}/feed.xml" />
