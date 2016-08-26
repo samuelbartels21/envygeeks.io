@@ -7,6 +7,12 @@
     <link rel="alternate" type="application/rss+xml" title="{{ site.title }}" href="{{ site.base_domain }}/feed.xml" />
     {{ 'css:bundle.css css:fonts.css "js:bundle.js async:true"' | jekyll_asset_multi }}
     <meta charset="UTF-8">
+
+    {% if page.type == "post" %}
+      {% include
+        _schema.html
+      %}
+    {% endif %}
   </head>
 
   <body id="envygeeks">
