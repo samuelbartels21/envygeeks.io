@@ -1,5 +1,9 @@
 ---
 title: Jekyll, Docker, Docker-Compose, and Git Deployment
+tags:
+  - jekyll
+  - docker-compose
+  - docker
 ---
 
 So, lets assume you've your own server and you've all the extra capacity in

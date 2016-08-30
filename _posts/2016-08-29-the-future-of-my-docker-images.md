@@ -1,5 +1,7 @@
 ---
 title: The Future of My Docker Images
+tags:
+  - docker
 ---
 
 This post is going to be as brief as I can.  I hope it will be at least...
