@@ -19,7 +19,7 @@ am happy to finally rid of runnit.  Not that I think it's bad, actually I
 love it, I just think it was like having a pneumatic nail-gun to drive a
 2d (*1"*) nail.
 
-{% img giphy/crying-2WxWfiavndgcM.gif
+{% img giphy/2WxWfiavndgcM.gif
   width:100% height:auto
 %}
 
@@ -37,7 +37,7 @@ will shift out into the background through a setup script.  It will now become
 a single process image that just gets stuff done, rather than having runnit
 to run a service image.
 
-{% img giphy/doctor-who-matt-smith-MSS0COPq80x68.gif
+{% img giphy/MSS0COPq80x68.gif
   width:100% height:auto
 %}
 
@@ -52,6 +52,6 @@ these changes and daily more images with changes will continue to roll out.
 Some might argue that it will disrupt them, and it will, but I'll argue that
 I need to make these changes sometime, and now is as good as any.
 
-{% img giphy/im-sorry-BiWvaZsaYZXoI.gif
+{% img giphy/BiWvaZsaYZXoI.gif
   width:100% height:auto
 %}
