@@ -1,36 +1,27 @@
 body {
-  font-size: 16px;
-  margin: 2rem 0 8rem;
+  margin: 2vh 0;
+  font-size: 2.4vh;
   font-family: "Merriweather";
-  font-weight: 300;
+  line-height: 2rem;
   color: #40586e;
+  font-weight: 300;
 }
 
-@media (max-width: 1024px) {
-  body {
-    font-size: 21px;
-  }
-}
-
-//--
 b,
 strong {
   font-weight: bold;
 }
 
-//--
 pre,
 code,
 p.code-file,
 p.code-header,
 p.file {
   font-family: "Inconsolata", "Monaco", "Menlo", "Consolas", monospace;
-  font-size: 1rem;
 }
 
-// --
 .wrapper {
-  max-width: 776px;
+  max-width: 60vw;
   flex-direction: row;
   justify-content: center;
   flex-flow: row wrap;
@@ -38,29 +29,37 @@ p.file {
   display: flex;
 }
 
-//--
+@media (max-width: 1024px) {
+  .wrapper {
+    max-width: 88vw;
+  }
+}
+
+h1 { font-size: 3vw; }
+h2 { font-size: 2vw; }
+
 h1, h2,
 h3, h4,
 h5, h6 {
   font-family: "Raleway";
-  * { font-size: inherit; }
-}
 
-// --
+  * {
+    font-size: inherit;
+  }
+}
 
 hr {
   border: none;
-  margin: 4rem 0;
+  margin: 2vh 0;
   border-bottom: 1px solid rgb(
     240, 240, 240
   );
 }
 
-// --
 header {
   color: #333;
-  font-size: 1.2rem;
   text-align: center;
+  font-size: 1.1rem;
   width: 100%;
   border-bottom: 1px solid rgb(
     240, 240, 240
@@ -109,7 +108,6 @@ header {
   }
 }
 
-// --
 .social {
   font-size: 2rem;
   margin: 2rem 0;
@@ -119,7 +117,6 @@ header {
   }
 }
 
-// --
 main {
   width: 100%;
 
@@ -248,25 +245,25 @@ main {
 
     p {
       margin: 1rem 0 2rem 0;
-      line-height: 2.2rem;
+      // line-height: 2.2rem;
 
       &:first-child {
         margin-top: 1rem;
       }
     }
 
-    ul,
-    ol {
-      li {
-        line-height: 2.2rem;
-      }
-    }
+    // ul,
+    // ol {
+    //   li {
+    //     line-height: 2.2rem;
+    //   }
+    // }
 
-    @media (max-width: 1024px) {
-      p {
-        line-height: 2.8rem;
-      }
-    }
+    // @media (max-width: 1024px) {
+    //   p {
+    //     line-height: 2.8rem;
+    //   }
+    // }
 
     ol,
     ul {
@@ -348,7 +345,7 @@ a {
 .archives {
   ul.tags {
     flex-wrap: wrap;
-    line-height: 1.6rem;
+    // line-height: 1.6rem;
     font-family: "Raleway";
     justify-content: center;
     margin: 4rem 0 6rem 0;
@@ -357,7 +354,7 @@ a {
 
     li {
       margin-right: 1rem;
-      line-height: 1.6em;
+      // line-height: 1.6em;
 
       &.weight-1 {
         a {
@@ -470,55 +467,4 @@ a {
   text-align: center;
   font-family: Raleway;
   width: 100%;
-}
-
-// --
-// Highlight.js overrides, these come from Github.CSS but that is a vendor
-// file so I would prefer not to override it there so I can update it any time
-// that I wish without affecting the main part of my site.
-// --
-
-.hljs, .well {
-  border: none;
-  background: rgb(247, 247, 247);
-  font-size: 1rem;
-}
-
-.well {
-  padding: 1rem;
-  text-align: center;
-}
-
-// ---
-
-.pricebox {
-  display: flex;
-  border: 1px solid #ccc;
-  width: 100%;
-
-  > h2 {
-    flex: 1 1 100%;
-  }
-
-  > div {
-    flex: 1 1 50%;
-    align-items: flex-start;
-    flex-direction: column;
-    display: flex;
-    padding: 1rem;
-
-    h3 {
-      margin: 0;
-      display: inline-block;
-      text-align: center;
-      width: 100%;
-    }
-
-    .price, .slots {
-      text-align: center;
-      font-family: "Raleway";
-      font-size: 2rem;
-      width: 100%;
-    }
-  }
 }

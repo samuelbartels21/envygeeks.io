@@ -1,0 +1,42 @@
+.hljs, .well {
+  border: none;
+  background: rgb(247, 247, 247);
+  font-size: 1rem;
+}
+
+.well {
+  padding: 1rem;
+  text-align: center;
+}
+
+.pricebox {
+  display: flex;
+  border: 1px solid #ccc;
+  width: 100%;
+
+  > h2 {
+    flex: 1 1 100%;
+  }
+
+  > div {
+    flex: 1 1 50%;
+    align-items: flex-start;
+    flex-direction: column;
+    display: flex;
+    padding: 1rem;
+
+    h3 {
+      margin: 0;
+      display: inline-block;
+      text-align: center;
+      width: 100%;
+    }
+
+    .price, .slots {
+      text-align: center;
+      font-family: "Raleway";
+      font-size: 2rem;
+      width: 100%;
+    }
+  }
+}
