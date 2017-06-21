@@ -3,7 +3,6 @@ gem "jekyll"
 gem "uglifier"
 gem "nokogiri"
 gem "gemoji"
-gem "rake"
 gem "pry"
 
 # --
