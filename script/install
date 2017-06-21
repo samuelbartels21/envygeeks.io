@@ -1,0 +1,9 @@
+#!/bin/bash -l
+[ "$DEBUG" ] && set -x
+. script/base/env
+set -e
+
+docker pull jekyll/jekyll >/dev/null 2>&1
+docker-compose --file=compose.yml run install
+docker system prune -f
+script/clean

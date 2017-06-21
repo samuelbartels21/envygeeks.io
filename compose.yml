@@ -1,101 +1,90 @@
 # --
 # When you plan to develop the site.
-# CMDS: docker-compose -f docker/compose.yml up/run command.
+# CMDS: docker-compose -f compose.yml up/run command.
 # NOTE: This is inherited by most of the stuff around here.
 #   Except for production.
 # --
-development: &def
+dev: &def
   image: jekyll/jekyll
-  restart: never
-  environment:
-    SILENCE_BUNDLER: 1
+  environment: &env
+    BUNDLE_CACHE: "true"
     JEKYLL_ENV: development
-    BUNDLE_CACHE: 1
+    JEKYLL_DEBUG: "false"
+    CI: $CI
   volumes:
-    - .:/srv/jekyll
+    - $PWD:/srv/jekyll
   ports:
     - 4000:4000
+    - 3000:4000
   command: "\
-    chpst -u jekyll sh -c '\
+    bash -lc '\
       rm -rf _site;\
       rm -rf .asset-cache;\
-      bundle exec jekyll serve --watch \\\
-        --drafts -H 0.0.0.0 --trace
+      jekyll serve --watch \\\
+        --drafts --trace
     '\
   "
-
 # --
 # Production build.
 # This is used in our deploy scripts.
 # --
-production-build:
+build:
   <<: *def
   environment:
-    SILENCE_BUNDLER: 1
+    <<: *env
     JEKYLL_ENV: production
-    BUNDLE_CACHE: 1
   command: "\
-    chpst -u jekyll sh -c '\
-      rm -rf _site;\
-      rm -rf .asset-cache;\
-      bundle exec jekyll build \\\
+    bash -lc '\
+      rm -rf _site; \
+      rm -rf .asset-cache; \
+      jekyll build \\\
         --trace\
     '\
   "
-
 # --
 # So you can clean up the source.
 # --
 clean:
   <<: *def
-  command: "\
-    chpst -u jekyll sh -c '\
-      bundle clean;\
-      bundle exec jekyll clean;\
-      rm -rf .asset-cache\
-      rm -rf _site\
-    '\
-  "
-
-# --
-# Simply just build the source.
-# --
-build:
-  <<: *def
   environment:
-    JEKYLL_ENV: development
-    BUNDLE_CACHE: 1
+    CONNECTED: "false"
+    <<: *env
   command: "\
-    chpst -u jekyll sh -c '\
-      rm -rf _site;\
+    bash -lc '\
+      jekyll clean;\
       rm -rf .asset-cache;\
-      bundle exec jekyll build \\\
-         --trace\
+      depends clean;\
     '\
   "
-
+# --
+# Install the Gems.
+# --
+install:
+  <<: *def
+  command: "\
+    bash -lc '\
+      depends install;\
+      depends clean;\
+    '\
+  "
 # --
 # Update the Gems.
 # --
 update:
   <<: *def
   command: "\
-    chpst -u jekyll sh -c '\
-      bundle update >/dev/null;\
-      bundle clean\
+    bash -lc '\
+      depends update;\
+      depends clean;\
     '\
   "
-
 # --
 # Test the site.
 # --
 test:
   <<: *def
   command: "\
-    chpst -u jekyll sh -c '\
-    rm -rf .asset-cache;\
-      bundle exec jekyll clean;\
-      bundle exec jekyll build; \
-      bundle exec htmlproofer site\
+    bash -lc '\
+      bundle exec htmlproofer site;\
     '\
   "
