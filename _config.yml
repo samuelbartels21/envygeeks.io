@@ -1,107 +1,67 @@
+tz: America/Chicago
+hostname: envygeeks.io
 secondary_sub_title: Systems and Programming
 sub_title: I do it wrong so you can learn a new way to do it right.
-base_domain: https://envygeeks.io
 timezone: America/Chicago
 title: Jordon Bedwell
 markdown: kramdown
-tz: America/Chicago
-
-# --
-# If your assets don't show up disable this, Firefox sometimes
-# has trouble using this feature, for reasons unknown to me, it
-# will trip up nad start rejecting assets.
-# --
-
 assets:
   features:
     integrity: true
-
-# --
-# This theme comes with Highlight.js instead of Rouge or
-# Pygments, so I can speed up builds since this is a dev blog
-# that undergoes lots of development.
-# --
-
 kramdown:
   auto_ids: true
   syntax_highlighter_opts:
     disable: true
-
-# --
-# This applies to the ArchivesDrop (aka "archives" in your
-# Liquid) files, this allows you to adjust some stuff and make
-# it a bit cleaner or tailored towards your tastes.
-# --
-
 archive:
   shuffle: 6
   weights:
     max: 3.0
     int: 2.0
-
-# --
-# If you use Github Pages then you can certainly use the
-# Github-Metadata theme provided by Jekyll itself, but since
-# I host my own stuff with Docker and my own servers, I use
-# this method to do all that.
-# --
-
 repo:
-  allow_pulls: true
+  github: envygeeks/envygeeks.io
   web: https://github.com/envygeeks/envygeeks.io
   git: git@github.com:envygeeks/envygeeks.io
-
-# --
-
+  allow_pulls: true
 social:
   github:  https://github.com/envygeeks
   twitter: https://twitter.com/envygeeks
-  envelope: mailto:jordon@envygeeks.io
-
-# --
-
+  email: mailto:jordon@envygeeks.io
 exclude:
-  - nginx/
-  - vendor/
-  - _idea/
+- nginx/
+- vendor/
+- _idea/
+- Gemfile
+- Readme.md
+- Dockerfile
+- Gemfile.lock
+- post-receive
+- compose.yml
+- nginx.conf
+- Rakefile
 
-  - Gemfile
-  - Readme.md
-  - Dockerfile
-  - Gemfile.lock
-  - post-receive
-  - compose.yml
-  - nginx.conf
-  - Rakefile
-
-  - .gitignore
-  - .asset-cache/
-  - .jekyll-metadata/
-  - .gitattributes
-  - .sass-cache/
-  - .bundle/
-  - .git
-
-# --
-
+- .gitignore
+- .asset-cache/
+- .jekyll-metadata/
+- .gitattributes
+- .sass-cache/
+- .bundle/
+- .git
 defaults:
-  - scope:
-      type: pages
-      path: ""
-
-    values:
-      layout: default
-      type: page
-
-  # --
-
-  - scope:
-      type: posts
-      path: ""
-
-    values:
-      layout: default
-      type: post
-      author:
-        handle: envygeeks
-        name: Jordon Bedwell
+- scope:
+    type: pages
+    path: ""
+  values:
+    layout: default
+    type: page
+- scope:
+    type: posts
+    path: ""
+  values:
+    layout: default
+    type: post
+    author:
+      handle: envygeeks
+      name: Jordon Bedwell
+dev:
+  domain: localhost
+  port: 4000
