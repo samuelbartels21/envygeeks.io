@@ -3,6 +3,7 @@
 # Encoding: UTF-8
 
 require "nokogiri"
+require "jekyll/assets"
 require "gemoji"
 
 module Jekyll
