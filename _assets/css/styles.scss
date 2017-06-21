@@ -1,11 +1,30 @@
 body {
   margin: 2vh 0;
-  font-size: 1.23vw;
   font-family: "Merriweather";
   line-height: 3vw;
   color: #40586e;
   font-weight: 300;
 }
+
+// 1024
+// 1280
+// 1152
+// 1360
+// 1440
+// 1680
+// 1792
+// 1856
+// 1920
+// 2048
+// 3200
+
+@media (max-width: 1024px) { body { font-size: 1.4vw; }}
+@media (max-width: 1280px) and (min-width: 1024px) { body { font-size: 1.3vw; }}
+@media (max-width: 1360px) and (min-width: 1280px) { body { font-size: 1.2vw; }}
+@media (max-width: 1440px) and (min-width: 1360px) { body { font-size: 1.1vw; }}
+@media (max-width: 1680px) and (min-width: 1440px) {
+  body { font-size: 1.0vw;
+}}
 
 b,
 strong {
@@ -35,8 +54,11 @@ p.file {
   }
 }
 
-h1 { font-size: 3vw; }
-h2 { font-size: 2vw; }
+h1 { font-size: 3rem; }
+h2 { font-size: 2rem; }
+h3, h4, h5, h6 {
+  font-size: 1rem;
+}
 
 h1, h2,
 h3, h4,
