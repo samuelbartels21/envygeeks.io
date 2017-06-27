@@ -11,6 +11,13 @@ body {
   color: #40586e;
 }
 
+@media (max-width: 1030px) {
+  body {
+    font-size: 2rem;
+    line-height: 2.7rem;
+  }
+}
+
 b,
 strong {
   font-weight: bold;
