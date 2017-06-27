@@ -3,51 +3,24 @@
 
 @font-face {
   font-style: normal;
-  font-family: "Roboto Slab";
-  font-weight: 400;
+  font-family: "Roboto";
+  font-weight: 300;
 
-  src: local("Roboto Slab Regular"), local("RobotoSlab-Regular"), local("Roboto-Slab-Regular"),
-    font_url("roboto-slab.ttf") format(
-      "truetype"
-    ),
-
-    font_url("roboto-slab.woff2") format(
+  src: local("Roboto Light"), local("RobotoLight"), local("Roboto-Light"),
+    font_url("roboto-v16-latin-300.woff")  format("woff"),
+    font_url("roboto-v16-latin-300.woff2") format(
       "woff2"
     );
 }
 
-// --
 @font-face {
   font-style: normal;
-  font-family: "Raleway";
-  font-weight: 300;
+  font-family: "Quicksand";
+  font-weight: 700;
 
-  src: local("Raleway"),
-    font_url("raleway.ttf") format(
-      "truetype"
-    ),
-
-    font_url("raleway.woff2") format(
-      "woff2"
-    );
-}
-
-// --
-// Some of the Woff2 fonts have trouble with their weights,
-// so I stick to using the TTF for now until that issue can be
-// resolved upstream.
-// --
-@font-face {
-  font-style: normal;
-  font-family: "Merriweather";
-  font-weight: 300;
-
-  src: local("Merriweather"),
-    font_url("merriweather.ttf") format(
-      "truetype"
-    ),
-
-    font_url("merriweather.woff2") format(
+  src: local("Quicksand Bold"), local("QuicksandBold"), local("Quicksand-Bold"),
+    font_url("quicksand-v6-latin-700.woff")  format("woff"),
+    font_url("quicksand-v6-latin-700.woff2") format(
       "woff2"
     );
 }
