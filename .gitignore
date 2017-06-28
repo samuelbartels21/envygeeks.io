@@ -1,8 +1,7 @@
 /vendor
-/_drafts
-/.sass-cache
-/.jekyll-metadata
-/.asset-cache
+/source/.sass-cache
+/source/.jekyll-metadata
+/source/.asset-cache
+/source/_drafts
 /.bundle
-/_site
-/_idea
+/site
