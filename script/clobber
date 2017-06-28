@@ -1,0 +1,6 @@
+#!/bin/bash -l
+[ "$DEBUG" ] && set -x
+. script/base/env
+set -e
+
+docker-compose run clobber

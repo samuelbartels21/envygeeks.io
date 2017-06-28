@@ -13,14 +13,13 @@ dev: &def
     CI: $CI
   volumes:
     - $PWD:/srv/jekyll
+    - /home/jordon/development/jekyll/jekyll-assets:/opt/jekyll/assets
   ports:
     - 4000:4000
     - 35729:35729
     - 3000:4000
   command: "\
     bash -lc '\
-      rm -rf _site;\
-      rm -rf .asset-cache;\
       jekyll serve --watch --livereload \\\
         --drafts --trace
     '\
@@ -36,8 +35,6 @@ build:
     JEKYLL_ENV: production
   command: "\
     bash -lc '\
-      rm -rf _site; \
-      rm -rf .asset-cache; \
       jekyll build \\\
         --trace\
     '\
@@ -52,9 +49,27 @@ clean:
     <<: *env
   command: "\
     bash -lc '\
-      jekyll clean;\
       rm -rf .asset-cache;\
+      jekyll clean > /dev/null 2>&1;\
       depends clean;\
+    '\
+  "
+# --
+# Clobber and cleanup everything.
+# --
+clobber:
+  <<: *def
+  environment:
+    CONNECTED: "false"
+    <<: *env
+  command: "\
+    bash -lc '\
+      rm -rf .bundle
+      rm -rf .asset-cache;\
+      jekyll clean > /dev/null 2>&1;
+      rm -rf Gemfile.lock
+      rm -rf vendor/
+      depends clean
     '\
   "
 # --
