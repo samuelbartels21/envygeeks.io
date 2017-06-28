@@ -15,12 +15,13 @@ dev: &def
     - $PWD:/srv/jekyll
   ports:
     - 4000:4000
+    - 35729:35729
     - 3000:4000
   command: "\
     bash -lc '\
       rm -rf _site;\
       rm -rf .asset-cache;\
-      jekyll serve --watch \\\
+      jekyll serve --watch --livereload \\\
         --drafts --trace
     '\
   "
