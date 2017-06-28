@@ -13,7 +13,6 @@ dev: &def
     CI: $CI
   volumes:
     - $PWD:/srv/jekyll
-    - /home/jordon/development/jekyll/jekyll-assets:/opt/jekyll/assets
   ports:
     - 4000:4000
     - 35729:35729
@@ -49,7 +48,7 @@ clean:
     <<: *env
   command: "\
     bash -lc '\
-      rm -rf .asset-cache;\
+      rm -rf source/.asset-cache;\
       jekyll clean > /dev/null 2>&1;\
       depends clean;\
     '\
@@ -65,7 +64,7 @@ clobber:
   command: "\
     bash -lc '\
       rm -rf .bundle
-      rm -rf .asset-cache;\
+      rm -rf source/.asset-cache;\
       jekyll clean > /dev/null 2>&1;
       rm -rf Gemfile.lock
       rm -rf vendor/
