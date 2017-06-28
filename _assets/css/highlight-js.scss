@@ -1,4 +1,5 @@
-.hljs, .well {
+.hljs,
+.well {
   border: none;
   background: rgb(247, 247, 247);
   font-size: 1rem;
@@ -9,6 +10,10 @@
   text-align: center;
 }
 
+// --
+// Wat? Why is this here?
+// TODO: Remove this.
+// --
 .pricebox {
   display: flex;
   border: 1px solid #ccc;
