@@ -88,3 +88,13 @@ test:
       bundle exec htmlproofer site;\
     '\
   "
+# --
+# Check outdated stuff.
+# --
+outdated:
+  <<: *def
+  command: "\
+    bash -lc '\
+      bundle outdated
+    '\
+  "
