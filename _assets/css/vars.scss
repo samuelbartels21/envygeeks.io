@@ -1,3 +1,12 @@
-$fontOne: "Roboto";
-$codeFont: "Inconsolata", "Monaco", "Menlo", "Consolas", monospace;
-$fontTwo: "Quicksand";
+$font-one: "Roboto";
+$code-font: "Inconsolata", "Monaco", "Menlo", "Consolas", monospace;
+$font-two: "Quicksand";
+
+$body-line-height: 1.9rem;
+$scale-small-screen-portrait-by: 0.5rem;
+$scale-small-screen-by: 2rem;
+$body-font-size: 1.1rem;
+
+$h1: 3rem;
+$h-others: $body-font-size;
+$h2: 2rem;

@@ -2,10 +2,9 @@
 
 body {
   margin: 2vh 0;
-  font-size: 1.1rem;
-  font-family: $fontOne;
-  line-height: 1.9rem;
-  font-weight: 300;
+  font-size: $body-font-size;
+  line-height: $body-line-height;
+  font-family: $font-one;
   color: #40586e;
 }
 
@@ -19,7 +18,7 @@ code,
 p.code-file,
 p.code-header,
 p.file {
-  font-family: $codeFont;
+  font-family: $code-font;
 }
 
 .wrapper {
@@ -31,16 +30,16 @@ p.file {
   display: flex;
 }
 
-h1 { font-size: 3rem; }
-h2 { font-size: 2rem; }
+h1 { font-size: $h1; }
+h2 { font-size: $h2; }
 h3, h4, h5, h6 {
-  font-size: 2rem;
+  font-size: $h-others;
 }
 
 h1, h2,
 h3, h4,
 h5, h6 {
-  font-family: $fontTwo;
+  font-family: $font-two;
 
   * {
     font-size: inherit;
@@ -99,7 +98,7 @@ header {
   }
 
   nav {
-    font-family: $fontTwo;
+    font-family: $font-two;
     border-bottom: 1px solid rgb(
       240, 240, 240
     );
