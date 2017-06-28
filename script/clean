@@ -3,5 +3,4 @@
 . script/base/env
 set -e
 
-docker-compose --file=compose.yml \
-  run clean
+docker-compose run clean

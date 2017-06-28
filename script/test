@@ -3,8 +3,6 @@
 . script/base/env
 set -e
 
-script/clean >/dev/null 2>&1
+script/clean
 script/build
-
-docker-compose --file=compose.yml \
-  run test
+docker-compose run test

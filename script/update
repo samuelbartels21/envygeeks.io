@@ -4,6 +4,6 @@
 set -e
 
 docker pull jekyll/jekyll
-docker-compose --file=compose.yml run update
+docker-compose run update
 docker system prune -f
 script/clean
