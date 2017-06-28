@@ -22,7 +22,7 @@ p.file {
 }
 
 .wrapper {
-  max-width: 60vw;
+  max-width: 56vw;
   flex-direction: row;
   justify-content: center;
   flex-flow: row wrap;
@@ -67,12 +67,6 @@ header {
     font-size: 3rem;
   }
 
-  @media (max-width: 1024px) and (orientation: portrait) {
-    h1 {
-      font-size: 4rem;
-    }
-  }
-
   a {
     color: inherit;
     text-decoration: none;
@@ -89,12 +83,6 @@ header {
     color: rgba(
       149, 165, 166, 0.4
     );
-  }
-
-  @media (max-width: 1024px) {
-    .sub-title {
-      display: none;
-    }
   }
 
   nav {
@@ -115,12 +103,6 @@ header {
           display: block;
           padding: 1vw;
         }
-
-        @media (max-width: 1024px) and (orientation: portrait) {
-          a {
-            padding: 1.4vw;
-          }
-        }
       }
     }
   }
@@ -132,12 +114,6 @@ header {
 
   a {
     display: inline-block;
-  }
-}
-
-@media (max-width: 1024px) and (orientation: portrait) {
-  .social {
-    font-size: 6rem;
   }
 }
 
@@ -198,11 +174,6 @@ main {
       }
     }
 
-    // --
-    // Since Chrome trips out on ultra thin REM we need to do pixels here,
-    // to enforce the font size that we want displayed for this text.
-    // --
-
     footer {
       display: flex;
       color: rgb(149, 165, 166);
@@ -261,12 +232,6 @@ main {
           width: 4rem;
           border-radius: 4rem;
           height: 4rem;
-        }
-      }
-
-      @media (max-width: 1024px) {
-        .avatar {
-          display: none;
         }
       }
     }
@@ -364,7 +329,7 @@ a {
 
     li {
       margin-right: 1rem;
-      // line-height: 1.6em;
+      line-height: 1.6em;
 
       &.weight-1 {
         a {

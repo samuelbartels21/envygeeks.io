@@ -8,4 +8,20 @@
   .wrapper {
     max-width: 88vw;
   }
+
+  header {
+    .sub-title {
+      display: none;
+    }
+  }
+
+  main {
+    article {
+      footer {
+        .avatar {
+          display: none;
+        }
+      }
+    }
+  }
 }

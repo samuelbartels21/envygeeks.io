@@ -1,8 +1,10 @@
+source: ./source
 tz: America/Chicago
 hostname: envygeeks.io
 sub_title: Systems and Programming
 timezone: America/Chicago
 title: Jordon Bedwell
+destination: ./site
 markdown: kramdown
 assets:
   features:
