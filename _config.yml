@@ -6,47 +6,58 @@ timezone: America/Chicago
 title: Jordon Bedwell
 destination: ./site
 markdown: kramdown
+# --
+# jekyll-assets
+# --
 assets:
   features:
     integrity: true
+# --
+# kramdown
+# --
 kramdown:
   auto_ids: true
   syntax_highlighter_opts:
     disable: true
+# --
+# _plugins/archive
+# --
 archive:
   shuffle: 6
   weights:
     max: 3.0
     int: 2.0
+# --
+# editing
+# --
 repo:
   github: envygeeks/envygeeks.io
   web: https://github.com/envygeeks/envygeeks.io
   git: git@github.com:envygeeks/envygeeks.io
   allow_pulls: true
+# --
+# _plugins/social
+# --
 social:
   github:  https://github.com/envygeeks
   twitter: https://twitter.com/envygeeks
   email: mailto:jordon@envygeeks.io
+# --
+# jekyll
+# --
 exclude:
-- nginx/
 - vendor/
-- _idea/
 - Gemfile
 - Readme.md
-- Dockerfile
-- Gemfile.lock
-- post-receive
-- compose.yml
-- nginx.conf
-- Rakefile
-
 - .gitignore
-- .asset-cache/
-- .jekyll-metadata/
-- .gitattributes
-- .sass-cache/
+- docker-compose.yml
+- Gemfile.lock
+- Rakefile
 - .bundle/
 - .git
+# --
+# jekyll
+# --
 defaults:
 - scope:
     type: pages
@@ -63,6 +74,9 @@ defaults:
     author:
       handle: envygeeks
       name: Jordon Bedwell
+# --
+# development
+# --
 dev:
   domain: localhost
   port: 4000
