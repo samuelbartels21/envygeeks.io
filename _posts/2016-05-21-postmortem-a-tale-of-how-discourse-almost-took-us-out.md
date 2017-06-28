@@ -1,6 +1,6 @@
 ---
 title: "Postmortem: A tail of how Discourse almost took us out."
-categories:
+tags:
   - discourse
   - postmortem
   - jekyll
