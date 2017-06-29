@@ -1,12 +1,15 @@
-$font-one: "Roboto";
+$header-font: "Quicksand";
 $code-font: "Inconsolata", "Monaco", "Menlo", "Consolas", monospace;
-$font-two: "Quicksand";
+$fancy-font: "Quicksand";
+$body-font: "Roboto";
 
-$body-line-height: 1.9rem;
-$scale-small-screen-portrait-by: 0.5rem;
-$scale-small-screen-by: 2rem;
 $body-font-size: 1.1rem;
+$body-line-height: 1.9rem;
+$scale-1024w-by: 0.5rem;
+$scale-1024wp-by: 2rem;
 
-$h1: 3rem;
+$h1: 1.6rem;
 $h-others: $body-font-size;
-$h2: 2rem;
+$h2: 1.6rem;
+
+$site-title-size: 2.4rem;

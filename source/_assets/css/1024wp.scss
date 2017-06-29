@@ -1,8 +1,8 @@
-@media (max-width: 1024px) and (orientation: portrait) {
+@media (max-width: 1036px) and (orientation: portrait) {
   body {
-    font-size: $body-font-size + $scale-small-screen-portrait-by;
+    font-size: $body-font-size + $scale-1024wp-by;
     line-height: $body-line-height +
-      $scale-small-screen-portrait-by;
+      $scale-1024wp-by;
   }
 
   h1 { font-size: 6rem; }

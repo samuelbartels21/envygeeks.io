@@ -1,8 +1,8 @@
-@media (max-width: 1024px) {
+@media (max-width: 1036px) {
   body {
-    font-size: $body-font-size + $scale-small-screen-by;
+    font-size: $body-font-size + $scale-1024w-by;
     line-height: $body-line-height +
-      $scale-small-screen-by;
+      $scale-1024w-by;
   }
 
   .wrapper {
