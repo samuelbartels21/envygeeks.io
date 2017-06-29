@@ -25,8 +25,8 @@ kramdown:
 archive:
   shuffle: 6
   weights:
-    max: 2.0
-    int: 1.2
+    max: 3
+    int: 1
 # --
 # editing
 # --

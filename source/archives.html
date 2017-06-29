@@ -7,7 +7,7 @@ nav:
 <div class="archives">
   <ul class="tags">
     {% for tag in archive.weighted_tags %}
-    <li style="font-size: {{ tag.weight }}rem" class="weight-{{ tag.weight | floor }}">
+    <li style="font-size: {{ tag.weight }}em" class="weight-{{ tag.weight | floor }}">
       <a title="Tag: {{ tag }}" href="{{ tag.url | pretty }}">
         {{ tag }}
       </a>
@@ -16,7 +16,9 @@ nav:
   </ul>
 
   {% for post in archive.posts %}
-    {% assign ty = post.date | date: "%Y" %}{% unless year == ty %}{% assign year = ty %}
+    {% assign ty = post.date | date: "%Y" %}
+    {% unless year == ty %}
+      {% assign year = ty %}
       <h2>{{ year }}</h2>
     {% endunless %}
 
