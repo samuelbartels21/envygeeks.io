@@ -12,10 +12,7 @@
     <article>
       <header>
         <h1>
-          <i class="fa fa-archive" aria-hidden="true">
-            <!-- EMPTY -->
-          </i>
-
+          <i class="fa fa-archive" aria-hidden="true" />
           <a href="{{ post.url | pretty }}">
             {{
               post.title | markdownify_title
@@ -26,7 +23,7 @@
       <footer>
         <time>
           {{
-            post.date | fancy_time
+            post.date | archive_time
           }}
         </time>
       </footer>

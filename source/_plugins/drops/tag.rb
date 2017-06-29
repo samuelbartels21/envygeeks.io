@@ -2,32 +2,30 @@
 # Copyright 2016 Jordon Bedwell - MIT License
 # Encoding: UTF-8
 
-require_relative "tag_helpers"
+require_relative "../tag/helpers"
 
-class TagDrop < Liquid::Drop
-  extend Forwardable::Extended
-  attr_reader :weight
-  include TagHelpers
+module Drops
+  class Tag < Liquid::Drop
+    include ::Tag::Helpers
+    extend Forwardable::Extended
+    attr_reader :weight
 
-  def initialize(site:, tag:, weight: 0.0)
-    @tag = tag.to_s
-    @weight = weight.to_f
-    @site = site
+    def initialize(site:, tag:, weight: 0.0)
+      @tag = tag.to_s
+      @weight = weight.to_f
+      @site = site
+    end
+
+    def url
+      File.join(
+        *tag_path
+      )
+    end
+
+    rb_delegate :to_s, :to => :@tag
+    rb_delegate :inspect, :to => :@tag
+    rb_delegate :==, :to => :@tag
   end
-
-  # --
-
-  def url
-    File.join(
-      *tag_path
-    )
-  end
-
-  # --
-
-  rb_delegate :to_s, :to => :@tag
-  rb_delegate :inspect, :to => :@tag
-  rb_delegate :==, :to => :@tag
 end
 
 # --
@@ -39,7 +37,7 @@ end
 Jekyll::Hooks.register :site, :pre_render do |site, payload|
   site.posts.docs.each do |post|
     post.data["tag_drops"] = post.data["tags"].map do |tag|
-      TagDrop.new({
+      Drops::Tag.new({
         :tag => tag, :site => site
       })
     end

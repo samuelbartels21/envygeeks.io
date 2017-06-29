@@ -14,9 +14,10 @@ module Jekyll
   # Gemoji for Jekyll Assets
   # --
   class Emoji
-    IMG1 = %q{<img src="%s" alt="%s" width="20" height="20" align="absmiddle">}
-    IMG2 = %q{<img src="%s" integrity="%s" alt="%s" width="20" height="20" align="absmiddle">}
     IGNORED = %w(pre code tt).freeze
+    BASEATTR = %{src="%s" alt="%s" width="20" height="20" align="absmiddle"}
+    IMG2 = %Q{<img #{BASEATTR} integrity="%s">}
+    IMG1 = %Q{<img #{BASEATTR}>}
 
     # --
     # Initialize a new instance.
@@ -86,8 +87,9 @@ module Jekyll
     # --
     private
     def img_tag(data)
-      image = @doc.site.sprockets.manifest.find(::Emoji.find_by_alias(data).image_filename
-        .prepend("emoji/")).first
+      image = @doc.site.sprockets.manifest.find(::Emoji.\
+        find_by_alias(data).image_filename.\
+        prepend("emoji/")).first
 
       if image
         @doc.site.sprockets.manifest.used << image
