@@ -5,13 +5,18 @@
       $scale-1024wp-by;
   }
 
-  h1 { font-size: 6rem; }
-  h2 { font-size: 5rem; }
+  h1 { font-size: $h1 + $scale-1024wp-by; }
+  h2 { font-size: $h2 + $scale-1024wp-by; }
   h3, h4, h5, h6 {
-    font-size: 4rem;
+    font-size: $h-others + $scale-1024wp-by;
   }
 
-  header {
+  .site-header {
+    h1 {
+      font-size: $site-title-size +
+        $scale-1024wp-by;
+    }
+
     nav {
       ul {
         li {
