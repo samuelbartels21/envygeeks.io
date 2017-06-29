@@ -24,4 +24,22 @@
       }
     }
   }
+
+  .archives {
+    .tags {
+      display: none !important;
+    }
+
+    article {
+      header {
+        h1 {
+          width: 72vw;
+          white-space: nowrap;
+          text-overflow: clip-word;
+          margin-right: 2vw;
+          overflow: hidden;
+        }
+      }
+    }
+  }
 }
