@@ -1,5 +1,6 @@
 source: ./source
 tz: America/Chicago
+hide_page_titles: true
 hostname: envygeeks.io
 sub_title: Systems and Programming
 timezone: America/Chicago

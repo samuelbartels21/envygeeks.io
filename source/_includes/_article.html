@@ -1,12 +1,12 @@
 <article class="page {{ page.type }}">
-  {% if page.title %}
-  <header>
-    <h1>
-      {{ page.title |
-        markdownify_title
-      }}
-    </h1>
-  </header>
+  {% if page.title and (page.type == "post" or (page.type == "page" and site.hide_page_titles != true)) %}
+    <header>
+      <h1>
+        {{ page.title |
+          markdownify_title
+        }}
+      </h1>
+    </header>
   {% endif %}
 
   <div id="content">
