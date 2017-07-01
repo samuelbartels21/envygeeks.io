@@ -161,12 +161,12 @@ module Filters
   def base_prefix
     config = @context.registers[:site].config
     if Jekyll.env == "development"
-      url = format("http://%s:%s/%s", config["dev"]["domain"] || "",
-        config["dev"]["port"], config["baseurl"] || ""
+      url = format("http://%s:%s/%s", config["development"]["host"] || "",
+        config["development"]["port"], config["baseurl"] || ""
       )
     else
       if config["host"]
-        format("https://%s/%s", config["domain"] || "",
+        format("https://%s/%s", config["host"] || "",
           config["baseurl"] || ""
         )
       end

@@ -76,8 +76,9 @@ defaults:
       handle: envygeeks
       name: Jordon Bedwell
 # --
-# development
+# So URL's can be built.
+# Canonical urls.
 # --
-dev:
-  domain: localhost
+development:
+  host: localhost
   port: 4000
