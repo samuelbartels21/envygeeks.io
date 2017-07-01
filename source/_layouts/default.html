@@ -54,31 +54,25 @@
           </a>
         </h1>
 
-        {% if site.sub_title %}
+        {% if site.sub-title %}
           <p class="sub-title">
             {{
-              site.sub_title
+              site.sub-title
             }}
           </p>
         {% endif %}
 
-        {% if site.secondary_sub_title %}
-          <p class="sub-title">
-            {{
-              site.secondary_sub_title
-            }}
-          </p>
+        {% if site.social-media %}
+          <div class="social">
+            {% for account in site.social-media %}
+              <a target="_blank" href="{{ account[1] }}" rel="noopener noreferrer">
+                <i class="fa fa-{{ account[0] }}-square" aria-hidden="true">
+                  <!-- EMPTY -->
+                </i>
+              </a>
+            {% endfor %}
+          </div>
         {% endif %}
-
-        <div class="social">
-          {% for account in site.social %}
-            <a target="_blank" href="{{ account[1] }}" rel="noopener noreferrer">
-              <i class="fa fa-{{ account[0] }}-square" aria-hidden="true">
-                <!-- EMPTY -->
-              </i>
-            </a>
-          {% endfor %}
-        </div>
       </header>
 
       <main>
