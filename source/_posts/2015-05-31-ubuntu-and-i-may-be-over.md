@@ -62,4 +62,4 @@ Seriously, this isn't just a UCC problem, this is an Ubuntu and (to a larger ext
 I just don't think Ubuntu is the place for me anymore, I think it's time for me to pick another distro. Even though Fedora is ran by a corporation there does seem to be more community involvement (again from an outsiders perspective,) and even if there isn't, there is no Redhat disguising the truth, not that Redhat didn't mess up in the past too, however they are trying to be better now (except for Systemd which keeps breaking my network, it's getting on my nerves, really badly.)
 
 [1]: https://skitterman.wordpress.com/2015/05/26/i-think-i-may-be-done
-[2]: http://www.ubuntu.com/about/about-ubuntu/conduct
+[2]: https://www.ubuntu.com/about/about-ubuntu/conduct
