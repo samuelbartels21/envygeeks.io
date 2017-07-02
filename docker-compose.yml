@@ -101,7 +101,8 @@ test:
   command: "\
     bash -lc '\
       bundle exec htmlproofer --assume-extension \\\
-        --enforce-https site;\
+        --enforce-https --internal-domains=${SITE_DOMAIN} \
+        --allow-hash-href site;\
     '\
   "
 # --
