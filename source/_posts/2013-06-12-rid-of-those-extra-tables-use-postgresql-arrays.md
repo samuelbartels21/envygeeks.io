@@ -1,4 +1,6 @@
 ---
+url-id: 8d91b663
+id: 0709129b-d8d5-47ac-9274-91a45eee082c
 title: Rid of those extra tables, use PostgreSQL arrays.
 tags:
   - rails4

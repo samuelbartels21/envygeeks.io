@@ -1,4 +1,6 @@
 ---
+url-id: 7340aa65
+id: 7ecdcb31-c8d5-48ac-9300-6a2391e9bd14
 title: Basic CanCan with PostgreSQL HStore.
 tags:
   - hstore
@@ -331,5 +333,3 @@ Users.first.can?(
 
 #=> true
 ```
-
-Now, in my eyes, you can run home and say that Rails 4 and `hstore` have both made your life easier (not that CanCan is hard, bad or anything, this is just "homegrown",) and also tell your boss that you invented your own user permissions in about 20 minutes. I hope you guys and gals enjoyed and if you enjoyed it make sure to follow me on [Twitter](https://twitter.com/envygeeks){:target="_blank"}{:rel="noopener noreferrer"} and tweet this!

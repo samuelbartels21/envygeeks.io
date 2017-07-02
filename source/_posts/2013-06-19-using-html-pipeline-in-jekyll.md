@@ -1,4 +1,6 @@
 ---
+url-id: 4548de05
+id: bfa09146-5b83-43b9-9208-65a13ad2e9a4
 title: Using `html-pipeline` in Jekyll.
 tags:
   - jekyll

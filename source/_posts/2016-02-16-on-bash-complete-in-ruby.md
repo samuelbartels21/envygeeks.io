@@ -1,4 +1,6 @@
 ---
+url-id: 0b73faa9
+id: db33808c-2131-4d9d-855f-6e496b18e191
 title: On Bash complete in Ruby.
 tags:
   - ruby

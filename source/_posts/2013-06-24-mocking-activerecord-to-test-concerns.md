@@ -1,4 +1,6 @@
 ---
+url-id: 089be010
+id: 84377fd7-5293-4fc4-b7ba-ba26faf9c591
 title: Mocking ActiveRecord to test concerns.
 tags:
   - rspec

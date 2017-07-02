@@ -1,4 +1,6 @@
 ---
+url-id: aa0f65f4
+id: 575bfdf3-df12-46d7-aeb8-de567d0c621a
 title: Are static configs for things really all that bad?
 tags:
   - ruby

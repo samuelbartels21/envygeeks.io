@@ -1,4 +1,6 @@
 ---
+url-id: acbabf52
+id: 1d663d12-b51f-4b94-a116-23d53202798f
 title: The Future of My Docker Images
 tags:
   - docker

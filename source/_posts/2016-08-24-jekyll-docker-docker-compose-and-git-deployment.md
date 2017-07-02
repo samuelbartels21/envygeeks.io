@@ -1,4 +1,6 @@
 ---
+url-id: 71a18063
+id: 34a8c442-3faf-4bcc-836a-c75813b8a9c0
 title: Jekyll, Docker, Docker-Compose, and Git Deployment
 tags:
   - jekyll

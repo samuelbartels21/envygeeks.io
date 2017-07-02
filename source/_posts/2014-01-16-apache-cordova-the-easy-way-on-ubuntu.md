@@ -1,4 +1,6 @@
 ---
+url-id: 9db2421e
+id: 83cf73b0-4d46-487c-af48-139ea4f8aba1
 title: Apache Cordova the Easy Way on Ubuntu.
 tags:
   - apache

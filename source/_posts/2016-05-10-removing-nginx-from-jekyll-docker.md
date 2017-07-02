@@ -1,4 +1,6 @@
 ---
+url-id: 4a215bc3
+id: 9cb54633-c333-4dea-9f12-2c064b3d0d03
 title: Removing Nginx from Jekyll Docker, and other updates
 tags:
   - jekyll

@@ -1,4 +1,6 @@
 ---
+url-id: 59355bc5
+id: 83978d45-877a-4d64-b5e2-5abdb3d2bb05
 title: Tag your Bash history!
 tags:
   - ubuntu

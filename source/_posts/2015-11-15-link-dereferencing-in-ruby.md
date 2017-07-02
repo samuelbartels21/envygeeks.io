@@ -1,4 +1,6 @@
 ---
+url-id: 3a554b7f
+id: 99383a11-cb7f-41e1-b923-52059d5962b8
 title: Link Dereferencing in Ruby.
 tags:
   - ruby

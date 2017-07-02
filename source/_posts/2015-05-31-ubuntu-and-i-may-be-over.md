@@ -1,4 +1,6 @@
 ---
+url-id: d5d18f42
+id: 2badd78e-4a94-4075-80db-1d37e846eb1b
 title: Ubuntu and I May Be Over
 tags:
   - thoughts

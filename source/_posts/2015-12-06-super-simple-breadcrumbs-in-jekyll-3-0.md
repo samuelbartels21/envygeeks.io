@@ -1,4 +1,6 @@
 ---
+url-id: f594d1fe
+id: 2c79dad6-0abf-42f7-96dd-c7960472b288
 title: "Super-simple breadcrumbs in Jekyll 3.0"
 tags:
   - jekyll

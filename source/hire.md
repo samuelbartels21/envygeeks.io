@@ -1,4 +1,6 @@
 ---
+url-id: 6f6361d1
+id: b8c623a7-0b08-44ac-a9a7-de73604eef3f
 nav:
   title: Hire Me
   class: flare

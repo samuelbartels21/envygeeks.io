@@ -1,4 +1,6 @@
 ---
+url-id: 08a9d35e
+id: 2299faad-e46f-4454-bc5d-3257b8aa56aa
 title: "Postmortem: A tail of how Discourse almost took us out."
 tags:
   - discourse

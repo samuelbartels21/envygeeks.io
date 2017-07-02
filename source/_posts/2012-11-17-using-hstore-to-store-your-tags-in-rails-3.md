@@ -1,4 +1,6 @@
 ---
+url-id: 5eb2855c
+id: f594d1fe-47d9-436d-bcd9-00924ecb4cde
 title: Using HStore to store your tags in Rails 3
 tags:
   - hstore
