@@ -63,8 +63,8 @@ module Filters
   # @return [String]
   # --
   def canonical_url(page)
-    url  = base_prefix
-    url += page["url"]
+    url = page.respond_to?(:url) ? page.url : page["url"]
+    url = base_prefix + url
 
     if url == "/"
       then return(
