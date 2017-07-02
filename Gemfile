@@ -18,6 +18,11 @@ end
 group :jekyll_plugins do
   gem "font-awesome-sass"
   gem "autoprefixer-rails"
-  gem "jekyll-livereload"
   gem "jekyll-assets"
+
+  unless ENV["CI"] == "true"
+    group :development do
+      gem "jekyll-livereload"
+    end
+  end
 end
