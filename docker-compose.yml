@@ -100,7 +100,8 @@ test:
   <<: *def
   command: "\
     bash -lc '\
-      bundle exec htmlproofer site;\
+      bundle exec htmlproofer --assume-extension \\\
+        --enforce-https site;\
     '\
   "
 # --
