@@ -1,6 +1,7 @@
-services: ["docker"]
 script: script/ci
+services: ["docker"]
 sudo: required
+install: true
 os: linux
 cache:
   bundler: true
