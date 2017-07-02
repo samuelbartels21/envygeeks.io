@@ -1,0 +1,14 @@
+services: ["docker"]
+script: script/ci
+sudo: required
+os: linux
+cache:
+  bundler: true
+  directories:
+    - vendor/bundle
+jobs:
+  include:
+  - stage: precache
+    script: script/install
+  - script: script/test
+    stage: test
