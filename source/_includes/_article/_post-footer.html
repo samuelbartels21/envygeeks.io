@@ -1,11 +1,9 @@
 <footer>
   <div class="avatar">
-    <a href="https://github.com/{{ post.author.handle }}"
-          target="_blank" rel="noopener noreferrer">
-
-      <img alt="Avatar of: {{ post.author.handle }}" src="{{
-        post.author.handle | github_avatar
-      }}">
+    <a href="https://github.com/{{ post.author.handle }}" target="_blank" rel="noopener noreferrer">
+      <img alt="{{ post.author.handle }} Avatar" src="{%
+        asset_path "avatars/{{ post.author.handle }}"
+      %}">
     </a>
   </div>
 

@@ -94,16 +94,6 @@ module Filters
   end
 
   # --
-  # Pull an avatar from Github.
-  # @return [String]
-  # --
-  def github_avatar(user, width = 80)
-    format("https://avatars3.githubusercontent.com/%s?v=3&s=%d",
-      user, width.to_i
-    )
-  end
-
-  # --
   # Ordanalized time, st, nd.
   # @return [String]
   # --
