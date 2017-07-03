@@ -9,7 +9,7 @@ dev: &def
   environment: &env
     BUNDLE_CACHE: "true"
     JEKYLL_ENV: development
-    JEKYLL_DEBUG: "true"
+    JEKYLL_DEBUG: "false"
     CI: $CI
   volumes:
     - $PWD:/srv/jekyll
