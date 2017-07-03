@@ -3,4 +3,4 @@
 set -e
 
 script/clean
-docker-compose run build
+docker-compose --file=compose.yml run build

@@ -3,4 +3,4 @@
 set -e
 
 script/clean
-docker-compose run --service-ports dev
+docker-compose --file=compose.yml run --service-ports dev

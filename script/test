@@ -8,4 +8,4 @@ if [ "$CI" != "true" ]; then
   clear
 fi
 
-docker-compose run test
+docker-compose --file=compose.yml run test

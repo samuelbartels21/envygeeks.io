@@ -2,4 +2,4 @@
 . script/base/env
 set -e
 
-docker-compose run clobber
+docker-compose --file=compose.yml run clobber
