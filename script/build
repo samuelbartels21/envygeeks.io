@@ -4,4 +4,8 @@
 set -e
 
 script/clean
+if [ "$CI" = "true" ]; then
+  script/install
+fi
+
 docker-compose run build
