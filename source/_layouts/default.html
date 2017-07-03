@@ -1,12 +1,16 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>{{ site.title }}{% if page.title %} - {{ page.title }}{% endif %}</title>
     <link rel="canonical" href="{{ page | canonical_url }}">
-    <meta name="generator" content="Jekyll {{ jekyll.version }}">
-    <link rel="alternate" type="application/rss+xml" title="{{ site.title }}" href="{{ site.base_domain }}/feed.xml" />
     {{ 'css:bundle.css "js:bundle.js async:true"' | jekyll_asset_multi }}
+    <title>{{ site.title }}{% if page.title %} - {{ page.title }}{% endif %}</title>
+    <meta name="generator" content="Jekyll {{ jekyll.version }}">
     <meta charset="UTF-8">
+
+    <link rel="alternate"
+      type="application/rss+xml"
+      href="{{ site.base_domain }}/feed.xml"
+      title="{{ site.title }}" />
 
     {% if page.type == "post" %}
       {% include
