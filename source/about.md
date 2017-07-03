@@ -6,13 +6,15 @@ nav:
   title: About
 ---
 
-Hi! I'm Jordon Bedwell.  I do systems and programming.
+Hey, I'm Jordon Bedwell. You probably don't know me, but I do a lot of open
+source work, and I also freelance for a lot of companies who have products you
+might have used on a daily basis.
 
-{% img giphy/8Anv5VHRlm5vG.gif
-  width:100% height:auto
+{% img
+  giphy/8Anv5VHRlm5vG.gif width:100% height:auto
 %}
 
-On a day to day basis my job is to scale and grow things like Jekyll builds to thousands of builds with Docker.  No, not at Github, somewhere else. When doing freelance work (I am available for hire) most people hire me to do initial ops work, Rails programming and even systems programming with languages like Go and Rust.  If you were to ask me what I do, I would say I "hack" because I work on many things... that are in the backend, I don't deal with frontends that much and now days I spend most of my time building solutions around Docker, including finding ways to make Docker Images ultra easy to use for just about anybody.
+In the past it was my day to day job to scale and grow things like Jekyll builds to thousands of builds with Docker.  No, not at Github, somewhere else. When doing freelance work most people hire me to do initial ops work, Rails apps and even systems programming with languages like Go.  If you were to ask me what I do, I would say I "hack" because I work on many things...
 
 I am heavy Docker user who has built tools like [Docker Template](https://github.com/envygeeks/docker-template){:target="_blank"}{:rel="noreferrer noopener"}, and I currently manage hundreds of Docker images (at least last I checked.) Some very popular and some not so popular.  Did I mention that I am a maintainer of Jekyll too?
 
