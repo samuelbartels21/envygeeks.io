@@ -1,11 +1,6 @@
 #!/bin/bash -l
-[ "$DEBUG" ] && set -x
 . script/base/env
 set -e
 
 script/clean
-if [ "$CI" = "true" ]; then
-  script/install
-fi
-
 docker-compose run build

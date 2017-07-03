@@ -1,10 +1,15 @@
 script: script/test
-services:
-- docker
+before_script: script/build
 install: script/install
+services: [docker]
 sudo: required
 os: linux
 cache:
   bundler: true
   directories:
   - vendor/bundle
+deploy:
+- provider: script
+  script: script/deploy
+  on:
+    branch: master

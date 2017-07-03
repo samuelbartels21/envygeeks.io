@@ -1,5 +1,5 @@
 #!/bin/bash -l
-[ "$JEKYLL_DEBUG" = "true" ] && set -x
+. script/base/env
 set -e
 
 echo "Not implemented."

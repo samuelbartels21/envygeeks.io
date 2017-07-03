@@ -1,8 +1,5 @@
 #!/bin/bash -l
-[ "$DEBUG" ] && set -x
 . script/base/env
 set -e
 
-script/clean
-script/build
 docker-compose run test
