@@ -5,6 +5,8 @@ install: script/install
 services: [docker]
 sudo: required
 os: linux
+addons:
+  ssh_known_hosts: envygeeks.io
 cache:
   bundler: true
   directories:
