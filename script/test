@@ -2,4 +2,10 @@
 . script/base/env
 set -e
 
+# The CI does this as a step.
+if [ "$CI" != "true" ]; then
+  script/build
+  clear
+fi
+
 docker-compose run test
