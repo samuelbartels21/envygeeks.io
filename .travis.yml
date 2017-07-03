@@ -11,8 +11,8 @@ cache:
   - vendor/bundle
   - node_moduels
 deploy:
-- provider: script
-  script: script/deploy
+- script: script/deploy
+  provider: script
   on:
     branch: master
 notifications:

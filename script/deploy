@@ -7,21 +7,19 @@ DEPLOY_TO=/srv/nginx/envygeeks.io
 DEPLOY_USER=jordon
 FOLDER=site/
 
-if [ "$TRAVIS_PULL_REQUEST" != "false" ]; then
-  if [ "$CI" = "true" ]; then
-    mkdir -p ~/.ssh
-    openssl aes-256-cbc -K $encrypted_254287a454b2_key \
-      -iv $encrypted_254287a454b2_iv -in script/files/deploy.key.enc \
-      -out ~/.ssh/id_rsa -d
-  fi
-
-  # --
-  # TODO: In this future this will probably sync directly to
-  #   GCS rather than GCE, and then GCE will probably downstream from
-  #   that service caching everything and speeding it up a bit.
-  # --
-
-  echo "Uploading files to $HOSTNAME"
-  rsync -avz $FOLDER --delete $DEPLOY_USER@$HOSTNAME:$DEPLOY_TO
-  echo "Done uploading"
+if [ "$CI" = "true" ]; then
+  mkdir -p ~/.ssh
+  openssl aes-256-cbc -K $encrypted_254287a454b2_key \
+    -iv $encrypted_254287a454b2_iv -in script/files/deploy.key.enc \
+    -out ~/.ssh/id_rsa -d
 fi
+
+# --
+# TODO: In this future this will probably sync directly to
+#   GCS rather than GCE, and then GCE will probably downstream from
+#   that service caching everything and speeding it up a bit.
+# --
+
+echo "Uploading files to $HOSTNAME"
+rsync -avz $FOLDER --delete $DEPLOY_USER@$HOSTNAME:$DEPLOY_TO
+echo "Done uploading"
