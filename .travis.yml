@@ -1,15 +1,9 @@
-script: script/ci
+script: script/test
 services: ["docker"]
+install: script/install
 sudo: required
-install: true
 os: linux
 cache:
   bundler: true
   directories:
     - vendor/bundle
-jobs:
-  include:
-  - stage: precache
-    script: script/install
-  - script: script/test
-    stage: test
