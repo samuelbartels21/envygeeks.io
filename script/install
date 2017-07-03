@@ -4,5 +4,5 @@ set -e
 
 docker pull jekyll/jekyll
 docker-compose --file=compose.yml run install
-docker system prune -f
+docker system prune -f || true
 script/clean
