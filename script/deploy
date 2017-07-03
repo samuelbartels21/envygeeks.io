@@ -22,6 +22,6 @@ if [ "$TRAVIS_PULL_REQUEST" != "false" ]; then
   # --
 
   echo "Uploading files to $HOSTNAME"
-  rsync -avz $FOLDER $DEPLOY_USER@$HOSTNAME:$DEPLOY_TO
+  rsync -avz $FOLDER --delete $DEPLOY_USER@$HOSTNAME:$DEPLOY_TO
   echo "Done uploading"
 fi

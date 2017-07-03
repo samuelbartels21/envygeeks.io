@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "description": "envygeeks.io",
+  "author": "Jordon Bedwell",
+  "private": true,
+  "devDependencies": {
+    "cssnano": "^3.10.0",
+    "html-minifier": "^3.5.2",
+    "postcss-cli": "^4.1.0"
+  }
+}
