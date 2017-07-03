@@ -6,6 +6,7 @@
   "devDependencies": {
     "cssnano": "^3.10.0",
     "html-minifier": "^3.5.2",
+    "postcss": "^6.0.5",
     "postcss-cli": "^4.1.0"
   }
 }
