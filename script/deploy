@@ -15,5 +15,13 @@ if [ "$TRAVIS_PULL_REQUEST" != "false" ]; then
       -out ~/.ssh/id_rsa -d
   fi
 
+  # --
+  # TODO: In this future this will probably sync directly to
+  #   GCS rather than GCE, and then GCE will probably downstream from
+  #   that service caching everything and speeding it up a bit.
+  # --
+
+  echo "Uploading files to $HOSTNAME"
   rsync -avz $FOLDER $DEPLOY_USER@$HOSTNAME:$DEPLOY_TO
+  echo "Done uploading"
 fi
