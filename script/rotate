@@ -1,0 +1,5 @@
+#!/bin/bash -l
+[ "$JEKYLL_DEBUG" = "true" ] && set -x
+set -e
+
+echo "Not implemented."
