@@ -13,7 +13,8 @@ cache:
   - vendor/bundle
   - node_moduels
 deploy:
-- script: script/deploy
+- skip_cleanup: true
+  script: script/deploy
   provider: script
   on:
     branch: master
