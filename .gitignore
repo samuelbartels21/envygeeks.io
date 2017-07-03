@@ -3,5 +3,6 @@
 /source/.jekyll-metadata
 /source/.asset-cache
 /source/_drafts
+/node_modules
 /.bundle
 /site
