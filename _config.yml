@@ -12,7 +12,7 @@ markdown: kramdown
 # --
 assets:
   features:
-    integrity: true
+    integrity: false
 # --
 # kramdown
 # --
