@@ -1,9 +1,10 @@
 script: script/test
-services: ["docker"]
+services:
+- docker
 install: script/install
 sudo: required
 os: linux
 cache:
   bundler: true
   directories:
-    - vendor/bundle
+  - vendor/bundle
