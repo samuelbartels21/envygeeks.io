@@ -9,3 +9,4 @@ if [ "$CI" != "true" ]; then
 fi
 
 docker-compose --file=compose.yml run test
+# ^ See: compose.yml

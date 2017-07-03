@@ -3,3 +3,4 @@
 set -e
 
 docker-compose --file=compose.yml run outdated
+# ^ See: compose.yml
