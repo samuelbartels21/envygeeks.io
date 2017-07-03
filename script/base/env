@@ -1,6 +1,6 @@
 #!/bin/bash -l
-[ "$DEBUG" = "true" ] && set -x
 set -e
 
 export SITE_DOMAIN=${SITE_DOMAIN:="envygeeks.io"}
+[ -z "$CI" ] || [ "$CI" = "false" ] && export TRAVIS_PULL_REQUEST=1
 export CI=${CI:="false"}
