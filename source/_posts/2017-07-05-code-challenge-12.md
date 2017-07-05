@@ -49,6 +49,10 @@ scores = [874300, 879200, 1172100, 1141800, 933900, 1177200, 1190200,
   1190000, 1050200, 1090400, 1062800, 1061700, 1218000, 1068000,
   1127700, 1144800, 1195100]
 
+function numberSorter(a, b) {
+  return a - b;
+}
+
 // --
 // Flatten an Array, and compact it.
 // Throws out null, undefined
@@ -81,7 +85,7 @@ function scoreSettler1(scores, max) {
     throw "Max must be > 0, and a number"
   }
 
-  return compactAndFlattenArray(scores.sort()).filter((v) => {
+  return compactAndFlattenArray(scores.sort(numberSorter)).filter((v) => {
     return Number(v) != NaN && v < max
   })
 }
@@ -90,7 +94,7 @@ function scoreSettler1(scores, max) {
 // Non-Defensive Version
 // --
 function scoreSettler2(scores, max) {
-  return scores.sort().filter((v) => {
+  return scores.sort(numberSorter).filter((v) => {
     return v < max
   })
 }
