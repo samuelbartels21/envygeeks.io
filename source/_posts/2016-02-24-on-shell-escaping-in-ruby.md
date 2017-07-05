@@ -7,8 +7,6 @@ tags: [ruby]
 
 Ruby's shell escaping quality can sometimes be bad, here how to fix it.
 
-<script src="//repl.it/embed/JOfP/latest.js"></script>
-
 ```ruby
 module Utils
   def self.escape(str)
