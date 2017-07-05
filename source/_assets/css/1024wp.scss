@@ -5,8 +5,8 @@
       $scale-1024wp-by;
   }
 
-  h1 { font-size: $h1 + $scale-1024wp-by; }
-  h2 { font-size: $h2 + $scale-1024wp-by; }
+  h1 { font-size: $h1 + $scale-h1-1024wp-by; line-height: $h1 + $scale-h1-1024wp-by; }
+  h2 { font-size: $h2 + $scale-h2-1024wp-by; line-height: $h2 + $scale-h2-1024wp-by}
   h3, h4, h5, h6 {
     font-size: $h-others + $scale-1024wp-by;
   }
