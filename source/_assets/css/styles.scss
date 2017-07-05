@@ -65,6 +65,7 @@ hr {
 
   h1 {
     font-size: $site-title-size;
+    line-height: $site-title-size + 1rem;
     margin: 3vh 0 3vh;
   }
 
@@ -111,7 +112,7 @@ hr {
 
 .social {
   font-size: 2rem;
-  margin: 2vh 0;
+  margin: 2vh;
 
   a {
     display: inline-block;
