@@ -2,18 +2,14 @@
 url-id: 8d91b663
 id: 0709129b-d8d5-47ac-9274-91a45eee082c
 title: Rid of those extra tables, use PostgreSQL arrays.
-tags:
-  - rails4
-  - postgresql
-  - rails
-  - ruby
+tags: [rails4, postgresql, rails, ruby]
 ---
 
-Rails 4 final release is nearing soon and over the last few months I've had the "pleasure" of playing with it in both production testing and in just standard testing and over that time I've accumlated a list of things that I most look forward to. I can say that I'm a little bit excited for once about a Rails release, mostly because of some of the features I've been using since long before Rails thought about it.
+Rails 4 will hit final release soon and over the last couple of months I've had the "pleasure" of playing with it in both production testing, and in standard testing, and over that time I've accumulated a list of features I most look forward to. I can say that I'm a little bit excited for once about a Rails release, because of some of the features I've been using since long before Rails thought about it.
 
-One of my absolute favorites coming into Rails 4 is the addition of "native" support for PostgreSQL arrays. To some people this can have a huge impact on how they build their code and can even simplify the management of not only that code but the tables they use. We no longer need multiple tables for tagging (not that we did before since Arrays have been in existence since I can remember.)
+One of my absolute favorites coming into Rails 4 is the addition of "native" support for PostgreSQL arrays. To some people this can have an impact on how they build their code and can even simplify the management of not-only that code but the tables they use. We no longer need multiple tables for tagging (not that we did before since Arrays have been in existence since I can remember.)
 
-What I mean is, now that Rails has "native" support for PostgreSQL arrays, maybe people will start to use them more, and instead of seeing things like "skills" and "tags" in different tables we will see them on the user themselves and now instead of using flexibility as an excuse for MongoDB we will now see people use HStore instead, unless Mongo is something they actually want to use (which has to be judged on a case by case basis, I am absolutely not against MongoDB and actually use it.)
+What I mean is, now that Rails has "native" support for PostgreSQL arrays, people will start to use them more, and instead of seeing "skills" and "tags" in different tables we will see them on the user themselves and now instead of using flexibility as an excuse for MongoDB we will now see people use `hstore` instead, unless MongoDB is something they actually want to use (I'm judging you. >:))
 
 ## The Migration.
 
@@ -40,7 +36,7 @@ class CreatePosts < ActiveRecord::Migration
 end
 ```
 
-The migration above is just as easy as the Model below. The one thing to note here though is that unlike `hstore`, for a PostgreSQL `array` you create your type and then tell PostgreSQL it's an array. Which means you can do it for most any type, for example: `t.integer :author, :null => :false, :array => true`.
+The migration above is as easy as the Model below. The one thing to note here though is that unlike `hstore`, for a PostgreSQL `array` you create your type and then tell PostgreSQL it's an array. Which means you can do it for most any type, for example: `t.integer :author, :null => :false, :array => true`.
 
 ## The Model.
 
@@ -54,15 +50,13 @@ class Posts < ActiveRecord::Base
     # Pull posts by tag.
     # --
     def with_tag(tag)
-      where("? = ANY (tags)",
-        tag
-      )
+      where("? = ANY (tags)", tag)
     end
   end
 end
 ```
 
-Just like before we got "native" support for array and HStore you must build your own helper methods. I for one do not disagree with this approach but others might, so I've build a basic `with_tag` helper. If you would like to know more ways you can query PostgreSQL please check out the [documentation](https://www.postgresql.org/docs/9.2/static/arrays.html){:target="_blank"}{:rel="noopener noreferrer"}
+Like before we get "native" support for array and `hstore` you must build your own helper methods. I for one do not disagree with this approach but others might like it, so I've build a basic `with_tag` helper. If you would like to know more ways you can query PostgreSQL please check out the [documentation][1]
 
 ## The Data.
 
@@ -83,10 +77,7 @@ Posts.new({
 ```
 
 ```ruby
-Posts.by_tag(
-  :test
-)
-
+Posts.by_tag(:test)
 # => #<ActiveRecord::Relation [
 # =>   #<Posts id: 1, ..., tags: ["test"], ...>
 # => ]>
@@ -95,5 +86,7 @@ Posts.by_tag(
 ## And a List of Other Features I Like:
 
 *   Russian Doll caching. Caches in my caches.
-*   Strong Params. MassAssignment moved to the controller.
+*   StrongParams. MassAssignment moved to the controller now.
 *   Sprockets moved to sprockets-rails, yay for updates?
+
+[1]: https://www.postgresql.org/docs/9.2/static/arrays.html

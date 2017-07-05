@@ -1,33 +1,30 @@
 ---
 url-id: f4e98882
 id: 942ac263-0685-4c15-a894-db8affb0b59f
-title: On Shell Escaping in Ruby.
+title: Shell Escaping in Ruby.
 tags:
   - ruby
 ---
 
-Its standard is too low, you can't accidentally double escape.  Here let me fix that:
+Ruby's shell escaping quality can sometimes be bad, here how to fix it.
+
+<script src="//repl.it/embed/JOfP/latest.js"></script>
 
 ```ruby
 module Utils
-  def escape(str)
-    str.gsub!(/(\\?[^A-Za-z0-9_\-.,:\/@\n])/) do
-      $1.start_with?("\\") ? $1 : "\\#{$1}"
+  def self.escape(str)
+    str = str.gsub(/(\\?[^A-Za-z0-9_\-.,:\/@\n])/) do
+      if !$1.start_with?("\\")
+        "\\#{$1}" else $1
+      end
     end
 
-    str.gsub!(/\n/,
-      "'\n'"
-    )
-
-    str
+    str.gsub(/\n/, "'\n'")
   end
 end
 ```
 
 ```ruby
-Utils.escape(Utils.escape(
-  "hello\\ world"
-))
-
+Utils.escape(Utils.escape("hello\\ world"))
 # => "hello\\ world"
 ```

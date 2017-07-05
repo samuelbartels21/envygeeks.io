@@ -2,11 +2,10 @@
 url-id: 3a554b7f
 id: 99383a11-cb7f-41e1-b923-52059d5962b8
 title: Link Dereferencing in Ruby.
-tags:
-  - ruby
+tags: [ruby]
 ---
 
-In all of my years of programming Ruby I never once (or cared... or thought) about link dereferencing until recently, and then when I needed it, it didn't exist.  Of course you can dereference the root, that's easy, I don't need you to do that for me Ruby.  I needed to dereference the links inside of the root.  Why can't you do that for me instead, Ruby? Maybe even with some of that safety? It can't... so I came up with a solution that allows me to dereference safely.
+In my years of programming Ruby I never once (or cared... or thought) about link dereferencing until now, and then when I needed it, it didn't exist.  Of course you can dereference the root, that's easy, I don't need you to do that for me Ruby.  I needed to dereference the links inside of the root.  Why can't you do that for me instead, Ruby? Even with some of that safety? It can't... then I came up with a solution that allows me to dereference safely.
 
 ```ruby
 class String
@@ -16,9 +15,7 @@ class String
   # @return [Pathname]
   # --
   def to_pathname
-    Pathname.new(
-      self
-    )
+    Pathname.new(self)
   end
 end
 
@@ -45,9 +42,7 @@ module Safe
     # Initialize a new instance.
     # --
     def initialize(from, to)
-      @to, @from = [to, from].map(
-        &:to_pathname
-      )
+      @to, @from = [to, from].map(&:to_pathname)
     end
 
     # --
@@ -58,13 +53,10 @@ module Safe
       @from.all_children.select { |file| file.symlink? }.each do |path|
         rslvd, pth = path.realpath, @to.join(path.relative_path_from(@from))
         if rslvd.in_path?(Dir.pwd) && FileUtils.rm_r(pth)
-          FileUtils.cp_r(
-            rslvd, pth
-          )
+          FileUtils.cp_r(rslvd, pth)
+
         else
-          raise Errno::EPERM, "#{rslvd} not in #{
-            Dir.pwd
-          }"
+          raise Errno::EPERM, "#{rslvd} not in #{Dir.pwd}"
         end
       end
     end
@@ -75,19 +67,11 @@ module Safe
     def file
       if @from.symlink?
         rslvd = @from.realpath
-        if rslvd.in_path?(Dir.pwd)
-          FileUtils.cp(
-            rslvd, @to
-          )
-        else
-          raise Errno::EPERM, "#{rslvd} not in #{
-            Dir.pwd
-          }"
-        end
+        return FileUtils.cp(rslvd, @to) if rslvd.in_path?(Dir.pwd)
+        raise Errno::EPERM, "#{rslvd} not in #{Dir.pwd}"
+
       else
-        FileUtils.cp(
-          @from, @to
-        )
+        FileUtils.cp(@from, @to)
       end
     end
   end

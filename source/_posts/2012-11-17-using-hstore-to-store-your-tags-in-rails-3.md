@@ -2,21 +2,14 @@
 url-id: 5eb2855c
 id: f594d1fe-47d9-436d-bcd9-00924ecb4cde
 title: Using HStore to store your tags in Rails 3
-tags:
-  - hstore
-  - postgresql
-  - rails3
-  - rails
-  - ruby
+tags: [hstore, postgresql, rails3, rails, ruby]
 ---
 
-There are many ways to store tags in a `database`, one of the original and oldest is to just create a one to many relation with a possible join with `ActiveRecord` and another is a way that I haven't ever seen before that I _like to think_ I came up with that uses HStore to reduce the need for an extra query in some cases.
+Given the hundreds of ways to store tags in a `database`, one of the original and oldest is to create a one-to-many relation with a possible join with `ActiveRecord` and another is a way that I haven't ever seen before that I _like to think_ I came up with, it uses `hstore` to reduce the need for an extra query in some cases.
 
 ## Why?
 
-By using HStore you require (maybe) less queries, 2 less `ActiveRecord::Model`'s and you still in theory have the same amount of duplication with less required space (because now you have 2 less tables and several less rows.)
-
-I have clearly not tested the theory on space, but the queries is what intrigues me the most about using `hstore` for tags. Now instead of needing relations you need only create a serializer and a method on the singleton.
+By using `hstore` you require less queries, 2 less than `ActiveRecord::Model`'s and you still in theory have the same amount of duplication with less required space (because now you have 2 less tables and less rows.) I have not tested the theory on space, but the queries is what intrigues me the most about using `hstore` for tags. Now instead of needing relations you should create a serializer and a method on the singleton.
 
 ## The code.
 
@@ -33,10 +26,10 @@ class Post < ActiveRecord::Base
       # --
       def load(data)
         return [] if data.blank?
-        data.split(%r!"([^"]+)"[^"]+!).reject { |val| value.blank? }
-          .map do |val|
-            value =~ /^\d+$/ ? value.to_i : value
-          end
+        data = data.split(%r!"([^"]+)"[^"]+!).reject { |v| v.blank? }
+        data.map do |v|
+          v =~ /^\d+$/ ? v.to_i : v
+        end
       end
 
       # --
@@ -45,13 +38,8 @@ class Post < ActiveRecord::Base
       # --
       def dump(data)
         return false unless data.is_a?(Array)
-        data.inject([]) do |a, t|
-          a << "\"#{t.to_slug}\" => NULL"
-        end
-
-        .join(
-          ",\s"
-        )
+        data.inject([]) { |a, t| a << "\"#{t.to_slug}\" => NULL" } \
+          .join(",\s")
       end
     end
   end
@@ -72,9 +60,9 @@ class Post < ActiveRecord::Base
     # --
     def find_all_by_tags(*tags)
       raise ArgumentError, "tag required" if tags.count < 1
-      where(tags.inject("") do |str, tag|
-        str+= " AND tags ? #{connection.quote(
-          tag
+      where(tags.inject("") do |s, t|
+        s += " AND tags ? #{connection.quote(
+          t
         )}"
       end)
     end
@@ -88,7 +76,3 @@ end
 # ]
 # --
 ```
-
-## Will it work?
-
-Sure, I use it in production everyday on new client sites to save the need to add a dependency on `acts-as-taggable-on` because it's just too complicated when I have such a simple solution like this. The only downside is now you can't easily port your codebase from one database to the other, because as of right now only `PostgreSQL` supports hashes (as far as I know.)

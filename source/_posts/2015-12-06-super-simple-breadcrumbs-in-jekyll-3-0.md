@@ -1,13 +1,11 @@
 ---
 url-id: f594d1fe
 id: 2c79dad6-0abf-42f7-96dd-c7960472b288
-title: "Super-simple breadcrumbs in Jekyll 3.0"
-tags:
-  - jekyll
-  - ruby
+title: Breadcrumbs in Jekyll 3.0+
+tags: [jekyll, ruby]
 ---
 
-More tips for Jekyll 3.0: Breadcrumbs.  Over the years I've seen some overly complicated breadcrumb stuff for Jekyll, many of which do really complicated stuff for a trivial topic.  For Jekyll 3.0 lets show you how to do super simple breadcrumbs.
+More tips for Jekyll 3.0: Breadcrumbs.  Over the years I've seen some overly complicated breadcrumb plugins for Jekyll, lots which do complicated Ruby for a trivial topic.  For Jekyll 3.0 lets show you how to do super simple breadcrumbs.
 
 <p class="code-file">
   _plugins/breadcrumbs.rb
@@ -18,27 +16,25 @@ Jekyll::Hooks.register :pages, :pre_render do |page, payload|
   drop = Drops::BreadcrumbItem
 
   if page.url == "/"
-    then payload["breadcrumbs"] = [
-      drop.new(
-        page, payload
-      )
+    out = drop.new(page, payload)
+    payload["breadcrumbs"] = [
+      out
     ]
+
   else
     payload["breadcrumbs"] = []
-    pth = page.url.split(
-      "/"
-    )
+    pth = page.url.split("/")
 
     0.upto(pth.size - 1) do |int|
       joined_path = pth[0..int].join("/")
       item = page.site.pages.find do |page_|
-        joined_path == "" && page_.url == "/" || page_.url == joined_path
+        joined_path == "" && page_.url == "/" || \
+          page_.url == joined_path
       end
 
       if item
-        payload["breadcrumbs"] << drop.new(
-          item, payload
-        )
+        out = drop.new(item, payload)
+        payload["breadcrumbs"] << out
       end
     end
   end
@@ -70,9 +66,7 @@ module Drops
     # @return [String]
     # --
     def title
-      @page.data[
-        "title"
-      ]
+      @page.data["title"]
     end
   end
 end
@@ -85,13 +79,13 @@ And in your default layout:
 <div class"breadcrumbs">
   {% for crumb in breadcrumbs %}
     <a href="{{ crumb.url | prepend:site.baseurl }}">
-      {{
-        crumb.title
-      }}
+      {{ crumb.title }}
     </a>
 
     {% unless forloop.last == true %}
-      >
+      <span class="breadcrumb-splitter">
+        &gt;
+      </span>
     {% endunless %}
   {% endfor %}
 </div>

@@ -1,18 +1,18 @@
 ---
 url-id: 0b73faa9
 id: db33808c-2131-4d9d-855f-6e496b18e191
-title: On Bash complete in Ruby.
+title: Bash completion in Ruby
 tags:
   - ruby
   - bash-completion
   - bash
 ---
 
-Your auto-completion is kind-of complicated.  You build it entirely in `bash` with the assumption that it provides more perf (and it probably does... it probably isn't to-be honest... based on what I can gander just from looking at it.) However, it's not very maintainable even if it does have more perf.  Why not use Ruby to generate the auto complete list for Ruby?
+Your auto-completion is kind-of complicated.  You build it entirely in `bash` with the assumption that it provides more perf (and it probably does... it probably isn't to-be honest... based on what I can gander from looking at it.) It's not maintainable even if it does have more perf.  Why not use Ruby to generate the auto complete list for Ruby?
 
-### The argument storage
+## Argument Storage
 
-So lets take this from the start, we need to be able to let users do something like `hello w` and get `this is my list`, we don't need to be fancy and deal only returning relevant lists ourselves, lets leave that to `compgen` we just need to store a list of values and ship that list. So lets start with a hash:
+Let's take this from the start, we need to be able to let users do something like `hello w` and get `this is my list`, we don't need to be fancy and deal with returning relevant lists ourselves, lets leave that to `compgen` we need to store a list of values and ship that list. So lets start with a hash:
 
 ```ruby
 list = {
@@ -44,11 +44,11 @@ list = {
 }
 ```
 
-So every hash has a `_reply` key with an array and every hash can have (relatively) infinite other keys with hashes that each have their own `_reply`, so we can dig deeply into sub-commands in a command system.  We have no root key so that we can remain agnostic with our script and even alias our parent script and still get completion.  We will then serialize that into `bin/comp-list.pak` so that we can read and load it quickly, [`msgpack`](https://msgpack.org/){:target="_blank"}{:rel="noopener noreferrer"} is far faster than JSON or YAML.
+Every hash has a `_reply` key with an array and every hash can have infinite other keys with hashes that each have their own `_reply`, so we can dig deeply into sub-commands in a command system.  We have no root key so that we can remain agnostic with our script and even alias our parent script and still get completion.  We will then serialize that into `bin/comp-list.pak` so that we can read and load it fast, [`msgpack`][1] is far faster than JSON or YAML.
 
-### Generate the list with Ruby
+## Generating the list
 
-Now we need to pump out the lists to Bash so that it can do what it needs to do for us.  Again, we do nothing fancy as we leave the sorting out of stuff to `compgen`. We can do that with this:
+Now we need to pump out the lists to Bash so that it can do what it needs to do for us.  Again, we do nothing fancy as we leave the sorting to `compgen`. We can do that with this:
 
 ```ruby
 #!/usr/bin/env ruby
@@ -58,20 +58,17 @@ Now we need to pump out the lists to Bash so that it can do what it needs to do 
 
 ARGV.shift
 require "msgpack"
-list = MessagePack.unpack(File.read(File.expand_path(
-  "comp-list.pak", __dir__
-)))
+file = File.join(__dir__, "comp-list.pak")
+list = MessagePack.unpack(File.read(file))
 
 # --
-# @param obj [Hash] the hash you wish to pull the `_reply` from.
-# @param key [Any_] the string you are checking inside of the list.
 # Check if a key is included inside of given reply object.
+# @param key [Any_] the string you are checking inside of the list.
+# @param obj [Hash] the hash you wish to pull the `_reply` from.
 # @return TrueClass|FalseClass true|false
 # --
 def key?(obj, key)
-  obj["_reply"].include?(
-    key
-  )
+  obj["_reply"].include?(key)
 end
 
 # --
@@ -81,11 +78,7 @@ end
 # @return TrueClass|FalseClass true|false
 # --
 def contains?(obj, key)
-  result = obj["_reply"].grep(
-    /#{Regexp.escape(key)}/
-  )
-
-  !result.empty?
+  !obj["_reply"].grep(/#{Regexp.escape(key)}/).empty?
 end
 
 # --
@@ -100,27 +93,23 @@ end
 # --
 
 if ARGV.empty?
-  $stdout.puts list["_reply"].join(
-    " "
-  )
+  $stdout.puts list["_reply"].join(" ")
+
 else
   none = false
-  rtrn = list
+  out = list
 
-  ARGV.each_with_index do |key, index|
-    if rtrn.key?(key) then rtrn = rtrn[key]
-      elsif key?(rtrn, key) && !opt?(key) then none = true
-      elsif index + 1 == ARGV.size && contains?(rtrn, key) then next
-      elsif key?(rtrn, key) && opt?(key) then next
+  ARGV.each_with_index do |k, i|
+    if out.key?(k) then out = out[k]
+    elsif key?(out, k) && !opt?(k) then none = true
+    elsif i + 1 == ARGV.size && contains?(out, k) then next
+    elsif key?(out, k) && opt?(k) then next
       else none = true
     end
   end
 
   unless none
-    rtrn = rtrn["_reply"]
-    $stdout.puts rtrn.join(
-      " "
-    )
+    $stdout.puts out["_reply"].join(" ")
   end
 end
 ```
@@ -141,7 +130,7 @@ And in short, here is what the script does before `compgen`:
 - `bin hello\t\t` => `help --my-world --no-my-world world`
 - `bin hello --\t\t` => `help --my-world --no-my-world world`
 
-### Tying it into Bash
+## Tying it into Bash
 
 Now it's time to tie it into Bash and `compgen`, so taking the list and the Ruby above and putting into all into a single file called `bin/comp-list` we can then turn around and create `bin/comp` with the following:
 
@@ -155,7 +144,7 @@ _bin() {
 complete -F _bin bin
 ```
 
-### Bonus Round: Auto-auto-list for Thor
+## Bonus Round: Auto-auto-list for Thor
 
 ```ruby
 # --
@@ -172,27 +161,22 @@ end
 # Add the command options.
 # --
 def add_opts(out, const)
-  const.all_commands.each do |key, val|
-    val.options.map do |_, opt|
-      out[key] ||= { "_reply" => [] }
-      ary = out[key][
-        "_reply"
-      ]
+  const.all_commands.each do |k, v|
+    v.options.map do |_, o|
+      out[k] ||= {
+        "_reply" => []
+      }
 
-      if opt.boolean?
-        ary.push(opt.switch_name, "--no-#{opt.switch_name.gsub(
-          /\A--/, ""
-        )}")
+      ary = out[k]["_reply"]
+      if o.boolean?
+        name = o.switch_name
+        ary.push("--no-#{name.gsub(/\A--/, "")}")
+        ary.push(name)
 
       else
-        ary.push(
-          "#{opt.switch_name}="
-        )
+        name = o.switch_name
+        ary.push("#{name}=")
       end
-
-      ary.push(
-        *opt.aliases
-      )
     end
   end
 
@@ -205,16 +189,12 @@ end
 def get_commands(const)
   out = base(const)
   if const.const_defined?(:Sub)
-    then const.subcommands.each_with_object(out) do |key, hsh|
-      hsh[key] = send(__method__, const::Sub.const_get(
-        key.capitalize
-      ))
+    const.subcommands.each_with_object(out) do |k, o|
+      o[k] = send(__method__, const::Sub.const_get(k.capitalize))
     end
   end
 
-  add_opts(
-    out, const
-  )
+  add_opts(out, const)
 end
 
 # --
@@ -222,8 +202,10 @@ end
 namespace :gen do
   task :comp do
     require "msgpack"
-    $stdout.puts(get_commands(My::CLI) \
-      .to_msgpack)
+    result = get_commands(My::CLI).to_msgpack
+    $stdout.puts(result)
   end
 end
 ```
+
+[1]: https://msgpack.org

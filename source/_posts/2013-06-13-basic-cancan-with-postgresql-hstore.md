@@ -1,27 +1,21 @@
 ---
 url-id: 7340aa65
 id: 7ecdcb31-c8d5-48ac-9300-6a2391e9bd14
-title: Basic CanCan with PostgreSQL HStore.
-tags:
-  - hstore
-  - postgresql
-  - rails3
-  - rails4
-  - rails
-  - ruby
+tags: [hstore, postgresql, rails3, rails4, rails, ruby]
+title: Basic CanCan in Rails 4 using PostgreSQL `hstore`
 ---
 
-With Rails 4 coming soon so I thought I would bang out a few of my new favorite features and post some tutorials on what I am doing with Rails 4. The second in this series is doing a basic CanCan style permissions handler with PostgreSQL's HStore.
+With Rails 4 coming soon so I thought I would write about my new favorite features, and post some tutorials on what I am doing with Rails 4. The second in this series is doing a basic CanCan style permissions handler with PostgreSQL's `hstore`.
 
-Prior to Rails 4 I would always opt to use CanCan because I did not want to have to build my own serializer or to use the hstore gem which had a few minor bugs in some data I would store but when Rails 4 first did it's RC I decided it was time I move to my own "home grown" solution. So here is how I went about it in a basic manner!
+Before Rails 4 I would always opt to use CanCan because I did not want to have to build my own serializer or to use the `hstore` gem which had a some minor bugs in some data I would store, but when Rails 4 first did it's RC I decided it's time I move to my own "home grown" solution. Here is how I went about it in a basic manner!
 
 ## The Challenge
 
-The challenge here is not if they have permissions to do this on a specific page, it is not if the role allows it, it's whether or not the user has the permission to complete the task. Tying it into a role and doing a fall back for special circumstances is not that hard to dream up and add so we'll save that for later since this purpose serves quite well. That is if you were to ask me, however you might not be so decide for yourself.
+The challenge here is not if they have permissions to do this on a specific page, not if the role allows it, it's whether the user has the permission to complete the task. Tying it into a role and doing a fall back for special circumstances is not that hard to dream up, and to add so we'll save that for later, since this purpose serves well. That is if you were to ask me, you might not be so decide for yourself.
 
 ## Building The `Users` Model
 
-The `Users` model was easy enough to start, we know we wanted to use Omniauth and Github authentication because we all have Github accounts and that was the quickest solution, unless we used Devise but still: Omniauth. So we design our `Users` migration and model around that, but you can design your migration and model any way you want, just take notes of the important parts!
+The `Users` model was easy enough to start, we know we wanted to use Omniauth and GitHub authentication because we have GitHub accounts, that was the quickest solution, unless we used Devise but still: Omniauth. We design our `Users` migration and model around that, but you can design your migration and model any way you want, take notes of the important parts!
 
 ```ruby
 class CreateUsers < ActiveRecord::Migration
@@ -66,7 +60,7 @@ class Users < ActiveRecord::Base
 end
 ```
 
-Now it was as easy as doing:
+Now it's as easy as doing:
 
 ```sh
 rake db:create db:migrate
@@ -75,7 +69,7 @@ rake db:create db:migrate
 ```ruby
 Users.new(
   :github_token => '',
-  :name => 'User Name',
+  :name => 'Users Name',
   :email => 'user@name.com',
   :username => 'user',
   :options => {}
@@ -86,21 +80,18 @@ Users.new(
 ).save!
 ```
 
-And now all of a sudden we could do:
+And now we can do:
 
 ```ruby
-Users.first.permissions[
-  "create_post"
-]
-
+Users.first.permissions["create_post"]
 #=> "true"
 ```
 
-But *wait*, what is going on here? Why is `true` coming out as "true"? Does Rails convert strings to primitives inside of HStore? I guess since they think it might be too intrusive we should do that ourselves.
+But *wait*, what is going on here? Why is `true` coming out as "true"? Does Rails convert strings to primitives inside of `hstore`? I guess since they think it might be too intrusive we should do that ourselves.
 
-## Primitives.
+## "Primitives"
 
-The first thing I needed to decide was whether I wanted to convert all of the possibles over to primitives ... or ... should I stick with the values. The basic example is do I want: "t(rue)?", "1" and "y(es)?" to be `true` or do I just want "true" to be `true`? In the end for me it was decided that I only want "true" to be `true`, it's easier.
+The first thing I needed to decide was whether I wanted to convert the possibles over to primitives... or... should I stick with the values. The basic example is do I want: "t(rue)?", "1" and "y(es)?" to be `true` or do I want "true" to be `true`? In the end for me the decision was that I want "true" to be `true`, it's easier.
 
 I also needed to decide if I wanted to be explicit or implicit. Meaning do I want to automatically convert all hstore fields and have to decide which hstore columns would not get converted or should I decide which ones do get converted? This was an easy one for me, most of the time I will be storing true, false and 1/0 values so I decided I would be explicit on exclude. And after all that deciding I ended up with:
 
@@ -111,9 +102,7 @@ module ModelConcerns
 
     included do
       %W(after_find after_initialize before_validation).each do |m|
-        send(m,
-          :__convert_hstore_to_primitives
-        )
+        send(m, :__convert_hstore_to_primitives)
       end
     end
 
@@ -124,7 +113,8 @@ module ModelConcerns
     def __convert_hstore_to_primitives
       self.class.__hstore_columns.each do |f|
         unless new_record? || !self[f] ||
-            self.class.__hstore_primitive_skips.include?(f)
+              self.class.__hstore_primitive_skips.include?(f)
+
           __convert_to_primitives(f)
         end
       end
@@ -136,18 +126,21 @@ module ModelConcerns
     private
     def __convert_to_primitives(field)
       self[field] = self[field].inject({}) do |h, (k, v)|
-        h.update(k => __convert_value_to_primitive(v))
+        v = __convert_value_to_primitive(v)
+        h.update({
+          k => v
+        })
       end
     end
 
     # --
-    # Convert primities
+    # Convert primitives
     # --
     private
     def __convert_value_to_primitive(value)
       case value
-        when 'false' then false
         when 'true' then true
+        when 'false' then false
         when '' then nil
         when /\A\d{1,}\Z/ then value.to_i
       else
@@ -170,7 +163,7 @@ module ModelConcerns
       # The HStore columns.
       # --
       def __hstore_columns
-        return @__hstore_columns ||= columns.keep_if { |c|
+        return @__hstore_columns ||= columns.keep_if { |c| \
           c.type == :hstore }.map(&:name)
       end
 
@@ -224,9 +217,8 @@ describe ModelConcerns::HstorePrimitivesConcern do
     }).save!
 
     data.each do |k, v|
-      expect(HstorePrimitivesConcernTable.first.hstore1[k]).to(
-        eq v
-      )
+      result = HstorePrimitivesConcernTable.first.hstore1[k]
+      expect(result).to(eq(v))
     end
   end
 
@@ -238,19 +230,18 @@ describe ModelConcerns::HstorePrimitivesConcern do
     }).save!
 
     data.each do |k, v|
-      expect(HstorePrimitivesConcernTable.first.hstore2[k]).to eq(
-        v.to_s
-      )
+      result = HstorePrimitivesConcernTable.first.hstore2[k]
+      expect(result).to(eq(v.to_s))
     end
   end
 end
 ```
 
-Now that I had that solved, I had to decide whether I wanted my permissions concern to handle the inclusion of `HstorePrimitivesConcern` because it is the one who relied on it, or if I wanted to make it explicit. In the end I decided that I would have the permissions concern handle it, so I moved onto building my permissions concern.
+Now that I had that solved, I had to decide whether I wanted my permissions concern to handle the inclusion of `HstorePrimitivesConcern` because it's the one who relied on it, or if I wanted to make it explicit. In the end I decided that I would have the permissions concern handle it, so I moved onto building my permissions concern.
 
 ## Adding `can?`
 
-Out of it all, this would be the easiest thing to do because all I had to do was add a can method, include `HstorePrimitivesConcern` and copy my fancy temporary table code over to a new spec and run it. It couldn't be too hard, but then again, we could say that about most things that end up being hard. I ended up with:
+Out of it all, this would be the easiest thing to do because all I had to do was add a can method, include `HstorePrimitivesConcern` and copy my fancy temporary table code over to a new spec and run it. It couldn't be too hard, but then again, we could say that about most, that end up being hard. I ended up with:
 
 ```ruby
 module ModelConcerns
@@ -276,9 +267,7 @@ require 'rspec/helper'
 
 describe ModelConcerns::PermissionsConcern do
   mock_active_record_model :permissions_concern do |t|
-    t.hstore(
-      :permissions
-    )
+    t.hstore(:permissions)
   end
 
   #
@@ -306,9 +295,8 @@ describe ModelConcerns::PermissionsConcern do
     }).save!
 
     data.each do |k, v|
-      expect(PermissionsConcernTable.first.can?(k)).to(
-        eq v
-      )
+      result = PermissionsConcernTable.first.can?(k)
+      expect(result).to(eq(v))
     end
   end
 end
@@ -316,7 +304,7 @@ end
 
 ## Bringing it all together.
 
-After all that work, all I had was a few tests, a few independent `Concerns` and nothing to show on the `Users` model. So it was finally time to include it, and see how well it works.
+After all that work, all I had was tests, and independent `Concerns` and nothing to show on the `Users` model. Now it's time to include it, and see how well it works.
 
 ```ruby
 class Users < ActiveRecord::Base
@@ -324,12 +312,9 @@ class Users < ActiveRecord::Base
 end
 ```
 
-and all of a sudden _things **finally** came together_. Look mum!
+and now _things came together_. Look!
 
 ```ruby
-Users.first.can?(
-  :create_posts
-)
-
+Users.first.can?(:create_posts)
 #=> true
 ```
