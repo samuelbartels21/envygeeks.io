@@ -1,11 +1,8 @@
 ---
 url-id: 0b73faa9
 id: db33808c-2131-4d9d-855f-6e496b18e191
+tags: [ruby, bash-completion, bash]
 title: Bash completion in Ruby
-tags:
-  - ruby
-  - bash-completion
-  - bash
 ---
 
 Your auto-completion is kind-of complicated.  You build it entirely in `bash` with the assumption that it provides more perf (and it probably does... it probably isn't to-be honest... based on what I can gander from looking at it.) It's not maintainable even if it does have more perf.  Why not use Ruby to generate the auto complete list for Ruby?

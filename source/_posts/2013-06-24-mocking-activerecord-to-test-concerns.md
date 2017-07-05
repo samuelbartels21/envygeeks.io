@@ -1,13 +1,8 @@
 ---
 url-id: 089be010
 id: 84377fd7-5293-4fc4-b7ba-ba26faf9c591
+tags: [rspec, rails3, active-record, rails4, ruby]
 title: Mocking ActiveRecord to test concerns.
-tags:
-  - rspec
-  - rails3
-  - active-record
-  - rails4
-  - ruby
 ---
 
 Part three of my series on Rails 4 (last: {% url 8d91b663 %}, and {% url 7340aa65 %}) is about mocking `ActiveRecord` to test concerns and other modules in a more independent way. _**I was doing this long before Rails 4 was out but now that Rails 4 is promoting skinny models and controllers it might be good for me to explain how I test "concerns".**_

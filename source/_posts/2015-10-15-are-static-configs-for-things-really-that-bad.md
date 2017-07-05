@@ -2,8 +2,7 @@
 url-id: aa0f65f4
 id: 575bfdf3-df12-46d7-aeb8-de567d0c621a
 title: Are static configs for things really all that bad?
-tags:
-  - ruby
+tags: [ruby]
 ---
 
 They say: "Don't build static configurations into software," well, in this case lets talk libraries or CLI's.  The kind you consume as a programmer. As I was working on open sourcing a CLI application that takes my personal concept of Docker repos and puts it into an application that anybody can consume. It soon came to me that I have some static configurations in there, configurations that one user, might want to change. Then the question came along: "how often do I even get requests for that?"

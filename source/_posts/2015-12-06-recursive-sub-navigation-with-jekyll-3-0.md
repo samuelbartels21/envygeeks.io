@@ -2,9 +2,7 @@
 url-id: d61c9805
 id: 819a7a21-2c73-4944-a7d8-1dfe8a2117be
 title: Recursive (sub-)navigation with Jekyll 3.0
-tags:
-  - jekyll
-  - ruby
+tags: [jekyll, ruby]
 ---
 
 Jekyll 3 is stable, and a lot of the sites I help manage that use Jekyll have all updated and a lot of them had some hefty customization's but with Jekyll 3.0 customization is easier.  Here is how you can go about making recursive navigation with Jekyll 3.0 with minimal code:
