@@ -1,5 +1,4 @@
 script: script/test
-group: deprecated-2017Q2
 before_script: script/build
 install: script/install
 services: [docker]

@@ -1,5 +1,6 @@
 #!/bin/bash -l
 set -e
 
-export SITE_DOMAIN=${SITE_DOMAIN:="envygeeks.io"}
 export CI=${CI:="false"}
+export SITE_DOMAIN=${SITE_DOMAIN:="envygeeks.io"}
+export JEKYLL_UID=$UID
