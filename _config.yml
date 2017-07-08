@@ -7,6 +7,7 @@ timezone: America/Chicago
 title: Jordon Bedwell
 destination: ./site
 markdown: kramdown
+ga: UA-18997298-1
 # --
 # jekyll-assets
 # --
