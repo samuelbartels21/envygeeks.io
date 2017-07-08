@@ -3,8 +3,10 @@
   <head>
     <link rel="canonical" href="{{ page | canonical_url }}">
     {{ 'css:bundle.css "js:bundle.js async:true"' | jekyll_asset_multi }}
+    {% if jekyll.environment == "production" %}{% include _layout/_analytics.html %}{% endif %}
     <title>{{ site.title }}{% if page.title %} - {{ page.title }}{% endif %}</title>
     <meta name="generator" content="Jekyll {{ jekyll.version }}">
+    <meta environment="{{ jekyll.environment  }}">
     <meta charset="UTF-8">
 
     <link rel="alternate"
