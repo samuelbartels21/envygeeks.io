@@ -1,6 +1,7 @@
 source "https://rubygems.org"
 gem "jekyll"
 gem "uglifier"
+gem "github_api"
 gem "nokogiri"
 gem "gemoji"
 gem "pry"
