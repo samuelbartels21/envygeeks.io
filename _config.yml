@@ -1,13 +1,16 @@
 source: ./source
+host: envygeeks.io
 tz: America/Chicago
 hide-page-titles: true
-host: envygeeks.io
+plugins_dir: ./plugins
 sub-title: Systems and Programming
 timezone: America/Chicago
 title: Jordon Bedwell
 destination: ./site
 markdown: kramdown
 ga: UA-18997298-1
+force_ssl: false
+ssl: true
 # --
 # jekyll-assets
 # --
@@ -76,10 +79,3 @@ defaults:
     author:
       handle: envygeeks
       name: Jordon Bedwell
-# --
-# So URL's can be built.
-# Canonical urls.
-# --
-development:
-  host: localhost
-  port: 4000
