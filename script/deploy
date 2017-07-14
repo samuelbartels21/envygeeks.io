@@ -3,9 +3,9 @@
 set -e
 
 KEY=~/.ssh/id_rsa
-HOSTNAME=envygeeks.io
-DEPLOY_TO=/srv/nginx/envygeeks.io
-DEPLOY_USER=jordon
+DEPLOY_HOST=${DEPLOY_HOST:=envygeeks.io}
+DEPLOY_TO=${DEPLOY_TO:=/srv/nginx/envygeeks.io}
+DEPLOY_USER=${DEPLOY_USER:=jordon}
 FOLDER=site/
 
 if [ "$CI" = "true" ]; then
@@ -18,12 +18,7 @@ if [ "$CI" = "true" ]; then
   chmod og-rwx $KEY
 fi
 
-# --
-# TODO: In this future this will probably sync directly to
-#   GCS rather than GCE, and then GCE will probably downstream from
-#   that service caching everything and speeding it up a bit.
-# --
-
-echo "Uploading files to $HOSTNAME"
-rsync -avz $FOLDER --delete $DEPLOY_USER@$HOSTNAME:$DEPLOY_TO
-echo "Done uploading"
+for ip in $(dig +short $DEPLOY_HOST); do
+  # So that if we have multiple hosts, they all get it.
+  rsync -avz $FOLDER --delete $DEPLOY_USER@$ip:$DEPLOY_TO
+done
