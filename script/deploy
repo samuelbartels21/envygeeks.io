@@ -5,7 +5,7 @@ set -e
 # Get the deployment folder from Jekyll.
 deploy="$DEPLOY_USER@%s:$DEPLOY_TO"
 folder=$(ruby -r yaml -e '$stdout.puts YAML.load_file("_config.yml")\
-  ["destination"]')
+  ["destination"].gsub(/\/$/, "") + "/"')
 
 if [ "$CI" = "true" ]; then
   mkdir -p ~/.ssh
@@ -21,9 +21,9 @@ if [ "$DNS_DEPLOY" = "true" ]; then
   for ip in $(dig +short $DEPLOY_HOST); do
     str=$(printf "$deploy" "$ip")
     ssh-keyscan -t rsa $ip >> ~/.ssh/known_hosts
-    rsync -avz $folder --delete $str
+    rsync -avz $folder $str --delete
   done
 else
   str=$(printf "$deploy" "$DEPLOY_HOST")
-  rsync -avz $folder --delete $str
+  rsync -avz $folder $str --delete
 fi
