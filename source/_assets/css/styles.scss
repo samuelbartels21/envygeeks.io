@@ -375,10 +375,15 @@ a {
 
       h1 {
         font-weight: normal;
+        font-size: $body-font-size;
+        font-family: $body-font;
         margin: 0;
 
         a {
           display: inline-block;
+          &:after {
+            content: " ";
+          }
         }
       }
     }
