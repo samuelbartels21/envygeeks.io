@@ -2,23 +2,28 @@
 . script/base/env
 set -e
 
-KEY=~/.ssh/id_rsa
-DEPLOY_HOST=${DEPLOY_HOST:=envygeeks.io}
-DEPLOY_TO=${DEPLOY_TO:=/srv/nginx/envygeeks.io}
-DEPLOY_USER=${DEPLOY_USER:=jordon}
-FOLDER=site/
+# Get the deployment folder from Jekyll.
+deploy="$DEPLOY_USER@%s:$DEPLOY_TO"
+folder=$(ruby -r yaml -e '$stdout.puts YAML.load_file("_config.yml")\
+  ["destination"]')
 
 if [ "$CI" = "true" ]; then
   mkdir -p ~/.ssh
   openssl aes-256-cbc -K $encrypted_254287a454b2_key \
     -iv $encrypted_254287a454b2_iv \
     -in script/file/deploy.key.enc \
-    -out $KEY -d
+    -out ~/.ssh/id_rsa -d
 
-  chmod og-rwx $KEY
+  chmod og-rwx ~/.ssh/id_rsa
 fi
 
-for ip in $(dig +short $DEPLOY_HOST); do
-  # So that if we have multiple hosts, they all get it.
-  rsync -avz $FOLDER --delete $DEPLOY_USER@$ip:$DEPLOY_TO
-done
+if [ "$DNS_DEPLOY" = "true" ]; then
+  for ip in $(dig +short $DEPLOY_HOST); do
+    str=$(printf "$deploy" "$ip")
+    ssh-keyscan -t rsa $ip >> ~/.ssh/known_hosts
+    rsync -avz $folder --delete $str
+  done
+else
+  str=$(printf "$deploy" "$DEPLOY_HOST")
+  rsync -avz $folder --delete $str
+fi

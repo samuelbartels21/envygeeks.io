@@ -1,6 +1,10 @@
 #!/bin/bash -l
 set -e
 
-export CI=${CI:="false"}
-export SITE_DOMAIN=${SITE_DOMAIN:="envygeeks.io"}
 export JEKYLL_UID=$UID
+export DNS_DEPLOY=${DNS_DEPLOY:=false}
+export DEPLOY_HOST=${DEPLOY_HOST:=envygeeks.io}
+export DEPLOY_TO=${DEPLOY_TO:=/srv/nginx/envygeeks.io}
+export SITE_DOMAIN=${SITE_DOMAIN:="envygeeks.io"}
+export DEPLOY_USER=${DEPLOY_USER:=jordon}
+export CI=${CI:="false"}
