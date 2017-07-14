@@ -3,6 +3,7 @@ host: envygeeks.io
 tz: America/Chicago
 hide-page-titles: true
 plugins_dir: ./plugins
+excerpt_separator: "<!-- MORE -->"
 sub-title: Systems and Programming
 timezone: America/Chicago
 title: Jordon Bedwell
