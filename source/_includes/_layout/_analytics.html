@@ -1,7 +1,7 @@
 {% if site.ga %}
   <script>
-    (function(i,s,o,g,r,a,m){
-      let url = "https://www.google-analytics.com/analytics.js"
+    let gaUrl = "https://www.google-analytics.com/analytics.js"
+    (function(i, s, o, g, r, a, m) {
       i["GoogleAnalyticsObject"] = r;
       i[r] = i[r] || function() {
         (i[r].q = i[r].q || []).push(
@@ -16,7 +16,7 @@
       a.src = g
 
       m.parentNode.insertBefore(a, m)
-    })(window, document, "script", url, "ga");
+    })(window, document, "script", gaUrl, "ga");
     ga("create", "{{ site.ga }}", "auto");
     ga("send", "pageview");
   </script>
