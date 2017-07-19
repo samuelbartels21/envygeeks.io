@@ -1,4 +1,4 @@
-@media (max-width: 1036px) and (-webkit-min-device-pixel-ratio: 3) {
+@media (max-width: 1036px) and (-webkit-max-device-pixel-ratio: 1) {
   body {
     font-size: $body-font-size + $scale-1024w-by;
     line-height: $body-line-height +
