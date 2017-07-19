@@ -1,4 +1,5 @@
-@media (max-width: 1036px) and (orientation: portrait) {
+@media (max-width: 1036px) and (orientation: portrait) and
+(-webkit-min-device-pixel-ratio: 3) {
   body {
     font-size: $body-font-size + $scale-1024wp-by;
     line-height: $body-line-height +

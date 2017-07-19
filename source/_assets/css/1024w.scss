@@ -1,10 +1,12 @@
-@media (max-width: 1036px) {
+@media (max-width: 1036px) and (-webkit-min-device-pixel-ratio: 3) {
   body {
     font-size: $body-font-size + $scale-1024w-by;
     line-height: $body-line-height +
-      $scale-1024w-by;
+    $scale-1024w-by;
   }
+}
 
+@media (max-width: 1036px) {
   .wrapper {
     max-width: 88vw;
     width: auto;
