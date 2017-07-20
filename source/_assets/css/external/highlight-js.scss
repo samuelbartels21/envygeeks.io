@@ -2,7 +2,7 @@
 
 .hljs,
 .well {
-  font-size: $body-font-size;
+  font-size: $body-font-size - 0.14rem;
   background: rgb(247, 247, 247);
   border: none;
 }
@@ -10,11 +10,4 @@
 .well {
   padding: 1rem;
   text-align: center;
-}
-
-@media (max-width: 1036px) {
-  .hljs,
-  .well {
-    font-size: $body-font-size + $scale-1024w-by;
-  }
 }

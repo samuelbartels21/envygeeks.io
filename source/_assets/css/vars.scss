@@ -1,27 +1,10 @@
 $code-font: monospace;
+$body-font-size: 1.1rem;
 $header-font: "Quicksand";
 $fancy-font: $header-font;
-$body-font: "Roboto";
-
-// --
-// 1024wp is 1024px in portrait mode.
-// 1024w  is 1024x
-//--
-
-$body-font-size: 1.1rem;
-$body-line-height: 2.1rem;
-$scale-1024w-by: 0.5rem;
-$scale-1024wp-by: 2rem;
-
-// --
-// Headers size.  This affects most things but the site
-// title, that is it's own unique variable in this section
-// because it really depends on you.
-// --
-
-$h1: 3.4rem;
 $h-others: $body-font-size;
-$scale-h1-1024wp-by: 2.6rem;
-$scale-h2-1024wp-by: 2.6rem;
-$site-title-size: 2.4rem;
-$h2: 2.4rem;
+$body-line-height: 2.1rem;
+$site-title-size: 2.1rem;
+$body-font: "Roboto";
+$h1: 2.1rem;
+$h2: 2.1rem;
