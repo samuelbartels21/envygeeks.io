@@ -5,9 +5,16 @@ title: "Challenge #12: July 5, 2017"
 tags: [code-challenge]
 ---
 
+[1]: https://amazon.com
+[2]: https://discuss.codecademy.com/t/challenge-top-score-sorter/148011
+[3]: https://repl.it/JOfH/latest
+[4]: https://repl.it/JOfP/latest
+
 > This week's challenge was reported to have been asked in interviews at Amazon
 
 I've never been asked this kind of question.  I've never interviewed at [Amazon][1] though.  If that's the kind of question you are going to ask, let me go ahead and give you an answer ahead of time. [Discussion][1], [Repl.it (Javascript)][2], [Repl.it (Ruby)][3] -- ***Yes even as an experienced programmer I still use CodeAcadamy for fun and practice. You should too, just not the paid version.***
+
+<!-- MORE -->
 
 ## Ruby
 
@@ -80,8 +87,3 @@ function scoreSettler(array, max) {
 
 console.log(scoreSettler(scores, max))
 ```
-
-[1]: https://amazon.com
-[2]: https://discuss.codecademy.com/t/challenge-top-score-sorter/148011
-[3]: https://repl.it/JOfH/latest
-[4]: https://repl.it/JOfP/latest
