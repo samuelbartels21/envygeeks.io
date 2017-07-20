@@ -1,7 +1,7 @@
 ---
 url-id: f4e98882
 id: 942ac263-0685-4c15-a894-db8affb0b59f
-title: Shell Escaping in Ruby.
+title: Shell Escaping in Ruby
 tags: [ruby]
 ---
 
