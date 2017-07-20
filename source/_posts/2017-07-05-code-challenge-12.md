@@ -1,7 +1,7 @@
 ---
 url-id: 36d63082
 id: b9c7aa06-fc98-49a1-8619-1092c4d75c18
-title: "Challenge #12: July 5, 2017"
+title: "Challenge #12"
 tags: [code-challenge]
 ---
 
