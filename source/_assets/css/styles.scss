@@ -62,7 +62,7 @@ hr {
 
   h1 {
     font-size: $site-title-size;
-    line-height: $site-title-size + 1rem;
+    line-height: $site-title-size;
     margin: 3vh 0 3vh;
   }
 
@@ -79,7 +79,7 @@ hr {
   .sub-title {
     line-height: 1rem;
     color: rgba(149, 165, 166, 0.4);
-    margin: 3vh 0;
+    margin: 1vh 0 3vh;
   }
 
   nav {
@@ -95,7 +95,7 @@ hr {
 
         a {
           display: block;
-          padding: 1vw;
+          padding: 1vw 2vh;
         }
       }
     }
@@ -108,7 +108,7 @@ hr {
 
   a {
     display: inline-block;
-    margin: 2vh 0;
+    margin: 2vh 1vh;
   }
 }
 
