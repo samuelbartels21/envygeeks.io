@@ -10,7 +10,7 @@ module EnvyGeeks
       # Generate your tags as actual pages.
       # --
       def generate(site)
-        key = (site.config["tag_layout"] || "default")
+        key = (site.config["tag-layout"] || "default")
         key = key.chomp(".html")
 
         if site.layouts.has_key?(key)

@@ -3,14 +3,18 @@ host: envygeeks.io
 tz: America/Chicago
 hide-page-titles: true
 plugins_dir: ./plugins
+twitter-site: "@envygeeks"
+twitter-creator: "@envygeeks"
 excerpt_separator: "<!-- MORE -->"
 sub-title: Systems and Programming
+description: The website of Jordon Bedwell; Linux Systems Admin, and Programmer
+enable-minification-in-development: false
 timezone: America/Chicago
 title: Jordon Bedwell
 destination: ./site
 markdown: kramdown
 ga: UA-18997298-1
-force_ssl: false
+force-ssl: false
 ssl: true
 # --
 # jekyll-assets
