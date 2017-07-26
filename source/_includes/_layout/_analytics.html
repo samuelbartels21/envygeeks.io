@@ -1,16 +1,20 @@
 {% if site.ga %}
   <script>
-    window.ga = window.ga || function() {
-      (ga.q = ga.q || []).push(arguments)
-    };
+    if(navigator.userAgent.indexOf("Speed Insights") == -1) {
+      window.ga = window.ga || function() {
+        (ga.q = ga.q || []).push(arguments)
+      };
 
-    ga.l = +new Date;
-    ga("create", "UA-18997298-1", "auto");
-    ga("send", "pageview");
-  </script>
+      ga.l = +new Date;
+      ga("create", "UA-18997298-1", "auto");
+      ga("send", "pageview");
 
-  <!-- https://developers.google.com/analytics/devguides/collection/analyticsjs/tracking-snippet-reference -->
-  <script async src="https://google-analytics.com/analytics.js">
-    <!-- Empty -->
+      let ele = document.createElement("script")
+      ele.setAttribute("src", "https://google-analytics.com/analytics.js")
+      ele.setAttribute("async", true);
+      document.querySelector("head").appendChild(
+        ele
+      )
+    }
   </script>
 {% endif %}
