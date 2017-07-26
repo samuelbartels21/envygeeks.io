@@ -1,7 +1,8 @@
 script: script/test
 before_script: script/build
 install: script/install
-services: [docker]
+services:
+- docker
 sudo: required
 os: linux
 addons:
@@ -22,3 +23,17 @@ notifications:
   email:
     on_success: never
     on_failure: change
+env:
+  global:
+    secure: "\
+      LmlPyqO+M080pR6Ci13CBPD8iggd5bYj36OGD6hqzzUBcB9LMRUboyayqmWM/18yBV5THM6di\
+      AkltzyjhWnNHfNndCaCW8o/N9zHmUGZm87rR4E9J61HuESPXlMojlL75qom1wLMXhtxot/t8x\
+      ICztOmjYjFBWXimiCkw34SpzE7jwzqo/tf4glVYaVjClPSjknRjoqNj/LjmMxYCfYFzfMI2qB\
+      wgvFZc2gBVSbdrV+SIHIm8AQjYT3jhX1Xea2IuQmgf0nioPTJ9FFAWM1TwX4LPazNmuyEmUSb\
+      ym3TAxVUFVCl3pnN2i+xqq91h6D9Gect9RWj8nt0znR4bOZG71t5/MMaAZyF5HzgGdYLPfPs0\
+      8L5QFa0EpS8fB56Z+H1PyE/vaew/1N1WGlWba0t85Jww1iOezI5clJdZL1mIyep/k+Zqgp2pI\
+      2Dt+Z11645WHb9qU1cC8usOfg1U/gbe83hMhDjU5z7I9z+BFByjzs0qY6+a0gqQWGkQzm/Tpg\
+      znk47GiJg/X1m/mbYpBlagukztN3qAkvrjJYJuGyhsHNAX1W23/npUhLuWReysjqZTi5xqp04\
+      i4hGkZVsP92uPqnefSgx7UWRzmxhFjtVsMonoTUbPZqrCF2Q/j/Tv0+wKbVyOMfNg5J6jgscw\
+      khNoxEnMUQylvl46v1hVisHwfA=\
+    "
