@@ -66,8 +66,9 @@ module EnvyGeeks
 
       return url if url == "/"
       return "/" if url == ""
+
       url.gsub(/\.html$/, "").gsub(/\/$/, ""). \
-        gsub(/\/{2}/, "/")
+        gsub(/(?<!http:|https:)\/{2}/, "/")
     end
 
     # --
