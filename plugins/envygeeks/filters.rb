@@ -124,13 +124,15 @@ module EnvyGeeks
     private
     def base_prefix
       port = config["port"]
-      base = site.baseurl || ""
+      serving = config["serving"]
       dev  = Jekyll.env == "development"
       ssl  = config["ssl"]
+      base = site.baseurl
 
       host = dev ? "localhost" : config["host"]
-      proto = config["force_ssl"] || (!dev && ssl) ? "https" : "http"
-      return format("%s://%s/%s:%s", proto, host, base, port) if config["serving"]
+      proto = config["force-ssl"] || (!dev && ssl) ? "https" : "http"
+      return format("%s://%s/%s:%s", proto, host, base, port) if serving && base
+      return format("%s://%s:%s", proto, host, port) if serving
       format("%s://%s/%s", proto, host, base)
     end
   end
