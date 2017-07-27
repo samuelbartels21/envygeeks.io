@@ -386,7 +386,7 @@ a {
       border-bottom: 1px solid rgba(149, 165, 166, 0.1);
       box-sizing: border-box;
       padding: 1rem 0;
-      width: 48%;
+      width: 100%;
 
       &:nth-child(even) {
         float: right;
@@ -412,36 +412,84 @@ a {
   width: 100%;
 }
 
-.pricebox {
-  display: flex;
-  border: 1px solid #ccc;
-  width: 100%;
+.code {
+  overflow-x: auto;
+  margin: 4vh 0;
 
-  > h2 {
-    flex: 1 1 100%;
+  & > pre {
+    padding: 0.5rem 1rem;
+    margin: 0;
   }
 
-  > div {
-    flex: 1 1 50%;
-    align-items: flex-start;
-    flex-direction: column;
-    display: flex;
-    padding: 1rem;
-
-    h3 {
-      margin: 0;
-      display: inline-block;
-      text-align: center;
-      width: 100%;
-    }
-
-    .price, .slots {
-      text-align: center;
-      font-family: "Raleway";
-      font-size: 2rem;
-      width: 100%;
-    }
+  /**
+   * comments
+   */
+  .c1 {
+    color: #6a737d;
   }
+
+  /**
+   * operator
+   * special.keyword
+   * variable.global
+   * keyword
+   */
+  .o,
+  .si,
+  .k,
+  .vg,
+  .kd {
+    color: #d73a49;
+  }
+
+  /**
+   * variable
+   * special.variable
+   * function
+   */
+  .nc,
+  .nf,
+  .nx {
+    color: #6f42c1;
+  }
+
+  /**
+   * js.arguments
+   * ruby.regular-methods
+   * hash.hash-setter
+   * self.method
+   */
+  .s2 + .o,
+  .p  + .nf,
+  .nc + .o,
+  .p  + .nx {
+    color: #40586e;
+  }
+
+  /**
+   * special.regexp
+   */
+  .sr {
+    color: #22863a;
+  }
+
+  /**
+   * string.escape
+   * classes
+   */
+  .se,
+  .no {
+    color: #005cc5;
+  }
+}
+
+.highlight,
+.highlight > code,
+.code {
+  background: rgb(247, 247, 247);
+  font-size: $body-font-size - 0.14rem;
+  box-sizing: border-box;
+  border: none;
 }
 
 @import "1024w";
