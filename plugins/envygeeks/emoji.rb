@@ -27,7 +27,7 @@ module EnvyGeeks
     # --
     def initialize(doc)
       @frag = Nokogiri::HTML.parse(doc.output)
-      @dog  = doc
+      @doc  = doc
     end
 
     # --
