@@ -9,6 +9,7 @@ dev: &def
   environment: &env
     BUNDLE_CACHE: "true"
     JEKYLL_ENV: development
+    GITHUB_TOKEN: "$GITHUB_TOKEN"
     JEKYLL_UID: "$JEKYLL_UID"
     JEKYLL_DEBUG: "false"
     CI: $CI
