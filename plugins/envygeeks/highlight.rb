@@ -14,10 +14,8 @@ module EnvyGeeks
     # @return self
     # --
     def initialize(doc)
-      @doc = doc
-      @frag = Nokogiri::HTML.parse(
-        doc.output
-      )
+      @frag = Nokogiri::HTML.parse(doc.output)
+      @doc  = doc
     end
 
     # --
@@ -41,5 +39,8 @@ end
 # --
 # Hook into Jekyll
 Jekyll::Hooks.register [:pages, :documents, :posts], :post_render do |doc|
-  EnvyGeeks::Highlight.new(doc).parse
+  # Disable in dev so we can spot changes.
+  unless Jekyll.env == "development"
+    EnvyGeeks::Highlight.new(doc).parse
+  end
 end

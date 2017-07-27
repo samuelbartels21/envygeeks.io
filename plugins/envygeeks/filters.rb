@@ -67,8 +67,9 @@ module EnvyGeeks
       return url if url == "/"
       return "/" if url == ""
 
-      url.gsub(/\.html$/, "").gsub(/\/$/, ""). \
-        gsub(/(?<!http:|https:)\/{2}/, "/")
+      url.gsub(/\.html$/, ""). \
+        gsub(/(?<!http:|https:)\/{2}/, "/"). \
+        gsub(/\/$/, "")
     end
 
     # --
@@ -145,9 +146,7 @@ module EnvyGeeks
     # --
     private
     def site
-      @context.registers[
-        :site
-      ]
+      @context.registers[:site]
     end
   end
 end

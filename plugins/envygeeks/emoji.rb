@@ -15,21 +15,25 @@ module EnvyGeeks
     rb_delegate :site, :to => :@doc
 
     IGNORED = %w(pre code tt).freeze
-    BASEATTR = %{src="%s" alt="%s" width="20" height="20" align="absmiddle"}
-    IMAGE_WITH_INTEGRITY = %Q{<img #{BASEATTR} integrity="%s">}
-    IMAGE = %Q{<img #{BASEATTR}>}
+    ATTR = %{src="%s" alt="%s" width="20" height="20" align="absmiddle"}.freeze
+    IMAGE_INTEGRITY = %Q{<img #{ATTR} integrity="%s">}.freeze
+    IMAGE = %Q{<img #{ATTR}>}.freeze
     Emojis = ::Emoji
 
     # --
     # Initialize a new instance.
+    # @param doc [Jekyll::Document] the document to parse.
+    # @return self
     # --
     def initialize(doc)
       @frag = Nokogiri::HTML.parse(doc.output)
-      @doc = doc
+      @dog  = doc
     end
 
     # --
-    # Parse and return nothing.
+    # @return nil
+    # Parse, search for Emoji's and then replace the
+    # documents output.
     # --
     def parse
       @frag.search('.//text()').each do |node|
@@ -46,6 +50,7 @@ module EnvyGeeks
 
     # --
     # Build the base Regexp.
+    # @private
     # --
     private
     def regexp
@@ -56,14 +61,16 @@ module EnvyGeeks
     end
 
     # --
-    # Filter the content out.
     # @return [Node]
+    # @param txt [TextNode] the text node to replace.
+    # Filter the content out.
+    # @private
     # --
     private
     def filter_content(txt)
       if txt =~ regexp
         txt = txt.gsub(regexp) do |match|
-          img_tag(match.gsub(/^:|:$/, ""))
+          img(match.gsub(/^:|:$/, ""))
         end
       end
 
@@ -71,33 +78,43 @@ module EnvyGeeks
     end
 
     # --
-    # Build the HTML tag.
+    # @return [true,false]
+    # Whether or not integrity is enabled.
+    # @private
     # --
     private
-    def img_tag(data)
+    def integrity?
+      sprockets.asset_config["features"]["integrity"]
+    end
+
+    # --
+    # Build the HTML tag.
+    # @param data [String] the data.
+    # @return [String] string.
+    # @private
+    # --
+    private
+    def img(data)
       emoji = Emojis.find_by_alias(data)
       emoji = emoji.image_filename.prepend("emoji/")
       image = manifest.find(emoji).first
+      return "" unless image
 
-      if image
-        manifest.used << image
-        path = sprockets.digest?? image.digest_path : image.logical_path
-        path = sprockets.prefix_path(path)
+      manifest.used << image
+      path = sprockets.digest?? image.digest_path : image.logical_path
+      path = sprockets.prefix_path(path)
+      intg = image.integrity
 
-        if sprockets.asset_config["features"]["integrity"]
-          return format(IMAGE_WITH_INTEGRITY, path, \
-            image.integrity, data)
-        end
-
-        return format(IMAGE, path, data)
-      end
-
-      ""
+      # <img integrity=val>, broken?
+      return format(IMG2, path, ingt, data) if integrity?
+      format(IMG1, path, data)
     end
 
     class << self
 
       # --
+      # @return [true,false] whether it can be emojified.
+      # @param doc [Jekyll::Document,Jekyll::Page,Jekyll::Post] the document
       # Check if a document can be emojified.
       # --
       def emojiable?(doc)

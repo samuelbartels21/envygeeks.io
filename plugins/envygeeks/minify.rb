@@ -15,9 +15,7 @@ if Jekyll.env == "development"
       out = `script/minify`
 
       if $?.exitstatus != 0
-        Jekyll.logger.error(
-          "Unable to Minify"
-        )
+        Jekyll.logger.error("Unable to Minify")
       end
     end
   end
