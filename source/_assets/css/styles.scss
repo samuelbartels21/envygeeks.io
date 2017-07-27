@@ -401,11 +401,15 @@ a {
 
   ul {
     margin: 0;
+    grid-gap: 0 2vw;
+    grid-template-columns: repeat(2, 1fr);
+    display: grid;
     width: 100%;
     padding: 0;
 
     li {
       float: left;
+      grid-column: 1;
       display: inline-block;
       border-bottom: 1px solid rgba(149, 165, 166, 0.1);
       box-sizing: border-box;
@@ -413,7 +417,7 @@ a {
       width: 100%;
 
       &:nth-child(even) {
-        float: right;
+        grid-column: 2;
       }
     }
   }
