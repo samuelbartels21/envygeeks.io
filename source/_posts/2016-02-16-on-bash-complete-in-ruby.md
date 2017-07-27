@@ -7,6 +7,8 @@ title: Bash completion in Ruby
 
 Your auto-completion is kind-of complicated.  You build it entirely in `bash` with the assumption that it provides more perf (and it probably does... it probably isn't to-be honest... based on what I can gander from looking at it.) It's not maintainable even if it does have more perf.  Why not use Ruby to generate the auto complete list for Ruby?
 
+<!-- MORE -->
+
 ## Argument Storage
 
 Let's take this from the start, we need to be able to let users do something like `hello w` and get `this is my list`, we don't need to be fancy and deal with returning relevant lists ourselves, lets leave that to `compgen` we need to store a list of values and ship that list. So lets start with a hash:
