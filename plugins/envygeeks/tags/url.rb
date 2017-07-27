@@ -3,7 +3,6 @@
 # Encoding: UTF-8
 
 require_relative "../helpers/tag"
-require_relative "../helpers/site"
 require_relative "../filters"
 
 module EnvyGeeks
@@ -11,7 +10,6 @@ module EnvyGeeks
     class URL < Liquid::Tag
       include Helpers::Tag
       TAG = %q{<a href="%s">%s</a>}
-      include Helpers::Site
       include Filters
 
       # --

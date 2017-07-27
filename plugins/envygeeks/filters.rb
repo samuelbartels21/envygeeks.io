@@ -136,6 +136,19 @@ module EnvyGeeks
       return format("%s://%s:%s", proto, host, port) if serving
       format("%s://%s/%s", proto, host, base)
     end
+
+    # --
+    # It's all a joke, really it is.
+    # @see https://github.com/jekyll/jekyll/pull/6250
+    # @see https://github.com/jekyll/jekyll/issues/6249
+    # This fixes that problem.
+    # --
+    private
+    def site
+      @context.registers[
+        :site
+      ]
+    end
   end
 end
 
