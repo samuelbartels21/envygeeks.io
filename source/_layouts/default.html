@@ -4,26 +4,9 @@
     <link rel="canonical" href="{{ page | canonical_url }}">
     {% capture title %}{{ site.title }}{% if page.title %} - {{ page.title }}{% endif %}{% endcapture %}
     {{ 'css:bundle.css "js:bundle.js async:true"' | jekyll_asset_multi }}
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <meta name="generator" content="Jekyll {{ jekyll.version }}">
-    <meta environment="{{ jekyll.environment  }}">
+    {% include _layout/_meta.html %}
     {% include _layout/_analytics.html %}
     <title>{{ title }}</title>
-    <meta charset="UTF-8">
-
-    <meta itemprop="name" content="{{ title }}">
-    <meta property="og:type" content="article" />
-    <meta name="twitter:site" content="{{ site.twitter-site }}">
-    <meta itemprop="description" content="{{ site.description }}">
-    <meta name="twitter:description" content="{{ site.description }}">
-    <meta property="og:description" content="{{ site.description }}" />
-    <meta name="twitter:creator" content="{{ site.twitter-creator }}">
-    <meta property="og:url" content="{{ page | canonical_url }}" />
-    <meta property="og:site_name" content="{{ site.title }}" />
-    <meta name="twitter:card" content="summary_large_image">
-    <meta property="og:title" content="{{ title }}" />
-    <meta name="twitter:title" content="{{ title }}">
-
 
     <link rel="alternate"
       type="application/rss+xml"
