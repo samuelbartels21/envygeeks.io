@@ -14,6 +14,8 @@ dev: &def
     JEKYLL_DEBUG: "false"
     CI: $CI
   volumes:
+    - $HOME/.pry_history:/root/.pry_history
+    - $HOME/.pry_history:/home/jekyll/.pry_history
     - $PWD:/srv/jekyll
   ports:
     - 4000:4000
