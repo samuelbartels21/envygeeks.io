@@ -39,8 +39,5 @@ end
 # --
 # Hook into Jekyll
 Jekyll::Hooks.register [:pages, :documents, :posts], :post_render do |doc|
-  # Disable in dev so we can spot changes.
-  unless Jekyll.env == "development"
-    EnvyGeeks::Highlight.new(doc).parse
-  end
+  EnvyGeeks::Highlight.new(doc).parse
 end
