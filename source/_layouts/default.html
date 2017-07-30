@@ -67,10 +67,10 @@
           </p>
         {% endif %}
 
-        {% if site.social-media %}
+        {% if site.social %}
           <div class="social">
-            {% for account in site.social-media %}
-              <a target="_blank" href="{{ account[1] }}" rel="noopener noreferrer">
+            {% for account in site.social %}
+              <a href="{{ account[1] }}">
                 <i class="fa fa-{{ account[0] }}-square" aria-hidden="true">
                   <!-- EMPTY -->
                 </i>

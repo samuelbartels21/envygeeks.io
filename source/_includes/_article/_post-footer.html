@@ -1,6 +1,6 @@
 <footer>
   <div class="avatar">
-    <a href="https://github.com/{{ post.author.handle }}" target="_blank" rel="noopener noreferrer">
+    <a href="https://github.com/{{ post.author.handle }}">
       <img alt="{{ post.author.handle }} Avatar" src="{%
         asset_path "avatars/{{ post.author.handle }}"
       %}">
@@ -9,15 +9,13 @@
 
   <div>
     <p class="author">
-      <a href="https://github.com/{{ post.author.handle }}"
-            target="_blank" rel="noopener noreferrer">
-
+      <a href="https://github.com/{{ post.author.handle }}">
         {{ post.author.name }}
       </a>
     </p>
 
     <ul class="tags">
-      {% for tag in post.envygeeks.tags %}
+      {% for tag in post.tags %}
         <li>
           <a href="{{ tag.url | pretty }}">
             {{ tag }}

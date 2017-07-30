@@ -1,42 +1,34 @@
+gql_query_limit: 12
+hide_page_titles: true
+twitter_site: "@envygeeks"
+twitter_creator: "@envygeeks"
+sub_title: Systems and Programming
+description: The website of Jordon Bedwell; Linux Sysadmin, and Programmer
+enable_minification_in_development: false
+sub_title: Systems and Programming
+title: Jordon Bedwell
+ga: UA-18997298-1
+force_ssl: false
+ssl: true
 # --
-# _plugins/envygeeks/*
-# This is used in my plugins, design and otherwise most
-#   likely it will not be shared anywhere.
+# _plugins/envygeeks/drops/archive.rb
+# You can use the following to access it.
+# {{ envygeeks.drops.archives }}
 # --
-envygeeks:
-  gqlQueryLimit: 12
-  hidePageTitles: true
-  twitterSite: "@envygeeks"
-  twitterCreator: "@envygeeks"
-  subTitle: Systems and Programming
-  description: The website of Jordon Bedwell; Linux Sysadmin, and Programmer
-  enableMinificationInDevelopment: false
-  subTitle: Systems and Programming
-  githubUsername: envygeeks
-  repoName: envygeeks.io
-  title: Jordon Bedwell
-  ga: UA-18997298-1
-  forceSSL: false
-  ssl: true
-  # --
-  # _plugins/envygeeks/drops/archive.rb
-  # You can use the following to access it.
-  # {{ envygeeks.drops.archives }}
-  # --
-  archive:
-    shuffle: 6
-    weights:
-      max: 3
-      int: 1
-  # --
-  # _plugins/envygeeks/drops/social.rb
-  # You can use the following to access it.
-  # {{ envygeeks.drops.social }}
-  # --
-  socialMedia:
-    github: https://github.com/envygeeks
-    twitter: https://twitter.com/envygeeks
-    mail: mailto:jordon@envygeeks.io
+archive:
+  shuffle: 6
+  weights:
+    max: 3
+    int: 1
+# --
+# _plugins/envygeeks/drops/social.rb
+# You can use the following to access it.
+# {{ envygeeks.drops.social }}
+# --
+social:
+  github: https://github.com/envygeeks
+  twitter: https://twitter.com/envygeeks
+  mail: mailto:jordon@envygeeks.io
 # --
 # Jekyll configuration.
 # This configuration is unique to Jekyll and only to

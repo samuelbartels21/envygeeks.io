@@ -11,7 +11,8 @@ source work, and I also freelance for a lot of companies who have products you
 might have used on a daily basis.
 
 {% img
-  giphy/8Anv5VHRlm5vG.gif width:100% height:auto
+  giphy/8Anv5VHRlm5vG.gif
+  width:100% height:auto
 %}
 
 In the past it was my day to day job to scale and grow things like Jekyll builds to thousands of builds with Docker.  No, not at Github, somewhere else. When doing freelance work most people hire me to do initial ops work, Rails apps and even systems programming with languages like Go.  If you were to ask me what I do, I would say I "hack" because I work on many things...

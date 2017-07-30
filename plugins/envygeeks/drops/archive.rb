@@ -92,8 +92,7 @@ end
 # Jekyll:Register
 # --
 Jekyll::Hooks.register :site, :pre_render do |site, payload|
-  payload["envygeeks"] ||= {}
-  payload["envygeeks"]["archive"] = EnvyGeeks::Drops::Archive.new({
+  payload["archives"] = EnvyGeeks::Drops::Archive.new({
     :site => site
   })
 end

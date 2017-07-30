@@ -35,8 +35,7 @@ end
 
 Jekyll::Hooks.register :site, :pre_render do |site, payload|
   site.posts.docs.each do |post|
-    post.data["envygeeks"] ||= {}
-    post.data["envygeeks"]["tags"] = post.data["tags"].map do |tag|
+    post.data["tags"] = post.data["tags"].map do |tag|
       EnvyGeeks::Drops::Tag.new(tag, {
         :site => site
       })
