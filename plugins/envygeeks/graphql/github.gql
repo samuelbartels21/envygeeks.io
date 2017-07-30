@@ -1,0 +1,171 @@
+# --
+# Gives us the current rateLimit that is available on
+# the Github GraphQL API, this is useful if you do complicated
+# queries that might cost you a lot.
+# --
+query Limit {
+  rateLimit {
+    resetAt
+    remaining
+    limit
+    cost
+  }
+}
+
+# --
+# Gives us the user repositories.
+# You can customize this inside of `_config.yml`.
+# There are limits set there for this.
+# --
+query Repos($count: Int!, $user: String!,
+$after: String, $order: RepositoryOrderField = STARGAZERS,
+$privacy: RepositoryPrivacy = PUBLIC) {
+  rateLimit {
+    resetAt
+    remaining
+    limit
+    cost
+  }
+
+  user(login: $user) {
+    repositories(privacy: $privacy, first: $count, isFork: false,
+    affiliations: [OWNER, COLLABORATOR, ORGANIZATION_MEMBER], orderBy: {
+    field: $order, direction: DESC }, after: $after) {
+      totalCount
+      pageInfo {
+        startCursor
+        hasPreviousPage
+        hasNextPage
+        endCursor
+      }
+
+      edges {
+        node {
+          id
+          pushedAt
+          nameWithOwner
+          name
+          url
+
+          # --
+          # Anything with a single line is probably gonna be
+          # collapsed when it' returned to you, rather than kept
+          # as a deeply nested value.
+          # --
+
+          owner { login }
+          primaryLanguage { name }
+          pullRequests(states: OPEN) { totalCount}
+          issues(states: OPEN) { totalCount }
+          stargazers { totalCount }
+          forks { totalCount }
+        }
+      }
+    }
+  }
+}
+
+# --
+# Gives us information on a repo.
+# Right now this only returns a static 4 last commits.
+# There really is no reason for more.
+# --
+query Repo($repo: String!, $user: String!) {
+  rateLimit {
+    resetAt
+    remaining
+    limit
+    cost
+  }
+
+  repository(owner: $user, name: $repo) {
+    name
+    hasIssuesEnabled
+    nameWithOwner
+    url
+    id
+
+    owner {
+      url
+      login
+      id
+    }
+
+    ref(qualifiedName: "refs/heads/master") {
+      target {
+      	... on Commit {
+          id
+
+          history(first: 4) {
+            edges {
+              node {
+                oid
+                abbreviatedOid
+                messageHeadline
+                commitUrl
+                id
+
+                author {
+                  email
+                  name
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+# --
+# Allows us to gather metadata on a file, AKA when it
+# was last edited, what the hash of that edit was, who had
+# edited said file, and so forth...
+# --
+query FileCommitInfo($repo: String!, $user: String!,
+$path: String!, $count: Int!) {
+  rateLimit {
+    cost
+  }
+
+  repository(owner: $user, name: $repo) {
+    ref(qualifiedName: "refs/heads/master") {
+      target {
+      	... on Commit {
+          id
+
+          history(first: $count, path: $path) {
+            pageInfo {
+              hasNextPage
+              hasPreviousPage
+              startCursor
+              endCursor
+            }
+
+            edges {
+              node {
+                id
+                committedDate
+                abbreviatedOid
+                commitUrl
+                oid
+
+                committer {
+                  user {
+                    id
+                    name
+                    avatarUrl
+                    login
+                    email
+                    url
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

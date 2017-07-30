@@ -27,26 +27,6 @@ Other than that, I can't stand long walks on the beech, WIFI/Cell is spotty, and
 
 ## Some Projects
 
-<div class="projects">
-  <ul>
-    {% for project in site.data.projects %}
-      <li>
-        <div class="left">
-          <a href="{{ project.url }}" target="_blank" rel="noopener noreferrer">
-            {{
-              project.name
-            }}
-          </a>
-        </div>
-
-        <div class="right">
-          <a href="{{ project.url }}/fork" target="_blank" rel="noopener noreferrer">
-            <i class="fa fa-code-fork" aria-hidden="true">
-              <!-- Empty -->
-            </i>
-          </a>
-        </div>
-      </li>
-    {% endfor %}
-  </ul>
-</div>
+{% include
+  _about/_projects.html
+%}

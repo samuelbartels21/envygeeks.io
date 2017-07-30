@@ -1,8 +1,0 @@
-- { name: "Jekyll Docker", url: "https://github.com/jekyll/docker", likeable: true }
-- { name: "Jekyll Assets", url: "https://github.com/jekyll/jekyll-assets", likeable: true }
-- { name: "Octopress Docker", url: "https://github.com/octopress/docker", likeable: true }
-- { name: "Docker Template", url: "https://github.com/envygeeks/docker-template", likeable: true }
-- { name: "Docker Images", url: "https://github.com/envygeeks/docker", likeable: true }
-- { name: "Pathutil", url: "https://github.com/envygeeks/pathutil", likeable: true }
-- { name: "Clippy", url: "https://github.com/envygeeks/clippy", likeable: true }
-- { name: "Jekyll", url: "https://github.com/jekyll/jekyll", likeable: true }
