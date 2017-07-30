@@ -159,7 +159,7 @@ module EnvyGeeks
         # --
 
         {
-          createdAt: DateTime.parse(result.committed_date),
+          created_at: DateTime.parse(result.committed_date),
 
         }
       end
@@ -188,10 +188,10 @@ module EnvyGeeks
               path: v.name_with_owner,
               forks: v.forks.total_count,
               language: v.primary_language&.name&.downcase,
-              pullRequests: v.pull_requests.total_count,
+              pull_requests: v.pull_requests.total_count,
               stargazers: v.stargazers.total_count,
               issues: v.issues.total_count,
-              pushedAt: pushed_at,
+              pushed_at: pushed_at,
               name: v.name
             }
           end
@@ -212,16 +212,16 @@ module EnvyGeeks
         result(graphql_query: Query::Repo, graphql_path: path, **kwd) do |v|
           {
             name: v.name,
-            ownerURL: v.owner.url,
-            issuesEnabled: v.has_issues_enabled?,
-            nameWithOwner: v.name_with_owner,
+            owner_url: v.owner.url,
+            issues_enabled: v.has_issues_enabled?,
+            name_with_owner: v.name_with_owner,
             owner: v.owner.login,
             url: v.url,
 
             commits: loop_on(v, graphql_path: "ref/target/history") do |v|
               {
                 url: v.commit_url,
-                shortOID: v.abbreviated_oid,
+                short_oid: v.abbreviated_oid,
                 message: v.message_headline,
                 oid: v.oid
               }
