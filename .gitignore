@@ -1,8 +1,12 @@
 /vendor
+/.cache
+/.jekyll-cache
 /source/.sass-cache
 /source/.jekyll-metadata
 /source/.asset-cache
+/.jekyll-metadata
 /source/_drafts
 /node_modules
+/.sass-cache
 /.bundle
 /site
