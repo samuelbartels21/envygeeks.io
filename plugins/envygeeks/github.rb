@@ -46,14 +46,14 @@ module EnvyGeeks
     # Setup everything as a constant, this way it can all
     # be reused... We can add and remove queries by adding in
     # a parse method and then going and adding the query into
-    # the `github.gql` file with minimal work.
+    # the `github.graphql` file with minimal work.
     # --
 
     RmtUrl = "https://api.github.com/graphql"
     GQLDir = EnvyGeeks.plugins_dir.join("graphql")
     Remote = GraphQL::Client::HTTP.new(RmtUrl, &headers)
     Client = GraphQL::Client.new(execute: Remote, schema: schema)
-    Query  = Client.parse(GQLDir.join("github.gql").read)
+    Query  = Client.parse(GQLDir.join("github.graphql").read)
     Cache  = EnvyGeeks::Cache.new("github")
     Token  = ENV["GITHUB_TOKEN"]
 
@@ -65,7 +65,7 @@ module EnvyGeeks
     def initialize(site)
       @site  = site
       @limit = EnvyGeeks.config.fetch(
-        :gqlQueryLimit, 12
+        :graphql_query_limit, 12
       )
     end
 
@@ -96,7 +96,7 @@ module EnvyGeeks
     # --
     # Defaults the GraphAPI max limit.
     # --
-    def graph_limit
+    def graphql_limit
       if @limit == Infinity
         return 100
       end
@@ -140,8 +140,8 @@ module EnvyGeeks
 
         limit Infinity do
           results = results({
-            graphPath: path,
-            gql: Query::FileCommitInfo,
+            graphql_path: path,
+            graphql_query: Query::FileCommitInfo,
             path: file,
           })
         end
@@ -175,7 +175,7 @@ module EnvyGeeks
       Cache.fetch("repos", :expires_in => expires) do
         path = "user/repositories"
 
-        results(gql: Query::Repos, graphPath: path, **kwd) do |v|
+        results(graphql_query: Query::Repos, graphql_path: path, **kwd) do |v|
           unless v.primary_language?
             next
           end
@@ -209,7 +209,7 @@ module EnvyGeeks
       Cache.fetch("repo", :expires_in => expires) do
         path = "repository"
 
-        result(gql: Query::Repo, graphPath: path, **kwd) do |v|
+        result(graphql_query: Query::Repo, graphql_path: path, **kwd) do |v|
           {
             name: v.name,
             ownerURL: v.owner.url,
@@ -218,7 +218,7 @@ module EnvyGeeks
             owner: v.owner.login,
             url: v.url,
 
-            commits: loop_on(v, graphPath: "ref/target/history") do |v|
+            commits: loop_on(v, graphql_path: "ref/target/history") do |v|
               {
                 url: v.commit_url,
                 shortOID: v.abbreviated_oid,
@@ -237,9 +237,9 @@ module EnvyGeeks
     # @private
     # --
     private
-    def query(gql:, after: nil, **kwd)
-      Client.query(gql, variables: kwd.merge({
-        count: graph_limit,
+    def query(graphql_query:, after: nil, **kwd)
+      Client.query(graphql_query, variables: kwd.merge({
+        count: graphql_limit,
          repo: info[:repo],
          user: info[:user],
         after: after,
@@ -284,13 +284,13 @@ module EnvyGeeks
     #   you normalize.
     # --
     private
-    def results(gql:, graphPath:, **kwd, &block)
+    def results(graphql_query:, graphql_path:, **kwd, &block)
       after, out = nil, []
 
       while out.count < @limit
-        results = query(gql: gql, after: after, **kwd)
-        loop_on(results, into: out, graphPath: graphPath, &block)
-        info = at_path(results, graphPath: graphPath).page_info
+        results = query(graphql_query: graphql_query, after: after, **kwd)
+        loop_on(results, into: out, graphql_path: graphql_path, &block)
+        info = at_path(results, graphql_path: graphql_path).page_info
         break unless info.has_next_page? && \
           after = info.end_cursor
       end
@@ -303,9 +303,9 @@ module EnvyGeeks
     # @note If you have a edge or set of nodes, use `results`
     # @return [{}] the value gotten back.
     # --
-    def result(gql:, graphPath:, **kwd)
-      out = query(gql: gql)
-      out = nodes(out, graphPath: graphPath)
+    def result(graphql_query:, graphql_path:, **kwd)
+      out = query(graphql_query: graphql_query)
+      out = nodes(out, graphql_path: graphql_path)
       return yield out if block_given?
 
       out
@@ -317,8 +317,8 @@ module EnvyGeeks
     #   within the data set (result.)
     # --
     private
-    def nodes(result, graphPath:)
-      out = at_path(result, graphPath: graphPath)
+    def nodes(result, graphql_path:)
+      out = at_path(result, graphql_path: graphql_path)
       return out.edges if out.respond_to?(:edges)
       return out.nodes if out.respond_to?(:nodes)
       out
@@ -330,11 +330,11 @@ module EnvyGeeks
     #   and passes to us.
     # --
     private
-    def at_path(result, graphPath:)
+    def at_path(result, graphql_path:)
       return nil unless result
 
       out = result.respond_to?(:data) ? result.data : result
-      graphPath.split("/").each do |v|
+      graphql_path.split("/").each do |v|
         out = out&.send(v)
       end
 
