@@ -17,5 +17,17 @@ module EnvyGeeks
     def initialize(dir)
       super(EnvyGeeks.cache_dir.join(dir))
     end
+
+    # --
+    # Overrides `fetch` so that we can automatically
+    # (immediately) expire if we are in development, without
+    # the need for any one class to carry expirey data.
+    # --
+    def fetch(key, **opts)
+      return yield if opts[:expires_in] == 0.minutes
+      super(key, **opts) do
+        yield
+      end
+    end
   end
 end
