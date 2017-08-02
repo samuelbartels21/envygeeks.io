@@ -1,7 +1,7 @@
 source "https://rubygems.org"
 gem "jekyll", "~> 3.5"
 gem "uglifier", "~> 3.2"
-gem "graphql-client", "~> 0.11"
+gem "graphql-client", "~> 0.12"
 gem "nokogiri", "~> 1.8"
 gem "gemoji", "~> 3.0"
 
