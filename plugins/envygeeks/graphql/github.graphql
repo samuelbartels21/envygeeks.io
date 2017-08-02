@@ -1,114 +1,89 @@
-# --
-# Gives us the current rateLimit that is available on
-# the Github GraphQL API, this is useful if you do complicated
-# queries that might cost you a lot.
-# --
-query Limit {
-  rateLimit {
-    resetAt
-    remaining
-    limit
-    cost
+fragment         UserFields on User         { url, name, avatarUrl, login }
+fragment     PageInfoFields on PageInfo     { startCursor, hasPreviousPage, hasNextPage, endCursor }
+fragment OrganizationFields on Organization { url, org: name , avatarUrl, login }
+fragment    RateLimitFields on RateLimit    { resetAt, remaining, limit, cost }
+fragment   RepositoryFields on Repository   {
+  pushedAt
+  nameWithOwner
+  hasIssuesEnabled
+  hasWikiEnabled
+  name
+  url
+
+  owner {
+    ... on User { ...UserFields }
+    ... on Organization {
+      ...OrganizationFields
+    }
+  }
+
+  primaryLanguage { name }
+  pullRequests(states: OPEN) { totalCount }
+  issues(states: OPEN) { totalCount }
+  stargazers { totalCount }
+  forks { totalCount }
+}
+
+fragment CommitFields on Commit {
+  treeUrl
+  messageHeadline
+  committedDate
+  commitUrl
+  oid
+
+
+  author {
+    user {
+      ...UserFields
+    }
   }
 }
 
-# --
-# Gives us the user repositories.
-# You can customize this inside of `_config.yml`.
-# There are limits set there for this.
-# --
+query Limit {
+  rateLimit {
+    ...RateLimitFields
+  }
+}
+
 query Repos($count: Int!, $user: String!,
 $after: String, $order: RepositoryOrderField = STARGAZERS,
 $privacy: RepositoryPrivacy = PUBLIC) {
   rateLimit {
-    resetAt
-    remaining
-    limit
-    cost
+    ...RateLimitFields
   }
 
   user(login: $user) {
     repositories(privacy: $privacy, first: $count, isFork: false,
     affiliations: [OWNER, COLLABORATOR, ORGANIZATION_MEMBER], orderBy: {
     field: $order, direction: DESC }, after: $after) {
-      totalCount
       pageInfo {
-        startCursor
-        hasPreviousPage
-        hasNextPage
-        endCursor
+        ...PageInfoFields
       }
 
       edges {
         node {
-          id
-          pushedAt
-          nameWithOwner
-          name
-          url
-
-          # --
-          # Anything with a single line is probably gonna be
-          # collapsed when it' returned to you, rather than kept
-          # as a deeply nested value.
-          # --
-
-          owner { login }
-          primaryLanguage { name }
-          pullRequests(states: OPEN) { totalCount}
-          issues(states: OPEN) { totalCount }
-          stargazers { totalCount }
-          forks { totalCount }
+          ...RepositoryFields
         }
       }
     }
   }
 }
 
-# --
-# Gives us information on a repo.
-# Right now this only returns a static 4 last commits.
-# There really is no reason for more.
-# --
-query Repo($repo: String!, $user: String!) {
+query Repo($repo: String!, $user: String!, $count: Int!) {
   rateLimit {
-    resetAt
-    remaining
-    limit
-    cost
+    ...RateLimitFields
   }
 
   repository(owner: $user, name: $repo) {
-    name
-    hasIssuesEnabled
-    nameWithOwner
-    url
-    id
-
-    owner {
-      url
-      login
-      id
-    }
+    ...RepositoryFields
 
     ref(qualifiedName: "refs/heads/master") {
       target {
       	... on Commit {
-          id
-
-          history(first: 4) {
+          history(first: $count) {
             edges {
               node {
-                oid
-                abbreviatedOid
-                messageHeadline
-                commitUrl
-                id
-
-                author {
-                  email
-                  name
-                }
+                ...CommitFields
               }
             }
           }
@@ -118,49 +93,24 @@ query Repo($repo: String!, $user: String!) {
   }
 }
 
-# --
-# Allows us to gather metadata on a file, AKA when it
-# was last edited, what the hash of that edit was, who had
-# edited said file, and so forth...
-# --
-query FileCommitInfo($repo: String!, $user: String!,
+query Stat($repo: String!, $user: String!, $after: String,
 $path: String!, $count: Int!) {
   rateLimit {
-    cost
+    ...RateLimitFields
   }
 
   repository(owner: $user, name: $repo) {
     ref(qualifiedName: "refs/heads/master") {
       target {
       	... on Commit {
-          id
-
-          history(first: $count, path: $path) {
+          history(first: $count, path: $path, after: $after) {
             pageInfo {
-              hasNextPage
-              hasPreviousPage
-              startCursor
-              endCursor
+              ...PageInfoFields
             }
 
             edges {
               node {
-                id
-                committedDate
-                abbreviatedOid
-                commitUrl
-                oid
-
-                committer {
-                  user {
-                    id
-                    name
-                    avatarUrl
-                    login
-                    email
-                    url
-                  }
-                }
+                ...CommitFields
               }
             }
           }
