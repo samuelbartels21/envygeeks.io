@@ -152,7 +152,4 @@ module EnvyGeeks
 end
 
 # --
-# Liquid:Register
-# Liquid:Filter
-# --
 Liquid::Template.register_filter(EnvyGeeks::Filters)
