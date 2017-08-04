@@ -20,7 +20,7 @@ module EnvyGeeks
   def self.config
     @config ||= begin
       file = Pathutil.pwd.join("_config.yml")
-      data = file.read_yaml({
+      file.read_yaml({
         safe: true
       })
     end
