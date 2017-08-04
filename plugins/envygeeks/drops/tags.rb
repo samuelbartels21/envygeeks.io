@@ -2,22 +2,21 @@
 # Copyright 2016 - 2017 Jordon Bedwell - MIT License
 # Encoding: UTF-8
 
+require_relative "../liquid/drop/str"
 require_relative "../helpers/tag"
 
 module EnvyGeeks
   module Drops
-    class Tag < Liquid::Drop
-      extend Forwardable::Extended
-      rb_delegate :to_s, :to => :@tag
-      rb_delegate :inspect, :to => :@tag
-      rb_delegate :==, :to => :@tag
+    class Tag < Liquid::Drop::Str
       attr_reader :weight, :site
+      extend Forwardable::Extended
       include Helpers::Tag
 
+      # --
       def initialize(tag, site:, weight: 0)
-        @tag = tag.to_s
-        @weight = weight
-        @site = site
+        super(tag)
+        @weight, @site = weight, \
+          site
       end
 
       def url
@@ -33,11 +32,11 @@ end
 # without having to do it all again, manually.
 # --
 
-Jekyll::Hooks.register :site, :pre_render do |site, payload|
-  site.posts.docs.each do |post|
-    post.data["tags"] = post.data["tags"].map do |tag|
-      EnvyGeeks::Drops::Tag.new(tag, {
-        :site => site
+Jekyll::Hooks.register :site, :pre_render, priority: 99 do |s, _|
+  s.posts.docs.each do |d|
+    d.data["tags"] = d.data["tags"].map do |t|
+      EnvyGeeks::Drops::Tag.new(t, {
+        site: s
       })
     end
   end

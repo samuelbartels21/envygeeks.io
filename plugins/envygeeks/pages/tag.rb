@@ -25,6 +25,22 @@ module EnvyGeeks
       end
 
       # --
+      # Since this class is dynamic, and it's path being
+      #   dynamic too, we provide a "realpath" method so that
+      #   anything using Git, or otherwise can determine
+      #   what the actual path is.
+      # @return string
+      # --
+      def realpath
+        @site.tags[@tag].sort_by { |v| v.data["date"] \
+          }.first.relative_path
+      rescue => e
+        require"pry"
+        Pry.output = STDOUT
+        binding.pry
+      end
+
+      # --
       # Pull out the base data from within the layout.
       # Most of the time this will simply just be empty.
       # @return [Hash]

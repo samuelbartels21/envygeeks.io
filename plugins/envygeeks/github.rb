@@ -4,30 +4,16 @@
 
 require "graphql/client"
 require "graphql/client/http"
+require_relative "github/result"
 require "active_support/inflector"
+require_relative "github/formatters"
+require_relative "github/helpers"
+require_relative "github/errors"
 require "active_support/cache"
 require_relative "cache"
 
 module EnvyGeeks
   class Github
-    Infinity = Float::INFINITY
-
-    # --
-    # @return [Proc] the headers to set.
-    # Returns a proc so that the `EndPoint` can set it's headers.
-    # @note It seems that Github/GraphQL doesn't support
-    #   auth so we need to add it manually at
-    #   that point.
-    # --
-    def self.headers
-      Proc.new do
-        def headers(ctx)
-          {
-            "Authorization" => "bearer #{Token}"
-          }
-        end
-      end
-    end
 
     # --
     # @note can be slow on first usage.
@@ -51,7 +37,7 @@ module EnvyGeeks
 
     RmtUrl = "https://api.github.com/graphql"
     GQLDir = EnvyGeeks.plugins_dir.join("graphql")
-    Remote = GraphQL::Client::HTTP.new(RmtUrl, &headers)
+    Remote = GraphQL::Client::HTTP.new(RmtUrl, &Helpers.headers)
     Client = GraphQL::Client.new(execute: Remote, schema: schema)
     Query  = Client.parse(GQLDir.join("github.graphql").read)
     Cache  = EnvyGeeks::Cache.new("github")
@@ -64,104 +50,36 @@ module EnvyGeeks
     # --
     def initialize(site)
       @site  = site
-      @limit = EnvyGeeks.config.fetch(
-        :graphql_query_limit, 12
-      )
     end
 
     # --
-    # Infers the current repository name from the origin.
-    #   And if there is no name then it just dumps and fails
-    #   because you shouldn't be using this without git.
-    # @return [String] the name
+    # @param file [String] the file.
+    # Allows you to stat a file, getting some basic
+    #   informations on it, such as when it was created,
+    #   who created it, and so-forth.
+    # @return [{}] the result.
     # --
-    def info
-      @info ||= begin
-        remotes = `git remote -v`
-        remotes = remotes.gsub(/\((fetch|push)\)$/m, "").split(/\s*$\n+/).
-          uniq.keep_if { |v| v.match(/github\.com/) }
-
-        remote = remotes[0] if remotes.size == 1
-        remote = remotes.find { |v| v.start_with?("origin\t") }
-        remote = remote.gsub(/\.git$\n*/, "").split(":")
-        remote = remote.fetch(-1).split("/")
-
-        {
-          user: remote.fetch(0),
-          repo: remote.fetch(1),
-        }
-      end
-    end
-
-    # --
-    # Defaults the GraphAPI max limit.
-    # --
-    def graphql_limit
-      if @limit == Infinity
-        return 100
-      end
-
-      Integer(@limit)
-    end
-
-    # --
-    # Gives us the total results to expect.
-    # @note Github allows a limit of up to 100.
-    # @return Integer
-    # --
-    def limit(n = @limit)
-      o = @limit
-      @limit = n
-      yield
-    ensure
-      @limit = o
-    end
-
-    # --
-    # @return [ActiveSupport::Duration] the time.
-    # Tells you how long until we plan to expire something
-    #   In production this is always set to 0 minutes, in dev
-    #   it's set to around 6 minutes, this way your sites
-    #   don't build slow when you are working.
-    # --
-    def expires
-      @expires ||= begin
-        (Jekyll.env == "development" ? 6 : 0).minutes
-      end
-    end
-
-    def file_info(file)
-      Cache.fetch(File.join("file", file), :expires_in => expires,
-      :ttl_racetime => 1.minute) do
-        path = "repository/ref/target/history"
-        results = [
-          #
-        ]
-
-        limit Infinity do
-          results = results({
-            graphql_path: path,
-            graphql_query: Query::FileCommitInfo,
-            path: file,
-          })
-        end
+    def stat(file)
+      Cache.fetch(File.join("file", file)) do
+        out = results({
+          path: file,
+          graphql: {
+            limit: Float::INFINITY, query: Query::Stat,
+            path: [:repository,
+              :ref, :target, :history
+            ].freeze
+          }
+        })
 
         # --
         # This query is expensive because of the way that
-        #   Github currently handles `HistoryConnection`. We
+        #   Github currently handles `CommitHistoryConnection`. We
         #   have to extract the entire history to get the
         #   original creator of a file...
         # @see https://goo.gl/xaVFka
         # --
 
-        result = results.fetch(-1)
-
-        # --
-
-        {
-          created_at: DateTime.parse(result.committed_date),
-
-        }
+        Formatters.commit(out.sort_by(&:committed_date).fetch(0))
       end
     end
 
@@ -172,28 +90,12 @@ module EnvyGeeks
     #   around the many types of repo queries we have.
     # --
     def repos(**kwd)
-      Cache.fetch("repos", :expires_in => expires) do
-        path = "user/repositories"
-
-        results(graphql_query: Query::Repos, graphql_path: path, **kwd) do |v|
-          unless v.primary_language?
-            next
-          end
-
-          pushed_at = DateTime.parse(v.pushed_at)
-          if Time.now.year == pushed_at.year
-            {
-              url: v.url,
-              owner: v.owner.login,
-              path: v.name_with_owner,
-              forks: v.forks.total_count,
-              language: v.primary_language&.name&.downcase,
-              pull_requests: v.pull_requests.total_count,
-              stargazers: v.stargazers.total_count,
-              issues: v.issues.total_count,
-              pushed_at: pushed_at,
-              name: v.name
-            }
+      Cache.fetch(:repos) do
+        path = [:user, :repositories].freeze
+        results(graphql: { query: Query::Repos, path: path }, **kwd) do |v|
+          if v.primary_language && Time.now.year == \
+          DateTime.parse(v.pushed_at).year
+            Formatters.repo(v)
           end
         end
       end
@@ -206,93 +108,33 @@ module EnvyGeeks
     #   that would be useful for your footers.
     # --
     def repo(**kwd)
-      Cache.fetch("repo", :expires_in => expires) do
-        path = "repository"
-
-        result(graphql_query: Query::Repo, graphql_path: path, **kwd) do |v|
-          {
-            name: v.name,
-            owner_url: v.owner.url,
-            issues_enabled: v.has_issues_enabled?,
-            name_with_owner: v.name_with_owner,
-            owner: v.owner.login,
-            url: v.url,
-
-            commits: loop_on(v, graphql_path: "ref/target/history") do |v|
-              {
-                url: v.commit_url,
-                short_oid: v.abbreviated_oid,
-                message: v.message_headline,
-                oid: v.oid
-              }
+      Cache.fetch(:repo) do
+        path = [:repository]
+        result(graphql: { query: Query::Repo, path: path }, **kwd) do |v|
+          Formatters.repo(v.results).merge({
+            commits: Helpers.loop(v.results.ref.target.history) do |c|
+              Formatters.commit(c)
             end
-          }
+          })
         end
       end
     end
-
-    # --
-    # @return @todo
-    # Returns the results of our query.
-    # @private
-    # --
-    private
-    def query(graphql_query:, after: nil, **kwd)
-      Client.query(graphql_query, variables: kwd.merge({
-        count: graphql_limit,
-         repo: info[:repo],
-         user: info[:user],
-        after: after,
-      }))
-    end
-
-    # --
-    # Gets the result and loop it back to you.
-    # @note this is split out so that it can be used with
-    #   or without results, that way you can loop subresults
-    #   if you really wish to loop them.
-    # @return Class<Results>
-    # --
-    private
-    def loop_on(results, into: [], **kwd)
-      nodes(results, **kwd).each do |v|
-        v = v.respond_to?(:node) ? v.node : v
-
-        if block_given?
-          result = yield v
-
-          if result
-            into << result
-          end
-        else
-          into << v
-        end
-
-        if into.count == @limit
-          break
-        end
-      end
-
-      into
-    end
-
 
     # --
     # Wraps around and loops results with your block.
-    # @note you can use edges/node | nodes, dealers choice.
-    # @return [Array<Hash>] an array of hashes that
-    #   you normalize.
+    # @return [Array<Hash>] an array of hashes that you normalize.
+    # @note You can use edges/node | nodes, dealers choice.
     # --
     private
-    def results(graphql_query:, graphql_path:, **kwd, &block)
+    def results(graphql:, **kwd, &block)
       after, out = nil, []
 
-      while out.count < @limit
-        results = query(graphql_query: graphql_query, after: after, **kwd)
-        loop_on(results, into: out, graphql_path: graphql_path, &block)
-        info = at_path(results, graphql_path: graphql_path).page_info
-        break unless info.has_next_page? && \
-          after = info.end_cursor
+      while out.count < graphql.fetch(:limit, limit)
+        query = query(**kwd.merge(after: after, graphql: graphql))
+        Helpers.loop(query.results, { into: out }, &block)
+        break unless query.page_info.has_next_page
+        after = query.page_info.
+          end_cursor
       end
 
       out
@@ -301,27 +143,40 @@ module EnvyGeeks
     # --
     # Gets a single result from the database.
     # @note If you have a edge or set of nodes, use `results`
-    # @return [{}] the value gotten back.
+    # @todo Make sure you `validate!` on this method!
+    # @return [{}] the value gowtten back.
     # --
-    def result(graphql_query:, graphql_path:, **kwd)
-      out = query(graphql_query: graphql_query)
-      out = nodes(out, graphql_path: graphql_path)
-      return yield out if block_given?
+    private
+    def result(**kwd)
+      out = query(**kwd)
+      if block_given?
+        out = yield out
+      end
 
       out
     end
 
     # --
-    # @return [Array<Object>] the count and nodes.
-    # Get the nodes, along with all the nodes that are currently
-    #   within the data set (result.)
+    # @see https://goo.gl/5KS36r
+    # Returns the results of our query.
+    # @note this passes the raw data (#to_h) to avoid a few bugs in
+    #   graphql-client. There are bugs dealing when dealing with fragments,
+    #   especially nested fragments like ours.
+    # @return [{}] the result
     # --
     private
-    def nodes(result, graphql_path:)
-      out = at_path(result, graphql_path: graphql_path)
-      return out.edges if out.respond_to?(:edges)
-      return out.nodes if out.respond_to?(:nodes)
-      out
+    def query(graphql: , after: nil, **kwd)
+      out = Client.query(graphql[:query], variables: kwd.merge({
+        repo:  Helpers.info[:repo],
+        user:  Helpers.info[:user],
+        count: limit,
+        after: after,
+      }))
+
+      raise Errors::GraphQLError, out if out.errors.size != 0
+      nodes(out.to_h.deep_symbolize_keys, {
+        graphql: graphql
+      })
     end
 
     # --
@@ -330,28 +185,65 @@ module EnvyGeeks
     #   and passes to us.
     # --
     private
-    def at_path(result, graphql_path:)
+    def nodes(result, graphql:)
       return nil unless result
 
-      out = result.respond_to?(:data) ? result.data : result
-      graphql_path.split("/").each do |v|
-        out = out&.send(v)
-      end
+      out = Result.new({
+        :results => nil,
+        :pageInfo => {
+          :startCursor => nil,
+          :hasPreviousPage => false,
+          :hasNextPage => false,
+          :endCursor => nil
+        }
+      })
 
-      out
+      path = [:data] | graphql.fetch(:path)
+      path.each { |v| result = result&.[](v) }
+      out.merge!({ results:  result,
+        pageInfo: result.delete(:pageInfo) \
+          || out[:pageInfo] })
+
+      out.freeze
+    end
+
+    # --
+    # Gives us the total results to expect.
+    # @note Github allows a limit of up to 100.
+    # @return Integer
+    # --
+    private
+    def limit
+      @site.config.fetch(:graphql_limit, 12)
     end
   end
 end
 
 # --
-# Hook:Site:PreRender
-# Jekyll:Register
-# --
 Jekyll::Hooks.register :site, :pre_render do |s, p|
-  drp = EnvyGeeks::Drops::HashOrArray
   git = EnvyGeeks::Github.new(s)
-  p[  "git"] = drp.new(git.repo)
-  p["repos"] = drp.new(
-    git.repos
-  )
+  p.merge!({
+    "git"   => EnvyGeeks::Drops::HashOrArray.new(git.repo),
+    "repos" => EnvyGeeks::Drops::HashOrArray.new(
+      git.repos
+    )
+  })
+end
+
+# --
+Jekyll::Hooks.register [:pages, :documents, :posts], :pre_render do |d, p|
+  src  = Pathutil.new(d.site.source)
+  src  = src.relative_path_from(Pathutil.pwd)
+  path = src.join(d.realpath) if d.respond_to?(:realpath)
+  path = src.join(d.relative_path) unless path
+  git  = EnvyGeeks::Github.new(d.site)
+
+  if path.file?
+    stat = git.stat(path)
+    p.merge!({
+      "page" => {
+        "stat" => EnvyGeeks::Drops::HashOrArray.new(stat)
+      }
+    })
+  end
 end
