@@ -36,7 +36,7 @@ module EnvyGeeks
     # @param obj [Array,Hash] the array or hash to value
     # @return [Array] the values
     # --
-    def values(obj)
+    def vals(obj)
       return obj if obj.is_a?(Array)
       raise ArgumentError, "must be a hash or array" if !obj.is_a?(Hash)
       obj.values
@@ -124,25 +124,16 @@ module EnvyGeeks
     # @param archive [true|false] whether this is for the archive.
     # @return [String] the time string ordinalized.
     # --
-    def ordinalize_time(time, archive: false)
+    def ordinalize(time)
       return "" unless time.is_a?(DateTime) || time.is_a?(Time)
       day = time.strftime("%d")
 
       tsx = "st" if day.end_with?("1")
       tsx = "nd" if day.end_with?("2")
       tsx = "rd" if day.end_with?("3")
+      tsx = "th" if day.end_with?("4") || day.end_with?("5")
       tsx = "th" if day.between?("11", "20")
-      return time.strftime("%A, %B %d#{tsx}") if archive
       time.strftime("%A, %B %d#{tsx}, %Y")
-    end
-
-    # --
-    # Fancy time without the year.
-    # @param time [DateTime] the time to format.
-    # @return [String] m/d formatted simply.
-    # --
-    def mm_dd(time)
-      time.strftime("%m/%d")
     end
 
     # --

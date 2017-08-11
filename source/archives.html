@@ -34,7 +34,7 @@ nav:
       </header>
       <footer>
         <time>
-          {{ post.date | archive_time }}
+          {{ post.date | date:"%m/%d" }}
         </time>
       </footer>
     </article>

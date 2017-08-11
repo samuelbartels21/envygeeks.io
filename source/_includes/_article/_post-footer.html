@@ -22,8 +22,8 @@
       {% endfor %}
     </ul>
 
-    <time datetime="{{ post.date | tt_datetime }}">
-      {{ post.date | fancy_time }}
+    <time datetime="{{ post.date | date:"%Y-%m-%dT%H:%M" }}">
+      {{ post.date | ordinalize }}
     </time>
   </div>
 </footer>
