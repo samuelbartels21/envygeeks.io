@@ -55,15 +55,6 @@ module EnvyGeeks
       ary.reverse
     end
 
-    #--
-    # DateTime format for HTML5 <time> tag.
-    # @param time [DateTime] the time to format.
-    # @return [string] the formatted time.
-    # --
-    def tt_datetime(time)
-      time.utc.strftime("%Y-%m-%dT%H:%M")
-    end
-
     # --
     # Reverse, Reverse and organize by waterfall.
     # @param array [Array] the array to turn into a waterfall.
