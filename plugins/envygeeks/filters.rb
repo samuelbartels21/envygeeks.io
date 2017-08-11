@@ -7,8 +7,53 @@ module EnvyGeeks
   module Filters
     extend Forwardable::Extended
     rb_delegate :config, {
-      :to => :site
+      to: :site
     }
+
+    # --
+    # Allows you to output the class.
+    # @note this exists because Jekyll & Liquid have terrible debugging.
+    # @note this is seriously for debugging only.
+    # @return [String] the class name.
+    # --
+    def klass(obj)
+      obj.class.to_s
+    end
+
+    # --
+    # Allows you to extract the keys.
+    # @param obj [Array,Hash] the array or hash to key
+    # @return [Array] the keys
+    # --
+    def keys(obj)
+      return obj if obj.is_a?(Array)
+      raise ArgumentError, "must be a hash or array" if !obj.is_a?(Hash)
+      obj.keys
+    end
+
+    # --
+    # Allows you to extract the values.
+    # @param obj [Array,Hash] the array or hash to value
+    # @return [Array] the values
+    # --
+    def values(obj)
+      return obj if obj.is_a?(Array)
+      raise ArgumentError, "must be a hash or array" if !obj.is_a?(Hash)
+      obj.values
+    end
+
+    # --
+    # Allows you to reverse an array.
+    # @param ary [Array] the array to reverse.
+    # @return [Array] the reversed array.
+    # --
+    def reverse(ary)
+      if !ary.is_a?(Array)
+        raise ArgumentError, "must be an array"
+      end
+
+      ary.reverse
+    end
 
     #--
     # DateTime format for HTML5 <time> tag.
@@ -78,7 +123,8 @@ module EnvyGeeks
     # @return [String] the prettified url.
     # --
     def pretty(url)
-      url.to_s.gsub(/\/$/, "").gsub(/\.html$/, "")
+      url.to_s.gsub(/\/$/, ""). \
+        gsub(/\.html$/, "")
     end
 
     # --
@@ -87,7 +133,7 @@ module EnvyGeeks
     # @param archive [true|false] whether this is for the archive.
     # @return [String] the time string ordinalized.
     # --
-    def fancy_time(time, archive: false)
+    def ordinalize_time(time, archive: false)
       return "" unless time.is_a?(DateTime) || time.is_a?(Time)
       day = time.strftime("%d")
 
@@ -104,7 +150,7 @@ module EnvyGeeks
     # @param time [DateTime] the time to format.
     # @return [String] m/d formatted simply.
     # --
-    def archive_time(time)
+    def mm_dd(time)
       time.strftime("%m/%d")
     end
 
@@ -116,6 +162,7 @@ module EnvyGeeks
     # --
     def markdownify_title(string)
       return "" unless string.is_a?(String)
+      raise ArgumentError, "invalid input" if string.match(/\n{2}/)
       method = Jekyll::Filters.instance_method(:markdownify).bind(self)
       method.call(string).gsub(/<\/?p>/, "")
     end
@@ -149,7 +196,6 @@ module EnvyGeeks
       @context.registers[:site]
     end
   end
-end
 
-# --
-Liquid::Template.register_filter(EnvyGeeks::Filters)
+  Liquid::Template.register_filter(Filters)
+end

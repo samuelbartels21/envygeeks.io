@@ -18,7 +18,9 @@ end
 # Plugins
 # --
 group :jekyll_plugins do
+  gem "jekyll-sanity", "~> 1.0"
   gem "font-awesome-sass", "~> 4.7"
+  gem "jekyll-posts_by_year", "~> 1.0"
   gem "autoprefixer-rails", "~> 7.1"
   gem "jekyll-assets", "~> 2.3"
 

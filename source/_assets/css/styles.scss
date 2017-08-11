@@ -318,8 +318,15 @@ a {
       margin-right: 1rem;
       line-height: 1.6em;
 
+      &.weight-0 {
+        a {
+          font-size: 1.2rem;
+        }
+      }
+
       &.weight-1 {
         a {
+          font-size: 1.9rem;
           color: rgb(
             24, 188, 156
           );
@@ -328,14 +335,17 @@ a {
 
       &.weight-2 {
         a {
+          font-size: 2.6rem;
           color: rgb(
             52, 152, 219
           );
         }
       }
 
-      &.weight-3 {
+      &.weight-4 {
         a {
+          font-family: $fancy-font;
+          font-size: 3.2rem;
           color: rgb(
             142, 68, 173
           );

@@ -15,7 +15,7 @@ module EnvyGeeks
     # @see https://goo.gl/3G35gw
     # --
     def initialize(dir)
-      super(EnvyGeeks.cache_dir.join(dir))
+      super(Jekyll.cache_dir.join(dir))
     end
 
     # --

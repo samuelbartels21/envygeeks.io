@@ -39,12 +39,17 @@ module Liquid
       end
 
       # --
+      def key?(_)
+        true
+      end
+
+      # --
       # This is `.invokable?` when it comes to Liquids own
       #   source.  We change it to discourage users from overriding
       #   the methods because this is a wrapper.
       # --
       def self.invokable?(m)
-        invokeable_methods.include?(m.to_s)
+        invokable_methods.include?(m.to_s)
       end
 
       # --
@@ -73,7 +78,9 @@ module Liquid
       end
 
       # --
+
       alias_method :===, :is_a?
+      alias_method :[], :invoke_drop
     end
   end
 end

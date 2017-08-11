@@ -12,7 +12,7 @@ if Jekyll.env == "development"
 
   Jekyll::Hooks.register :site, :post_write, :priority => 99 do |site|
     if site.config["enable-minification-in-development"]
-      out = `script/minify`
+      `script/minify`
 
       if $?.exitstatus != 0
         Jekyll.logger.error("Unable to Minify")

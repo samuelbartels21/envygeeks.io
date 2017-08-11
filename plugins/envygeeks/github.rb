@@ -36,7 +36,7 @@ module EnvyGeeks
     # --
 
     RmtUrl = "https://api.github.com/graphql"
-    GQLDir = EnvyGeeks.plugins_dir.join("graphql")
+    GQLDir = Jekyll.plugins_dir.join("envygeeks", "graphql")
     Remote = GraphQL::Client::HTTP.new(RmtUrl, &Helpers.headers)
     Client = GraphQL::Client.new(execute: Remote, schema: schema)
     Query  = Client.parse(GQLDir.join("github.graphql").read)

@@ -11,16 +11,6 @@ ga: UA-18997298-1
 force_ssl: false
 ssl: true
 # --
-# _plugins/envygeeks/drops/archive.rb
-# You can use the following to access it.
-# {{ envygeeks.drops.archives }}
-# --
-archive:
-  shuffle: 6
-  weights:
-    max: 3
-    int: 1
-# --
 # _plugins/envygeeks/drops/social.rb
 # You can use the following to access it.
 # {{ envygeeks.drops.social }}
