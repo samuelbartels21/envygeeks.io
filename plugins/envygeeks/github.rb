@@ -168,19 +168,37 @@ module EnvyGeeks
     # --
     private
     def query(graphql: , after: nil, **kwd)
-      Logger.debug("Github GraphQL") { "Running query: #{graphql.inspect}" }
-      out = Client.query(graphql[:query], variables: kwd.merge({
-        repo:  Helpers.info[:repo],
-        user:  Helpers.info[:user],
-        count: limit,
-        after: after,
-      }))
+      Logger.debug("GraphQL Query") { graphql.inspect }
+      out = Client.query(graphql[:query], {
+        variables: build(after: after,
+          **kwd
+        )
+      })
 
-      Logger.debug("Github GraphQL") { out.to_h.inspect }
+      Logger.debug("GraphQL Result") { out.to_h.inspect }
       raise Errors::GraphQLError, out if out.errors.size != 0
       nodes(out.to_h.deep_symbolize_keys, {
         graphql: graphql
       })
+    end
+
+    # --
+    # @return [Hash] the vars to be shipped
+    # Builds out the variable hash that will be shipped
+    #   to GraphQL.
+    # --
+    def build(after: nil, **kwd)
+      out = kwd.merge({
+        repo:  Helpers.info[:repo],
+        user:  Helpers.info[:user],
+        count: limit,
+        after: after,
+      })
+
+      Logger.debug("GraphQL Query Vars") do
+        out.inspect
+      end
+      out
     end
 
     # --

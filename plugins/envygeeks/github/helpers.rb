@@ -83,9 +83,9 @@ module EnvyGeeks
             repo: remote.fetch(1),
           }
 
-          # For debugging because stuff goes wrong.
-          Jekyll.logger.debug("Github GraphQL") do
-            "Repo Info: #{out.inspect}"
+          # For debugging, because reasons.
+          Logger.debug("GraphQL Git Info") do
+            out.inspect
           end
           out
         end
