@@ -4,7 +4,7 @@ twitter_site: "@envygeeks"
 twitter_creator: "@envygeeks"
 sub_title: Systems and Programming
 description: The website of Jordon Bedwell; Linux Sysadmin, and Programmer
-enable_minification_in_development: false
+enable_minification_in_development: true
 sub_title: Systems and Programming
 title: Jordon Bedwell
 ga: UA-18997298-1
