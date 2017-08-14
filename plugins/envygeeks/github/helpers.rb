@@ -67,7 +67,9 @@ module EnvyGeeks
       # --
       def info
         @info ||= begin
+
           remotes = `git remote -v`
+          raise RuntimeError, "bad Git: #{remotes.inspect}" if $?.exitstatus != 0
           remotes = remotes.gsub(/\((fetch|push)\)$/m, "").split(/\s*$\n+/).
             uniq.keep_if { |v| v.match(/github\.com/) }
 
