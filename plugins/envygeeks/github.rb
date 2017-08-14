@@ -10,6 +10,7 @@ require_relative "github/formatters"
 require "liquid/drop/hash_or_array"
 require_relative "github/helpers"
 require_relative "github/errors"
+require "jekyll/log_wrapper"
 require "jekyll/cache"
 
 module EnvyGeeks
@@ -36,6 +37,7 @@ module EnvyGeeks
     # --
 
     RmtUrl = "https://api.github.com/graphql"
+    Logger = Jekyll::LogWrapper.new(Jekyll.logger)
     GQLDir = Jekyll.plugins_dir.join("envygeeks", "graphql")
     Remote = GraphQL::Client::HTTP.new(RmtUrl, &Helpers.headers)
     Client = GraphQL::Client.new(execute: Remote, schema: schema)
@@ -173,6 +175,7 @@ module EnvyGeeks
         after: after,
       }))
 
+      Logger.debug("Github GraphQL") { out.to_h.inspect }
       raise Errors::GraphQLError, out if out.errors.size != 0
       nodes(out.to_h.deep_symbolize_keys, {
         graphql: graphql
