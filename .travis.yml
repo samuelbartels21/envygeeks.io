@@ -1,5 +1,7 @@
 script: script/test
-before_script: script/build
+before_script:
+  - git remote -v
+  - script/build
 install: script/install
 services:
 - docker
