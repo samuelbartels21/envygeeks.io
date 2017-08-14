@@ -107,7 +107,7 @@ test:
   command: "\
     bash -lc '\
       bundle exec htmlproofer --assume-extension \\\
-        --enforce-https --internal-domains=${SITE_DOMAIN} \
+        --enforce-https --url-swap \"https\\://envygeeks.io/:/\" \\\
         --allow-hash-href site;\
     '\
   "
