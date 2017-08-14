@@ -76,10 +76,16 @@ module EnvyGeeks
           remote = remote.gsub(/\.git$\n*/, "").split(":")
           remote = remote.fetch(-1).split("/")
 
-          {
+          out = {
             user: remote.fetch(0),
             repo: remote.fetch(1),
           }
+
+          # For debugging because stuff goes wrong.
+          Jekyll.logger.debug("Github GraphQL") do
+            "Repo Info: #{out.inspect}"
+          end
+          out
         end
       end
     end

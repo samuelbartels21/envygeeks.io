@@ -168,6 +168,7 @@ module EnvyGeeks
     # --
     private
     def query(graphql: , after: nil, **kwd)
+      Logger.debug("Github GraphQL") { "Running query: #{graphql.inspect}" }
       out = Client.query(graphql[:query], variables: kwd.merge({
         repo:  Helpers.info[:repo],
         user:  Helpers.info[:user],
