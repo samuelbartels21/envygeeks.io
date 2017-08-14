@@ -7,10 +7,10 @@ require "graphql/client/http"
 require_relative "github/result"
 require "active_support/inflector"
 require_relative "github/formatters"
+require "liquid/drop/hash_or_array"
 require_relative "github/helpers"
 require_relative "github/errors"
-require "active_support/cache"
-require_relative "cache"
+require "jekyll/cache"
 
 module EnvyGeeks
   class Github
@@ -40,7 +40,7 @@ module EnvyGeeks
     Remote = GraphQL::Client::HTTP.new(RmtUrl, &Helpers.headers)
     Client = GraphQL::Client.new(execute: Remote, schema: schema)
     Query  = Client.parse(GQLDir.join("github.graphql").read)
-    Cache  = EnvyGeeks::Cache.new("github")
+    Cache  = Jekyll::Cache::FileStore.new("github")
     Token  = ENV["GITHUB_TOKEN"]
 
     # --
@@ -223,8 +223,8 @@ end
 Jekyll::Hooks.register :site, :pre_render do |s, p|
   git = EnvyGeeks::Github.new(s)
   p.merge!({
-    "git"   => EnvyGeeks::Drops::HashOrArray.new(git.repo),
-    "repos" => EnvyGeeks::Drops::HashOrArray.new(
+    "git"   => Liquid::Drop::HashOrArray.new(git.repo),
+    "repos" => Liquid::Drop::HashOrArray.new(
       git.repos
     )
   })
@@ -242,7 +242,7 @@ Jekyll::Hooks.register [:pages, :documents, :posts], :pre_render do |d, p|
     stat = git.stat(path)
     p.merge!({
       "page" => {
-        "stat" => EnvyGeeks::Drops::HashOrArray.new(stat)
+        "stat" => Liquid::Drop::HashOrArray.new(stat)
       }
     })
   end
