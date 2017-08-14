@@ -11,6 +11,7 @@ dev: &def
     JEKYLL_ENV: development
     GITHUB_TOKEN: "$GITHUB_TOKEN"
     JEKYLL_UID: "$JEKYLL_UID"
+    JEKYLL_LOG_LEVEL: debug
     JEKYLL_DEBUG: "false"
     CI: $CI
   volumes:
