@@ -71,13 +71,14 @@ module EnvyGeeks
           remotes = `git remote -v`
           Logger.debug("GraphQL Git Info RAW") { remotes.inspect }
           raise RuntimeError, "bad Git: #{remotes.inspect}" if $?.exitstatus != 0
-          remotes = remotes.gsub(/\((fetch|push)\)$/m, "").split(/\s*$\n+/).
-            uniq.keep_if { |v| v.match(/github\.com/) }
+          remotes = remotes.gsub(%r!\((fetch|push)\)$!m, "").split(%r!\s*$\n+!).
+            uniq.keep_if { |v| v.match(%r!github\.com!) }
 
           remote = remotes[0] if remotes.size == 1
           remote = remotes.find { |v| v.start_with?("origin\t") }
-          remote = remote.gsub(/\.git$\n*/, "").split(":")
-          remote = remote.fetch(-1).split("/")
+          remote = remote.gsub(%r!^origin\t!, "").
+            gsub(%r!(git@|https?://)github\.com(/|:)!, "").
+            gsub(%r!\.git$!, "").split("/")
 
           out = {
             user: remote.fetch(0),
