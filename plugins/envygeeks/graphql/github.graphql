@@ -1,4 +1,4 @@
-fragment         UserFields on User         { url, name, avatarUrl, login }
+fragment         UserFields on User         { url, name, avatarUrl, login, websiteUrl }
 fragment     PageInfoFields on PageInfo     { startCursor, hasPreviousPage, hasNextPage, endCursor }
 fragment OrganizationFields on Organization { url, org: name , avatarUrl, login }
 fragment    RateLimitFields on RateLimit    { resetAt, remaining, limit, cost }

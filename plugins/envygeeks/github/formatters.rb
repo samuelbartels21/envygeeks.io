@@ -30,9 +30,10 @@ module EnvyGeeks
           },
 
           owner: {
-            login: result.owner.login,
-            name:  result.owner.fetch(:name) { result.owner.org },
-            url:   result.owner.url,
+            login:   result.owner.login,
+            website: result.owner.fetch(:websiteUrl) { nil },
+            name:    result.owner.fetch(:name) { result.owner.org },
+            url:     result.owner.url,
 
             avatar: {
               url: result.owner.avatar_url,
@@ -58,9 +59,10 @@ module EnvyGeeks
           oid:       result.oid,
 
           author:    {
-            name:  result.author.user.name,
-            login: result.author.user.login,
-            url:   result.author.user.url,
+            name:    result.author.user.name,
+            website: result.author.user.website_url,
+            login:   result.author.user.login,
+            url:     result.author.user.url,
 
             avatar: {
               url: result.author.user.avatar_url,

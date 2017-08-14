@@ -1,14 +1,15 @@
 <footer>
   <div class="avatar">
-    <a href="https://github.com/{{ post.author.handle }}">
-
+    <a href="{{ post.stat.author.url }}">
+      {% img "avatars/{{ post.stat.author.avatar.rel }}"
+         alt:"Avatar: {{ post.stat.author.name }}"%}
     </a>
   </div>
 
   <div>
     <p class="author">
-      <a href="https://github.com/{{ post.author.handle }}">
-        {{ post.author.name }}
+      <a href="{{ post.stat.author.website }}">
+        {{ post.stat.author.name }}
       </a>
     </p>
 
