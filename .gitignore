@@ -1,5 +1,6 @@
 /vendor
 /.cache
+/Gemfile.lock
 /.jekyll-cache
 /source/.sass-cache
 /source/.jekyll-metadata
@@ -8,5 +9,6 @@
 /source/_drafts
 /node_modules
 /.sass-cache
+/yarn.lock
 /.bundle
 /site
