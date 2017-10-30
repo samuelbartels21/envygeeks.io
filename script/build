@@ -1,7 +1,7 @@
-#!/bin/bash -l
-. script/base/env
+#!/bin/bash
+. script/env
+[ "$DEBUG" = "true" ] && set -x
 set -e
 
-script/clean
-docker-compose --file=compose.yml run build
-# ^ See: compose.yml
+script/docker jekyll b
+# script/clean

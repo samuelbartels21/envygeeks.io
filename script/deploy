@@ -1,29 +1,34 @@
-#!/bin/bash -l
-. script/base/env
+#!/bin/bash
+. script/env
 set -e
 
-# Get the deployment folder from Jekyll.
 deploy="$DEPLOY_USER@%s:$DEPLOY_TO"
 folder=$(ruby -r yaml -e '$stdout.puts YAML.load_file("_config.yml")\
   ["destination"].gsub(/\/$/, "") + "/"')
 
 if [ "$CI" = "true" ]; then
   mkdir -p ~/.ssh
-  openssl aes-256-cbc -K $encrypted_254287a454b2_key \
-    -iv $encrypted_254287a454b2_iv \
-    -in script/file/deploy.key.enc \
-    -out ~/.ssh/id_rsa -d
-
+  touch ~/.ssh/id_rsa
   chmod og-rwx ~/.ssh/id_rsa
+  openssl aes-256-cbc -K $encrypted_254287a454b2_key \
+    -out ~/.ssh/id_rsa -d \
+    -iv $encrypted_254287a454b2_iv \
+    -in script/deploy.key
 fi
 
+# --
+# DNS Deploy is useful for when you distribute your
+# site across many different hosts, regions or whatever
+# without using a CDN to push them to edges.
+# --
 if [ "$DNS_DEPLOY" = "true" ]; then
   for ip in $(dig +short $DEPLOY_HOST); do
-    str=$(printf "$deploy" "$ip")
     ssh-keyscan -t rsa $ip >> ~/.ssh/known_hosts
-    rsync -avz $folder $str --delete
+    rsync -avz $folder $(printf "$deploy" "$ip") \
+      --delete
   done
 else
-  str=$(printf "$deploy" "$DEPLOY_HOST")
-  rsync -avz $folder $str --delete
+  # Just a regular old deployment to a single server.
+  rsync -avz $folder $(printf "$deploy" "$DEPLOY_HOST") \
+    --delete
 fi

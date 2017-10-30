@@ -1,3 +1,7 @@
+# Frozen-string-literal: true
+# Copyright: 2016 - 2017 - MIT License
+# Encoding: utf-8
+
 source "https://rubygems.org"
 gem "jekyll", "~> 3.5"
 gem "uglifier", "~> 3.2"
@@ -12,9 +16,10 @@ gem "gemoji", "~> 3.0"
 # Testing
 # --
 group :test do
-  gem "html-proofer", "~> 3.7"
-  gem "luna-rspec-formatters", "~> 3.7"
-  gem "rspec", "~> 3.6"
+  gem "rspec", "~> 3.6", require: false
+  gem "html-proofer", "~> 3.7", require: false
+  gem "luna-rspec-formatters", "~> 3.7", require: false
+  gem "rubocop", require: false
 end
 
 # --
@@ -42,7 +47,7 @@ end
 # --
 unless ENV["CI"] == "true"
   group :development do
-    gem "travis"
-    gem "pry"
+    gem "travis", require: false
+    gem "pry", require: false
   end
 end

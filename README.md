@@ -9,10 +9,3 @@
 ## Licenses
 
 This Jekyll site has two licenses, one that applies to the design, and the Ruby plugins, and one that applies to my content. You can view them in the [LICENSE][3] file.
-
-## Commands
-
-* Build: `script/build`
-* Develop: `script/start`
-* Deploy: `script/deploy`
-* Test: `script/test`

@@ -1,8 +1,8 @@
-#!/bin/bash -l
-. script/base/env
+#!/bin/bash
+. script/env
 set -e
 
-docker pull jekyll/jekyll
-docker-compose --file=compose.yml run install
-docker system prune -f || true
-script/clean
+mkdir -p node_modules/
+mkdir -p vendor/bundle/
+script/docker su-exec jekyll yarn
+script/docker bundle install

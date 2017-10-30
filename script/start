@@ -1,7 +1,0 @@
-#!/bin/bash -l
-. script/base/env
-set -e
-
-script/clean
-docker-compose --file=compose.yml run --service-ports dev
-# ^ See: compose.yml

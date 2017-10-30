@@ -1,6 +1,10 @@
-#!/bin/bash -l
-. script/base/env
+#!/bin/bash
+. script/env
+[ "$DEBUG" = "true" ] && set -x
 set -e
 
-docker-compose --file=compose.yml run clean
-# ^ See: compose.yml
+rm -rf {.,source}/.{,bundle,asset-,jekyll-,sass-}cache
+script/docker su-exec jekyll bundle clean || (
+  script/install
+  $0
+)

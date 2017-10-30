@@ -1,5 +1,0 @@
-#!/bin/bash -l
-. script/base/env
-set -e
-
-echo "Not implemented."

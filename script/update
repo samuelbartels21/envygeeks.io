@@ -1,8 +1,7 @@
-#!/bin/bash -l
+#!/bin/bash
 . script/base/env
 set -e
 
-docker pull jekyll/jekyll
-docker-compose --file=compose.yml run update
 docker system prune -f || true
+docker-compose run dev depends update
 script/clean

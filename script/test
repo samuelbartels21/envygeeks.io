@@ -1,12 +1,7 @@
-#!/bin/bash -l
-. script/base/env
+#!/bin/bash
+. script/env
 set -e
 
-# The CI does this as a step.
-if [ "$CI" != "true" ]; then
-  script/build
-  clear
-fi
-
-docker-compose --file=compose.yml run test
-# ^ See: compose.yml
+script/docker bundle exec htmlproofer --assume-extension \
+  --enforce-https --url-swap "https\\://envygeeks.io/:/" \
+  --allow-hash-href site

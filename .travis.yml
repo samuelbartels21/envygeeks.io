@@ -1,30 +1,51 @@
 script: script/test
+install: script/install
+sudo: required
+os: linux
+# --
+# Build
+# --
 before_script:
   - git remote -v
   - script/build
-install: script/install
+# --
+# Docker
+# --
 services:
 - docker
-sudo: required
-os: linux
+# --
+# SSH
+# --
 addons:
   ssh_known_hosts:
   - envygeeks.io
+# --
+# Caching.
+# --
 cache:
   bundler: true
   directories:
   - vendor/bundle
   - node_moduels
+# --
+# Deployment
+# --
 deploy:
 - skip_cleanup: true
   script: script/deploy
   provider: script
   on:
     branch: master
+# --
+# Notifications
+# --
 notifications:
   email:
     on_success: never
     on_failure: change
+# --
+# Environment
+# --
 env:
   global:
   - secure: "\

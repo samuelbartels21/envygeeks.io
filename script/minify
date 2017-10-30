@@ -1,9 +1,9 @@
-#!/bin/bash -l
-. script/base/env
+#!/bin/bash
+. script/env
 set -e
 
 if [ -d site ]; then
-  node_modules/.bin/postcss --no-map --config=script/file/postcss.js 2> \
+  node_modules/.bin/postcss --no-map --config=script/postcss.js 2> \
   /dev/null site/assets/*.css --dir=site/assets || true
   node_modules/.bin/html-minifier $args --output-dir=site/ \
     --input-dir=site/ --file-ext=html --html5 --minify-js --minify-css \

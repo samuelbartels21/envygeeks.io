@@ -1,0 +1,5 @@
+#!/bin/bash
+. script/env
+set -e
+
+script/docker jekyll s
