@@ -37,11 +37,10 @@ module EnvyGeeks
 
             avatar: {
               url: result.owner.avatar_url,
-              rel: "#{Helpers.strip(
-                result.owner.avatar_url
-              )}",
-            }
-          }
+              rel: Helpers.strip(result.owner
+                .avatar_url),
+            },
+          },
         }
       end
 
@@ -66,11 +65,10 @@ module EnvyGeeks
 
             avatar: {
               url: result.author.user.avatar_url,
-              rel: "#{Helpers.strip(
-                result.author.user.avatar_url
-              )}",
-            }
-          }
+              rel: Helpers.strip(result.author.user
+                .avatar_url).to_s,
+            },
+          },
         }
       end
     end

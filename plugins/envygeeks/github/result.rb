@@ -8,14 +8,14 @@ module EnvyGeeks
       extend  Forwardable::Extended
       include Enumerable
 
-      rb_delegate :keys,     :to => :@data
-      rb_delegate :each,     :to => :@data
-      rb_delegate :merge,    :to => :@data
-      rb_delegate :has_key?, :to => :@data
-      rb_delegate :to_enum,  :to => :@data
-      rb_delegate :values,   :to => :@data
-      rb_delegate :merge!,   :to => :@data
-      rb_delegate :to_h,     :to => :@data
+      rb_delegate :keys,     to: :@data
+      rb_delegate :each,     to: :@data
+      rb_delegate :merge,    to: :@data
+      rb_delegate :has_key?, to: :@data
+      rb_delegate :to_enum,  to: :@data
+      rb_delegate :values,   to: :@data
+      rb_delegate :merge!,   to: :@data
+      rb_delegate :to_h,     to: :@data
 
       # --
       def initialize(data = {})
@@ -105,7 +105,7 @@ module EnvyGeeks
         end
       end
 
-      alias_method :[], :fetch
+      alias [] fetch
     end
   end
 end
