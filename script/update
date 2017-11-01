@@ -1,7 +1,7 @@
 #!/bin/bash
-. script/base/env
+. script/env
 set -e
 
-docker system prune -f || true
-docker-compose run dev depends update
+docker system prune -f
+script/docker bundle update
 script/clean
