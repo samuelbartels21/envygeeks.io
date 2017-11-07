@@ -253,19 +253,17 @@ Jekyll::Hooks.register :site, :pre_render do |s, p|
 end
 
 # --
-Jekyll::Hooks.register [:pages, :documents, :posts], :pre_render do |d, p|
-  src  = Pathutil.new(d.site.source)
+Jekyll::Hooks.register [:pages, :documents, :posts], :pre_render do |o, p|
+  src  = Pathutil.new(o.site.source)
   src  = src.relative_path_from(Pathutil.pwd)
-  path = src.join(d.realpath) if d.respond_to?(:realpath)
-  path = src.join(d.relative_path) unless path
-  git  = EnvyGeeks::Github.new(d.site)
+  path = src.join(o.realpath) if o.respond_to?(:realpath)
+  path = src.join(o.relative_path) unless path
+  git  = EnvyGeeks::Github.new(o.site)
 
   if path.file?
     stat = git.stat(path)
-    p.merge!({
-      "page" => {
-        "stat" => Liquid::Drop::HashOrArray.new(stat)
-      }
-    })
+    p["meta"] = {
+      "github" => Liquid::Drop::HashOrArray.new(stat),
+    }
   end
 end

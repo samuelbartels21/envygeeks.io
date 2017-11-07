@@ -1,8 +1,7 @@
 <footer>
   <div class="avatar">
     <a href="{{ post.stat.author.url }}">
-      {% img "avatars/{{ post.stat.author.avatar.rel }}"
-         alt:"Avatar: {{ post.stat.author.name }}"%}
+      {% asset "{{ meta.github.author.avatar.url }}" %}
     </a>
   </div>
 
