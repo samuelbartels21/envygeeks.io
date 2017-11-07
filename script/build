@@ -3,5 +3,4 @@
 [ "$DEBUG" = "true" ] && set -x
 set -e
 
-script/docker jekyll b
-# script/clean
+script/docker jekyll b "$@"

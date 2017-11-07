@@ -2,6 +2,6 @@
 . script/env
 set -e
 
-docker system prune -f
+script/docker pull
 script/docker bundle update
 script/clean

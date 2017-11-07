@@ -1,14 +1,19 @@
 #!/bin/bash
 
-docker run --rm \
-  --volume=$PWD/vendor/bundle:/usr/local/bundle \
-  --volume=$PWD:/srv/jekyll \
-  --env="JEKYLL_ENV=$JEKYLL_ENV" \
-  --env="GITHUB_TOKEN=$GITHUB_TOKEN" \
-  --env="JEKYLL_UID=$UID" \
-  --env="CI=$CI" \
-  --publish="127.0.0.1::4000" \
-  --publish="127.0.0.1:3000:4000" \
-  --publish="127.0.0.1::35729" \
-  -it jekyll/jekyll:latest \
-    "$@"
+if [ "$1" = "pull" ]; then
+  docker pull jekyll/jekyll:latest
+  docker system prune -f
+else
+  docker run --rm \
+    --volume=$PWD/vendor/bundle:/usr/local/bundle \
+    --volume=$PWD:/srv/jekyll \
+    --env="JEKYLL_ENV=$JEKYLL_ENV" \
+    --env="GITHUB_TOKEN=$GITHUB_TOKEN" \
+    --env="JEKYLL_UID=$UID" \
+    --env="CI=$CI" \
+    --publish="127.0.0.1:4000:4000" \
+    --publish="127.0.0.1:3000:4000" \
+    --publish="127.0.0.1::35729" \
+    -it jekyll/jekyll:latest \
+      "$@"
+fi

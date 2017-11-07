@@ -56,11 +56,14 @@ exclude:
 - Gemfile
 - Readme.md
 - .gitignore
+- node_modules/
 - docker-compose.yml
 - Gemfile.lock
 - Rakefile
 - .bundle/
-- .git
+- .git/
+- .cache/
+- vendor/bundle
 # --
 # jekyll
 # --

@@ -12,6 +12,10 @@ gem "graphql-client", "~> 0.12"
 gem "nokogiri", "~> 1.8"
 gem "gemoji", "~> 3.0"
 
+unless File.exist?("/.dockerenv")
+  gem "mini_racer"
+end
+
 # --
 # Testing
 # --
@@ -29,8 +33,10 @@ group :jekyll_plugins do
   gem "jekyll-sanity", "~> 1.0"
   gem "jekyll-posts_by_year", "~> 1.0"
   gem "jekyll-post-tags", "~> 1.0"
-  gem "jekyll-assets", "~> 2.3"
   gem "jekyll-cache", "~> 1.0"
+  gem "jekyll-assets", "~> 3.0.alpha", {
+    git: "https://github.com/jekyll/jekyll-assets",
+  }
 
   # --
   # Non-CI Plugins
