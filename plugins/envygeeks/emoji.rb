@@ -126,7 +126,7 @@ module EnvyGeeks
 end
 
 # --
-Jekyll::Assets::Hook.register(:env, :init) { append_path(Emoji.images_path) }
+Jekyll::Assets::Hook.register(:env, :after_init) { append_path(Emoji.images_path) }
 Jekyll::Hooks.register [:pages, :documents, :posts], :post_render do |doc|
   EnvyGeeks::Emoji.new(doc).parse if EnvyGeeks::Emoji.emojiable?(doc)
 end
