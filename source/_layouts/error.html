@@ -3,7 +3,8 @@
   <head>
     <title>{{ page.title }}</title>
     <base href="https://envygeeks.io">
-    {{ 'css:bundle.css "js:bundle.js async:true"' | jekyll_asset_multi }}
+    {% asset bundle.css %}
+    {% asset bundle.js @async @defer %}
     <meta charset="UTF-8">
   </head>
 

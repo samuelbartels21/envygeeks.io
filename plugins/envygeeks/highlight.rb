@@ -6,7 +6,7 @@ require "nokogiri"
 
 module EnvyGeeks
   class Highlight
-    SEARCH = ".//div[contains(@class, 'highlighter-rouge')]".freeze
+    SEARCH = ".//div[contains(@class, 'highlighter-rouge')]"
 
     # --
     # Takes in a document, makes a fragment.
@@ -27,7 +27,7 @@ module EnvyGeeks
     def parse
       @frag.search(SEARCH).each do |v|
         # I don't need a specific class, if I plan to move.
-        v["class"]  = v["class"].gsub(/\s*highlighter-rouge\s*/, "")
+        v["class"]  = v["class"].gsub(%r!\s*highlighter-rouge\s*!, "")
         v["class"] += " code"
       end
 

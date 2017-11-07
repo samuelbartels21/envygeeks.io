@@ -2,15 +2,14 @@
 # Copyright 2016 - 2017 Jordon Bedwell - MIT License
 # Encoding: UTF-8
 
-if Jekyll.env == "development"
+if Jekyll.env != "development"
 
   # --
   # We need this to remain 99 because if it doesn't then
   # there will be problems with things like livereload, which should
   # really prioritize themselves as being the very last.
   # --
-
-  Jekyll::Hooks.register :site, :post_write, :priority => 99 do |site|
+  Jekyll::Hooks.register :site, :post_write, priority: 99 do |site|
     if site.config["enable_minification_in_development"]
       `script/minify`
 

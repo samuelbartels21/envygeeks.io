@@ -3,9 +3,10 @@
   <head>
     <link rel="canonical" href="{{ page | canonical_url }}">
     {% capture title %}{{ site.title }}{% if page.title %} - {{ page.title }}{% endif %}{% endcapture %}
-    {{ 'css:bundle.css "js:bundle.js async:true"' | jekyll_asset_multi }}
-    {% include _layout/_meta.html %}
+    {% asset bundle.css %}
+    {% asset bundle.js @defer @async %}
     {% include _layout/_analytics.html %}
+    {% include _layout/_meta.html %}
     <title>{{ title }}</title>
 
     <link rel="alternate"
