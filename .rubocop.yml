@@ -1,204 +1,30 @@
 Metrics/MethodLength: { Max: 24 }
+Metrics/ClassLength: { Max: 240 }
 Metrics/ModuleLength: { Max: 240 }
-Metrics/ClassLength: { Max: 120 }
+Bundler/OrderedGems: { Enabled: false }
+Style/IfUnlessModifier: { Enabled: false }
+Lint/UselessAccessModifier: { Enabled: false }
+Lint/RescueWithoutErrorClass: { Enabled: false }
+Style/RegexpLiteral: { EnforcedStyle: percent_r }
+Style/BracesAroundHashParameters: { Enabled: false }
+Style/Semicolon: { AllowAsExpressionSeparator: true }
+Layout/MultilineMethodCallBraceLayout: { Enabled: false }
+Layout/AlignParameters: { EnforcedStyle: with_fixed_indentation }
+Style/TrailingCommaInLiteral: { EnforcedStyleForMultiline: comma }
+Layout/MultilineMethodCallIndentation: { EnforcedStyle: indented }
+Layout/FirstParameterIndentation: { EnforcedStyle: consistent }
+Layout/EmptyLinesAroundAccessModifier: { Enabled: false }
+Style/StringLiterals: { EnforcedStyle: double_quotes }
+Style/MultilineTernaryOperator: { Enabled: false }
+Layout/IndentArray: { EnforcedStyle: consistent }
+Layout/IndentHash: { EnforcedStyle: consistent }
+Gemspec/OrderedDependencies: { Enabled: false }
+Style/ParallelAssignment: { Enabled: false }
+Style/SelfAssignment: { Enabled: false }
+Style/Documentation: { Enabled: false }
+Style/GuardClause: { Enabled: false }
+Style/DateTime: { Enabled: false}
 Metrics/AbcSize: { Max: 24 }
-# --
-# No.
-# --
-Bundler/OrderedGems:
-  Enabled: false
-# --
-# Prevents:
-#   def this
-#     if @this
-#       return that
-#     end
-#   end
-# --
-Style/IfUnlessModifier:
-  Enabled: false
-# --
-# Prevents:
-#   private
-#   def explicit
-#     "It's better."
-#   end
-# --
-Lint/UselessAccessModifier:
-  Enabled: false
-# --
-# Prevents:
-#   def bad_method
-#     raise
-#   rescue => e
-#     Logger.error e
-#     nil
-#   end
-# --
-# Rationale: We don't always care about the type of error
-#   being shipped to us, upstream changes.  We only care to
-#   rescue the error and ship a nil.
-# --
-Lint/RescueWithoutErrorClass:
-  Enabled: false
-# --
-# Enforces tabbing over aligning.
-# Good:
-#   def hello
-#     return %i(hello this is a big
-#       really big world)
-#   end
-# --
-# Bad:
-#   def hello
-#     return %i(hello this is a big
-#               really big world)
-#   end
-# --
-Layout/IndentArray:
-  EnforcedStyle: consistent
-# --
-# Just plain bad with Keywords.
-# Sometimes you want them, sometimes you don't.
-# It's not really useful.
-# --
-Style/BracesAroundHashParameters:
-  Enabled: false
-# --
-# Good:
-#   def(hello, this, is
-#     really long)
-#
-#     nil
-#   end
-# --
-Layout/AlignParameters:
-  EnforcedStyle: with_fixed_indentation
-# --
-# Rational: Makes it easy to re-arrange a hash.
-# Example:
-#   {
-#     hello: world,
-#   }
-# --
-Style/TrailingCommaInLiteral:
-  EnforcedStyleForMultiline: comma
-# --
-# Double quotes are easier.
-# Easier in the sense that it makes it easy to interpolate.
-# Interpolation is common.
-# --
-Style/StringLiterals:
-  EnforcedStyle: double_quotes
-# --
-# Good:
-#   %r!!
-# --
-# Bad:
-#   //
-# --
-Style/RegexpLiteral:
-  EnforcedStyle: percent_r
-# --
-# We work from API's a lot.
-# I don't have time to monitor.
-# DateTime.parse works.
-# --
-Style/DateTime:
-  Enabled: false
-# --
-# Enforces tabbing over aligning.
-# Good:
-#   def hello
-#     return { hello: this, is: a
-#       big: world }
-#   end
-# --
-# Bad:
-#   def hello
-#     return { hello: this, is: a
-#              big: world }
-#   end
-# --
-Layout/IndentHash:
-  EnforcedStyle: consistent
-# --
-# I prefer $? over $CHILD_STATUS, and |v| over $1.
-# Unless Ruby deprecates them, they are more natural.
-# This is their arbitrary decision.
-# --
-Style/SpecialGlobalVars:
-  Enabled: false
-# --
-# Rational: So that long ternary stuff can be split across
-#   multiple lines.  Sometimes it happens.
-# --
-Style/MultilineTernaryOperator:
-  Enabled: false
-# --
-# Prevents:
-#   def this
-#     if @this
-#       return that
-#     end
-#   end
-# --
-Style/GuardClause:
-  Enabled: false
-# --
-# Good:
-#   private
-#   def method
-#     nil
-#   end
-# --
-# Bad:
-#   private
-#
-#   def method
-#     nil
-#   end
-# --
-Layout/EmptyLinesAroundAccessModifier:
-  Enabled: false
-# --
-# Sometimes it's good.
-# Sometimes it's really bad.
-# I do case-by-case.
-# --
-Style/ParallelAssignment:
-  Enabled: false
-# --
-# Good:
-#   hello(world,
-#     hi)
-# --
-Layout/MultilineMethodCallBraceLayout:
-  Enabled: false
-# --
-# Good:
-#   hello(world,
-#     hi)
-# --
-Layout/MultilineMethodCallIndentation:
-  EnforcedStyle: indented
-# --
-# Good:
-#   hello(world,
-#     hi)
-# --
-Layout/FirstParameterIndentation:
-  EnforcedStyle: consistent
-# --
-# No.
-# --
-Gemspec/OrderedDependencies:
-  Enabled: false
-# --
-# Just the way I like things.
-# This is all arbitrary tbqf, you can
-# remove them if you don't like.
-# --
 Style/PercentLiteralDelimiters:
   PreferredDelimiters:
     '%q': '{}'
@@ -210,14 +36,12 @@ Style/PercentLiteralDelimiters:
     '%x': '()'
     '%i': '()'
     '%I': '()'
-# --
 AllCops:
   TargetRubyVersion: 2.3
   Exclude:
     - examples/**/*
     - node_modules/**/*
     - vendor/**/*
-# --
 Metrics/BlockLength:
   Exclude:
   - 'spec/**/*_spec.rb'
