@@ -28,7 +28,7 @@ source: ./source
 host: envygeeks.io
 tz: America/Chicago
 plugins_dir: ./plugins
-cache_dir: "./.cache"
+cache_dir: "./.jekyll-cache"
 excerpt_separator: "<!-- MORE -->"
 timezone: America/Chicago
 destination: ./site
