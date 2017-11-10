@@ -3,26 +3,23 @@
 # Encoding: utf-8
 
 source "https://rubygems.org"
-gem "jekyll", "~> 3.5"
-gem "uglifier", "~> 3.2"
-gem "font-awesome-sass", "~> 4.7"
-gem "liquid-hash-or-array-drop", "~> 1.0"
-gem "autoprefixer-rails", "~> 7.1"
-gem "graphql-client", "~> 0.12"
-gem "nokogiri", "~> 1.8"
-gem "gemoji", "~> 3.0"
-
-unless File.exist?("/.dockerenv")
-  gem "mini_racer"
-end
+gem "jekyll", "~> 3.5", require: false
+gem "uglifier", "~> 3.2", require: false
+gem "font-awesome-sass", "~> 4.7", require: false
+gem "liquid-hash-or-array-drop", "~> 1.0", require: false
+gem "autoprefixer-rails", "~> 7.1", require: false
+gem "graphql-client", "~> 0.12", require: false
+gem "nokogiri", "~> 1.8", require: false
+gem "gemoji", "~> 3.0", require: false
+gem "mini_racer", require: false
 
 # --
 # Testing
 # --
 group :test do
   gem "rspec", "~> 3.6", require: false
-  gem "html-proofer", "~> 3.7", require: false
   gem "luna-rspec-formatters", "~> 3.7", require: false
+  gem "html-proofer", "~> 3.7", require: false
   gem "rubocop", require: false
 end
 
