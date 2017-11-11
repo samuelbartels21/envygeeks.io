@@ -15,6 +15,16 @@ require "jekyll/cache"
 
 module EnvyGeeks
   class Github
+    attr_reader :cache
+    attr_reader :logger
+    attr_reader :client
+    attr_reader :remote
+    attr_reader :site
+
+    # --
+    REMOTE = "https://api.github.com/graphql"
+    DIR = Jekyll.plugins_dir.join("envygeeks", "graphql")
+    TOKEN = ENV["GITHUB_TOKEN"]
 
     # --
     # @note can be slow on first usage.
@@ -24,26 +34,10 @@ module EnvyGeeks
     #   private usage.
     # --
     def self.schema
-      path = GQLDir.join("github.json").to_s
+      path = DIR.join("github.json").to_s
       return GraphQL::Client.load_schema(path) if File.file?(path)
-      GraphQL::Client.dump_schema(RmtUrl, path)
+      GraphQL::Client.dump_schema(REMOTE, path)
     end
-
-    # --
-    # Setup everything as a constant, this way it can all
-    # be reused... We can add and remove queries by adding in
-    # a parse method and then going and adding the query into
-    # the `github.graphql` file with minimal work.
-    # --
-
-    RmtUrl = "https://api.github.com/graphql"
-    Logger = Jekyll::LogWrapper.new(Jekyll.logger)
-    GQLDir = Jekyll.plugins_dir.join("envygeeks", "graphql")
-    Remote = GraphQL::Client::HTTP.new(RmtUrl, &Helpers.headers)
-    Client = GraphQL::Client.new(execute: Remote, schema: schema)
-    Query  = Client.parse(GQLDir.join("github.graphql").read)
-    Cache  = Jekyll::Cache::FileStore.new("github")
-    Token  = ENV["GITHUB_TOKEN"]
 
     # --
     # Get repos from Github GraphQL
@@ -51,7 +45,13 @@ module EnvyGeeks
     # @return self
     # --
     def initialize(site)
-      @site  = site
+      @cache = Jekyll::Cache::FileStore.new("github")
+      @remote = GraphQL::Client::HTTP.new(REMOTE, &Helpers.headers)
+      @client = GraphQL::Client.new(execute: @remote, schema: self.class.schema)
+      @query = client.parse(DIR.join("github.graphql").read)
+      @logger = Jekyll::LogWrapper.new(Jekyll.logger)
+      @client.allow_dynamic_queries = true
+      @site = site
     end
 
     # --
@@ -62,15 +62,14 @@ module EnvyGeeks
     # @return [{}] the result.
     # --
     def stat(file)
-      Cache.fetch(File.join("file", file)) do
+      cache.fetch(File.join("file", file)) do
         out = results({
           path: file,
           graphql: {
-            limit: Float::INFINITY, query: Query::Stat,
-            path: [:repository,
-              :ref, :target, :history
-            ].freeze
-          }
+            limit: Float::INFINITY,
+            path: %i(repository ref target history),
+            query: @query::Stat,
+          },
         })
 
         # --
@@ -92,12 +91,12 @@ module EnvyGeeks
     #   around the many types of repo queries we have.
     # --
     def repos(**kwd)
-      Cache.fetch(:repos) do
-        path = [:user, :repositories].freeze
-        results(graphql: { query: Query::Repos, path: path }, **kwd) do |v|
-          if v.primary_language && Time.now.year == \
-          DateTime.parse(v.pushed_at).year
-            Formatters.repo(v)
+      cache.fetch :repos do
+        graphql = { query: @query::Repos, path: %i(user repositories) }
+        results graphql: graphql, **kwd do |v|
+          year = DateTime.parse(v.pushed_at).year
+          if Time.now.year == year && v.primary_language
+            Formatters.repo v
           end
         end
       end
@@ -110,13 +109,13 @@ module EnvyGeeks
     #   that would be useful for your footers.
     # --
     def repo(**kwd)
-      Cache.fetch(:repo) do
-        path = [:repository]
-        result(graphql: { query: Query::Repo, path: path }, **kwd) do |v|
+      cache.fetch :repo do
+        graphql = { query: @query::Repo, path: %i(repository) }
+        result(graphql: graphql, **kwd) do |v|
           Formatters.repo(v.results).merge({
             commits: Helpers.loop(v.results.ref.target.history) do |c|
               Formatters.commit(c)
-            end
+            end,
           })
         end
       end
@@ -135,8 +134,7 @@ module EnvyGeeks
         query = query(**kwd.merge(after: after, graphql: graphql))
         Helpers.loop(query.results, { into: out }, &block)
         break unless query.page_info.has_next_page
-        after = query.page_info.
-          end_cursor
+        after = query.page_info.end_cursor
       end
 
       out
@@ -167,18 +165,16 @@ module EnvyGeeks
     # @return [{}] the result
     # --
     private
-    def query(graphql: , after: nil, **kwd)
-      Logger.debug("GraphQL Query") { graphql.inspect }
-      out = Client.query(graphql[:query], {
-        variables: build(after: after,
-          **kwd
-        )
+    def query(graphql:, after: nil, **kwd)
+      logger.debug("GraphQL Query") { graphql.inspect }
+      out = client.query(graphql[:query], {
+        variables: build(after: after, **kwd),
       })
 
-      Logger.debug("GraphQL Result") { out.to_h.inspect }
-      raise Errors::GraphQLError, out if out.errors.size != 0
+      logger.debug("GraphQL Result") { out.to_h.inspect }
+      raise Errors::GraphQLError, out unless out.errors.none?
       nodes(out.to_h.deep_symbolize_keys, {
-        graphql: graphql
+        graphql: graphql,
       })
     end
 
@@ -195,9 +191,8 @@ module EnvyGeeks
         after: after,
       })
 
-      Logger.debug("GraphQL Query Vars") do
-        out.inspect
-      end
+      # Log what we got back, so for debugging.
+      logger.debug "GraphQL Query Vars", out.inspect
       out
     end
 
@@ -211,22 +206,24 @@ module EnvyGeeks
       return nil unless result
 
       out = Result.new({
-        :results => nil,
-        :pageInfo => {
-          :startCursor => nil,
-          :hasPreviousPage => false,
-          :hasNextPage => false,
-          :endCursor => nil
-        }
+        results: {},
+        pageInfo: {
+          startCursor: nil,
+          hasPreviousPage: false,
+          hasNextPage: false,
+          endCursor: nil,
+        },
       })
 
-      path = [:data] | graphql.fetch(:path)
-      path.each { |v| result = result&.[](v) }
-      out.merge!({ results:  result,
-        pageInfo: result.delete(:pageInfo) \
-          || out[:pageInfo] })
+      path = [:data] | Array(graphql[:path])
+      path.map do |v|
+        result = result[v]
+      end
 
-      out.freeze
+      out[:results] = result
+      page_info = Hash(result.delete(:pageInfo))
+      out[:pageInfo] = page_info
+      out
     end
 
     # --
@@ -242,22 +239,19 @@ module EnvyGeeks
 end
 
 # --
-Jekyll::Hooks.register :site, :pre_render do |s, p|
-  git = EnvyGeeks::Github.new(s)
-  p.merge!({
-    "git"   => Liquid::Drop::HashOrArray.new(git.repo),
-    "repos" => Liquid::Drop::HashOrArray.new(
-      git.repos
-    )
-  })
-end
+# Jekyll::Hooks.register :site, :pre_render do |s, p|
+#   git = EnvyGeeks::Github.new(s)
+#   p.merge!({
+#     "git"   => Liquid::Drop::HashOrArray.new(git.repo),
+#     "repos" => Liquid::Drop::HashOrArray
+#       .new(git.repos),
+#   })
+# end
 
 # --
-Jekyll::Hooks.register [:pages, :documents, :posts], :pre_render do |o, p|
-  src  = Pathutil.new(o.site.source)
-  src  = src.relative_path_from(Pathutil.pwd)
-  path = src.join(o.realpath) if o.respond_to?(:realpath)
-  path = src.join(o.relative_path) unless path
+Jekyll::Hooks.register [:pages, :documents], :pre_render do |o, p|
+  path = Pathutil.new(o.site.source).relative_path_from(Pathutil.pwd)
+  path = path.join(o.respond_to?(:realpath) ? o.realpath : o.relative_path)
   git  = EnvyGeeks::Github.new(o.site)
 
   if path.file?

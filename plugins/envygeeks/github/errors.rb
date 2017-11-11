@@ -6,8 +6,10 @@ module EnvyGeeks
   class Github
     module Errors
       class GraphQLError < StandardError
+        # --
         def initialize(obj)
-          super(obj.errors.messages.values.flatten.join("\n  "))
+          super obj.errors.messages.values
+            .flatten.join("\n  ")
         end
       end
     end

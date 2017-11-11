@@ -8,6 +8,7 @@ module EnvyGeeks
       module_function
 
       # --
+      # rubocop:disable Metrics/AbcSize
       # Formats repo/repos result into a useable hash. This
       #   is shared logic between repo and repos so that there
       #   is no duplication since they pretty much share the

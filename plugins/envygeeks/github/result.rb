@@ -93,13 +93,13 @@ module EnvyGeeks
       def wrap(val)
         val = val[:edges] if val.is_a?(Hash) && val.keys == [:edges]
         val = val[:nodes] if val.is_a?(Hash) && val.keys == [:nodes]
-        val = val[:node ] if val.is_a?(Hash) && val.keys == [:node ]
+        val = val[:node ] if val.is_a?(Hash) && val.keys == [:node]
 
         case true
         when val.is_a?( Hash) then self.class.new(val)
         when val.is_a?(Array) then val.map do |v|
-            wrap(v)
-          end
+          wrap(v)
+        end
         else
           val
         end

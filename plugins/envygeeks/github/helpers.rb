@@ -33,7 +33,8 @@ module EnvyGeeks
       #   scheme, if you really wish.
       # --
       def strip(str)
-        str.gsub(%r!https?://(www\.)?github\.com/+!, "")
+        str
+          .gsub(%r!https?://(www\.)?github\.com/+!, "")
           .gsub(%r!https?://[^.]+\.githubusercontent\.com/+!, "")
           .gsub(%r!\?v=[0-9]+$!, "")
       end
@@ -53,8 +54,8 @@ module EnvyGeeks
               "For"           => "https://envygeeks.io",
               "License"       => "MIT License - Copyright 2017 Jordon Bedwell",
               "Library"       => "EnvyGeeks Github GraphQL Query Machine",
-              "Authorization" => "bearer #{Token}",
-              "Auth"          => "bearer #{Token}",
+              "Authorization" => "bearer #{TOKEN}",
+              "Auth"          => "bearer #{TOKEN}",
             }
           end
         end
@@ -69,7 +70,6 @@ module EnvyGeeks
       def info
         @info ||= begin
           remotes = `git remote -v`
-          Logger.debug("GraphQL Git Info RAW") { remotes.inspect }
           raise "Bad Git Remote: #{remotes.inspect}" if $?.exitstatus != 0
           remotes = remotes.gsub(%r!\((fetch|push)\)$!m, "").split(%r!\s*$\n+!)
             .uniq.keep_if { |v| v.match(%r!github\.com!) }
@@ -84,11 +84,6 @@ module EnvyGeeks
             user: remote.fetch(0),
             repo: remote.fetch(1),
           }
-
-          # For debugging, because reasons.
-          Logger.debug("GraphQL Git Info") do
-            out.inspect
-          end
 
           out
         end
