@@ -1,10 +1,19 @@
 #!/bin/bash
+set -e
 
+# --
+prec=""
+test=$(docker info 2>&1 || true)
+echo $test | grep -q "permission" \
+  && prec="sudo"
+
+# --
 if [ "$1" = "pull" ]; then
-  docker pull jekyll/jekyll:latest
-  docker system prune -f
+  $prec docker pull jekyll/jekyll:latest
+  $prec docker system prune -f
+  script/docker bundle update
 else
-  docker run --rm \
+  $prec docker run --rm \
     --volume=$PWD/vendor/bundle:/usr/local/bundle \
     --volume=$PWD:/srv/jekyll \
     \
