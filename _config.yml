@@ -4,7 +4,6 @@ twitter_site: "@envygeeks"
 twitter_creator: "@envygeeks"
 sub_title: Systems and Programming
 description: The website of Jordon Bedwell; Linux Sysadmin, and Programmer
-enable_minification_in_development: true
 sub_title: Systems and Programming
 title: Jordon Bedwell
 ga: UA-18997298-1
@@ -34,14 +33,6 @@ timezone: America/Chicago
 destination: ./site
 markdown: kramdown
 # --
-# @see https://github.com/jekyll/jekyll-assets
-# @issues https://github.com/jekyll/jekyll-assets
-# Jekyll-Assets Configuration
-# --
-assets:
-  features:
-    integrity: false
-# --
 # @see https://github.com/gettalong/kramdown
 # @issues https://github.com/gettalong/kramdown
 # Kramdown Configuration
@@ -50,22 +41,6 @@ kramdown:
   auto_ids: true
 # --
 # Jekyll
-# --
-exclude:
-- vendor/
-- Gemfile
-- Readme.md
-- .gitignore
-- node_modules/
-- docker-compose.yml
-- Gemfile.lock
-- Rakefile
-- .bundle/
-- .git/
-- .cache/
-- vendor/bundle
-# --
-# jekyll
 # --
 defaults:
 - scope:
