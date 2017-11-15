@@ -18,10 +18,8 @@ I am heavy Docker user who has built tools like [Docker Template](https://github
 
 Other than that, I can't stand long walks on the beech, WIFI/Cell is spotty, and most beaches are noisey and light polluted now days.  I'd rather spend my time gazing at the stars with a telescope, learning and discussing Space, Systems and Programming, or reading dystopian books to prepare for when Donald Trump becomes President.  I've gotta prepare for the end-times, Winter is coming, if it's not already here.
 
-{% asset giphy/GgbCiS1rMjGFy.gif width:100% height:auto %}
+{% asset giphy/GgbCiS1rMjGFy.gif width=100% height=auto %}
 
 ## Some Projects
 
-{% include
-  _about/_projects.html
-%}
+{% include _about/_projects.html %}
