@@ -15,29 +15,17 @@ require "jekyll/cache"
 
 module EnvyGeeks
   class Github
-    attr_reader :cache
-    attr_reader :logger
-    attr_reader :client
-    attr_reader :remote
-    attr_reader :site
-
-    # --
-    REMOTE = "https://api.github.com/graphql"
-    DIR = Jekyll.plugins_dir.join("envygeeks", "graphql")
+    attr_reader :cache, :logger, :site
+    URL = "https://api.github.com/graphql"
+    GRAPHQL = Pathutil.new(__dir__).join("github.graphql").read
+    JSON = Jekyll.cache_dir.join("github.json")
     TOKEN = ENV["GITHUB_TOKEN"]
 
-    # --
-    # @note can be slow on first usage.
-    # @return [GraphQL::Schema] the schema.
-    # Returns the schema, or dumps the schema from http
-    #   and saves it, then returns it to you for your own
-    #   private usage.
-    # --
-    def self.schema
-      path = DIR.join("github.json").to_s
-      return GraphQL::Client.load_schema(path) if File.file?(path)
-      GraphQL::Client.dump_schema(REMOTE, path)
-    end
+    CLIENT = GraphQL::Client.new({
+      execute: GraphQL::Client::HTTP.new(URL, &Helpers.headers),
+      schema: JSON.file? ? GraphQL::Client.load_schema(JSON.to_s) : \
+        GraphQL::Client.dump_schema(URL, JSON.to_s),
+    }).tap { |o| Queries = o.parse(GRAPHQL) }
 
     # --
     # Get repos from Github GraphQL
@@ -46,11 +34,7 @@ module EnvyGeeks
     # --
     def initialize(site)
       @cache = Jekyll::Cache::FileStore.new("github")
-      @remote = GraphQL::Client::HTTP.new(REMOTE, &Helpers.headers)
-      @client = GraphQL::Client.new(execute: @remote, schema: self.class.schema)
-      @query = client.parse(DIR.join("github.graphql").read)
       @logger = Jekyll::LogWrapper.new(Jekyll.logger)
-      @client.allow_dynamic_queries = true
       @site = site
     end
 
@@ -68,7 +52,7 @@ module EnvyGeeks
           graphql: {
             limit: Float::INFINITY,
             path: %i(repository ref target history),
-            query: @query::Stat,
+            query: Queries::Stat,
           },
         })
 
@@ -92,7 +76,7 @@ module EnvyGeeks
     # --
     def repos(**kwd)
       cache.fetch :repos do
-        graphql = { query: @query::Repos, path: %i(user repositories) }
+        graphql = { query: Queries::Repos, path: %i(user repositories) }
         results graphql: graphql, **kwd do |v|
           year = DateTime.parse(v.pushed_at).year
           if Time.now.year == year && v.primary_language
@@ -110,7 +94,7 @@ module EnvyGeeks
     # --
     def repo(**kwd)
       cache.fetch :repo do
-        graphql = { query: @query::Repo, path: %i(repository) }
+        graphql = { query: Queries::Repo, path: %i(repository) }
         result(graphql: graphql, **kwd) do |v|
           Formatters.repo(v.results).merge({
             commits: Helpers.loop(v.results.ref.target.history) do |c|
@@ -167,7 +151,7 @@ module EnvyGeeks
     private
     def query(graphql:, after: nil, **kwd)
       logger.debug("GraphQL Query") { graphql.inspect }
-      out = client.query(graphql[:query], {
+      out = CLIENT.query(graphql[:query], {
         variables: build(after: after, **kwd),
       })
 
@@ -239,14 +223,14 @@ module EnvyGeeks
 end
 
 # --
-# Jekyll::Hooks.register :site, :pre_render do |s, p|
-#   git = EnvyGeeks::Github.new(s)
-#   p.merge!({
-#     "git"   => Liquid::Drop::HashOrArray.new(git.repo),
-#     "repos" => Liquid::Drop::HashOrArray
-#       .new(git.repos),
-#   })
-# end
+Jekyll::Hooks.register :site, :pre_render do |s, p|
+  git = EnvyGeeks::Github.new(s)
+  p.merge!({
+    "git"   => Liquid::Drop::HashOrArray.new(git.repo),
+    "repos" => Liquid::Drop::HashOrArray
+      .new(git.repos),
+  })
+end
 
 # --
 Jekyll::Hooks.register [:pages, :documents], :pre_render do |o, p|
