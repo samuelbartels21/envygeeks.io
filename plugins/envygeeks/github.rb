@@ -21,11 +21,13 @@ module EnvyGeeks
     JSON = Jekyll.cache_dir.join("github.json")
     TOKEN = ENV["GITHUB_TOKEN"]
 
-    CLIENT = GraphQL::Client.new({
-      execute: GraphQL::Client::HTTP.new(URL, &Helpers.headers),
-      schema: JSON.file? ? GraphQL::Client.load_schema(JSON.to_s) : \
-        GraphQL::Client.dump_schema(URL, JSON.to_s),
-    }).tap { |o| Queries = o.parse(GRAPHQL) }
+    Jekyll.cache_dir.mkdir_p
+    http   = GraphQL::Client::HTTP.new(URL, &Helpers.headers)
+    schema = GraphQL::Client.load_schema(JSON.to_s) if JSON.file?
+    schema = GraphQL::Client.dump_schema(http, JSON.to_s) unless JSON.file?
+    CLIENT = GraphQL::Client.new({ execute: http, schema: schema }).tap do |o|
+      Queries = o.parse(GRAPHQL)
+    end
 
     # --
     # Get repos from Github GraphQL
