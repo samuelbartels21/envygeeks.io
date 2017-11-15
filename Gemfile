@@ -5,6 +5,7 @@
 source "https://rubygems.org"
 gem "jekyll", "~> 3.5", require: false
 gem "uglifier", "~> 3.2", require: false
+gem "sprockets", "~> 4.0.beta", require: false
 gem "font-awesome-sass", "~> 4.7", require: false
 gem "liquid-hash-or-array-drop", "~> 1.0", require: false
 gem "autoprefixer-rails", "~> 7.1", require: false
@@ -14,7 +15,7 @@ gem "gemoji", "~> 3.0", require: false
 
 unless File.file?("/.dockerenv")
   gem "mini_racer", {
-    require: false
+    require: false,
   }
 end
 
