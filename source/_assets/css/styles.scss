@@ -429,6 +429,14 @@ a {
       &:nth-child(even) {
         grid-column: 2;
       }
+
+      .name {
+        float: left;
+      }
+
+      .stars {
+        float: right;
+      }
     }
   }
 }

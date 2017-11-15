@@ -1,5 +1,12 @@
 <div class="projects">
-  {% for repo in envygeeks.repos %}
-    <p>{{ repo.url }}</p>
-  {% endfor %}
+  <ul>
+    {% for repo in repos %}
+      <li>
+        <span class="name"><a href="{{ repo.url }}">{{ repo.rel }}</a></span>
+        <span class="stars"><a href="{{ repo.url }}/stargazers">
+          ❤️ {{ repo.counts.stars }}
+        </a></span>
+      </li>
+    {% endfor %}
+  </ul>
 </div>
