@@ -229,8 +229,9 @@ Jekyll::Hooks.register :site, :pre_render do |s, p|
   git = EnvyGeeks::Github.new(s)
   p.merge!({
     "git"   => Liquid::Drop::HashOrArray.new(git.repo),
-    "repos" => Liquid::Drop::HashOrArray
-      .new(git.repos),
+    "repos" => Liquid::Drop::HashOrArray.new(git.repos.map do |v|
+      Liquid::Drop::HashOrArray.new(v)
+    end),
   })
 end
 
