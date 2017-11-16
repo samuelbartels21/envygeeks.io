@@ -11,7 +11,6 @@ echo $test | grep -q "permission" \
 if [ "$1" = "pull" ]; then
   $prec docker pull jekyll/jekyll:latest
   $prec docker system prune -f
-  script/docker bundle update
 else
   $prec docker run --rm \
     --volume=$PWD/vendor/bundle:/usr/local/bundle \
