@@ -9,3 +9,20 @@
       "woff2"
     );
 }
+
+@font-face {
+  font-style: normal;
+  font-family: "Quicksand";
+  font-weight: 700;
+
+  src: local("Apple Color Emoji"),
+       local("Android Emoji"),
+       local("Segoe UI"),
+       local("EmojiSymbols"),
+       local("Symbola");
+
+  unicode-range:  U+1F300-1F5FF,
+                  U+1F600-1F64F,
+                  U+1F680-1F6FF,
+                  U+2600-26FF;
+}
