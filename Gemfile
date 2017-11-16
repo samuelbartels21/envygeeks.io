@@ -38,7 +38,7 @@ group :jekyll_plugins do
   gem "jekyll-post-tags", "~> 1.0"
   gem "jekyll-cache", "~> 1.0"
   gem "jekyll-assets", "~> 3.0.alpha", {
-    git: "https://github.com/jekyll/jekyll-assets",
+    git: "https://github.com/envygeeks/jekyll-assets.git",
   }
 
   # --
