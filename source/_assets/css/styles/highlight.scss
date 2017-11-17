@@ -1,0 +1,14 @@
+div.highlight {
+  padding: 0.4rem;
+  background: lighten($grey, 1);
+  border: 1px solid darken($grey, 2);
+  box-shadow: 1px 1px 1px $grey;
+  box-sizing: border-box;
+  // border: none;
+
+  pre, code {
+    padding: 0;
+    font-size: $body-font-size - 0.14rem;
+    margin: 0;
+  }
+}

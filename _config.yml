@@ -1,28 +1,3 @@
-gql_query_limit: 12
-hide_page_titles: true
-twitter_site: "@envygeeks"
-twitter_creator: "@envygeeks"
-sub_title: Systems and Programming
-description: The website of Jordon Bedwell; Linux Sysadmin, and Programmer
-sub_title: Systems and Programming
-title: Jordon Bedwell
-ga: UA-18997298-1
-force_ssl: false
-ssl: true
-# --
-# _plugins/envygeeks/drops/social.rb
-# You can use the following to access it.
-# {{ envygeeks.drops.social }}
-# --
-social:
-  github: https://github.com/envygeeks
-  twitter: https://twitter.com/envygeeks
-  mail: mailto:jordon@envygeeks.io
-# --
-# Jekyll configuration.
-# This configuration is unique to Jekyll and only to
-#   Jekyll or plugins that wish to share data.
-# --
 source: ./source
 host: envygeeks.io
 tz: America/Chicago
@@ -30,18 +5,11 @@ plugins_dir: ./plugins
 cache_dir: "./.jekyll-cache"
 excerpt_separator: "<!-- MORE -->"
 timezone: America/Chicago
+gql_query_limit: 12
 destination: ./site
 markdown: kramdown
-# --
-# @see https://github.com/gettalong/kramdown
-# @issues https://github.com/gettalong/kramdown
-# Kramdown Configuration
-# --
 kramdown:
   auto_ids: true
-# --
-# Jekyll
-# --
 defaults:
 - scope:
     type: pages

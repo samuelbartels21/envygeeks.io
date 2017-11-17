@@ -1,0 +1,10 @@
+$positions: left, right;
+@each $position in $positions {
+  .#{$position} {
+    float: #{$position};
+
+    &--text {
+      text-align: #{$position};
+    }
+  }
+}

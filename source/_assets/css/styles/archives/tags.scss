@@ -1,0 +1,36 @@
+/**
+ * The tags at the top of the page.
+ * @pages archives.html
+ */
+.tags {
+  margin: 0 auto;
+  font-size: 1rem;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  display: flex;
+  width: 70%;
+
+  li {
+    margin: .4rem;
+
+    &::after {
+      content: "";
+    }
+  }
+
+  @each $k, $v in $colors {
+    &--w#{index($colors, $k $v) - 1} {
+      background-color: $v;
+      transition: background-color 1s ease;
+      border: 1px solid darken($v, 6);
+      color: $white;
+
+      &:hover {
+        border: 1px solid darken($v, 12);
+        transition: background-color 1s ease;
+        background-color: darken($v,  8);
+      }
+    }
+  }
+}

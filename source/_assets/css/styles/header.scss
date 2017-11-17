@@ -1,0 +1,14 @@
+.header {
+  text-align: center;
+  width: 100%;
+
+  a {
+    color: inherit;
+    text-decoration: none;
+    display: block;
+  }
+
+  @import "styles/header/title";
+  @import "styles/header/social";
+  @import "styles/header/nav";
+}

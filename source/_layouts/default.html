@@ -1,29 +1,21 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <link rel="canonical" href="{{ page | canonical_url }}">
-    {% capture title %}{{ site.title }}{% if page.title %} - {{ page.title }}{% endif %}{% endcapture %}
     {% asset bundle.css %}
+    <link rel="canonical" href="{{ page | canonical_url }}">
+    {% capture title %}{{ site.title }}{% endcapture %}
+    {% capture title %}{{ title }}{% if page.title %} - {{ page.title }}{% endif %}{% endcapture %}
+    <link rel="alternate" type="application/rss+xml" href="{{ site.base_domain }}/feed.xml" title="{{ title }}" />
+    {% if page.type == "post" %}{% include _schema.html %}{% endif %}
     {% asset bundle.js @defer @async %}
     {% include _layout/_analytics.html %}
     {% include _layout/_meta.html %}
     <title>{{ title }}</title>
-
-    <link rel="alternate"
-      type="application/rss+xml"
-      href="{{ site.base_domain }}/feed.xml"
-      title="{{ site.title }}" />
-
-    {% if page.type == "post" %}
-      {% include
-        _schema.html
-      %}
-    {% endif %}
   </head>
 
-  <body id="envygeeks">
-    <div class="wrapper">
-      <header class="site-header">
+  <body id=envygeeks>
+    <div class=wrapper>
+      <header class=header>
         <nav>
           <ul>
             <li>
@@ -35,16 +27,9 @@
             {% for page in site.pages %}
               {% if page.nav %}
                 <li>
-                  <a
-                      href="{{ page.url | append:site.baseurl | pretty }}"
-                      {% if page.nav.class %}
-                        class="{{ page.nav.class }}"
-                      {% endif %}
-                    >
-
-                    {{
-                      page.nav.title
-                    }}
+                  {% capture class %}{% if page.nav.class %}class="{{ page.nav.class }}"{% endif %}{% endcapture %}
+                  <a href="{{ page.url | append:site.baseurl | pretty }}" {{ class }}>
+                    {{ page.nav.title }}
                   </a>
                 </li>
               {% endif %}
@@ -52,27 +37,17 @@
           </ul>
         </nav>
 
-        <h1 class="title">
+        <h1>
           <a href="/" rel="me">
-            {{
-              site.title
-            }}
+            {{ site.title }}
           </a>
         </h1>
 
-        {% if site.sub-title %}
-          <p class="sub-title">
-            {{
-              site.sub-title
-            }}
-          </p>
-        {% endif %}
-
-        {% if site.social %}
-          <div class="social">
-            {% for account in site.social %}
-              <a href="{{ account[1] }}">
-                <i class="fa fa-{{ account[0] }}-square" aria-hidden="true">
+        {% if site.data.social %}
+          <div class="header__social">
+            {% for account in site.data.social.sites %}
+              <a href="{{ account[1] }}/{{ site.data.social.username }}">
+                <i class="fa fa-{{ account[0] }} fa-{{ account[0] }}-square" aria-hidden="true">
                   <!-- EMPTY -->
                 </i>
               </a>
@@ -81,19 +56,13 @@
         {% endif %}
       </header>
 
-      <main>
+      <main class="content">
         {% if page.main %}
           {{ content }}
 
         {% else %}
           {% if page.type != "tag" %}
-            {% include
-              _article.html
-            %}
-          {% else %}
-            {% include
-              _tags.html
-            %}
+            {% include _article.html %}{% else %}{% include _tags.html %}
           {% endif %}
         {% endif %}
       </main>

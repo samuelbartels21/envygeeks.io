@@ -10,7 +10,7 @@ nav:
   <ul class="tags">
     {% assign tags = site.tags | keys %}
     {% for tag in tags %}
-    <li class="weight-{{ tag.weight | round }}">
+    <li class="pill tags--w{{ tag.weight | round }}">
       <a title="Tag: {{ tag }}" href="{{ tag.url | pretty }}">
         {{ tag }}
       </a>

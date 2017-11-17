@@ -1,4 +1,4 @@
-{% if site.ga %}
+{% if site.data.google.analytics and jekyll.environment == "production" %}
   <script>
     if(navigator.userAgent.indexOf("Speed Insights") == -1) {
       window.ga = window.ga || function() {
@@ -6,7 +6,7 @@
       };
 
       ga.l = +new Date;
-      ga("create", "UA-18997298-1", "auto");
+      ga("create", "{{ site.data.google.analytics }}", "auto");
       ga("send", "pageview");
 
       let ele = document.createElement("script")

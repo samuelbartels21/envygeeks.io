@@ -1,0 +1,74 @@
+/**
+ * Provides the styles for our archives, this also
+ * includes our tag pages and anything like that.
+ * @pages archives.html, tag/:name.html
+ */
+.archives {
+  @import "styles/archives/tags";
+
+  /**
+   * Each article in the "list" for the archives.
+   * We mock this out this way for SEO?
+   */
+  article {
+    border-bottom: 0;
+    align-items: center;
+    line-height: 1rem;
+    display: flex;
+    margin-top: 0;
+
+    header,
+    footer {
+      margin: 2vh 0;
+    }
+
+    header {
+      margin: 0 .4rem;
+      width: 100%;
+
+      h1 {
+        font-weight: normal;
+        font-size: $body-font-size;
+        font-family: $body-font;
+        margin: 0;
+
+        &::before {
+          color: $green;
+        }
+
+        a {
+          display: inline-block;
+          color: inherit;
+
+          &:hover {
+            color: $blue;
+          }
+
+          &::after {
+            content: " ";
+          }
+        }
+      }
+    }
+  }
+
+  h2 {
+    color: $pink;
+    text-shadow: 1px 1px 1px $grey;
+    border-top: 1px solid darken($grey, 6);
+    padding-top: 4vh;
+  }
+}
+
+@media (max-width: 1036px) {
+  .archives {
+    article {
+      header {
+        h1 {
+          white-space: nowrap;
+          text-overflow: clip-word;
+        }
+      }
+    }
+  }
+}

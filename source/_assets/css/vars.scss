@@ -1,3 +1,4 @@
+$scsslint-is-garbage: true;
 $code-font: monospace;
 $body-font-size: 1.1rem;
 $header-font: "Quicksand";
@@ -8,3 +9,20 @@ $site-title-size: 2.1rem;
 $body-font: "Roboto";
 $h1: 1.8rem;
 $h2: 1.8rem;
+
+$grey: #f5f6fa;
+$blue: #3498db;
+$purple: #ba72d8;
+$green: #18bc9c;
+$black: #333b50;
+$pink: #d676aa;
+$white: #fff;
+
+$colors: (
+  "blue": $blue,
+  "green": $green,
+  "black": $black,
+  "purple": $purple,
+  "pink": $pink,
+  "grey": $grey,
+);

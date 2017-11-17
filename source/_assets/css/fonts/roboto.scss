@@ -1,11 +1,12 @@
 @font-face {
   font-style: normal;
   font-family: "Roboto";
-  font-weight: 300;
+  font-weight: 400;
 
-  src: local("Roboto Light"), local("RobotoLight"), local("Roboto-Light"),
-    font_url("roboto-v16-latin-300.woff")  format("woff"),
-    font_url("roboto-v16-latin-300.woff2") format(
+  src: local("Roboto Regular"),
+    local("RobotoRegular"), local("Roboto-Regular"), local("Roboto"),
+    font_url("roboto-v18-latin-400.woff")  format("woff"),
+    font_url("roboto-v18-latin-400.woff2") format(
       "woff2"
     );
 }
@@ -13,7 +14,7 @@
 @font-face {
   font-style: normal;
   font-family: "Roboto";
-  font-weight: 300;
+  font-weight: 400;
 
   src: local("Apple Color Emoji"),
        local("Android Emoji"),

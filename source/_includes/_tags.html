@@ -1,30 +1,23 @@
 <div class="tag archives">
   <header>
     <h1>
-      {{
-        page.title
-      }}
+      {{ page.title }}
     </h1>
   </header>
 
-  {% assign tags = site.tags[page.tag] | waterfall %}
-  {% for post in tags %}
+  {% for post in site.tags[page.tag] %}
     <article>
       <header>
         <h1>
           <i class="fa fa-archive" aria-hidden="true" />
           <a href="{{ post.url | pretty }}">
-            {{
-              post.title | markdownify_title
-            }}
+            {{ post.title | markdownify_title }}
           </a>
         </h1>
       </header>
       <footer>
         <time>
-          {{
-            post.date | archive_time
-          }}
+          {{ post.date | archive_time }}
         </time>
       </footer>
     </article>
