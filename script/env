@@ -2,7 +2,7 @@
 [ "$DEBUG" = "true" ] && set -x
 set -e
 
-export JEKYLL_UID=$(id -u)
+export JEKYLL_UID=$UID
 export DEBUG=${DEBUG:=false}
 export DNS_DEPLOY=${DNS_DEPLOY:=false}
 export DEPLOY_HOST=${DEPLOY_HOST:=envygeeks.io}
@@ -11,7 +11,6 @@ export SITE_DOMAIN=${SITE_DOMAIN:=envygeeks.io}
 export JEKYLL_ENV=${JEKYLL_ENV:=development}
 export DEPLOY_USER=${DEPLOY_USER:=jordon}
 export CONNECTED=${CONNECTED:=true}
-export JEKYLL_GID=$(id -g)
 export CI=${CI:=false}
 
 mkdir -p node_modules
