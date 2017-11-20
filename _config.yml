@@ -23,3 +23,6 @@ defaults:
   values:
     layout: default
     type: post
+assets:
+  source_maps: false
+  compression: false

@@ -1,0 +1,8 @@
+<script type="text/javascript">
+  window.jekyll = {
+    environment: "{{ jekyll.environment }}",
+    development: {% if jekyll.environment == "development" %}true{% else %}false{% endif %},
+     production: {% if jekyll.environment ==  "production" %}true{% else %}false{% endif %},
+            env: "{{ jekyll.environment }}",
+  }
+</script>

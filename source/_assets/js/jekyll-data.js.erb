@@ -1,0 +1,24 @@
+(function() {
+  <% data = @environment.jekyll.data %>
+  <% keys = Array(data["js"]&.[]("include")) %>
+  <% keys.concat(data.keys.grep(/\-js$/)) %>
+  <% keys.tap(&:flatten!).compact! %>
+
+  window.site = {
+    data: {},
+    jekyll: {
+      environment: <%= Jekyll.env.to_json %>,
+      production: <%= Jekyll.env == "production" %>,
+      assets_version: <%= Jekyll::Assets::VERSION.to_json %>,
+      development: <%= Jekyll.env == "development" %>,
+      version: <%= Jekyll::VERSION.to_json %>,
+      dev: <%= Jekyll.env == "development" %>,
+      env: <%= Jekyll.env.to_json %>
+    }
+  };
+
+  <% keys.each do |k| %>
+    <% ok = k.gsub(%r!-js$!, "").gsub(%r!-+!, "_") %>
+    window.site.data.<%= ok %> = <%= JSON.pretty_generate(data[k]) %>;
+  <% end %>
+})();

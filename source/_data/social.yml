@@ -1,5 +1,5 @@
 username: envygeeks
 sites:
   twitter: https://twitter.com
-  paypal:  https://patreon.com
+  paypal:  { class: donate, url: "#" }
   github:  https://github.com
