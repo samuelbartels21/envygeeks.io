@@ -221,30 +221,35 @@ module EnvyGeeks
     def limit
       @site.config.fetch(:graphql_limit, 12)
     end
-  end
-end
 
-# --
-Jekyll::Hooks.register :site, :pre_render do |s, p|
-  git = EnvyGeeks::Github.new(s)
-  p.merge!({
-    "git"   => Liquid::Drop::HashOrArray.new(git.repo),
-    "repos" => Liquid::Drop::HashOrArray.new(git.repos.map do |v|
-      Liquid::Drop::HashOrArray.new(v)
-    end),
-  })
-end
+    # --
+    public
+    def self.site_pr(s, p)
+      git = new(s)
+      p.merge!({
+        "git" => Liquid::Drop::HashOrArray.new(git.repo),
+        "repos" => Liquid::Drop::HashOrArray.new(git.repos.map do |v|
+          Liquid::Drop::HashOrArray.new(v)
+        end),
+      })
+    end
 
-# --
-Jekyll::Hooks.register [:pages, :documents], :pre_render do |o, p|
-  path = Pathutil.new(o.site.source).relative_path_from(Pathutil.pwd)
-  path = path.join(o.respond_to?(:realpath) ? o.realpath : o.relative_path)
-  git  = EnvyGeeks::Github.new(o.site)
+    # --
+    def self.page_pr(o, p)
+      path = Pathutil.new(o.site.source).relative_path_from(Pathutil.pwd)
+      path = path.join(o.respond_to?(:realpath) ? o.realpath : o.relative_path)
+      git  = EnvyGeeks::Github.new(o.site)
 
-  if path.file?
-    stat = git.stat(path)
-    p["meta"] = {
-      "github" => Liquid::Drop::HashOrArray.new(stat),
-    }
+      if path.file?
+        stat = git.stat(path)
+        p["meta"] = {
+          "github" => Liquid::Drop::HashOrArray.new(stat),
+        }
+      end
+    end
+
+    Jekyll::Hooks.register(:site, :pre_render, &method(:site_pr))
+    Jekyll::Hooks.register(%i(pages documents),
+      :pre_render, &method(:page_pr))
   end
 end
