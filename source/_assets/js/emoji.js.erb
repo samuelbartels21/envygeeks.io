@@ -1,0 +1,7 @@
+//= require twemoji/2/twemoji
+
+document.querySelectorAll("p,li,span,a").forEach(function(e) {
+  twemoji.parse(e, function(i, o, v) {
+    return "/assets/twemoji/" + i + ".svg";
+  });
+})

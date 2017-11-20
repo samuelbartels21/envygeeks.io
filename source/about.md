@@ -6,19 +6,17 @@ nav:
   title: About
 ---
 
-Hey, I'm Jordon Bedwell. You probably don't know me, but I do a lot of open
-source work, and I also freelance for a lot of companies who have products you
-might have used on a daily basis.
+[1]: https://github.com/envygeeks/jekyll-docker
+[2]: https://github.com/envygeeks/docker-template
+[3]: https://github.com/envygeeks/jekyll-assets
+
+Hey 👋, I'm Jordon Bedwell. I'm an OpenSource ❤️ Programmer, Programmer For Hire, a past (maybe present) systems person, and a firm believer in Time Travel. I love Doctor Who, Family Guy, Downton Abbey, and helping people as much as I can, through software. You might know me, you probably don't, but I'm sure I've touched a project that you've used before, and I plan to keep helping out OpenSource for as long as I can, because everybody deserves OpenSource software.  It's even how I'm trying to make a living to feed myself right now.
 
 {% asset giphy/8Anv5VHRlm5vG.gif width=100% height=auto %}
 
-In the past it was my day to day job to scale and grow things like Jekyll builds to thousands of builds with Docker.  No, not at Github, somewhere else. When doing freelance work most people hire me to do initial ops work, Rails apps and even systems programming with languages like Go.  If you were to ask me what I do, I would say I "hack" because I work on many things...
+In the past it was my day to day job to scale and grow things like Jekyll builds to thousands of builds, with Docker, and to program applications that many users used between there, and those systems.  No, not at Github, somewhere else. When doing freelance work most people hire me to do initial ops work, Rails apps, and even systems programming with languages like Go, and Rust.  If you were to ask me what I do, I would say I "hack" because I work on many things... but my passion lately is programming.
 
-I am heavy Docker user who has built tools like [Docker Template](https://github.com/envygeeks/docker-template){:target="_blank"}{:rel="noreferrer noopener"}, and I currently manage hundreds of Docker images (at least last I checked.) Some very popular and some not so popular.  Did I mention that I am a maintainer of Jekyll too?
-
-Other than that, I can't stand long walks on the beech, WIFI/Cell is spotty, and most beaches are noisey and light polluted now days.  I'd rather spend my time gazing at the stars with a telescope, learning and discussing Space, Systems and Programming, or reading dystopian books to prepare for when Donald Trump becomes President.  I've gotta prepare for the end-times, Winter is coming, if it's not already here.
-
-{% asset giphy/GgbCiS1rMjGFy.gif width=100% height=auto %}
+I am heavy Docker user, a Linux user, and I manage and maintain a great many Jekyll plugins, and other Ruby projects, that hopefully *you* love and enjoy. I've built tools like [Docker Template][2], plugins like [Jekyll Assets][3], and tools like [Jekyll Docker][1], and I currently manage many other Docker images.  Unless I've removed them, or planned to deprecate them because the ecosystem has taken over to do a better job.
 
 ## Some Projects
 

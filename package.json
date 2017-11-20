@@ -9,5 +9,7 @@
     "postcss-cli": "^4.1.0",
     "postcss": "^6.0.5"
   },
-  "dependencies": {}
+  "dependencies": {
+    "twemoji": "^2.5.0"
+  }
 }
