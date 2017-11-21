@@ -16,7 +16,7 @@ else
     --volume=$PWD/vendor/bundle:/usr/local/bundle \
     --volume=$PWD:/srv/jekyll \
     \
-    --env="DEBUG=$DEBUG" \
+    --env="DEBUG=true" \
     --env="JEKYLL_ENV=$JEKYLL_ENV" \
     --env="GITHUB_TOKEN=$GITHUB_TOKEN" \
     --env="CONNECTED=$CONNECTED" \

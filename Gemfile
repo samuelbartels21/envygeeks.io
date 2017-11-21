@@ -12,6 +12,7 @@ gem "autoprefixer-rails", "~> 7.1", require: false
 gem "graphql-client", "~> 0.12", require: false
 gem "nokogiri", "~> 1.8", require: false
 gem "gemoji", "~> 3.0", require: false
+gem "babel-transpiler", require: false
 
 unless File.file?("/.dockerenv")
   gem "mini_racer", {
