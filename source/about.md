@@ -1,6 +1,7 @@
 ---
 url-id: 90fce2ed
 id: 9d7858a7-4da6-482e-99be-2298aa4e9559
+description: "About Me: jordon Bedwell"
 title: About Me
 nav:
   title: About
