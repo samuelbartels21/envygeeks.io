@@ -66,7 +66,9 @@ module EnvyGeeks
         # @see https://goo.gl/xaVFka
         # --
 
-        Formatters.commit(out.sort_by(&:committed_date).fetch(0))
+        out = out.sort_by(&:committed_date)[0]
+        out ? Formatters.commit(out) : Formatters
+          .default(site)
       end
     end
 

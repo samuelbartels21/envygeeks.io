@@ -72,6 +72,11 @@ module EnvyGeeks
           },
         }
       end
+
+      # --
+      def default(site)
+        site.data["github"].symbolize_keys
+      end
     end
   end
 end
