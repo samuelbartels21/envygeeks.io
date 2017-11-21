@@ -7,6 +7,8 @@ tags: [jekyll, jekyll-assets]
 
 Today, Jekyll Assets 3.0.0 has been released 🎂. It involved a major rewrite, for a sponsored feature (SourceMaps,) and a major speed boost, with a major boost to people's ability to make plugins that hook into Jekyll-Assets, in the future.  Here is what's new:
 
+<!-- MORE -->
+
 <!-- TOC depthFrom:2 depthTo:2 withLinks:1 updateOnSave:1 orderedList:0 -->
 
 - [Super Fast](#super-fast)
