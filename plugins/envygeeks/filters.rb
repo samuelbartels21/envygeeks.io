@@ -11,6 +11,12 @@ module EnvyGeeks
     }
 
     # --
+    def strip(txt)
+      return txt unless txt.is_a?(String)
+      txt.strip
+    end
+
+    # --
     # Allows you to output the class.
     # @note this exists because Jekyll & Liquid have terrible debugging.
     # @note this is seriously for debugging only.

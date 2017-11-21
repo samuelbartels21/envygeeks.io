@@ -1,17 +1,23 @@
 {% if jekyll.environment == "production" or site.data.debug == true %}
+  {% capture desc %}
+    {% if page.description %}
+      {{ page.description }}{% else %}{{ site.description }}
+    {% endif %}
+  {% endcapture %}
+
   <meta property="og:type" content="article" />
   <meta property="og:site_name" content="{{ site.title }}" />
   <meta itemprop="description" content="{{ site.description }}">
-  <meta property="og:description" content="{{ site.description }}" />
   <meta property="og:url" content="{{ page | canonical_url }}" />
-  <meta property="og:title" content="{{ title }}" />
+  <meta property="og:title" content="{{ page.title }}" />
+  <meta property="og:description" content="{{ desc | strip }}" />
 
   {% if site.data.social.sites.twitter %}
     <meta name="twitter:site" content="{{ site.data.twtr.site }}">
-    <meta name="twitter:description" content="{{ site.description }}">
+    <meta name="twitter:description" content="{{ desc | strip }}">
     <meta name="twitter:creator" content="{{ site.data.twtr.creator }}">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="{{ title }}">
+    <meta name="twitter:title" content="{{ page.title }}">
   {% endif %}
 {% endif %}
 
