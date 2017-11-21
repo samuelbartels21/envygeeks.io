@@ -4,10 +4,10 @@
     zipCode: site.data.stripe.zip_code,
     bitcoin: site.data.stripe.bitcoin,
     image: site.data.stripe.image,
-    token: function(token) {},
+    token: (token) => {},
 
     key: jekyll.development ? site.data.stripe.test_key :
-      site.data.strip.production_key
+      site.data.stripe.production_key
   });
 
   /**
@@ -15,8 +15,8 @@
    * Accept the Payment.
    * Process it.
    */
-  document.querySelectorAll(".donate").forEach(function(v) {
-    v.addEventListener("click", function(e) {
+  document.querySelectorAll(".donate").forEach((v) => {
+    v.addEventListener("click", (e) => {
       e.preventDefault();
       stripe.open({
         name: site.data.stripe.checkout.name,
@@ -31,7 +31,7 @@
    * No need to freak out yeah?
    * It's okay!
    */
-  window.addEventListener("popstate", function() {
+  window.addEventListener("popstate", () => {
     handler.close()
   })
 })();
