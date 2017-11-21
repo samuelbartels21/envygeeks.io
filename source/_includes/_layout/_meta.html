@@ -9,8 +9,9 @@
   <meta property="og:site_name" content="{{ site.title }}" />
   <meta itemprop="description" content="{{ site.description }}">
   <meta property="og:url" content="{{ page | canonical_url }}" />
-  <meta property="og:title" content="{{ page.title }}" />
+  <meta property="og:author" content="{{ meta.github.author.name }}">
   <meta property="og:description" content="{{ desc | strip }}" />
+  <meta property="og:title" content="{{ page.title }}" />
 
   {% if site.data.social.sites.twitter %}
     <meta name="twitter:site" content="{{ site.data.twtr.site }}">
