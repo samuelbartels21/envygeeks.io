@@ -6,7 +6,7 @@ require "nokogiri"
 
 Jekyll::Hooks.register [:pages, :documents, :posts], :post_render do |d|
   html = Nokogiri::HTML.parse(d.output)
-  search = ".//[contains(@class,'highlighter-rouge')]"
+  search = ".//*[contains(@class,'highlighter-rouge')]"
   html.search(search).each do |v|
     v["class"].strip!
     v["class"].gsub!(%r!\s*highlighter-rouge\s*!, "")
