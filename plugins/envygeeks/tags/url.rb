@@ -9,7 +9,7 @@ module EnvyGeeks
   module Tags
     class URL < Liquid::Tag
       include Helpers::Tag
-      TAG = %q{<a href="%s">%s</a>}
+      TAG = '<a href="%s">%s</a>'
       include Filters
 
       # --
@@ -36,10 +36,11 @@ module EnvyGeeks
         docs = site.pages | site.posts.docs
         docs = docs.find_all { |v| v.data["url-id"] == @id.strip }
         raise "Logical Error: Duplicate `url-id` found..." if docs.size > 1
-        raise "Unable to find document" if docs.size == 0
+        raise "Unable to find document" if docs.size.zero?
 
         url = canonical_url(docs.first)
-        format(TAG, url, docs.first.data["title"])
+        format(TAG, url, docs.first
+          .data["title"])
       end
     end
   end

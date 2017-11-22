@@ -7,11 +7,11 @@ Lint/UselessAccessModifier: { Enabled: false }
 Lint/RescueWithoutErrorClass: { Enabled: false }
 Style/RegexpLiteral: { EnforcedStyle: percent_r }
 Style/BracesAroundHashParameters: { Enabled: false }
-Style/Semicolon: { AllowAsExpressionSeparator: true }
 Layout/MultilineMethodCallBraceLayout: { Enabled: false }
 Layout/AlignParameters: { EnforcedStyle: with_fixed_indentation }
 Style/TrailingCommaInLiteral: { EnforcedStyleForMultiline: comma }
 Layout/MultilineMethodCallIndentation: { EnforcedStyle: indented }
+Layout/MultilineOperationIndentation: { EnforcedStyle: indented }
 Layout/FirstParameterIndentation: { EnforcedStyle: consistent }
 Layout/EmptyLinesAroundAccessModifier: { Enabled: false }
 Style/StringLiterals: { EnforcedStyle: double_quotes }
@@ -23,8 +23,8 @@ Style/ParallelAssignment: { Enabled: false }
 Style/SelfAssignment: { Enabled: false }
 Style/Documentation: { Enabled: false }
 Style/GuardClause: { Enabled: false }
-Style/DateTime: { Enabled: false}
 Metrics/AbcSize: { Max: 24 }
+Style/Semicolon: { AllowAsExpressionSeparator: true }
 Style/PercentLiteralDelimiters:
   PreferredDelimiters:
     '%q': '{}'

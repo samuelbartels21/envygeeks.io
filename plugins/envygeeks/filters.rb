@@ -195,6 +195,7 @@ module EnvyGeeks
       @context.registers[:site]
     end
   end
-
-  Liquid::Template.register_filter(Filters)
 end
+
+# --
+Liquid::Template.register_filter(EnvyGeeks::Filters)

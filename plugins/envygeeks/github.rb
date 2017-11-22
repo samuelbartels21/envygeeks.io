@@ -73,6 +73,7 @@ module EnvyGeeks
     end
 
     # --
+    # rubocop:disable Style/DateTime
     # @return [Array<{}>] array of normalized hashes.
     # Returns the results, cleaned up as a proper array
     #   of hashes that you can use.  This is a low-level wrapper
