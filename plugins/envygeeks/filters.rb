@@ -7,7 +7,7 @@ module EnvyGeeks
   module Filters
     extend Forwardable::Extended
     rb_delegate :config, {
-      to: :site
+      to: :site,
     }
 
     # --
@@ -33,7 +33,10 @@ module EnvyGeeks
     # --
     def keys(obj)
       return obj if obj.is_a?(Array)
-      raise ArgumentError, "must be a hash or array" if !obj.is_a?(Hash)
+      unless obj.is_a?(Hash)
+        raise ArgumentError, "must be a hash or array"
+      end
+
       obj.keys
     end
 
@@ -44,7 +47,10 @@ module EnvyGeeks
     # --
     def vals(obj)
       return obj if obj.is_a?(Array)
-      raise ArgumentError, "must be a hash or array" if !obj.is_a?(Hash)
+      unless obj.is_a?(Hash)
+        raise ArgumentError, "must be a hash or array"
+      end
+
       obj.values
     end
 
@@ -54,7 +60,7 @@ module EnvyGeeks
     # @return [Array] the reversed array.
     # --
     def reverse(ary)
-      if !ary.is_a?(Array)
+      unless ary.is_a?(Array)
         raise ArgumentError, "must be an array"
       end
 
@@ -63,12 +69,13 @@ module EnvyGeeks
 
     # --
     # Reverse, Reverse and organize by waterfall.
+    # rubocop:disable Metrics/CyclomaticComplexity
     # @param array [Array] the array to turn into a waterfall.
     # @param posts [true|false] are they posts?
     # @return the waterfalled array
     # --
     def waterfall(object)
-      if !object.is_a?(Array) && !object.is_a?(Hash)
+      unless object.is_a?(Array) && !object.is_a?(Hash)
         raise ArgumentError, "must be an Array or Hash of Array"
       end
 
@@ -80,9 +87,10 @@ module EnvyGeeks
 
       one, two = [], []
       return object if object.size == 1
-      object = object.sort_by { |v|  v.size rescue v["title"].size }
-      object.each_with_index { |v, i| i.odd?? one.unshift(v) : two.push(v) }
-      return two | one
+      object.sort_by { |v| v.respond_to?(:size) ? v.size : v["title"].size }
+        .each_with_index { |v, i| i.odd? ? one.unshift(v) : two.push(v) }
+
+      two | one
     end
 
     # --
@@ -109,9 +117,9 @@ module EnvyGeeks
       return url if url == "/"
       return "/" if url == ""
 
-      url.gsub(/\.html$/, ""). \
-        gsub(/(?<!http:|https:)\/{2}/, "/"). \
-        gsub(/\/$/, "")
+      url.gsub(%r!\.html$!, "")
+        .gsub(%r!(?<\!http:|https:)/{2}!, "/")
+        .gsub(%r!/$!, "")
     end
 
     # --
@@ -120,8 +128,7 @@ module EnvyGeeks
     # @return [String] the prettified url.
     # --
     def pretty(url)
-      url.to_s.gsub(/\/$/, ""). \
-        gsub(/\.html$/, "")
+      url.to_s.gsub(%r!/$!, "").gsub(%r!\.html$!, "")
     end
 
     # --
@@ -129,6 +136,7 @@ module EnvyGeeks
     # @param time [DateTime] the date time.
     # @param archive [true|false] whether this is for the archive.
     # @return [String] the time string ordinalized.
+    # rubocop:disable Metrics/PerceivedComplexity
     # --
     def ordinalize(time)
       return "" unless time.is_a?(DateTime) || time.is_a?(Time)
@@ -137,7 +145,7 @@ module EnvyGeeks
       tsx = "st" if day.end_with?("1")
       tsx = "nd" if day.end_with?("2")
       tsx = "rd" if day.end_with?("3")
-      tsx = "th" if day.end_with?("4") || day.end_with?("5")
+      tsx = "th" if day.end_with?("4", "5")
       tsx = "th" if day.between?("11", "20")
       time.strftime("%A, %B %d#{tsx}, %Y")
     end
@@ -150,9 +158,9 @@ module EnvyGeeks
     # --
     def markdownify_title(string)
       return "" unless string.is_a?(String)
-      raise ArgumentError, "invalid input" if string.match(/\n{2}/)
+      raise ArgumentError, "invalid input" if string =~ %r!\n{2}!
       method = Jekyll::Filters.instance_method(:markdownify).bind(self)
-      method.call(string).gsub(/<\/?p>/, "")
+      method.call(string).gsub(%r!</?p>!, "")
     end
 
     # --
