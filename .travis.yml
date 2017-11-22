@@ -2,9 +2,6 @@ script: script/test
 install: script/install
 sudo: required
 os: linux
-env:
-  global:
-    - JEKYLL_ENV=production
 before_script:
   - git remote -v
   - script/build
@@ -30,6 +27,7 @@ notifications:
     on_failure: change
 env:
   global:
+  - JEKYLL_ENV=production
   - secure: "\
       LmlPyqO+M080pR6Ci13CBPD8iggd5bYj36OGD6hqzzUBcB9LMRUboyayqmWM/18yBV5THM6di\
       AkltzyjhWnNHfNndCaCW8o/N9zHmUGZm87rR4E9J61HuESPXlMojlL75qom1wLMXhtxot/t8x\
