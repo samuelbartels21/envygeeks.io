@@ -62,6 +62,8 @@ module EnvyGeeks
       end
 
       # --
+      # rubocop:disable Lint/UselessAssignment
+      # rubocop:disable Style/SpecialGlobalVars
       # Infers the current repository name from the origin.
       #   And if there is no name then it just dumps and fails
       #   because you shouldn't be using this without git.

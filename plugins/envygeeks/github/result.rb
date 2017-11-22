@@ -88,15 +88,18 @@ module EnvyGeeks
       # Takes in the result and then determines if it needs
       #   to be wrapped in this class, hashes are looped and
       #   wrapped and hashes are simply just wrapped.
+      # rubocop:disable Metrics/PerceivedComplexity
+      # rubocop:disable Metrics/CyclomaticComplexity
+      # rubocop:disable Lint/LiteralAsCondition
       # --
       private
       def wrap(val)
         val = val[:edges] if val.is_a?(Hash) && val.keys == [:edges]
         val = val[:nodes] if val.is_a?(Hash) && val.keys == [:nodes]
-        val = val[:node ] if val.is_a?(Hash) && val.keys == [:node]
+        val = val[:node]  if val.is_a?(Hash) && val.keys == [:node]
 
         case true
-        when val.is_a?( Hash) then self.class.new(val)
+        when val.is_a?(Hash)  then self.class.new(val)
         when val.is_a?(Array) then val.map do |v|
           wrap(v)
         end
