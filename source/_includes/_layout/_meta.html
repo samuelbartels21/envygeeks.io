@@ -11,14 +11,14 @@
   <meta property="og:url" content="{{ page | canonical_url }}" />
   <meta property="og:author" content="{{ meta.github.author.name }}">
   <meta property="og:description" content="{{ desc | strip }}" />
-  <meta property="og:title" content="{{ page.title }}" />
+  <meta property="og:title" content="{{ site.title }}" />
 
   {% if site.data.social.sites.twitter %}
     <meta name="twitter:site" content="{{ site.data.twtr.site }}">
     <meta name="twitter:description" content="{{ desc | strip }}">
     <meta name="twitter:creator" content="{{ site.data.twtr.creator }}">
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="{{ page.title }}">
+    <meta name="twitter:title" content="{{ site.title }}">
+    <meta name="twitter:card" content="summary">
   {% endif %}
 {% endif %}
 
