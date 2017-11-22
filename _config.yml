@@ -1,5 +1,4 @@
 source: ./source
-host: envygeeks.io
 tz: America/Chicago
 plugins_dir: ./plugins
 cache_dir: "./.jekyll-cache"
