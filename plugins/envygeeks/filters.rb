@@ -6,9 +6,12 @@ require "addressable"
 module EnvyGeeks
   module Filters
     extend Forwardable::Extended
-    rb_delegate :config, {
-      to: :site,
-    }
+
+    # --
+    def config
+      @config ||= site.config.merge(site
+        .data["site"])
+    end
 
     # --
     def strip(txt)
