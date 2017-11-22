@@ -12,6 +12,7 @@ Today, Jekyll Assets 3.0.0 has been released 🎂. It involved a major rewrite, 
 
 <!-- TOC depthFrom:2 depthTo:2 withLinks:1 updateOnSave:1 orderedList:0 -->
 
+- [One Tag to Rule Them All](#one-tag-to-rule-them-all)
 - [Super Fast](#super-fast)
 - [Drop in replacement](#drop-in-replacement)
 - [Sprockets 4.x Support](#sprockets-4x-support)
@@ -26,6 +27,12 @@ Today, Jekyll Assets 3.0.0 has been released 🎂. It involved a major rewrite, 
 - [Please Donate](#please-donate)
 
 <!-- /TOC -->
+
+## One Tag to Rule Them All
+
+{% raw %}
+We've removed `{% css %}`, `{% link %}`, `{% img %}`, and any other tag, and left only one tag to rule them all `{% asset %}`, since Sprockets 4 now requires you to add an extension for most asset searching, it's no longer necessary for us to carry multiple tags to set a series of basic content types, we now have a single tag that deals with everything, including determining content type.
+{% endraw %}
 
 ## Super Fast
 
