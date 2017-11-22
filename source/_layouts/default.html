@@ -80,10 +80,8 @@
     </div>
 
     {% include _layout/_jekyll.html %}
-    {% asset "https://checkout.stripe.com/checkout.js" %}
-    {% if site.data.ga.id and jekyll.environment != "development" %}
-      {% asset "https://google-analytics.com/analytics.js" %}
-    {% endif %}
+    {% asset "https://www.googletagmanager.com/gtag/js?id={{ site.data.ga-js.id }}" @async onload="loadAnalytics()" %}
+    {% asset "https://checkout.stripe.com/checkout.js" @async onload="loadStripe()" %}
     {% asset bundle.js %}
   </body>
 </html>

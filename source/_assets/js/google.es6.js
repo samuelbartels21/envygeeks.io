@@ -1,11 +1,16 @@
 (() => {
-  if (jekyll.production) {
-    if (navigator.userAgent.indexOf("Speed Insights") == -1) {
-      window.ga = window.ga || function() { (ga.q = ga.q || []).push(arguments) }
+  loadAnalytics = () => {
+    if (jekyll.production || jekyll.debug) {
+      if (navigator.userAgent.indexOf("Speed Insights") == -1) {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){
+          dataLayer.push(arguments);
+        }
 
-      ga.l = +new Date;
-      ga("create", site.data.ga.id, "auto");
-      ga("send", "pageview");
+        gtag("js", new Date());
+        gtag("config",
+        site.data.ga.id);
+      }
     }
   }
 })();
