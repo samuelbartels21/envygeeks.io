@@ -13,7 +13,7 @@ nav:
 
 Hey 👋, I'm Jordon Bedwell. I'm an OpenSource ❤️ Programmer, Programmer For Hire, a past (maybe present) systems person, and a firm believer in Time Travel. I love Doctor Who, Family Guy, Downton Abbey, and helping people as much as I can, through software. You might know me, you probably don't, but I'm sure I've touched a project that you've used before, and I plan to keep helping out OpenSource for as long as I can, because everybody deserves OpenSource software.  It's even how I'm trying to make a living to feed myself right now.
 
-{% asset giphy/8Anv5VHRlm5vG.gif width=100% height=auto %}
+{% asset giphy/8Anv5VHRlm5vG.gif width=100% height=auto alt="Doctor Who" %}
 
 In the past it was my day to day job to scale and grow things like Jekyll builds to thousands of builds, with Docker, and to program applications that many users used between there, and those systems.  No, not at Github, somewhere else. When doing freelance work most people hire me to do initial ops work, Rails apps, and even systems programming with languages like Go, and Rust.  If you were to ask me what I do, I would say I "hack" because I work on many things... but my passion lately is programming.
 

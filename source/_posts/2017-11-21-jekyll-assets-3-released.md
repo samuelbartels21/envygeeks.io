@@ -18,7 +18,7 @@ Today, Jekyll Assets 3.0.0 has been released 🎂. It involved a major rewrite, 
 - [Sprockets 4.x Support](#sprockets-4x-support)
 - [Responsive Image Support](#responsive-image-support)
 - [Support for `<video>` and `<audio>`](#support-for-video-and-audio)
-- [Support for fast `cp`, with `raw_precompile`](#support-for-fast-cp-with-rawprecompile)
+- [Support for fast `cp`, with `raw_precompile`](#support-for-fast-cp-with-raw_precompile)
 - [Support for native `<img asset>`](#support-for-native-img-asset)
 - [Better Tag Processing](#better-tag-processing)
 - [Proxies in SCSS](#proxies-in-scss)
