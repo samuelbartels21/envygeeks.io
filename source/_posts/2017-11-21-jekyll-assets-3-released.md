@@ -128,9 +128,9 @@ This has been a long standing request from the community.  To support responsive
 {% raw %}
 ```liquid
 {% asset img.png
-    srcset:width="400 2x"
+    srcset:width="400 1x"
     srcset:width="600 1.5x"
-    srcset:width="800 1x"
+    srcset:width="800 2x"
       %}
 
 {% asset img.png
