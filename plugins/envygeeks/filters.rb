@@ -177,7 +177,7 @@ module EnvyGeeks
       ssl  = config["ssl"]
       base = site.baseurl
 
-      host = dev ? "localhost" : config["host"]
+      host = dev ? "localhost" : config["hostname"]
       proto = config["force-ssl"] || (!dev && ssl) ? "https" : "http"
       return format("%s://%s/%s:%s", proto, host, base, port) if serving && base
       return format("%s://%s:%s", proto, host, port) if serving
