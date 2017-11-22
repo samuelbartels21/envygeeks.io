@@ -22,6 +22,15 @@ defaults:
   values:
     layout: default
     type: post
+- scope:
+    type: docs
+    path: ""
+  values:
+    layout: default
+    type: page
+collections:
+  docs:
+    output: true
 assets:
   source_maps: false
   raw_precompile:
