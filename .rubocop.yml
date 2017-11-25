@@ -21,6 +21,7 @@ Layout/IndentHash: { EnforcedStyle: consistent }
 Gemspec/OrderedDependencies: { Enabled: false }
 Style/ParallelAssignment: { Enabled: false }
 Style/SelfAssignment: { Enabled: false }
+Naming/PredicateName: { Enabled: false }
 Style/Documentation: { Enabled: false }
 Style/GuardClause: { Enabled: false }
 Metrics/AbcSize: { Max: 24 }
