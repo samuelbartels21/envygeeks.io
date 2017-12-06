@@ -3,8 +3,8 @@
 # Encoding: utf-8
 
 source "https://rubygems.org"
-gem "jekyll", "~> 3.5", require: false
-gem "uglifier", "~> 3.2", require: false
+gem "jekyll", "~> 3.6", require: false
+gem "uglifier", "~> 4.0", require: false
 gem "sprockets", "~> 4.0.beta", require: false
 gem "font-awesome-sass", "~> 4.7", require: false
 gem "liquid-hash-or-array-drop", "~> 1.0", require: false
@@ -37,17 +37,15 @@ group :jekyll_plugins do
   gem "jekyll-sanity", "~> 1.0"
   gem "jekyll-posts_by_year", "~> 1.0"
   gem "jekyll-post-tags", "~> 1.0"
+  gem "jekyll-assets", "~> 3.0"
   gem "jekyll-cache", "~> 1.0"
-  gem "jekyll-assets", "~> 3.0.alpha", {
-    git: "https://github.com/envygeeks/jekyll-assets.git",
-  }
 
   # --
   # Non-CI Plugins
   # --
   unless ENV["CI"] == "true"
     group :development do
-      gem "jekyll-livereload"
+      gem "jekyll-reload", "~> 1.0"
     end
   end
 end
