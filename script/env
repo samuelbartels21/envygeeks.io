@@ -3,7 +3,6 @@
 set -e
 
 export JEKYLL_UID=$UID
-export DEBUG=${DEBUG:=false}
 export DNS_DEPLOY=${DNS_DEPLOY:=false}
 export DEPLOY_HOST=${DEPLOY_HOST:=envygeeks.io}
 export DEPLOY_TO=${DEPLOY_TO:=/srv/nginx/envygeeks.io}

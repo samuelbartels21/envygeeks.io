@@ -1,9 +1,11 @@
 #!/bin/bash
+. script/env
 set -e
 
 # --
 prec=""
 test=$(docker info 2>&1 || true)
+[ "$DEBUG" = "true" ] && debug="--env=DEBUG=true"
 echo $test | grep -q "permission" \
   && prec="sudo"
 
@@ -15,8 +17,8 @@ else
   $prec docker run --rm \
     --volume=$PWD/vendor/bundle:/usr/local/bundle \
     --volume=$PWD:/srv/jekyll \
+    $debug \
     \
-    --env="DEBUG=$DEBUG" \
     --env="JEKYLL_ENV=$JEKYLL_ENV" \
     --env="GITHUB_TOKEN=$GITHUB_TOKEN" \
     --env="CONNECTED=$CONNECTED" \
