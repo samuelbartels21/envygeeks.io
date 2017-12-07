@@ -1,0 +1,12 @@
+gaid: UA-18997298-1
+stripe:
+  production_key: pk_live_BB9LsOXM5EcQNQE5rO6Efjqs
+  image: https://avatars1.githubusercontent.com/u/99763?v=4
+  test_key: pk_test_7eqsOftLKu6duxyQL2tLEPZ4
+  locale: auto
+  zip_code: true
+  bitcoin: true
+  checkout:
+    - name: "Jordon Bedwell"
+      description: "Donation"
+      amount: 0

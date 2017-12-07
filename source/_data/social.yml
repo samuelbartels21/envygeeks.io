@@ -3,3 +3,7 @@ sites:
   twitter: https://twitter.com
   paypal:  { class: donate, url: "#" }
   github:  https://github.com
+meta:
+  twitter:
+    creator: "@envygeeks"
+    site: "@envygeeks"
