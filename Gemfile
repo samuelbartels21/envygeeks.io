@@ -37,8 +37,11 @@ group :jekyll_plugins do
   gem "jekyll-sanity", "~> 1.0"
   gem "jekyll-posts_by_year", "~> 1.0"
   gem "jekyll-post-tags", "~> 1.0"
-  gem "jekyll-assets", "~> 3.0"
+  # gem "jekyll-assets", "~> 3.0"
   gem "jekyll-cache", "~> 1.0"
+  gem "jekyll-assets", {
+    path: "~/development/src/github.com/envygeeks/jekyll-assets"
+  }
 
   # --
   # Non-CI Plugins

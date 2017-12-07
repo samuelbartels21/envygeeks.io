@@ -3,38 +3,30 @@ tz: America/Chicago
 plugins_dir: ./plugins
 cache_dir: "./.jekyll-cache"
 excerpt_separator: "<!-- MORE -->"
+kramdown: { auto_ids: true }
 timezone: America/Chicago
 gql_query_limit: 12
 destination: ./site
 markdown: kramdown
-kramdown:
-  auto_ids: true
 defaults:
-- scope:
-    type: pages
-    path: ""
-  values:
-    layout: default
-    type: page
-- scope:
-    type: posts
-    path: ""
-  values:
-    layout: default
-    type: post
-- scope:
-    type: docs
-    path: ""
-  values:
-    layout: default
-    type: page
-collections:
-  docs:
-    output: true
+  - { scope: { type: pages, path: "" }, values: { layout: default, type: page }}
+  - { scope: { type: posts, path: "" }, values: { layout: default, type: post }}
+  - { scope: { type: docs,  path: "" }, values: { layout: default, type: page }}
+collections: { docs: { output: true }}
 assets:
   source_maps: false
   raw_precompile:
-  - twemoji/2/svg/1f3c3-1f3fb-200d-2640-fe0f.svg
-  - { src: twemoji/2/svg/*.svg, dst: twemoji }
-  sources: [../node_modules]
-  compression: true
+    - twemoji/2/svg/1f3c3-1f3fb-200d-2640-fe0f.svg
+    - src: twemoji/2/svg/*.svg
+      dst: twemoji
+  sources:
+    - ../node_modules
+webrick:
+  headers:
+    Pragma: no-cache
+    Cache-Control: no-cache, no-store, must-revalidate
+    Expires: 0
+docs:
+  disallowed: "*"
+  allowed:
+    - jekyll-assets
