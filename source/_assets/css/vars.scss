@@ -1,10 +1,10 @@
-$scsslint-is-garbage: true;
-$code-font: monospace;
 $body-font-size: 1.1rem;
+$scsslint-is-garbage: true;
+$code-font: "IBM Plex Mono";
+$h-others: $body-font-size;
+$body-line-height: $body-font-size * 1.9;
 $header-font: "Quicksand";
 $fancy-font: $header-font;
-$h-others: $body-font-size;
-$body-line-height: 2.1rem;
 $site-title-size: 2.1rem;
 $body-font: "Roboto";
 $h1: 1.8rem;

@@ -25,6 +25,7 @@ p.code-file,
 p.code-header,
 p.file {
   font-family: $code-font;
+  font-size: $body-font-size - 0.14rem;
 }
 
 h1 {
@@ -245,6 +246,14 @@ a {
   }
 }
 
+code {
+  border-radius: 4px;
+  background-color: $grey;
+  border: 1px solid darken($grey, 4);
+  padding: 0rem 0.3rem;
+  line-height: 1rem;
+}
+
 @import "styles/archives";
 @import "styles/code";
 @import "styles/colors";
@@ -256,3 +265,4 @@ a {
 @import "styles/projects";
 @import "styles/right";
 @import "styles/wrapper";
+@import "styles/table";

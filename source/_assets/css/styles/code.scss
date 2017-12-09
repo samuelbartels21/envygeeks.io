@@ -53,9 +53,13 @@
   }
 
   /**
+   * yaml.list.key
    * special.regexp
+   * yaml.str
    */
-  .sr {
+  .sr,
+  .nv,
+  .s {
     color: #22863a;
   }
 
@@ -66,5 +70,36 @@
   .se,
   .no {
     color: #005cc5;
+  }
+
+  /**
+   * yaml.key
+   */
+  .nt,
+  .na {
+    color: #e45649;
+  }
+
+  /**
+   * yaml.bool
+   * html.attr
+   */
+  .nt + .na,
+  .pi + .no {
+    color: #986801;
+  }
+
+  /**
+   * ruby.str
+   */
+  .s2 {
+    color: #50a14f;
+  }
+
+  /**
+   * ruby.symbol
+   */
+  .ss {
+    color: #0184bc;
   }
 }
