@@ -40,7 +40,7 @@ group :jekyll_plugins do
   # gem "jekyll-assets", "~> 3.0"
   gem "jekyll-cache", "~> 1.0"
   gem "jekyll-assets", {
-    path: "~/development/src/github.com/envygeeks/jekyll-assets"
+    git: "https://github.com/envygeeks/jekyll-assets",
   }
 
   # --
