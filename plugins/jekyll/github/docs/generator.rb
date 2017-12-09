@@ -23,17 +23,22 @@ module Jekyll
           GraphQL::Meta.new(site).repos.each do |v|
             next unless allowed?(v[:name])
 
-            data = self.class.cache.fetch(v[:name]) do
-              Octokit.readme(v[:rel], {
-                accept: accept,
-              })
-            end
-
+            data = get(v)
             skwd = { site: site }
             mock = mock_dir(**skwd).join(v[:name]).sub_ext(".md")
             doc = Page.new(mock, collection: collection_on(**skwd), site: site)
             doc.content = "{% raw %}#{decode(data.content)}{% endraw %}"
             collection_on(**skwd).docs << doc
+          end
+        end
+
+        # --
+        def get(v)
+          self.class.cache.fetch(v[:name]) do
+            Jekyll.logger.debug("GithubDocs") { "fetching #{v[:name]}" }
+            Octokit.readme(v[:rel], {
+              accept: accept,
+            })
           end
         end
 
@@ -104,7 +109,7 @@ module Jekyll
 
         # --
         def collection_on(site:)
-          site.collections["docs"] ||= begin
+          site.collections["docs"] ||= Then begin
             Jekyll::Collection.new(site, "docs")
           end
         end
@@ -112,9 +117,9 @@ module Jekyll
         # --
         # --
         def self.cache
-          @cache ||= begin
-            Jekyll::Cache::FileStore.new("docs")
-          end
+          Jekyll.cache_dir.mkdir_p
+          @cache ||= Jekyll::Cache::FileStore
+            .new("docs")
         end
       end
     end
