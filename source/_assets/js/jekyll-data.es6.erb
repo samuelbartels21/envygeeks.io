@@ -1,5 +1,5 @@
 (() => {
-  window.site = {
+  window.jekyll = {
     jekyll: {
       environment: <%= Jekyll.env.to_json %>,
       production: <%= Jekyll.env == "production" %>,
@@ -8,8 +8,10 @@
       version: <%= Jekyll::VERSION.to_json %>,
       dev: <%= Jekyll.env == "development" %>,
       env: <%= Jekyll.env.to_json %>
-    },
+    }
+  }
 
+  window.site = {
     data: <%= JSON.pretty_generate(@environment.jekyll
       .data["javascript"] || {}) %>
   };

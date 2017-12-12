@@ -80,7 +80,6 @@
       </main>
     </div>
 
-    {% include _layout/_jekyll.html %}
     {% asset "https://www.googletagmanager.com/gtag/js?id={{ site.data.ga-js.id }}" @async onload="loadAnalytics()" %}
     {% asset "https://checkout.stripe.com/checkout.js" @async onload="loadStripe()" %}
     {% asset bundle.js %}
