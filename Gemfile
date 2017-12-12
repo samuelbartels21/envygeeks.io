@@ -13,6 +13,8 @@ gem "graphql-client", "~> 0.12", require: false
 gem "nokogiri", "~> 1.8", require: false
 gem "babel-transpiler", require: false
 gem "octokit", require: false
+gem "sassc", require: false
+gem "bootstrap", require: false
 
 unless File.file?("/.dockerenv")
   gem "mini_racer", {
@@ -34,21 +36,29 @@ end
 # Plugins
 # --
 group :jekyll_plugins do
+  gem "jekyll-commonmark"
   gem "jekyll-sanity", "~> 1.0"
   gem "jekyll-posts_by_year", "~> 1.0"
   gem "jekyll-post-tags", "~> 1.0"
-  # gem "jekyll-assets", "~> 3.0"
   gem "jekyll-cache", "~> 1.0"
-  gem "jekyll-assets", {
-    git: "https://github.com/envygeeks/jekyll-assets",
-  }
+
+  # --
+  # Locally I prefer to work my version since I tend to do
+  #   manual QA and debugging with my own site which is the
+  #   defacto example of Jekyll-Assets at it's basic.
+  # --
+  gem "jekyll-assets", ENV["CI"] != "true" ?
+    { path: "~/development/src/github.com/envygeeks/jekyll-assets" } :
+    { git:  "https://github.com/envygeeks/jekyll-assets" }
 
   # --
   # Non-CI Plugins
   # --
   unless ENV["CI"] == "true"
     group :development do
-      gem "jekyll-reload", "~> 1.0"
+      gem "jekyll-reload", {
+        path: "~/development/src/github.com/anomaly/jekyll-reload",
+      }
     end
   end
 end

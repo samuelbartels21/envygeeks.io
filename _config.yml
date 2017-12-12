@@ -3,11 +3,10 @@ tz: America/Chicago
 plugins_dir: ./plugins
 cache_dir: "./.jekyll-cache"
 excerpt_separator: "<!-- MORE -->"
-kramdown: { auto_ids: true }
 timezone: America/Chicago
 gql_query_limit: 12
 destination: ./site
-markdown: kramdown
+markdown: CommonMark
 defaults:
   - { scope: { type: pages, path: "" }, values: { layout: default, type: page }}
   - { scope: { type: posts, path: "" }, values: { layout: default, type: post }}
