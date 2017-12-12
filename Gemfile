@@ -47,6 +47,7 @@ group :jekyll_plugins do
   #   manual QA and debugging with my own site which is the
   #   defacto example of Jekyll-Assets at it's basic.
   # --
+  gem "jekyll-better-logging", path: "gems/jekyll-better-logging"
   gem "jekyll-assets", ENV["CI"] != "true" ?
     { path: "~/development/src/github.com/envygeeks/jekyll-assets" } :
     { git:  "https://github.com/envygeeks/jekyll-assets" }
