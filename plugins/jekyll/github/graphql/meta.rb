@@ -23,7 +23,7 @@ module Jekyll
         API_URL = "https://api.github.com/graphql"
         RAW_QUERIES = Pathutil.new(__dir__).join("meta/graphql.graphql").read
         TOKEN = ENV["GITHUB_TOKEN"] || raise("No `GITHUB_TOKEN' on `ENV'")
-        JSON = Jekyll.cache_dir.join("github.json")
+        JSON = Jekyll.cache_dir.tap(&:mkdir_p).join("github.json")
 
         http   = ::GraphQL::Client::HTTP.new(API_URL, &Helpers.headers)
         schema = ::GraphQL::Client.load_schema(JSON.to_s) if JSON.file?
