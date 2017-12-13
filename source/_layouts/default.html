@@ -80,7 +80,7 @@
       </main>
     </div>
 
-    {% asset "https://www.googletagmanager.com/gtag/js?id={{ site.data.ga-js.id }}" @async onload="loadAnalytics()" %}
+    {% asset "https://www.googletagmanager.com/gtag/js?id={{ site.data.ga-js.id }}" @async onload="loadAnalytics()" asset:type=text/javascript %}
     {% asset "https://checkout.stripe.com/checkout.js" @async onload="loadStripe()" %}
     {% asset bundle.js %}
   </body>
