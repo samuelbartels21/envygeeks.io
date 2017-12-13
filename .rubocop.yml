@@ -5,9 +5,10 @@ Naming/FileName: { Enabled: false }
 Bundler/OrderedGems: { Enabled: false }
 Style/BlockDelimiters: { Enabled: false }
 Style/IfUnlessModifier: { Enabled: false }
+Style/RescueStandardError: { Enabled: false }
 Lint/UselessAccessModifier: { Enabled: false }
-Lint/RescueWithoutErrorClass: { Enabled: false }
 Style/RegexpLiteral: { EnforcedStyle: percent_r }
+Lint/MissingCopEnableDirective: { Enabled: false }
 Style/BracesAroundHashParameters: { Enabled: false }
 Layout/MultilineMethodCallBraceLayout: { Enabled: false }
 Layout/AlignParameters: { EnforcedStyle: with_fixed_indentation }
