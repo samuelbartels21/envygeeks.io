@@ -7,6 +7,9 @@ stripe:
   zip_code: true
   bitcoin: true
   checkout:
-    - name: "Jordon Bedwell"
+    - currency: USD
+      name: "Jordon Bedwell"
       description: "Donation"
-      amount: 0
+      billingAddress: false
+      slug: donation
+      amount: 1200

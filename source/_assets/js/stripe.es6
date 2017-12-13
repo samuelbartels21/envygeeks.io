@@ -16,13 +16,16 @@
      * Accept the Payment.
      * Process it.
      */
-    document.querySelectorAll(".donate").forEach((v) => {
-      v.addEventListener("click", (e) => {
-        e.preventDefault();
-        stripe.open({
-          name: site.data.stripe.checkout.name,
-          description: site.data.stripe.checkout.description,
-          amount: site.data.stripe.checkout.amount
+    site.data.stripe.checkout.forEach((v) => {
+      document.querySelectorAll("[data-stripe-slug=" + v.slug + "]").forEach((sv) => {
+        sv.addEventListener("click", (e) => {
+          e.preventDefault();
+          stripe.open({
+            name: v.name,
+            currency: v.currency,
+            description: v.description,
+            amount: v.amount
+          });
         });
       });
     });
@@ -33,7 +36,7 @@
      * It's okay!
      */
     window.addEventListener("popstate", () => {
-      handler.close()
+      stripe.close()
     })
   }
 })();
