@@ -1,0 +1,11 @@
+version: "2"
+plugins:
+  duplication: { enabled: false }
+  rubocop:
+    channel: rubocop-0-52
+    config: { file: .rubocop.yml }
+    enabled: true
+ratings:
+  paths:
+  - "spec/tests/**.rb"
+  - "lib/**.rb"
