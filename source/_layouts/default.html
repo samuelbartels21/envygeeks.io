@@ -6,10 +6,10 @@
     {% capture title %}{{ site.title }}{% endcapture %}
     {% capture title %}{{ title }}{% if page.title %} - {{ page.title }}{% endif %}{% endcapture %}
     <link rel="alternate" type="application/rss+xml" href="{{ site.base_domain }}/feed.xml" title="{{ title }}" />
+    {% if jekyll.environment == "development" %}{% asset livereload.js %}{% endif %}
     {% if page.type == "post" %}{% include _schema.html %}{% endif %}
     {% include _layout/_meta.html %}
     <title>{{ title }}</title>
-    {% asset livereload.js %}
   </head>
 
   <body id=envygeeks>
