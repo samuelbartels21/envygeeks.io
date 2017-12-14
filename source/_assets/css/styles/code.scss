@@ -1,105 +1,72 @@
-.code {
+pre {
   overflow-x: auto;
   margin: 4vh 0;
 
-  & > pre {
+  & > code {
     padding: .5rem 1rem;
     margin: 0;
   }
+}
 
-  /**
-   * comments
-   */
-  .c1 {
-    color: #6a737d;
+.hljs {
+  display: block;
+  overflow-x: auto;
+  color: $black;
+  padding: 0;
+
+  &-comment,
+  &-quote {
+    color: #a0a1a7;
   }
 
-  /**
-   * operator
-   * special.keyword
-   * variable.global
-   * keyword
-   */
-  .o,
-  .si,
-  .k,
-  .vg,
-  .kd {
-    color: #d73a49;
+  &-doctag,
+  &-keyword,
+  &-formula {
+    color: #a626a4;
   }
 
-  /**
-   * variable
-   * special.variable
-   * function
-   */
-  .nc,
-  .nf,
-  .nx {
-    color: #6f42c1;
-  }
-
-  /**
-   * js.arguments
-   * ruby.regular-methods
-   * hash.hash-setter
-   * self.method
-   */
-  .s2 + .o,
-  .p  + .nf,
-  .nc + .o,
-  .p  + .nx {
-    color: #40586e;
-  }
-
-  /**
-   * yaml.list.key
-   * special.regexp
-   * yaml.str
-   */
-  .sr,
-  .nv,
-  .s {
-    color: #22863a;
-  }
-
-  /**
-   * string.escape
-   * classes
-   */
-  .se,
-  .no {
-    color: #005cc5;
-  }
-
-  /**
-   * yaml.key
-   */
-  .nt,
-  .na {
+  &-section,
+  &-name,
+  &-selector-tag,
+  &-deletion,
+  &-subst {
     color: #e45649;
   }
 
-  /**
-   * yaml.bool
-   * html.attr
-   */
-  .nt + .na,
-  .pi + .no {
-    color: #986801;
+  &-literal {
+    color: #0184bb;
   }
 
-  /**
-   * ruby.str
-   */
-  .s2 {
+  &-string,
+  &-regexp,
+  &-addition,
+  &-attribute,
+  &-meta-string {
     color: #50a14f;
   }
 
-  /**
-   * ruby.symbol
-   */
-  .ss {
-    color: #0184bc;
+  .&-built_in,
+  .&-class .&-title {
+    color: #c18401;
+  }
+
+  .&-type,
+  .&-attr,
+  .&-variable,
+  .&-selector-class,
+  .&-template-variable,
+  .&-selector-pseudo,
+  .&-selector-attr,
+  .&-number {
+    color: #986801;
+  }
+
+  &-symbol,
+  &-bullet,
+  &-link,
+  &-meta,
+  &-selector-id,
+  &-title {
+    color: #4078f2;
   }
 }
