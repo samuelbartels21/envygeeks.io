@@ -45,19 +45,19 @@ pre {
     color: #50a14f;
   }
 
-  .&-built_in,
-  .&-class .&-title {
+  &-built_in,
+  &-class &-title {
     color: #c18401;
   }
 
-  .&-type,
-  .&-attr,
-  .&-variable,
-  .&-selector-class,
-  .&-template-variable,
-  .&-selector-pseudo,
-  .&-selector-attr,
-  .&-number {
+  &-type,
+  &-attr,
+  &-variable,
+  &-selector-class,
+  &-template-variable,
+  &-selector-pseudo,
+  &-selector-attr,
+  &-number {
     color: #986801;
   }
 
