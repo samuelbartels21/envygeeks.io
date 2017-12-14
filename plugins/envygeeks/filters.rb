@@ -6,16 +6,16 @@ require "addressable"
 module EnvyGeeks
   module Filters
     extend Forwardable::Extended
-
-    # --
-    def config
-      @config ||= site.config.merge(site
-        .data["site"])
-    end
+    rb_delegate :config, to: :site
+    rb_delegate :site, to: "@context.registers", type: :hash
+    rb_delegate :data, to: :site
 
     # --
     def strip(txt)
-      return txt unless txt.is_a?(String)
+      unless txt.is_a?(String)
+        return txt
+      end
+
       txt.strip
     end
 
@@ -131,7 +131,8 @@ module EnvyGeeks
     # @return [String] the prettified url.
     # --
     def pretty(url)
-      url.to_s.gsub(%r!/$!, "").gsub(%r!\.html$!, "")
+      url.to_s.gsub(%r!/$!, "")
+        .gsub(%r!\.html$!, "")
     end
 
     # --
@@ -175,25 +176,14 @@ module EnvyGeeks
       port = config["port"]
       serving = config["serving"]
       dev  = Jekyll.env == "development"
-      ssl  = config["ssl"]
+      ssl  = data["site"]["ssl"]
       base = site.baseurl
 
-      host = dev ? "localhost" : config["hostname"]
+      host = dev ? "localhost" : data["site"]["hostname"]
       proto = config["force-ssl"] || (!dev && ssl) ? "https" : "http"
       return format("%s://%s/%s:%s", proto, host, base, port) if serving && base
       return format("%s://%s:%s", proto, host, port) if serving
       format("%s://%s/%s", proto, host, base)
-    end
-
-    # --
-    # It's all a joke, really it is.
-    # @see https://github.com/jekyll/jekyll/pull/6250
-    # @see https://github.com/jekyll/jekyll/issues/6249
-    # This fixes that problem.
-    # --
-    private
-    def site
-      @context.registers[:site]
     end
   end
 end
