@@ -2,6 +2,10 @@
 # Copyright: 2016 - 2017 - MIT License
 # Encoding: utf-8
 
+def docker?
+  File.file?("/.dockerenv")
+end
+
 source "https://rubygems.org"
 gem "jekyll", "~> 3.6", require: false
 gem "uglifier", "~> 4.0", require: false
@@ -16,7 +20,7 @@ gem "octokit", require: false
 gem "sassc", require: false
 gem "bootstrap", require: false
 
-unless File.file?("/.dockerenv")
+unless docker?
   gem "mini_racer", {
     require: false,
   }
@@ -48,7 +52,7 @@ group :jekyll_plugins do
   #   defacto example of Jekyll-Assets at it's basic.
   # --
   gem "jekyll-better-logging", path: "gems/jekyll-better-logging"
-  gem "jekyll-assets", ENV["CI"] != "true" ?
+  gem "jekyll-assets", !docker? && ENV["CI"] != "true" ?
     { path: "~/development/src/github.com/envygeeks/jekyll-assets" } :
     { git:  "https://github.com/envygeeks/jekyll-assets" }
 
@@ -57,9 +61,9 @@ group :jekyll_plugins do
   # --
   unless ENV["CI"] == "true"
     group :development do
-      gem "jekyll-reload", {
-        path: "~/development/src/github.com/anomaly/jekyll-reload",
-      }
+      gem "jekyll-reload", !docker? ?
+        { path: "~/development/src/github.com/anomaly/jekyll-reload" } :
+        { git: "https://github.com/anomaly/jekyll-reload" }
     end
   end
 end
