@@ -246,7 +246,7 @@ a {
   }
 }
 
-code {
+code:not([class^=language-]) {
   border-radius: 4px;
   background-color: $grey;
   border: 1px solid darken($grey, 4);
