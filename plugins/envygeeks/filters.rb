@@ -140,6 +140,7 @@ module EnvyGeeks
     # @param archive [true|false] whether this is for the archive.
     # @return [String] the time string ordinalized.
     # rubocop:disable Metrics/PerceivedComplexity
+    # rubocop:disable Style/FormatStringToken
     # --
     def ordinalize(time)
       return "" unless time.is_a?(DateTime) || time.is_a?(Time)
