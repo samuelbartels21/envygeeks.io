@@ -77,7 +77,7 @@ module Jekyll
 
           # --
           def default(site)
-            site.data["github"].symbolize_keys
+            site.data["github"]["defaults"].symbolize_keys
           end
         end
       end
