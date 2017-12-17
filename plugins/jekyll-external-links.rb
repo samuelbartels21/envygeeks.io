@@ -1,6 +1,5 @@
 # Frozen-String-Literal: true
 # Copyright 2016 - 2017 Jordon Bedwell - MIT License
-# rubocop:disable Style/Next
 # Encoding: UTF-8
 
 module Jekyll
