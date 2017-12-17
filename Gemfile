@@ -19,6 +19,7 @@ gem "babel-transpiler", require: false
 gem "octokit", require: false
 gem "sassc", require: false
 gem "bootstrap", require: false
+gem "rake", require: false
 
 unless docker?
   gem "mini_racer", {
@@ -51,19 +52,19 @@ group :jekyll_plugins do
   #   manual QA and debugging with my own site which is the
   #   defacto example of Jekyll-Assets at it's basic.
   # --
-  gem "jekyll-better-logging", path: "gems/jekyll-better-logging"
-  gem "jekyll-assets", !docker? && ENV["CI"] != "true" ?
-    { path: "~/development/src/github.com/envygeeks/jekyll-assets" } :
-    { git:  "https://github.com/envygeeks/jekyll-assets" }
+  gem "jekyll-synced-logging", path: "gems/jekyll-synced-logging"
+  gem "jekyll-assets", !docker? && ENV["CI"] == "true" ?
+    { git:  "https://github.com/envygeeks/jekyll-assets" } :
+    { path: "~/development/envygeeks/jekyll-assets" }
 
   # --
   # Non-CI Plugins
   # --
   unless ENV["CI"] == "true"
     group :development do
-      gem "jekyll-reload", !docker? ?
-        { path: "~/development/src/github.com/anomaly/jekyll-reload" } :
-        { git: "https://github.com/anomaly/jekyll-reload" }
+      gem "jekyll-reload", docker? ?
+        { git: "https://github.com/anomaly/jekyll-reload" } :
+        { path: "~/development/anomaly/jekyll-reload" }
     end
   end
 end
