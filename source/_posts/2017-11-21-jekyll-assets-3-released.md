@@ -10,35 +10,15 @@ Today, Jekyll Assets 3.0.0 has been released 🎂. It involved a major rewrite, 
 
 <!-- MORE -->
 
-<!-- TOC depthFrom:2 depthTo:2 withLinks:1 updateOnSave:1 orderedList:0 -->
-
-- [One Tag to Rule Them All](#one-tag-to-rule-them-all)
-- [Super Fast](#super-fast)
-- [Drop in replacement](#drop-in-replacement)
-- [Sprockets 4.x Support](#sprockets-4x-support)
-- [Responsive Image Support](#responsive-image-support)
-- [Support for `<video>` and `<audio>`](#support-for-video-and-audio)
-- [Support for fast `cp`, with `raw_precompile`](#support-for-fast-cp-with-raw_precompile)
-- [Support for native `<img asset>`](#support-for-native-img-asset)
-- [Better Tag Processing](#better-tag-processing)
-- [Proxies in SCSS](#proxies-in-scss)
-- [SourceMaps](#sourcemaps)
-- [Plugins!](#plugins)
-- [Please Donate](#please-donate)
-
-<!-- /TOC -->
-
 ## One Tag to Rule Them All
 
-{% raw %}
-We've removed `{% css %}`, `{% link %}`, `{% img %}`, and any other tag, and left only one tag to rule them all `{% asset %}`, since Sprockets 4 now requires you to add an extension for most asset searching, it's no longer necessary for us to carry multiple tags to set a series of basic content types, we now have a single tag that deals with everything, including determining content type.
-{% endraw %}
+We've removed {% raw %}`{% css %}`{% endraw %}, {% raw %}`{% link %}`{% endraw %}, {% raw %}`{% img %}`{% endraw %}, and any other tag, and left only one tag to rule them all {% raw %}`{% asset %}`{% endraw %}, since Sprockets 4 now requires you to add an extension for most asset searching, it's no longer necessary for us to carry multiple tags to set a series of basic content types, we now have a single tag that deals with everything, including determining content type.
 
 ## Super Fast
 
 Like the movie, but less funny, and less dumb (in all fairness it wasn't meant to be a serious movie).  Now our system caches much better, we use the manifest more, we more efficiently process, and just, yeah see it for yourself.
 
-```
+```shell-session
 Configuration file: /srv/jekyll/_config.yml
             Source: ./source
        Destination: ./site
@@ -209,9 +189,7 @@ assets:
 
 ## Plugins!
 
-{% raw %}
-You can now customize the defaults.  You can disable any default we create by shipping `!attrName`, which will tell us you don't want it, or you can add your own defaults if you want, for example, lets say you want your movies to autoplay, but you don't want to add `@autoplay` to every single `{% asset %}`  You can now create a simple plugin, make sure it's required inside of your Jekyll, and do the following:
-{% endraw %}
+You can now customize the defaults.  You can disable any default we create by shipping `!attrName`, which will tell us you don't want it, or you can add your own defaults if you want, for example, lets say you want your movies to autoplay, but you don't want to add `@autoplay` to every single {% raw %}`{% asset %}`{% endraw %}  You can now create a simple plugin, make sure it's required inside of your Jekyll, and do the following:
 
 ```ruby
 # Frozen-string-literal: true
@@ -224,11 +202,13 @@ module MyNameSpace
   module Assets
     class Default
       class Video < Jekyll::Assets::Default
-        content_types "video/avi" "video/webm" "video/mp4"
+        content_types %r!video/[a-zA-Z]+!
 
         # --
         def set_autoplay
-          args[:autoplay] = true unless args.key?(:autoplay)
+          unless args.key?(:autoplay)
+            args[:autoplay] = true
+          end
         end
       end
     end
