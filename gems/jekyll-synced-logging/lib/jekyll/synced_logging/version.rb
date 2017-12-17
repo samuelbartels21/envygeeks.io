@@ -3,7 +3,7 @@
 # Encoding: utf-8
 
 module Jekyll
-  class BetterLogging
+  class SyncedLogging
     VERSION = "1.0.0.alpha"
   end
 end

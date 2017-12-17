@@ -5,7 +5,7 @@
 require "logger"
 
 module Jekyll
-  class BetterLogging
+  class SyncedLogging
     def self.setup
       log_level, logger = Jekyll.logger.level, ::Logger.new(STDERR)
       Jekyll.logger.log_level = logger.level = log_level
@@ -27,4 +27,4 @@ module Jekyll
   end
 end
 
-Jekyll::BetterLogging.setup
+Jekyll::SyncedLogging.setup
