@@ -10,5 +10,6 @@
 /node_modules
 /.sass-cache
 /yarn.lock
+.DS_Store
 /.bundle
 /site

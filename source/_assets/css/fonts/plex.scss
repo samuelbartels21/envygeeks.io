@@ -1,49 +1,59 @@
+/*
+ * Non-Emoji
+ * 300
+ */
 @font-face {
   font-style: normal;
-  font-family: "IBM Plex";
-  font-weight: 400;
-
-  src: local("IBM Plex Sans"),
-    local("IBMPlexSans"), local("IBMPlexRegular"), local("IBMPlex"),
-    font_url("ibm-plex-sans-v053-latin-400.woff")  format("woff"),
-    font_url("ibm-plex-sans-v053-latin-400.woff2") format(
-      "woff2"
-    );
+  font-family: "IBMPlexMono-Light";
+  font-weight: 300;
+  
+  src: local("IBMPlexMono-Light"),
+    font_url("ibm-plex-mono-300.woff2")
+      format("woff2")
 }
 
+/*
+ * Emoji
+ * 300
+ */
 @font-face {
   font-style: normal;
   unicode-range: U+1F300-1F5FF, U+1F600-1F64F, U+1F680-1F6FF, U+2600-26FF;
-  font-family: "IBM Plex";
-  font-weight: 400;
+  font-family: "IBMPlexMono-Light";
+  font-weight: 300;
 
-  src: local("Apple Color Emoji"), local("Android Emoji"),
-       local("Segoe UI"), local("EmojiSymbols"),
-       local("Symbola");
-
+  src: local("Apple Color Emoji"),
+    local("Android Emoji"), local("Segoe UI"), 
+    local("EmojiSymbols"),
+    local("Symbola");
 }
 
+/*
+ * Non-Emoji
+ * 400
+ */
 @font-face {
   font-style: normal;
-  font-family: "IBM Plex Mono";
+  font-family: "IBMPlexMono";
   font-weight: 400;
 
-  src: local("IBM Plex Mono"),
-    local("IBMPlexMono"), local("IBMPlexMonoRegular"),
-    font_url("ibm-plex-mono-v053-latin-400.woff")  format("woff"),
-    font_url("ibm-plex-mono-v053-latin-400.woff2") format(
-      "woff2"
-    );
+  src: local("IBMPlexMono"),
+    font_url("ibm-plex-mono-400.woff2") 
+      format("woff2");
 }
 
+/*
+ * Emoji
+ * 400
+ */
 @font-face {
   font-style: normal;
   unicode-range: U+1F300-1F5FF, U+1F600-1F64F, U+1F680-1F6FF, U+2600-26FF;
-  font-family: "IBM Plex Mono";
+  font-family: "IBMPlexMono";
   font-weight: 400;
-
-  src: local("Apple Color Emoji"), local("Android Emoji"),
-       local("Segoe UI"), local("EmojiSymbols"),
-       local("Symbola");
-
+  
+  src: local("Apple Color Emoji"),
+    local("Android Emoji"), local("Segoe UI"), 
+    local("EmojiSymbols"),
+    local("Symbola");
 }

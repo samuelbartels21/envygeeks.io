@@ -1,29 +1,59 @@
+/*
+ * Non-Emoji
+ * 300
+ */
+@font-face {
+  font-style: normal;
+  font-family: "Roboto-Light";
+  font-weight: 300;
+
+  src: local("Roboto-Light"),
+    font_url("roboto-300.woff2")
+      format("woff2");
+}
+
+/*
+ * Emoji
+ * 400
+ */
+@font-face {
+  font-style: normal;
+  unicode-range: U+1F300-1F5FF, U+1F600-1F64F, U+1F680-1F6FF, U+2600-26FF;
+  font-family: "Roboto-Light";
+  font-weight: 300;
+
+  src: local("Apple Color Emoji"),
+    local("Android Emoji"), local("Segoe UI"),
+    local("EmojiSymbols"),
+    local("Symbola");
+}
+
+/*
+ * Non-Emoji
+ * 400
+ */
 @font-face {
   font-style: normal;
   font-family: "Roboto";
   font-weight: 400;
 
-  src: local("Roboto Regular"),
-    local("RobotoRegular"), local("Roboto-Regular"), local("Roboto"),
-    font_url("roboto-v18-latin-400.woff")  format("woff"),
-    font_url("roboto-v18-latin-400.woff2") format(
-      "woff2"
-    );
+  src: local("Roboto"),
+    font_url("roboto-400.woff2")
+      format("woff2");
 }
 
+/*
+ * Emoji
+ * 400
+ */
 @font-face {
   font-style: normal;
+  unicode-range: U+1F300-1F5FF, U+1F600-1F64F, U+1F680-1F6FF, U+2600-26FF;
   font-family: "Roboto";
   font-weight: 400;
 
   src: local("Apple Color Emoji"),
-       local("Android Emoji"),
-       local("Segoe UI"),
-       local("EmojiSymbols"),
-       local("Symbola");
-
-  unicode-range:  U+1F300-1F5FF,
-                  U+1F600-1F64F,
-                  U+1F680-1F6FF,
-                  U+2600-26FF;
+    local("Android Emoji"), local("Segoe UI"),
+    local("EmojiSymbols"),
+    local("Symbola");
 }
