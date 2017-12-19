@@ -53,7 +53,7 @@ group :jekyll_plugins do
   #   defacto example of Jekyll-Assets at it's basic.
   # --
   gem "jekyll-synced-logging", path: "gems/jekyll-synced-logging"
-  gem "jekyll-assets", !docker? && ENV["CI"] == "true" ?
+  gem "jekyll-assets", docker? || ENV["CI"] == "true" ?
     { git:  "https://github.com/envygeeks/jekyll-assets" } :
     { path: "~/development/envygeeks/jekyll-assets" }
 
