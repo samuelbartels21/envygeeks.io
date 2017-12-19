@@ -1,9 +1,12 @@
 pre {
   overflow-x: auto;
+  background-color: lighten($grey, 1);
+  border: 1px solid darken($grey, 1);
+  border-radius: 6px;
   margin: 4vh 0;
 
   & > code {
-    padding: .5rem 1rem;
+    padding: 0;
     margin: 0;
   }
 }
@@ -11,8 +14,8 @@ pre {
 .hljs {
   display: block;
   overflow-x: auto;
+  padding: 0 .4rem;
   color: $black;
-  padding: 0;
 
   &-comment,
   &-quote {
