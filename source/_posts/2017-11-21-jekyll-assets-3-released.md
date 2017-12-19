@@ -18,7 +18,7 @@ We've removed {% raw %}`{% css %}`{% endraw %}, {% raw %}`{% link %}`{% endraw %
 
 Like the movie, but less funny, and less dumb (in all fairness it wasn't meant to be a serious movie).  Now our system caches much better, we use the manifest more, we more efficiently process, and just, yeah see it for yourself.
 
-```shell-session
+```shell
 Configuration file: /srv/jekyll/_config.yml
             Source: ./source
        Destination: ./site
