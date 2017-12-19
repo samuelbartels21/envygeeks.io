@@ -1,7 +1,6 @@
 username: envygeeks
 sites:
   twitter: https://twitter.com
-  paypal:  { class: donate, url: "https://goo.gl/BhrgjW" }
   github:  https://github.com
 meta:
   twitter:
