@@ -218,4 +218,4 @@ end
 
 ## Please Donate
 
-Please remember, I'm trying to make a living on OpenSource, if you like my software, <a href="#" class="donate">donate</a> if you can! I never ask people to file pull-requests, and some projects take considerable time, I have no external funding. I also take paid jobs to fix bugs in other peoples OpenSource projects, or to take on features, no matter how large or small.  If you would like to sponsor, please email. Or if you are looking for a full-time, contract or not, full-stack developer, I'm also available for hire.
+Please remember, I'm trying to make a living on OpenSource, if you like my software, <a href="#" class="donate" data-stripe-slug="donation">donate</a> if you can! I never ask people to file pull-requests, and some projects take considerable time, I have no external funding. I also take paid jobs to fix bugs in other peoples OpenSource projects, or to take on features, no matter how large or small.  If you would like to sponsor, please email. Or if you are looking for a full-time, contract or not, full-stack developer, I'm also available for hire.
