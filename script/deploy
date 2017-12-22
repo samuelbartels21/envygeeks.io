@@ -1,5 +1,5 @@
 #!/bin/bash
-. script/env
+. script/before
 set -e
 
 deploy="$DEPLOY_USER@%s:$DEPLOY_TO"

@@ -1,10 +1,9 @@
 #!/bin/bash
-. script/env
+. script/before
 [ "$DEBUG" = "true" ] && set -x
 set -e
 
 export CONNECTED=false
 rm -rf {.,source}/.{,bundle,asset-,jekyll-,sass-}cache
 script/docker su-exec jekyll bundle clean || (
-  CONNECTED=true script/install; $0
-)
+  CONNECTED=true script/install; $0)

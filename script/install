@@ -1,8 +1,7 @@
 #!/bin/bash
-. script/env
+. script/before
 set -e
 
-mkdir -p node_modules/
-mkdir -p vendor/bundle/
 script/docker su-exec jekyll yarn
-script/docker bundle install
+script/docker bundle \
+  install

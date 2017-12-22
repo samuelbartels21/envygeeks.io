@@ -1,5 +1,5 @@
 #!/bin/bash
-. script/env
+. script/before
 [ "$DEBUG" = "true" ] && set -x
 set -e
 
