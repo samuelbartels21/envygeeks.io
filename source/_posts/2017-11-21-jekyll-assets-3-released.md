@@ -1,8 +1,8 @@
 ---
 url-id: 38d91276
 id: 38d91276-6b2c-45cb-b0b9-bd9efaed9d3
-description: "Jekyll Assets 3.x has been released, here's what's new."
-title: "Jekyll Assets 3.x has been released, here's what's new."
+description: "Jekyll Assets 3 has been released, here's what's new."
+title: "Jekyll Assets 3 has been released, here's what's new."
 tags: [jekyll, jekyll-assets]
 ---
 
