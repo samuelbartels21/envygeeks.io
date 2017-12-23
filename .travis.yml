@@ -1,20 +1,17 @@
 script: script/test
 install: script/install
+before_script: script/build
+services: docker
 sudo: required
 os: linux
-before_script:
-  - git remote -v
-  - script/build
-services:
-- docker
 addons:
   ssh_known_hosts:
-  - envygeeks.io
+    - envygeeks.io
 cache:
   bundler: true
   directories:
-  - vendor/bundle
-  - node_moduels
+    - vendor/bundle
+    - node_moduels
 deploy:
 - skip_cleanup: true
   script: script/deploy
@@ -51,4 +48,16 @@ env:
       X+EY1x47ztYL0Hkyj12wfIhMV0kOS2msMT99ZCDpvOYjZQ8zxXqarGwyNNLttqF+LoZn0DBrm\
       ef1LQdcGmPb+i/IZYDLeX4eBlquVOCwFFUO0RRsMEB7xEKj/0GF7KgVqlZha+tuX7VkAkAcFe\
       OrjXnY+rQ/mnJCOBXd/352aF3k=\
+    "
+  - secure: "\
+      d1M7TrU0PgEKgxdqnP525ChpdRFExWlATYl9hL6KcB605GqA3fUTLZvmjWV9EInWGRFa2yYuK\
+      e7JdwOEcxlMOdrrUWBNzyuA76MtRbBJziwSOOWgZvZcfDiyTCDEXpa5jZM7iOH1DASyMjWI1C\
+      7zKPuhj71QBJx0fc+W6kzgz+V01pcl38SCqF37lScrwePp5/hLyfzmeu4XTRUmZiidfpGD62z\
+      3qA12/dO2IxrxY//BvwVquSberBpumZKTwsw2qoGe1G4t9e8txQMNn/t8xT5Wcvn35YVNCWnB\
+      J0VPFfLWPvKvTZwUF2HtolaBZgFyQSRnQIzKRpuhy2iBvdfoQZK3GB3usZogjI7zLzfY92imf\
+      AFgVOPRldvYocIQMzjjnwEJ+JbEybeUGfEl0nCg/bFo2K8wB3+toG7ZVY72evMP7lpa9am5A3\
+      77Povgru5iPDHStKr7ulQ92DpFqGV0P4bXGhH6mR3tJSCV2qNwSS9eKfggnQdG9lmAaW2uEoh\
+      Na1wFWs7TVY4KIHdImjG+b5tyWERCbbRLf9BTm5VUooWfIVvZpnBLPlCMM6vrrZ8ZwSh90/qf\
+      GhM1JH0EOSk6f1COzqgdDRxKYYiFpMCTsk+ZWE8TcEy2HVUTmMN815iJdE71mVutG3kuLo6sF\
+      PW2qFYqEUFqQIhortZ7WigZhPw=\
     "
