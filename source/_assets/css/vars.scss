@@ -1,13 +1,15 @@
-$body-font-size: 1rem;
+$body-font-size: 1.18rem;
 $scsslint-is-garbage: true;
 $h-others: $body-font-size;
-$body-font: "Roboto-Light";
-$code-font: "IBMPlexMono-Light";
-$body-line-height: $body-font-size * 1.9;
-$header-font: "Quicksand";
+$code-font: "IBMPlexMono-Light", "Roboto Mono", "Menlo", "Consolas";
+$header-font: "Helvetica Neue", "Roboto";
+$body-line-height: $body-font-size * 1.6;
+$body-font: "Helvetica Neue", "Roboto";
 $fancy-font: $header-font;
 $site-title-size: 2.1rem;
-$code-font-size: 0.9rem;
+$body-font-weight: 300;
+$code-font-size: 0.96rem;
+$wrapper-width: 756px;
 $h1: 1.8rem;
 $h2: 1.8rem;
 

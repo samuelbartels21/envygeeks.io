@@ -6,10 +6,11 @@
 }
 
 body {
-  font-size: $body-font-size;
-  font-family: "Emoji", $body-font;
-  line-height: $body-line-height;
   background-color: $white;
+  font-size: $body-font-size;
+  font-weight: $body-font-weight;
+  line-height: $body-line-height;
+  font-family: $body-font;
   margin: 0 0 2vh;
   color: $black;
 }
@@ -53,7 +54,7 @@ h4,
 h5,
 h6 {
   font-family: $header-font;
-
+  margin: 2rem 0;
   * {
     font-size: inherit;
   }
@@ -72,7 +73,6 @@ main {
   .tag {
     header {
       text-align: left;
-
       h1 {
         margin-bottom: 2vh;
       }
@@ -103,7 +103,6 @@ main {
       h2 {
         a {
           color: $pink;
-
           &:hover {
             color: $green;
           }
@@ -112,9 +111,9 @@ main {
     }
 
     h2 {
-      padding-bottom: 4vh;
-      border-bottom: 1px solid darken($grey, 4);
-      margin-top: 4vh;
+      padding-bottom: 2rem;
+      border-bottom: 1px solid
+        darken($grey, 4);
     }
 
     &.post.page {
@@ -250,9 +249,8 @@ code:not([class^=language-]):not(.hljs) {
   border-radius: 4px;
   background-color: $grey;
   border: 1px solid darken($grey, 4);
+  font-weight: $body-font-weight;
   padding: 0rem 0.3rem;
-  line-height: 1rem;
-  font-size: 0.9rem;
 }
 
 @import "styles/archives";
@@ -266,3 +264,4 @@ code:not([class^=language-]):not(.hljs) {
 @import "styles/right";
 @import "styles/wrapper";
 @import "styles/table";
+@import "styles/docs";

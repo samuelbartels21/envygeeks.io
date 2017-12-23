@@ -1,7 +1,7 @@
 .wrapper {
-  max-width: 756px;
   flex-direction: row;
   justify-content: center;
+  max-width: $wrapper-width;
   flex-flow: row wrap;
   margin: 0px auto;
   display: flex;
