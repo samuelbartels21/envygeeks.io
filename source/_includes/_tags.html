@@ -9,7 +9,7 @@
     <article>
       <header>
         <h1>
-          <i class="fa fa-archive" aria-hidden="true" />
+          🗄
           <a href="{{ post.url | pretty }}">
             {{ post.title | markdownify_title }}
           </a>
@@ -17,7 +17,7 @@
       </header>
       <footer>
         <time>
-          {{ post.date | archive_time }}
+          {{ post.date | date:"%m/%d" }}
         </time>
       </footer>
     </article>
