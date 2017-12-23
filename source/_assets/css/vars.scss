@@ -1,12 +1,13 @@
 $body-font-size: 1rem;
 $scsslint-is-garbage: true;
 $h-others: $body-font-size;
-$body-line-height: $body-font-size * 1.9;
+$body-font: "Roboto-Light";
 $code-font: "IBMPlexMono-Light";
+$body-line-height: $body-font-size * 1.9;
 $header-font: "Quicksand";
 $fancy-font: $header-font;
 $site-title-size: 2.1rem;
-$body-font: "Roboto-Light";
+$code-font-size: 0.9rem;
 $h1: 1.8rem;
 $h2: 1.8rem;
 

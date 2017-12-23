@@ -16,14 +16,17 @@ table {
     box-shadow: 0px 0px 8px 2px darken($grey, 2);
     border-bottom: 1px solid darken($grey, 6);
     color: $white;
+
     tr {
       th {
         border-right: 1px solid darken($blue, 6);
+        font-weight: 300;
+
         &:last-child {
           border-right: none;
         }
 
-        code {
+        code:not([class^=language-]):not(.hljs) {
           background-color: $pink;
           border-color: darken($pink, 4);
         }

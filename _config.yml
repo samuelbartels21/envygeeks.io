@@ -6,7 +6,7 @@ excerpt_separator: "<!-- MORE -->"
 timezone: America/Chicago
 gql_query_limit: 12
 destination: ./site
-markdown: CommonMark
+markdown: kramdown
 defaults:
   - { scope: { type: pages, path: "" }, values: { layout: default, type: page }}
   - { scope: { type: posts, path: "" }, values: { layout: default, type: post }}
@@ -30,3 +30,6 @@ docs:
   disallowed: "*"
   allowed:
     - jekyll-assets
+kramdown:
+  syntax_highlighter: false
+  auto_ids: true

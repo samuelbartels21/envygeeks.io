@@ -25,7 +25,7 @@ p.code-file,
 p.code-header,
 p.file {
   font-family: $code-font;
-  font-size: $body-font-size;
+  font-size: $code-font-size;
 }
 
 h1 {
@@ -246,12 +246,13 @@ a {
   }
 }
 
-code:not([class^=language-]) {
+code:not([class^=language-]):not(.hljs) {
   border-radius: 4px;
   background-color: $grey;
   border: 1px solid darken($grey, 4);
   padding: 0rem 0.3rem;
   line-height: 1rem;
+  font-size: 0.9rem;
 }
 
 @import "styles/archives";
@@ -259,7 +260,6 @@ code:not([class^=language-]) {
 @import "styles/colors";
 @import "styles/error";
 @import "styles/header";
-@import "styles/highlight";
 @import "styles/pill-background";
 @import "styles/positions";
 @import "styles/projects";
