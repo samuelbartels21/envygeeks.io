@@ -6,8 +6,8 @@
   "devDependencies": {
     "cssnano": "^3.10.0",
     "html-minifier": "^3.5.3",
-    "postcss-cli": "^4.1.0",
-    "postcss": "^6.0.5"
+    "postcss": "^6.0.5",
+    "postcss-cli": "^4.1.0"
   },
   "dependencies": {
     "twemoji": "^2.5.0"

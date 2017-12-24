@@ -2,6 +2,6 @@
 . script/before
 set -e
 
-script/docker su-exec jekyll yarn
-script/docker bundle \
-  install
+yarn
+bundle install --path \
+  vendor/bundle

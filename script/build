@@ -3,4 +3,6 @@
 [ "$DEBUG" = "true" ] && set -x
 set -e
 
-script/docker jekyll b "$@"
+exec bundle \
+  exec jekyll b \
+    "$@"

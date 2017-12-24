@@ -2,4 +2,6 @@
 . script/before
 set -e
 
-script/docker jekyll s "$@"
+exec bundle \
+  exec jekyll s \
+    "$@"

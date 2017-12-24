@@ -2,6 +2,6 @@
 . script/before
 set -e
 
-script/docker pull
-script/docker bundle update
-script/clean
+yarn upgrade
+bundle update
+bundle clean
