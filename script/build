@@ -4,5 +4,5 @@
 set -e
 
 exec bundle \
-  exec jekyll b \
+  exec jekyll b --trace \
     "$@"
