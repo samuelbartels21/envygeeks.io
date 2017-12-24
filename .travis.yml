@@ -1,6 +1,6 @@
 script: script/test
-install: script/install
 before_script: script/build
+install: script/install
 services: docker
 sudo: required
 os: linux
@@ -13,11 +13,11 @@ cache:
     - vendor/bundle
     - node_moduels
 deploy:
-- skip_cleanup: true
-  script: script/deploy
-  provider: script
-  on:
-    branch: master
+  - skip_cleanup: true
+    script: script/deploy
+    provider: script
+    on:
+      branch: master
 notifications:
   email:
     on_success: never
