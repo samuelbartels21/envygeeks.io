@@ -1,7 +1,9 @@
 script: script/test
 before_script: script/build
 install: script/install
+language: ruby
 os: linux
+rvm: 2.4
 addons:
   ssh_known_hosts:
     - envygeeks.io
