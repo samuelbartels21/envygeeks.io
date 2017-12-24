@@ -13,7 +13,7 @@ if [ "$CI" = "true" ]; then
   openssl aes-256-cbc -K $encrypted_254287a454b2_key \
     -out ~/.ssh/id_rsa -d \
     -iv $encrypted_254287a454b2_iv \
-    -in script/deploy.key
+    -in deploy.key
 fi
 
 # --
