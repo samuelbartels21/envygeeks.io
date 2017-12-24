@@ -26,7 +26,7 @@ p.code-file,
 p.code-header,
 p.file {
   font-family: $code-font;
-  font-size: $code-font-size;
+  font-size: 1rem;
 }
 
 h1 {
@@ -53,10 +53,15 @@ h3,
 h4,
 h5,
 h6 {
+  font-stretch: condensed;
   font-family: $header-font;
   margin: 2rem 0;
   * {
     font-size: inherit;
+  }
+
+  code {
+    font-size: 0.8em;
   }
 }
 
@@ -248,9 +253,9 @@ a {
 code:not([class^=language-]):not(.hljs) {
   border-radius: 4px;
   background-color: $grey;
-  border: 1px solid darken($grey, 4);
   font-weight: $body-font-weight;
-  padding: 0rem 0.3rem;
+  padding: .2em .4em;
+  font-size: 0.8em;
 }
 
 @import "styles/archives";

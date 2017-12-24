@@ -2,8 +2,9 @@ h1 {
   font-size: $site-title-size;
   line-height: $site-title-size;
   margin: 2rem 0 0;
+  font-weight: 300;
 
   a {
-    color: $blue;
+    color: $black;
   }
 }

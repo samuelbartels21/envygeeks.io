@@ -3,12 +3,15 @@ table {
   border-collapse: collapse;
   box-shadow: 0px 0px 8px 4px lighten($grey, 1);
   border: 1px solid darken($grey, 4);
-  font-size: 1rem;
   width: 100%;
 
   th,
   td {
     padding: .4rem;
+  }
+
+  td {
+    white-space: nowrap;
   }
 
   thead {
@@ -42,7 +45,7 @@ table {
       }
 
       &:nth-child(even) {
-        background-color: $grey;
+        background-color: lighten($grey, 2);
       }
     }
   }
