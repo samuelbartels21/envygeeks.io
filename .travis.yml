@@ -1,8 +1,6 @@
 script: script/test
 before_script: script/build
 install: script/install
-services: docker
-sudo: required
 os: linux
 addons:
   ssh_known_hosts:
