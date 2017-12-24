@@ -11,7 +11,6 @@ gem "jekyll", "~> 3.6", require: false
 gem "uglifier", "~> 4.0", require: false
 gem "sprockets", "~> 4.0.beta", require: false
 gem "liquid-hash-or-array-drop", "~> 1.0", require: false
-gem "autoprefixer-rails", "~> 7.1", require: false
 gem "graphql-client", "~> 0.12", require: false
 gem "nokogiri", "~> 1.8", require: false
 gem "babel-transpiler", require: false
@@ -40,7 +39,6 @@ end
 # Plugins
 # --
 group :jekyll_plugins do
-  gem "jekyll-commonmark"
   gem "jekyll-sanity", "~> 1.0"
   gem "jekyll-posts_by_year", "~> 1.0"
   gem "jekyll-post-tags", "~> 1.0"
