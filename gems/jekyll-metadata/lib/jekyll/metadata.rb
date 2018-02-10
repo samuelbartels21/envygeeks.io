@@ -7,6 +7,7 @@ require "liquid/drop/hash_or_array"
 require "active_support/inflector"
 require "graphql/client/http"
 require "jekyll/cache"
+require "timeout"
 
 require_relative "metadata/result"
 require_relative "metadata/formatters"
@@ -72,7 +73,7 @@ module Jekyll
     #   and also because you might be on a super high latency
     #   connection that we aren't willing to accept.
     # --
-    rescue SocketError, Timeout::TimeoutError
+  rescue SocketError, Timeout::Error
       Formatters.default(site)
     end
 
@@ -158,7 +159,7 @@ module Jekyll
     # --
     private
     def query(graphql:, after: nil, **kwd)
-      Timeout.timeout(1) do
+      Timeout.timeout(3) do
         out = Client.query(graphql[:query], {
           variables: build({
             after: after, **kwd
