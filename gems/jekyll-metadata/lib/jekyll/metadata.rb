@@ -65,8 +65,15 @@ module Jekyll
         # --
 
         out = out&.sort_by(&:committed_date)&.[](0)
-        out ? Formatters.commit(out) : Formatter.default(site)
+        out ? Formatters.commit(out) : Formatters.default(site)
       end
+    # --
+    # These are normally caused by the lack of internet
+    #   and also because you might be on a super high latency
+    #   connection that we aren't willing to accept.
+    # --
+    rescue SocketError, Timeout::TimeoutError
+      Formatters.default(site)
     end
 
     # --
@@ -151,16 +158,18 @@ module Jekyll
     # --
     private
     def query(graphql:, after: nil, **kwd)
-      out = Client.query(graphql[:query], {
-        variables: build({
-          after: after, **kwd
-        }),
-      })
+      Timeout.timeout(1) do
+        out = Client.query(graphql[:query], {
+          variables: build({
+            after: after, **kwd
+          }),
+        })
 
-      raise Errors::GraphQLError, out unless out.errors.none?
-      nodes(out.to_h.deep_symbolize_keys, {
-        graphql: graphql,
-      })
+        raise Errors::GraphQLError, out unless out.errors.none?
+        nodes(out.to_h.deep_symbolize_keys, {
+          graphql: graphql,
+        })
+      end
     end
 
     # --
