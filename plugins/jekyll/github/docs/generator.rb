@@ -20,7 +20,7 @@ module Jekyll
 
         # --
         def generate(site)
-          GraphQL::Meta.new(site).repos.each do |v|
+          Jekyll::Metadata.new(site).repos.each do |v|
             next unless allowed?(v[:name])
 
             data = get(v)

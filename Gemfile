@@ -49,10 +49,11 @@ group :jekyll_plugins do
   #   manual QA and debugging with my own site which is the
   #   defacto example of Jekyll-Assets at it's basic.
   # --
-  gem "jekyll-synced-logging", path: "gems/jekyll-synced-logging"
+  gem "jekyll-metadata", path: "gems/jekyll-metadata"
+  gem "jekyll-synced_logging", path: "gems/jekyll-synced_logging"
   gem "jekyll-assets", docker? || ENV["CI"] == "true" ?
     { git:  "https://github.com/envygeeks/jekyll-assets" } :
-    { path: "~/development/envygeeks/jekyll-assets" }
+    { path: "~/development/EnvyGeeks/Jekyll-Assets" }
 
   # --
   # Non-CI Plugins
@@ -61,7 +62,7 @@ group :jekyll_plugins do
     group :development do
       gem "jekyll-reload", docker? ?
         { git: "https://github.com/anomaly/jekyll-reload" } :
-        { path: "~/development/anomaly/jekyll-reload" }
+        { path: "~/Development/Anomaly/Jekyll-Reload" }
     end
   end
 end
