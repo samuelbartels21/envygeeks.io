@@ -3,6 +3,5 @@
 [ "$DEBUG" = "true" ] && set -x
 set -e
 
-exec bundle \
-  exec jekyll b --trace \
-    "$@"
+export JEKYLL_ENV=${JEKYLL_ENV:=development}
+exec bundle exec jekyll b --trace "$@"

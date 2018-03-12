@@ -2,6 +2,5 @@
 . script/before
 set -e
 
-exec bundle \
-  exec jekyll s \
-    "$@"
+export JEKYLL_ENV=${JEKYLL_ENV:=development}
+exec bundle exec jekyll s "$@"

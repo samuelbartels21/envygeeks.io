@@ -1,7 +1,0 @@
-#!/bin/bash
-. script/before
-set -e
-
-yarn upgrade
-bundle update
-bundle clean

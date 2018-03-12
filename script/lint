@@ -5,10 +5,6 @@
 [ "$DEBUG" = "true" ] && set -x
 set -e
 
-f=script/script.d/install
+f=script/script.d/lint
 [ "$SKIP_SCRIPTD" != "true" ] && [ -x $f ] && exec $f "$@"
-if bundle check 1>/dev/null 2>&1; then bundle update
-  else bundle install --path vendor/bundle
-fi
-
-bundle clean
+bundle exec rubocop

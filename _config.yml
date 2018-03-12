@@ -12,6 +12,7 @@ defaults:
   - { scope: { type: posts, path: "" }, values: { layout: default, type: post }}
   - { scope: { type: docs,  path: "" }, values: { layout: default, type: page }}
 collections: { docs: { output: true }}
+#
 assets:
   source_maps: false
   raw_precompile:
@@ -21,15 +22,18 @@ assets:
   sources:
     - ../node_modules
     - _data/
+#
 webrick:
   headers:
     Pragma: no-cache
     Cache-Control: no-cache, no-store, must-revalidate
     Expires: 0
+#
 docs:
   disallowed: "*"
   allowed:
     - jekyll-assets
+#
 kramdown:
   syntax_highlighter: false
   auto_ids: true
