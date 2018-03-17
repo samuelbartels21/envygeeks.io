@@ -1,3 +1,8 @@
+/**
+ * Global color modifiers.
+ * You can @see the colors in ../vars.scss
+ * It's all dynamic.
+ */
 @each $k, $v in $colors {
   .#{$k} {
     color: $v;

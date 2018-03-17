@@ -29,7 +29,7 @@ table {
           border-right: none;
         }
 
-        code:not([class^=language-]):not(.hljs) {
+        code {
           background-color: $pink;
           border-color: darken($pink, 4);
         }

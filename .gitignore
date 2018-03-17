@@ -27,6 +27,7 @@ _site/
 .jekyll-cache/
 .jekyll-metadata
 .asset-cache/
+_drafts/
 site/
 
 # --
