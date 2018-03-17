@@ -35,5 +35,4 @@ docs:
     - jekyll-assets
 #
 kramdown:
-  syntax_highlighter: false
   auto_ids: true

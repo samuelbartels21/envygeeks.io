@@ -1,3 +1,2 @@
-//= require jekyll-data
-//= require_tree ./external
+//= require jekyll
 //= require_tree ./

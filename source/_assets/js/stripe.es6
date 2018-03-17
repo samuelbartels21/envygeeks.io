@@ -9,7 +9,7 @@
 
       key: jekyll.development ? site.data.stripe.test_key :
         site.data.stripe.production_key
-    });
+    })
 
     /**
      * Open the Window.
@@ -25,10 +25,10 @@
             currency: v.currency,
             description: v.description,
             amount: v.amount
-          });
-        });
-      });
-    });
+          })
+        })
+      })
+    })
 
     /**
      * Close any open Popup.
@@ -39,4 +39,4 @@
       stripe.close()
     })
   }
-})();
+})()

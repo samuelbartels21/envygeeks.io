@@ -1,0 +1,46 @@
+div.code[class^="language-"] {
+  overflow-x: auto;
+  display: inline-block;
+  box-shadow: 0 1px 2px $grey;
+  background-color: rgb(39, 44, 53);
+  color: rgb(170, 178, 192);
+  border: 1px solid $grey;
+  margin: 4vh 0;
+  width: 100%;
+
+  div.highlight {
+    overflow-x: auto;
+    box-sizing: border-box;
+    padding: .4rem 1rem;
+    color: inherit;
+
+    pre {
+      margin: 0;
+      color: inherit;
+      padding: 0;
+    }
+  }
+}
+
+.language {
+  &-ruby {
+    .vg { color: #e06c75 }
+    .si { color: #be5046 }
+    .s2 { color: #98c379 }
+    .mi, .kp { color: #d19a66 }
+    .nn, .no { color: #e5c07b }
+    .nc, .nc + .o, .o + .nf, .k + .nf { color: #61afef }
+    .c1 { color: #5c6370; opacity: 0.8 }
+    .nf, .sr, .se, .ss { color: #56b6c2 }
+    .p + .nf { color: inherit; }
+    .k { color: #c678dd }
+  }
+
+  &-javascript {
+    .o  { color: #56b6c2 }
+    .mi { color: #d19a66 }
+    .kd { color: #c678dd }
+    .nx { color: inherit }
+    .k  { color: #c678dd }
+  }
+}

@@ -249,32 +249,20 @@ a {
   }
 }
 
-pre {
-  overflow-x: auto;
-  box-shadow: 0 1px 2px $grey;
-  border: 1px solid $grey;
-  margin: 4vh 0;
-
-  & > code {
-    padding: 0;
-    margin: 0;
-  }
-}
-
-code:not([class^=language-]):not(.hljs) {
-  border-radius: 4px;
-  background-color: $grey;
-  font-weight: $body-font-weight;
-  padding: .2em .4em;
-  font-size: 0.8em;
-}
+// code:not([class^=language-]):not(.code) {
+//   border-radius: 4px;
+//   background-color: $grey;
+//   font-weight: $body-font-weight;
+//   padding: .2em .4em;
+//   font-size: 0.8em;
+// }
 
 @import "styles/archives";
 @import "styles/colors";
 @import "styles/docs";
 @import "styles/error";
 @import "styles/header";
-@import "styles/hljs";
+@import "styles/rogue";
 @import "styles/pill";
 @import "styles/positions";
 @import "styles/projects";
