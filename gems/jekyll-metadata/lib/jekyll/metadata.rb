@@ -2,275 +2,62 @@
 # Copyright: 2017 Jordon Bedwell - MIT License
 # Encoding: utf-8
 
-require "graphql/client"
 require "liquid/drop/hash_or_array"
-require "active_support/inflector"
-require "graphql/client/http"
-require "jekyll/cache"
-require "timeout"
-
-require_relative "metadata/result"
-require_relative "metadata/formatters"
-require_relative "metadata/helpers"
+require_relative "metadata/cache"
 require_relative "metadata/errors"
-require_relative "metadata/drop"
+require_relative "metadata/version"
+require_relative "metadata/query"
 
 module Jekyll
-  class Metadata
-    attr_reader :cache, :logger, :site
-
-    API_URL = "https://api.github.com/graphql"
-    RAW_QUERIES = Pathutil.new(__dir__).join("metadata.graphql").read
-    TOKEN = ENV["GITHUB_TOKEN"] || raise("No `GITHUB_TOKEN' on `ENV'")
-    JSON = Jekyll.cache_dir.tap(&:mkdir_p).join("github.json")
-
-    http   = GraphQL::Client::HTTP.new(API_URL, &Helpers.headers)
-    schema = GraphQL::Client.load_schema(JSON.to_s) if JSON.file?
-    schema = GraphQL::Client.dump_schema(http, JSON.to_s) unless JSON.file?
-    Client = GraphQL::Client.new({ execute: http, schema: schema })
-      .tap { |o| Queries = o.parse(RAW_QUERIES) }
+  module Metadata
+    Drop = Liquid::Drop::HashOrArray
+    module_function
 
     # --
-    # Get repos from Github GraphQL
-    # @param site [Jekyll::Site] the Jekyll site.
-    # @return self
+    # Run multiple hooks.
+    # @return [nil]
     # --
-    def initialize(site)
-      @site = site
+    def setup
+      site
+      docs
     end
 
     # --
-    # @param file [String] the file.
-    # Allows you to stat a file, getting some basic
-    #   informations on it, such as when it was created,
-    #   who created it, and so-forth.
-    # @return [{}] the result.
+    # Setup hooks on docs, posts, pages.
+    # @return [nil]
     # --
-    def stat(file)
-      self.class.cache.fetch(File.join("file", file)) do
-        out = results({
-          path: file,
-          graphql: {
-            limit: Float::INFINITY,
-            path: %i(repository ref target history),
-            query: Queries::Stat,
-          },
-        })
-
-        # --
-        # This query is expensive because of the way that
-        #   Github currently handles `CommitHistoryConnection`. We
-        #   have to extract the entire history to get the
-        #   original creator of a file...
-        # @see https://goo.gl/xaVFka
-        # --
-
-        out = out&.sort_by(&:committed_date)&.[](0)
-        out ? Formatters.commit(out) : Formatters.default(site)
-      end
-    # --
-    # These are normally caused by the lack of internet
-    #   and also because you might be on a super high latency
-    #   connection that we aren't willing to accept.
-    # --
-  rescue SocketError, Timeout::Error
-      Formatters.default(site)
-    end
-
-    # --
-    # @return [Array<{}>] array of normalized hashes.
-    # Returns the results, cleaned up as a proper array
-    #   of hashes that you can use.  This is a low-level wrapper
-    #   around the many types of repo queries we have.
-    # --
-    def repos(**kwd)
-      self.class.cache.fetch :repos do
-        graphql = { query: Queries::Repos, path: %i(user repositories) }
-        results graphql: graphql, **kwd do |v|
-          year = DateTime.parse(v.pushed_at).year
-          if Time.now.year == year && v.primary_language
-            Formatters.repo(v)
-          end
-        end
+    def docs
+      Jekyll::Hooks.register [:posts, :pages, :documents], :pre_render do |d, p|
+        p["page"]["metadata"] = Drop.new(Queries::Stat.run({
+          path: path_of(d),
+        }))
       end
     end
 
     # --
-    # @return [{}] the repository information.
-    # Gets information about your current repository for you.
-    #   Returns the last commit, and otherwise basic information
-    #   that would be useful for your footers.
+    # Setup hooks on site.
+    # @return [nil]
     # --
-    def repo(**kwd)
-      self.class.cache.fetch :repo do
-        graphql = { query: Queries::Repo, path: %i(repository) }
-        result(graphql: graphql, **kwd) do |v|
-          Formatters.repo(v.results).merge({
-            commits: Helpers.loop(v.results.ref.target.history) do |c|
-              Formatters.commit(c)
-            end,
-          })
-        end
-      end
-    end
-
-    # --
-    # Wraps around and loops results with your block.
-    # @return [Array<Hash>] an array of hashes that you normalize.
-    # @note You can use edges/node | nodes, dealers choice.
-    # --
-    private
-    def results(graphql:, **kwd, &block)
-      after, out = nil, []
-
-      while out.count < graphql.fetch(:limit, limit)
-        query = query(**kwd.merge(after: after, graphql: graphql))
-        Helpers.loop(query.results, into: out, &block)
-        break unless query.page_info.has_next_page
-        after = query.page_info.end_cursor
-      end
-
-      out
-    end
-
-    # --
-    # Gets a single result from the database.
-    # @note If you have a edge or set of nodes, use `results`
-    # @todo Make sure you `validate!` on this method!
-    # @return [{}] the value gowtten back.
-    # --
-    private
-    def result(**kwd)
-      out = query(**kwd)
-      if block_given?
-        out = yield out
-      end
-
-      out
-    end
-
-    # --
-    # @see https://goo.gl/5KS36r
-    # Returns the results of our query.
-    # @note this passes the raw data (#to_h) to avoid a few bugs in
-    #   graphql-client. There are bugs dealing when dealing with fragments,
-    #   especially nested fragments like ours.
-    # @return [{}] the result
-    # --
-    private
-    def query(graphql:, after: nil, **kwd)
-      Timeout.timeout(3) do
-        out = Client.query(graphql[:query], {
-          variables: build({
-            after: after, **kwd
-          }),
-        })
-
-        raise Errors::GraphQLError, out unless out.errors.none?
-        nodes(out.to_h.deep_symbolize_keys, {
-          graphql: graphql,
-        })
-      end
-    end
-
-    # --
-    # @return [Hash] the vars to be shipped
-    # Builds out the variable hash that will be shipped
-    #   to GraphQL.
-    # --
-    def build(after: nil, **kwd)
-      out = kwd.merge({
-        repo:  Helpers.info[:repo],
-        user:  Helpers.info[:user],
-        count: limit,
-        after: after,
-      })
-
-      out
-    end
-
-    # --
-    # @return [@todo] the nodes at the path.
-    # Gets the data at the path point the user designates
-    #   and passes to us.
-    # --
-    private
-    def nodes(result, graphql:)
-      return nil unless result
-
-      out = Result.new({
-        results: {},
-        pageInfo: {
-          startCursor: nil,
-          hasPreviousPage: false,
-          hasNextPage: false,
-          endCursor: nil,
-        },
-      })
-
-      path = [:data] | Array(graphql[:path])
-      path.map do |v|
-        result = result[v]
-      end
-
-      out[:results] = result
-      page_info = Hash(result.delete(:pageInfo))
-      out[:pageInfo] = page_info
-      out
-    end
-
-    # --
-    # Gives us the total results to expect.
-    # @note Github allows a limit of up to 100.
-    # @return Integer
-    # --
-    private
-    def limit
-      @site.config.fetch(:graphql_limit, 12)
-    end
-
-    # --
-    public
-    def self.cache
-      Jekyll.cache_dir.mkdir_p
-      @cache ||= Jekyll::Cache::FileStore
-        .new("github")
-    end
-
-    # --
-    def self.site(s, p)
-      git = new(s)
-      p.merge!({
-        "git"   => Drop.new(git.repo),
-        "repos" => Drop.new(git.repos.map do |v|
-          Drop.new(v)
-        end),
-      })
-    end
-
-    # --
-    def self.page(o, p)
-      path = Pathutil.new(o.site.source).relative_path_from(Pathutil.pwd)
-      path = path.join(o.respond_to?(:realpath) ?
-        o.realpath : o.relative_path)
-
-      git = new(o.site)
-      if path.file?
-        stat = git.stat(path)
-        p["meta"] = {
-          "github" => Drop.new(stat),
+    def site
+      Jekyll::Hooks.register :site, :pre_render do |_, p|
+        p["site"]["metadata"] = Drop.new(Queries::Site.run)
+        p["github"] = {
+          "langs" => Drop.new(Queries::Github::Langs.run),
+          "repos" => Drop.new(Queries::Github::Repos.run),
         }
       end
     end
 
     # --
-    def self.setup
-      Jekyll::Hooks.register(:site, :pre_render, &method(:site))
-      Jekyll::Hooks.register(%i(pages documents),
-        :pre_render, &method(:page))
+    def path_of(doc)
+      return doc.realpath if doc.respond_to?(:realpath)
+      Pathutil.new(doc.site.in_source_dir(doc.relative_path))
+        .relative_path_from(Pathutil.pwd).to_s
     end
   end
 end
 
-
+# --
+# Setup
+# --
 Jekyll::Metadata.setup

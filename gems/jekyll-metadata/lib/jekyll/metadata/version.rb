@@ -3,7 +3,7 @@
 # Encoding: utf-8
 
 module Jekyll
-  class Metadata
+  module Metadata
     VERSION = "1.0.0.alpha"
   end
 end

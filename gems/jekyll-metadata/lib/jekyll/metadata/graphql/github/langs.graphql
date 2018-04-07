@@ -1,0 +1,26 @@
+query Langs($user: String!, $repo: String!, $after: String, $count: Int!) {
+  rateLimit {
+     resetAt
+     remaining
+     limit
+     cost
+  }
+
+  repository(name: $repo, owner: $user) {
+    name
+    id
+
+    languages(first: $count, after: $after) {
+      pageInfo {
+        startCursor
+        hasPreviousPage
+        hasNextPage
+        endCursor
+      }
+
+      nodes {
+        name
+      }
+    }
+  }
+}

@@ -27,7 +27,7 @@ _site/
 .jekyll-cache/
 .jekyll-metadata
 .asset-cache/
-site/
+/site/
 
 # --
 # Rails

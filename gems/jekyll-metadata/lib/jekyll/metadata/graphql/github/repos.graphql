@@ -1,0 +1,57 @@
+query Repos($count: Int!, $user: String!, $after: String) {
+  rateLimit {
+    resetAt
+    remaining
+    limit
+    cost
+  }
+
+  user(login: $user) {
+    repositories(privacy: PUBLIC, first: $count,
+    isFork: false, orderBy: { field: STARGAZERS, direction: DESC },
+    affiliations: [OWNER, COLLABORATOR, ORGANIZATION_MEMBER],
+    after: $after) {
+      totalCount
+
+      pageInfo {
+        startCursor
+        hasPreviousPage
+        hasNextPage
+        endCursor
+      }
+
+      nodes {
+        pushedAt
+        nameWithOwner
+        hasIssuesEnabled
+        hasWikiEnabled
+        name
+        url
+
+        owner {
+          ... on User {
+            url
+            name
+            websiteUrl
+            avatarUrl
+            login
+          }
+
+          ... on Organization {
+            url
+            name
+            websiteUrl
+            avatarUrl
+            login
+          }
+        }
+
+        primaryLanguage { name }
+        pullRequests(states: OPEN) { totalCount }
+        issues(states: OPEN) { totalCount }
+        stargazers { totalCount }
+        forks { totalCount }
+      }
+    }
+  }
+}

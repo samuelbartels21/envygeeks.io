@@ -1,0 +1,83 @@
+query Site($repo: String!, $user: String!, $count: Int!, $after: String) {
+  rateLimit {
+    resetAt
+    remaining
+    limit
+    cost
+  }
+
+  repository(owner: $user, name: $repo) {
+    pushedAt
+    nameWithOwner
+    hasIssuesEnabled
+    hasWikiEnabled
+    name
+    url
+    id
+
+    owner {
+      ... on User {
+        url
+        avatarUrl
+        websiteUrl
+        login
+        name
+        id
+      }
+
+      ... on Organization {
+        login
+        websiteUrl
+        avatarUrl
+        name
+        url
+        id
+      }
+    }
+
+    primaryLanguage { id, name }
+    pullRequests(states: OPEN) { totalCount }
+    issues(states: OPEN) { totalCount }
+    stargazers { totalCount }
+    forks { totalCount }
+
+    ref(qualifiedName: "refs/heads/master") {
+      id
+
+      target {
+        ... on Commit {
+          history(first: $count, after: $after) {
+            totalCount
+
+            pageInfo {
+              startCursor
+              hasPreviousPage
+              hasNextPage
+              endCursor
+            }
+
+            nodes {
+              treeUrl
+              messageHeadline
+              committedDate
+              commitUrl
+              oid
+              id
+
+              author {
+                user {
+                  url
+                  name
+                  websiteUrl
+                  avatarUrl
+                  login
+                  id
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
