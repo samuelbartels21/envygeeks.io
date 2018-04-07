@@ -2,4 +2,8 @@
 # Copyright: 2017 - MIT License
 # Encoding: utf-8
 
-require_relative "jekyll/synced_logging"
+module Jekyll
+  class Sync
+    VERSION = "1.0.0.alpha"
+  end
+end

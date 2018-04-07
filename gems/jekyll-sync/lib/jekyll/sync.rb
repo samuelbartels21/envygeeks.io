@@ -6,9 +6,10 @@ require "logger"
 require "jekyll"
 
 module Jekyll
-  class SyncedLogging
+  class Sync
     def self.setup
-      log_level, logger = Jekyll.logger.level, Logger.new(STDERR)
+      logger = Logger.new(STDERR)
+      log_level = Jekyll.logger.level
       Jekyll.logger.log_level = logger.level = log_level
       logger.formatter = method(:formatter)
       Jekyll.logger = logger
@@ -28,4 +29,4 @@ module Jekyll
   end
 end
 
-Jekyll::SyncedLogging.setup
+Jekyll::Sync.setup
