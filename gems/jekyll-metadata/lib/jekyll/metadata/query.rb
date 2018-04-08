@@ -90,13 +90,11 @@ module Jekyll
 
         # --
         def query(**kwd)
-          out = CLIENT.query(self::QUERY, {
-            variables: vars(**kwd),
-          })
-
-          if out.errors.any?
-            raise Errors::GraphQL, out
-          end
+          vars = vars(**kwd)
+          Jekyll.logger.debug "metadata: ", "querying for: #{self.name}"
+          Jekyll.logger.debug "metadata: ", "querying var: #{vars.inspect}"
+          out = CLIENT.query(self::QUERY, variables: vars)
+          raise Errors::GraphQL, out if out.errors.any?
 
           out
         end

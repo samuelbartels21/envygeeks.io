@@ -29,6 +29,7 @@ module Jekyll
     # @return [nil]
     # --
     def docs
+      Jekyll.logger.debug("metadata") { "registering posts, pages, documents hooks" }
       Jekyll::Hooks.register [:posts, :pages, :documents], :pre_render do |d, p|
         p["page"]["metadata"] = Drop.new(Queries::Stat.run({
           path: path_of(d),
@@ -41,6 +42,7 @@ module Jekyll
     # @return [nil]
     # --
     def site
+      Jekyll.logger.debug("metadata") { "registering site hook" }
       Jekyll::Hooks.register :site, :pre_render do |_, p|
         p["site"]["metadata"] = Drop.new(Queries::Site.run.as_json)
         p["github"] = {
