@@ -2,7 +2,9 @@
 # Copyright: 2017 Jordon Bedwell - MIT License
 # Encoding: utf-8
 
+require "active_support"
 require "liquid/drop/hash_or_array"
+require "active_support/core_ext"
 require_relative "metadata/cache"
 require_relative "metadata/errors"
 require_relative "metadata/version"
@@ -30,7 +32,7 @@ module Jekyll
       Jekyll::Hooks.register [:posts, :pages, :documents], :pre_render do |d, p|
         p["page"]["metadata"] = Drop.new(Queries::Stat.run({
           path: path_of(d),
-        }))
+        }).as_json)
       end
     end
 
@@ -40,10 +42,10 @@ module Jekyll
     # --
     def site
       Jekyll::Hooks.register :site, :pre_render do |_, p|
-        p["site"]["metadata"] = Drop.new(Queries::Site.run)
+        p["site"]["metadata"] = Drop.new(Queries::Site.run.as_json)
         p["github"] = {
-          "langs" => Drop.new(Queries::Github::Langs.run),
-          "repos" => Drop.new(Queries::Github::Repos.run),
+          "langs" => Drop.new(Queries::Github::Langs.run.as_json),
+          "repos" => Drop.new(Queries::Github::Repos.run.as_json),
         }
       end
     end
