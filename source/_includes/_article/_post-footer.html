@@ -1,15 +1,15 @@
 <footer>
   <div class="avatar">
-    <a href="{{ meta.github.author.url }}">
-      {% asset "avatars/{{ meta.github.author.avatar.rel }}"
-          alt="{{ meta.github.author.name }}" %}
+    <a href="{{ post.metdata.created_by.url }}">
+      {% asset "avatars/{{ post.metadata.created_by.avatar.id }}.jpg"
+          alt="{{ post.metadata.created_by.name }}" %}
     </a>
   </div>
 
   <div>
     <p class="author">
-      <a href="{{ post.stat.author.website }}">
-        {{ meta.github.author.name }}
+      <a href="{{ post.metdata.created_by.website }}">
+        {{ post.metadata.created_by.name }}
       </a>
     </p>
 

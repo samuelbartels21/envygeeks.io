@@ -4,7 +4,6 @@ plugins_dir: ./plugins
 cache_dir: "./.jekyll-cache"
 excerpt_separator: "<!-- MORE -->"
 timezone: America/Chicago
-gql_query_limit: 12
 destination: ./site
 markdown: kramdown
 defaults:
@@ -12,7 +11,7 @@ defaults:
   - { scope: { type: posts, path: "" }, values: { layout: default, type: post }}
   - { scope: { type: docs,  path: "" }, values: { layout: default, type: page }}
 collections: { docs: { output: true }}
-#
+# --
 assets:
   source_maps: false
   raw_precompile:
@@ -22,17 +21,34 @@ assets:
   sources:
     - ../node_modules
     - _data/
-#
+# --
 webrick:
   headers:
     Pragma: no-cache
     Cache-Control: no-cache, no-store, must-revalidate
     Expires: 0
-#
+# --
 docs:
   disallowed: "*"
   allowed:
     - jekyll-assets
-#
+# --
 kramdown:
   auto_ids: true
+# --
+stripe:
+  production_key: pk_live_BB9LsOXM5EcQNQE5rO6Efjqs
+  image: https://avatars1.githubusercontent.com/u/99763?v=4
+  test_key: pk_test_7eqsOftLKu6duxyQL2tLEPZ4
+  locale: auto
+  zip_code: true
+  bitcoin: true
+  checkout:
+    - currency: USD
+      name: "Jordon Bedwell"
+      description: "Donation"
+      billingAddress: false
+      slug: donation
+      amount: 1200
+# --
+gaid: UA-18997298-1
