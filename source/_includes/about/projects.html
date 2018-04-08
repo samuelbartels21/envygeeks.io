@@ -1,14 +1,14 @@
 <div class="projects">
   <ul>
-  {% for repo in repos limit:4 %}
-  <li>
-    <span class="left"><a href="{{ repo.url }}">{{ repo.rel }}</a></span>
-    <span class="right pill pink--bg">
-      <a href="{{ repo.url }}/stargazers">
-        💕 {{ repo.counts.stars | prepend: "0000" | slice: -4,4 }}
-      </a>
-    </span>
-  </li>
-  {% endfor %}
+    {% for v in github.repos limit:4 %}
+      <li>
+        <span class="left"><a href="{{ v.url }}">{{ v.rel }}</a></span>
+        <span class="right">
+          <a href="{{ repo.url }}/stargazers">
+            💕 {{ v.stargazers }}
+          </a>
+        </span>
+      </li>
+    {% endfor %}
   </ul>
 </div>
