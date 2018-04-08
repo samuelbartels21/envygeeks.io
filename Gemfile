@@ -7,6 +7,7 @@ def docker?
 end
 
 source "https://rubygems.org"
+gem "fast_blank", "~> 1.0"
 gem "jekyll", "~> 3.6", require: false
 gem "uglifier", "~> 4.0", require: false
 gem "sprockets", "~> 4.0.beta", require: false
@@ -49,8 +50,8 @@ group :jekyll_plugins do
   #   manual QA and debugging with my own site which is the
   #   defacto example of Jekyll-Assets at it's basic.
   # --
+  gem "jekyll-sync", path: "gems/jekyll-sync"
   gem "jekyll-metadata", path: "gems/jekyll-metadata"
-  gem "jekyll-synced_logging", path: "gems/jekyll-synced_logging"
   gem "jekyll-assets", docker? || ENV["CI"] == "true" ?
     { git:  "https://github.com/envygeeks/jekyll-assets" } :
     { path: "~/development/EnvyGeeks/Jekyll-Assets" }
