@@ -22,5 +22,6 @@ Gem::Specification.new do |s|
   s.add_development_dependency "rake", "~> 0"
   s.add_development_dependency "rubocop", "~> 0.52.0"
   s.add_runtime_dependency "graphql", "~> 1.7.13", "< 1.7.14"
+  s.add_runtime_dependency "graphql-client", "~> 0.12"
   s.add_runtime_dependency "jekyll", "~> 3.6"
 end
