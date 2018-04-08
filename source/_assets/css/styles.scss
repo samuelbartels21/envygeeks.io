@@ -65,9 +65,9 @@ h6 {
 }
 
 hr {
-  margin: 2vh 0;
-  border-bottom: 1px solid darken($grey, 4);
   border: 0;
+  border-bottom: 1px dashed darken($grey, 4);
+  margin: 2rem 0;
 }
 
 main {
@@ -269,3 +269,5 @@ a {
 @import "styles/right";
 @import "styles/table";
 @import "styles/wrapper";
+@import "styles/progress";
+@import "styles/skills";

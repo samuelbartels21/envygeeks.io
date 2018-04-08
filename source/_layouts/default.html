@@ -7,8 +7,8 @@
     {% capture title %}{{ title }}{% if page.title %} - {{ page.title }}{% endif %}{% endcapture %}
     <link rel="alternate" type="application/rss+xml" href="{{ site.base_domain }}/feed.xml" title="{{ title }}" />
     {% if jekyll.environment == "development" %}{% asset livereload.js %}{% endif %}
-    {% if page.type == "post" %}{% include _schema.html %}{% endif %}
-    {% include _layout/_meta.html %}
+    {% if page.type == "post" %}{% include schema.html %}{% endif %}
+    {% include layout/meta.html %}
     <title>{{ title }}</title>
   </head>
 
@@ -72,7 +72,7 @@
 
         {% else %}
           {% if page.type != "tag" %}
-            {% include _article.html %}{% else %}{% include _tags.html %}
+            {% include article.html %}{% else %}{% include tags.html %}
           {% endif %}
         {% endif %}
       </main>
