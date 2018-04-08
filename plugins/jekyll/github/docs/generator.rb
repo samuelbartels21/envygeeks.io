@@ -20,16 +20,16 @@ module Jekyll
 
         # --
         def generate(site)
-          Jekyll::Metadata.new(site).repos.each do |v|
-            next unless allowed?(v[:name])
-
-            data = get(v)
-            skwd = { site: site }
-            mock = mock_dir(**skwd).join(v[:name]).sub_ext(".md")
-            doc = Page.new(mock, collection: collection_on(**skwd), site: site)
-            doc.content = "{% raw %}#{decode(data.content)}{% endraw %}"
-            collection_on(**skwd).docs << doc
-          end
+          # Jekyll::Metadata.new(site).repos.each do |v|
+          #   next unless allowed?(v[:name])
+          #
+          #   data = get(v)
+          #   skwd = { site: site }
+          #   mock = mock_dir(**skwd).join(v[:name]).sub_ext(".md")
+          #   doc = Page.new(mock, collection: collection_on(**skwd), site: site)
+          #   doc.content = "{% raw %}#{decode(data.content)}{% endraw %}"
+          #   collection_on(**skwd).docs << doc
+          # end
         end
 
         # --
