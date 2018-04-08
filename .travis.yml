@@ -1,5 +1,5 @@
 script: script/test
-before_script: script/build
+before_script: script/build --verbose
 install: script/install
 language: ruby
 os: linux
