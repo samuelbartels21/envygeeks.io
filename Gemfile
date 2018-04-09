@@ -31,7 +31,7 @@ group :test do
   gem "rspec", "~> 3.6", require: false
   gem "luna-rspec-formatters", "~> 3.7", require: false
   gem "html-proofer", "~> 3.7", require: false
-  gem "rubocop", require: false
+  gem "rubocop", "0.52", require: false
 end
 
 # --
