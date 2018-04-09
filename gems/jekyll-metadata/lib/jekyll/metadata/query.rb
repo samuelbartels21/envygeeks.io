@@ -101,24 +101,41 @@ module Jekyll
 
         # --
         def github
-          out = {
-            user: ENV["GITHUB_USER"],
-            branch: ENV["GITHUB_BRANCH"],
-            repo: ENV["GITHUB_REPO"],
-          }
+          @github ||= begin
+            out = {
+              user: ENV["GITHUB_USER"],
+              branch: ENV["GITHUB_BRANCH"],
+              repo: ENV["GITHUB_REPO"],
+            }
 
-          return out if out[:user] && out[:branch] && out[:repo]
-          Jekyll.logger.debug "metadata: ", `git remote -v`.strip
-          Jekyll.logger.debug "metadata: ", "#{remote = `git remote`.strip}"
-          url = %x(git remote get-url #{Shellwords.shellescape(remote)}).strip
-          out[:branch] ||= `git branch`.strip.gsub(%r!^\*\s*!, "")
+            return out if out[:user] && out[:branch] && out[:repo]
+            Jekyll.logger.debug "metadata: ", `git remote -v`.strip
+            Jekyll.logger.debug "metadata: ", "#{remote = `git remote`.strip}"
+            out[:branch] ||= `git branch`.strip.gsub(%r!^\*\s*!, "").each_line.to_a.last
+            url = %x(git remote get-url #{Shellwords.shellescape(remote)}).strip
 
-          if url && url =~ %r!git@github\.com:(.*)\/(.*)\.git!
-            out[:user] ||= Regexp.last_match[1]
-            out[:repo] ||= Regexp.last_match[2]
+            if url
+              # --
+              # git@github.com/user/repo.git
+              # When you're using proper SSH+Git
+              # SmartGit is below.
+              # --
+              if url =~ %r!git@github\.com:(.*)/(.*)\.git!
+                out[:user] ||= Regexp.last_match[1]
+                out[:repo] ||= Regexp.last_match[2]
+              # --
+              # CI's typically do this.
+              # https://github.com/user/repo.git
+              # Forks do this.
+              # --
+              elsif url =~ %r!https://github.com/(.*)/(.*).git!
+                out[:user] ||= Regexp.last_match[1]
+                out[:repo] ||= Regexp.last_match[2]
+              end
+            end
+
+            out
           end
-
-          out
         end
 
         # --
