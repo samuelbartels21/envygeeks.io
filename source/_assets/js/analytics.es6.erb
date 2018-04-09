@@ -1,3 +1,5 @@
+//= depend_on_env JEKYLL_ENV
+
 <% if (@environment.jekyll.config["debug"] || Jekyll.env == "production") && @environment.jekyll.config["gaid"] %>
   (() => {
     loadAnalytics = () => {
