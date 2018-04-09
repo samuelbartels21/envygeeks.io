@@ -108,6 +108,7 @@ module Jekyll
           }
 
           return out if out[:user] && out[:branch] && out[:repo]
+          Jekyll.logger.debug "metadata: ", `git remote -v`.strip
           Jekyll.logger.debug "metadata: ", "#{remote = `git remote`.strip}"
           url = %x(git remote get-url #{Shellwords.shellescape(remote)}).strip
           out[:branch] ||= `git branch`.strip.gsub(%r!^\*\s*!, "")
