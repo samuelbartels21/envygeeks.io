@@ -13,5 +13,9 @@ fi
 
 bundle clean
 if [ -f package.json ]; then
-  yarn
+  if [ -d node_modules ]; then
+    yarn upgrade --no-save
+  else
+    yarn
+  fi
 fi
