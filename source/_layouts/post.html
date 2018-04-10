@@ -20,7 +20,8 @@ layout: master
     <div class="avatar reveal">
       <a href="{{ page.metdata.created_by.url }}">
         {% asset "avatars/{{ page.metadata.created_by.avatar.id }}.jpg"
-            alt="{{ page.metadata.created_by.name }}" %}
+            alt="{{ page.metadata.created_by.name }}"
+            magick:resize=48x48 %}
       </a>
     </div>
 

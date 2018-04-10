@@ -22,7 +22,8 @@ main: true
       <div class="avatar">
         <a href="{{ post.metdata.created_by.url }}" class=reveal>
           {% asset "avatars/{{ post.metadata.created_by.avatar.id }}.jpg"
-              alt="{{ post.metadata.created_by.name }}" %}
+              alt="{{ post.metadata.created_by.name }}"
+              magick:resize=48x48 %}
         </a>
       </div>
 
