@@ -1,0 +1,41 @@
+//= require scrollreveal/dist/scrollreveal.js
+
+(() => {
+  let sr = ScrollReveal({
+    reset: false,
+    afterReveal: (e) => {
+      e.removeAttribute("style");
+      e.classList.remove(
+        "sr--hidden"
+      );
+    },
+
+    afterReset:  (e) => {
+      e.removeAttribute("style");
+      e.classList.add(
+        "sr--hidden"
+      );
+    }
+  });
+
+  let winH = window.innerHeight;
+  let docH = document.documentElement.clientHeight;
+  let docW = document.documentElement.clientWidth;
+  let winW = window.innerWidth;
+
+  let isInViewport = function(ele) {
+    var bounding = ele.getBoundingClientRect();
+    return bounding.top >= 0 && bounding.left >= 0 &&
+        bounding.bottom <= (winH || docH) &&
+        bounding.right  <= (winW || docW);
+  };
+
+  document.querySelectorAll(".reveal").forEach((v) => { if (!isInViewport(v)) sr.reveal(v) });
+  document.querySelectorAll(".reveal-children").forEach((v) => {
+    v.querySelectorAll("*").forEach((e) => {
+      if (!isInViewport(e)) {
+        sr.reveal(e);
+      }
+    });
+  })
+})();

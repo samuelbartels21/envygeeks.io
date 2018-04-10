@@ -11,7 +11,7 @@ nav:
     {% assign tags = site.tags | keys %}
     {% for tag in tags %}
     <li class="pill tags--w{{ tag.weight | round }}">
-      <a title="Tag: {{ tag }}" href="{{ tag.url | pretty }}">
+      <a title="Tag: {{ tag }}" href="{{ tag.url | pretty }}" class=reveal>
         {{ tag }}
       </a>
     </li>
@@ -21,20 +21,22 @@ nav:
   {% for post in site.posts_by_year %}
     {% assign currentYear = post.date | date:"%Y" %}
     {% unless year == currentYear %}
-      <h2>{% assign year = currentYear %}{{ year }}</h2>
+      <h2 class=reveal>
+        {% assign year = currentYear %}{{ year }}
+      </h2>
     {% endunless %}
 
     <article>
       <header>
         <h1>
           🔖
-          <a href="{{ post.url | pretty }}">
+          <a href="{{ post.url | pretty }}" class=reveal>
             {{ post.title | markdownify_title }}
           </a>
         </h1>
       </header>
       <footer>
-        <time>
+        <time class=reveal>
           {{ post.date | date:"%m/%d" }}
         </time>
       </footer>

@@ -7,9 +7,9 @@ timezone: America/Chicago
 destination: ./site
 markdown: kramdown
 defaults:
-  - { scope: { type: pages, path: "" }, values: { layout: default, type: page }}
-  - { scope: { type: posts, path: "" }, values: { layout: default, type: post }}
-  - { scope: { type: docs,  path: "" }, values: { layout: default, type: page }}
+  - { scope: { type: pages, path: "" }, values: { layout: page, type: page }}
+  - { scope: { type: posts, path: "" }, values: { layout: post, type: post }}
+  - { scope: { type: docs,  path: "" }, values: { layout: page, type: page }}
 collections: { docs: { output: true }}
 # --
 assets:

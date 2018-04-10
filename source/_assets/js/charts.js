@@ -1,3 +1,5 @@
+//= require chart.js/dist/Chart.bundle.js
+
 (() => {
   if (window.charts) {
     window.charts.forEach((v) => {

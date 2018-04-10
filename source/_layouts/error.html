@@ -1,33 +1,21 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>{{ page.title }}</title>
-    <base href="https://envygeeks.io">
-    {% asset bundle.css %}
-    {% asset bundle.js @async @defer %}
-    <meta charset="UTF-8">
-  </head>
+---
+layout: bare
+---
 
-  <body id="envygeeks">
-    <div class="wrapper">
-      <main>
-        <div class="error">
-          <h1>{{ page.title }}</h1>
-          {{ content }}
 
-          <p>
-            <a href="#" id="home">
-              Return Home
-            </a>
-          </p>
+<div class="error">
+  <h1>{{ page.title }}</h1>
+  {{ content }}
 
-          <script type="text/javascript">
-            document.querySelector("#home").href =
-              window.location.protocol + "//" +
-              window.location.host
-          </script>
-        </div>
-      </main>
-    </div>
-  </body>
-</html>
+  <p>
+    <a href="#" id="home">
+      Return Home
+    </a>
+  </p>
+
+  <script type="text/javascript">
+    document.querySelector("#home").href =
+      window.location.protocol + "//" +
+      window.location.host
+  </script>
+</div>
