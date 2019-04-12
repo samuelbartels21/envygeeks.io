@@ -46,6 +46,12 @@ site/
 /tmp
 
 # --
-# Yarn
+# Other
 # --
-yarn.lock
+*.log
+.cache
+src/.temp
+node_modules
+.env.*
+dist
+.env
