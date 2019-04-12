@@ -1,6 +1,0 @@
-#!/bin/bash
-. script/before
-set -e
-
-export JEKYLL_ENV=${JEKYLL_ENV:=development}
-exec bundle exec jekyll s "$@"

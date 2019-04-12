@@ -1,8 +1,0 @@
-#!/bin/bash
-. script/before
-[ "$DEBUG" = "true" ] && set -x
-set -e
-
-rm -rf vendor/
-rm -rf {.,source}/.{,bundle,asset-,jekyll-,sass-}cache
-bundle clean || (script/install && $0)
