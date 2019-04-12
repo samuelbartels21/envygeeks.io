@@ -21,7 +21,7 @@
   }
 </script>
 
-<style lang="scss">
+<style lang=scss>
   .page {
     font-size: 1.125rem;
     line-height: 2.5rem;

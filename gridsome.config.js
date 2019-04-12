@@ -1,4 +1,4 @@
 module.exports = {
-  siteName: 'envygeeks.io',
+  siteName: "envygeeks.io",
   plugins: []
 }

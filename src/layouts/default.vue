@@ -3,7 +3,7 @@
     <header class=header>
       <div class=title>
         <span class=title__one>
-          <g-link to="/" rel="me">
+          <g-link to="/" rel=me>
             {{ $static.meta.title }}
           </g-link>
         </span>
@@ -49,7 +49,7 @@ query {
 }
 </static-query>
 
-<style lang="scss">
+<style lang=scss>
 
   /**
    * 16px
