@@ -148,11 +148,12 @@ query {
         font-family: "Montserrat";
         text-transform: uppercase;
         padding: 1rem .5rem;
+        font-weight: bold;
         display: block;
         color: inherit;
 
         &:hover {
-          color: #d676aa;
+          color: #fb4d42;
         }
       }
 
