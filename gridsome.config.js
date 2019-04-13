@@ -15,14 +15,6 @@ module.exports = {
           }
         }
       }
-    },
-    {
-      use: "@gridsome/source-filesystem",
-      options: {
-        route: "/:slug",
-        path: "src/pages/**/*.md",
-        typeName: 'page',
-      }
     }
   ],
 
