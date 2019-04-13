@@ -27,7 +27,6 @@
     line-height: 2.5rem;
     color: #58585B;
 
-
     p {
       margin: 2rem 0;
       padding: 0;
