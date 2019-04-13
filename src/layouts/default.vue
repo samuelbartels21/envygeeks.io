@@ -8,7 +8,7 @@
           </g-link>
         </span>
         <span class=title__two>
-          {{ $static.meta.sub_title }}
+          {{ $static.meta.subTitle }}
         </span>
       </div>
       <nav class=nav>
@@ -38,7 +38,7 @@ export default {
 <static-query>
 query {
   meta: metaData {
-    sub_title: siteSubTitle
+    subTitle: siteSubTitle
     title: siteTitle
     nav: siteNav {
       id
