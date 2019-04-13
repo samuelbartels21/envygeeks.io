@@ -50,6 +50,7 @@ query {
 </static-query>
 
 <style lang=scss>
+  @import "~/assets/colors.scss";
 
   /**
    * 16px
@@ -58,8 +59,15 @@ query {
     padding: 0;
     font-size: 100%;
     font-family: "Lora";
-    color: #091f2f;
+    color: $black;
     margin: 0;
+  }
+
+  a {
+    color: $blue;
+    &:hover {
+      color: $green;
+    }
   }
 
   .layout {
@@ -76,7 +84,7 @@ query {
    */
   .header {
     display: flex;
-    border-bottom: 1px dashed #e7eaf3;
+    border-bottom: 1px dashed $grey3;
     justify-content: space-between;
     align-items: center;
     width: 100%;
@@ -153,7 +161,7 @@ query {
         color: inherit;
 
         &:hover {
-          color: #fb4d42;
+          color: $orange;
         }
       }
 

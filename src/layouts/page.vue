@@ -22,10 +22,12 @@
 </script>
 
 <style lang=scss>
+  @import "~/assets/colors.scss";
+
   .page {
     font-size: 1.125rem;
     line-height: 2.5rem;
-    color: #58585B;
+    color: $grey8;
 
     p {
       margin: 2rem 0;
