@@ -4,6 +4,7 @@
  */
 module.exports = function(api) {
   api.loadSource(store => {
+    store.addMetaData("githubUser", "envygeeks")
     store.addMetaData("siteSubTitle", "Envygeeks")
     store.addMetaData("siteTitle", "Jordon Bedwell")
     store.addMetaData("siteUrl", "envygeeks.io")
