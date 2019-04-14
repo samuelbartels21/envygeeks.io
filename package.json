@@ -4,7 +4,8 @@
   "scripts": {
     "build": "gridsome build",
     "develop": "gridsome develop",
-    "explore": "gridsome explore"
+    "explore": "gridsome explore",
+    "start": "gridsome develop"
   },
   "dependencies": {
     "@gridsome/plugin-critical": "^0.1.1",
