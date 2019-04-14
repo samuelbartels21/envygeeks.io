@@ -26,27 +26,46 @@
 </template>
 
 <script>
-export default {
-  metaInfo: {
-    bodyAttrs: {
-      class: "body"
+  /**
+   * @param t [Object] "this"
+   * getTitle allows you to dynamically set the title
+   * @return [String]
+   */
+  function title(t) {
+    let title = `${t.$static.meta.title} - ${t.$static.meta.subTitle}`;
+    if (typeof t.$el !== "undefined" && typeof t.$el.title !== "undefined") {
+      if (t.$el.title != "") {
+        title = `${title} - ${t.$el.title}`;
+      }
+    }
+
+    return title
+  }
+
+  export default {
+    metaInfo() {
+      return {
+        titleTemplate: title(this),
+        bodyAttrs: {
+          class: "body"
+        }
+      }
     }
   }
-}
 </script>
 
 <static-query>
-query {
-  meta: metaData {
-    subTitle: siteSubTitle
-    title: siteTitle
-    nav: siteNav {
-      id
-      title
-      to
+  query {
+    meta: metaData {
+      subTitle: siteSubTitle
+      title: siteTitle
+      nav: siteNav {
+        id
+        title
+        to
+      }
     }
   }
-}
 </static-query>
 
 <style lang=scss>
