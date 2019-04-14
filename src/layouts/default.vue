@@ -32,14 +32,13 @@
    * @return [String]
    */
   function title(t) {
-    let title = `${t.$static.meta.title} - ${t.$static.meta.subTitle}`;
-    if (typeof t.$el !== "undefined" && typeof t.$el.title !== "undefined") {
-      if (t.$el.title !== "") {
-        title = `${title} - ${t.$el.title}`;
-      }
-    }
-
-    return title
+    let sMeta = t.$static.meta
+    let pData = t.$options.propsData
+    let title = `${sMeta.title} - ${sMeta.subTitle}`;
+    if (typeof pData.pageTitle == "undefined") return title;
+    if (typeof pData.pageTitleInHeader == "undefined") pData.pageTitleInHeader = true;
+    if (!pData.pageTitleInHeader) return title;
+    return `${title} - ${pData.pageTitle}`;
   }
 
   export default {
@@ -50,7 +49,12 @@
           class: "body"
         }
       }
-    }
+    },
+
+    props: [
+      'pageTitleInHeader',
+      'pageTitle'
+    ]
   }
 </script>
 

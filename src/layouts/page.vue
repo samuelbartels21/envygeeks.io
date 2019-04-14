@@ -1,8 +1,8 @@
 <template>
-  <layout :title=title>
+  <layout :page-title=pageTitle :page-title-in-header=pageTitleInHeader>
     <main class="content page">
       <header class=page__title>
-        <h1>{{ title }}</h1>
+        <h1>{{ pageTitle }}</h1>
       </header>
       <slot/>
     </main>
@@ -15,8 +15,10 @@
     components: {
       layout
     },
+
     props: [
-      "title"
+      "pageTitleInHeader",
+      "pageTitle"
     ]
   }
 </script>

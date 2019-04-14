@@ -1,5 +1,5 @@
 <template>
-  <layout title="About Me">
+  <layout page-title="About Me">
     <donut class="chart__programming"
       :labels="[
         'Ruby',
