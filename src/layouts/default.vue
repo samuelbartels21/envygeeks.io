@@ -99,8 +99,14 @@
     max-width: $layout-width;
     justify-content: center;
     flex-flow: row wrap;
-    margin: 0px auto;
+    margin: 0 auto;
     display: flex;
+  }
+
+  @media (max-width: ($layout-width + 50px)) {
+    .layout {
+      margin: 0 1rem;
+    }
   }
 
   /**
