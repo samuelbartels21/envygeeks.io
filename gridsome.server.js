@@ -7,7 +7,9 @@ module.exports = function(api) {
     store.addMetaData("githubUser", "envygeeks")
     store.addMetaData("siteSubTitle", "EnvyGeeks")
     store.addMetaData("siteTitle", "Jordon Bedwell")
+    store.addMetaData("myName", "Jordon Bedwell")
     store.addMetaData("siteUrl", "envygeeks.io")
+    store.addMetaData("useSSL", true)
     store.addMetaData("siteNav", [
       {
         id: 1,
