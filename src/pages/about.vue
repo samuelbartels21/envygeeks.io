@@ -18,8 +18,9 @@
 
     <g-image
       height=200
+      alt="Jordon Bedwell Avatar"
+      src="~/assets/avatar.jpg"
       class="avatar"
-      src="~/assets/me.jpg"
       width=200
     />
 
