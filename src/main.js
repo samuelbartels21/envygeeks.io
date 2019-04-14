@@ -1,4 +1,4 @@
-import DefaultLayout from "~/layouts/default.vue"
+import DefaultLayout from "~/layouts/Default.vue"
 export default function (Vue, { router, head, isClient }) {
   Vue.component("Layout", DefaultLayout)
 
@@ -12,6 +12,7 @@ export default function (Vue, { router, head, isClient }) {
     href: "https://fonts.googleapis.com/css?family=" +
       "Lora:300,300i,400,400i|" +
       "Montserrat:300,300i,400,400i,700,700i|" +
-      "Noto+Sans:400,400i"
+      "Noto+Sans:400,400i|" +
+      "IBM+Plex+Mono:400"
   })
 }

@@ -1,10 +1,10 @@
 <script>
+  import { shuffledColors } from "~/assets/colors";
   import { Doughnut as Donut } from "vue-chartjs";
-  import { shuffled } from "~/assets/colors";
 
   export default {
     extends: Donut,
-    name: "donut",
+    name: "Donut",
     props: [
       "labels",
       "values"
@@ -14,7 +14,7 @@
       this.renderChart({
         labels: this.labels,
         datasets: [{
-          backgroundColor: shuffled(),
+          backgroundColor: shuffledColors(),
           data: this.values
         }]
       }, {

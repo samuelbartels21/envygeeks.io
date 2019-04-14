@@ -1,15 +1,15 @@
 <template>
-  <ext-link :url="`https://github.com/${user || $static.meta.githubUser}/${repo}`">
+  <ExternalLink :url="`https://github.com/${user || $static.meta.githubUser}/${repo}`">
     <slot/>
-  </ext-link>
+  </ExternalLink>
 </template>
 
 <script>
-  import extLink from "~/components/ext-link.vue";
+  import ExternalLink from "~/components/ExternalLink.vue";
   export default {
-    name: "gh-link",
+    name: "GithubLink",
     components: {
-      extLink
+      ExternalLink
     },
     props: [
       "repo",

@@ -1,19 +1,19 @@
 <template>
-  <layout :page-title=pageTitle :page-title-in-header=pageTitleInHeader>
+  <Layout :page-title=pageTitle :page-title-in-header=pageTitleInHeader>
     <main class="content page">
       <header class=page__title>
         <h1>{{ pageTitle }}</h1>
       </header>
       <slot/>
     </main>
-  </layout>
+  </Layout>
 </template>
 
 <script>
-  import layout from "~/layouts/default.vue"
+  import Layout from "~/layouts/Default.vue"
   export default {
     components: {
-      layout
+      Layout
     },
 
     props: [

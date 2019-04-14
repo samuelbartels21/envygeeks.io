@@ -1,6 +1,6 @@
 <template>
-  <layout page-title="About Me">
-    <donut class="chart__programming"
+  <Layout page-title="About Me">
+    <DonutChart class="chart__programming"
       :labels="[
         'Ruby',
         'JavaScript',
@@ -112,34 +112,35 @@
 
     <g-image
       class="hacking"
-      src="~/assets/gifs/clara-oswald-hacking.gif"
+      src="~/assets/gifs/hacking.gif"
       id="hacking"
     />
 
-    <p>I am heavy <ext-link url="https://docker.com">Docker</ext-link> user, a
-    Linux user, and I manage and maintain a great many <ext-link
-    url="https://jekyllrb.com">Jekyll</ext-link> plugins, and other Ruby
-    projects, that hopefully you love and enjoy. I’ve built tools like <gh-link
-    repo="docker-template"/>Docker Template</gh-link>, plugins like <gh-link
-    repo="jekyll-assets">Jekyll Assets</gh-link>, and Docker images like
-    <gh-link repo="jekyll-docker">Jekyll Docker</gh-link>, and I currently
-    manage many other Docker images. Unless I’ve removed them, or planned to
-    deprecate them because the ecosystem has taken over to do a better job.</p>
+    <p>I am heavy <ExternalLink url="https://docker.com">Docker</ExternalLink>
+    user, a Linux user, and I manage and maintain a great many <ExternalLink
+    url="https://jekyllrb.com">Jekyll</ExternalLink> plugins, and other Ruby
+    projects, that hopefully you love and enjoy. I’ve built tools like
+    <GithubLink repo="docker-template"/>Docker Template</GithubLink>, plugins
+    like <GithubLink repo="jekyll-assets">Jekyll Assets</GithubLink>, and Docker
+    zimages like <GithubLink repo="jekyll-docker">Jekyll Docker</GithubLink>,
+    and I currently manage many other Docker images. Unless I’ve removed them,
+    or planned to deprecate them because the ecosystem has taken over to do a
+    better job.</p>
   </layout>
 </template>
 
 <script>
-  import ghLink from "~/components/gh-link.vue"
-  import donut from "~/components/charts/donut.vue";
-  import extLink from "~/components/ext-link.vue";
-  import layout from "~/layouts/page.vue";
+  import GithubLink from "~/components/GithubLink.vue"
+  import ExternalLink from "~/components/ExternalLink.vue";
+  import DonutChart from "~/components/DonutChart.vue";
+  import Layout from "~/layouts/Page.vue";
 
   export default {
     components: {
-      donut,
-      extLink,
-      layout,
-      ghLink
+      DonutChart,
+      ExternalLink,
+      GithubLink,
+      Layout
     }
   };
 </script>

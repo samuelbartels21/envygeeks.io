@@ -1,4 +1,4 @@
-vars = require("./src/assets/vars.js");
+vars = require("./src/assets/vars.base.js");
 
 module.exports = {
   siteName: "envygeeks.io",
@@ -8,10 +8,10 @@ module.exports = {
       options: {
         path: 'src/posts/**/*.md',
         route: '/blog/:year/:month/:day/:slug',
-        typeName: 'post',
+        typeName: 'Post',
         refs: {
           tags: {
-            typeName: 'tag',
+            typeName: 'Tag',
             route: '/tag/:id',
             create: true
           }

@@ -6,7 +6,7 @@
 
 <script>
   export default {
-    name: "ext-link",
+    name: "ExternalLink",
     props: [
       "url"
     ]
