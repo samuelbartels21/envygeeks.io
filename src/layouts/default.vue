@@ -70,14 +70,15 @@
 
 <style lang=scss>
   @import "~/assets/colors.scss";
+  @import "~/assets/vars.scss";
 
   /**
    * 16px
    */
   .body {
     padding: 0;
-    font-size: 100%;
-    font-family: "Lora";
+    font-family: $main-font;
+    font-size: $base-font-size;
     color: $black;
     margin: 0;
   }
@@ -90,8 +91,8 @@
   }
 
   .layout {
-    max-width: 750px;
     flex-direction: row;
+    max-width: $layout-width;
     justify-content: center;
     flex-flow: row wrap;
     margin: 0px auto;
@@ -113,8 +114,8 @@
    * Title
    */
   .title {
-    font-family: "Noto Sans";
     grid-template-areas: "a b";
+    font-family: $secondary-font;
     align-items: center;
     padding: 1rem 0;
     display: grid;
