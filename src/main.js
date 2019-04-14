@@ -1,6 +1,6 @@
-import DefaultLayout from '~/layouts/default.vue'
+import DefaultLayout from "~/layouts/default.vue"
 export default function (Vue, { router, head, isClient }) {
-  Vue.component('Layout', DefaultLayout)
+  Vue.component("Layout", DefaultLayout)
 
   /**
    * Google Fonts
