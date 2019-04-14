@@ -1,5 +1,5 @@
 <template>
-  <layout>
+  <layout :title=title>
     <main class="content page">
       <header class=page__title>
         <h1>{{ title }}</h1>
