@@ -19,7 +19,6 @@ export const colors = {
 };
 
 export function shuffled() {
-  console.log(colors);
   let array = [
     colors.teal,
     colors.orange,
