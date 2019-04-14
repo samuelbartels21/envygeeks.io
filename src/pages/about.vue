@@ -129,18 +129,16 @@
 
 <script>
   import ghLink from "~/components/gh-link.vue"
-  import extLink from "~/components/ext-link.vue";
   import donut from "~/components/charts/donut.vue";
+  import extLink from "~/components/ext-link.vue";
   import layout from "~/layouts/page.vue";
+
   export default {
-    metaInfo: {
-      title: "About Me"
-    },
     components: {
-      ghLink,
+      donut,
       extLink,
       layout,
-      donut
+      ghLink
     }
   };
 </script>
