@@ -34,7 +34,7 @@
   function title(t) {
     let title = `${t.$static.meta.title} - ${t.$static.meta.subTitle}`;
     if (typeof t.$el !== "undefined" && typeof t.$el.title !== "undefined") {
-      if (t.$el.title != "") {
+      if (t.$el.title !== "") {
         title = `${title} - ${t.$el.title}`;
       }
     }
