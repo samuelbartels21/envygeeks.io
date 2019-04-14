@@ -1,3 +1,5 @@
+vars = require("./src/assets/vars.js");
+
 module.exports = {
   siteName: "envygeeks.io",
   plugins: [
@@ -14,6 +16,16 @@ module.exports = {
             create: true
           }
         }
+      }
+    },
+
+    {
+      use: '@gridsome/plugin-critical',
+      options: {
+        width: parseInt(vars.layoutWidth),
+        paths: [
+          '/'
+        ]
       }
     }
   ],
