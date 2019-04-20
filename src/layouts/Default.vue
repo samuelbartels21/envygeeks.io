@@ -25,15 +25,6 @@
   </div>
 </template>
 
-<script>
-  export default {
-    props: [
-      'pageTitleInHeader',
-      'pageTitle'
-    ]
-  }
-</script>
-
 <static-query>
   query {
     meta: metaData {

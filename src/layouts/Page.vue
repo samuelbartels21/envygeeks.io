@@ -1,5 +1,5 @@
 <template>
-  <Layout :page-title=pageTitle :page-title-in-header=pageTitleInHeader>
+  <Layout>
     <main role=main class="content page">
       <header v-if="pageTitle" class=page__title>
         <h1>{{ pageTitle }}</h1>
@@ -14,12 +14,7 @@
   export default {
     components: {
       Layout
-    },
-
-    props: [
-      "pageTitleInHeader",
-      "pageTitle"
-    ]
+    }
   }
 </script>
 
