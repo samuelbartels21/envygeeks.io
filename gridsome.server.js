@@ -1,26 +1,17 @@
+config = require("./gridsome.config.js");
+
 /**
  * Learn more:
  * https://gridsome.org/docs/server-api
  */
 module.exports = function(api) {
   api.loadSource(store => {
-    store.addMetaData("githubUser", "envygeeks")
-    store.addMetaData("siteSubTitle", "EnvyGeeks")
-    store.addMetaData("siteTitle", "Jordon Bedwell")
-    store.addMetaData("myName", "Jordon Bedwell")
-    store.addMetaData("siteUrl", "envygeeks.io")
-    store.addMetaData("useSSL", true)
-    store.addMetaData("siteNav", [
-      {
-        id: 1,
-        title: "Home",
-        to: "/"
-      },
-      {
-        id: 2,
-        title: "About",
-        to: "/about"
+    Object.keys(config).forEach(k => {
+      if (!config.skipOnMeta.includes(k)) {
+        store.addMetaData(k,
+          config[k]
+        );
       }
-    ])
+    })
   })
 }
