@@ -141,6 +141,10 @@
       ExternalLink,
       GithubLink,
       Layout
+    },
+
+    metaInfo: {
+      title: "About Me: Jordon Bedwell",
     }
   };
 </script>
