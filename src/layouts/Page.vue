@@ -1,7 +1,7 @@
 <template>
   <Layout :page-title=pageTitle :page-title-in-header=pageTitleInHeader>
-    <main class="content page">
-      <header class=page__title>
+    <main role=main class="content page">
+      <header v-if="pageTitle" class=page__title>
         <h1>{{ pageTitle }}</h1>
       </header>
       <slot/>
