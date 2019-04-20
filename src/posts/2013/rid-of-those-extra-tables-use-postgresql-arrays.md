@@ -1,4 +1,5 @@
 ---
+author: envygeeks
 title: Rid of those extra tables, use PostgreSQL arrays.
 date: 2013-06-12
 tags: [

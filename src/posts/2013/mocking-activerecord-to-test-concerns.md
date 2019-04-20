@@ -1,4 +1,5 @@
 ---
+author: envygeeks
 title: Mocking ActiveRecord to test concerns.
 date: 2013-06-24
 tags: [

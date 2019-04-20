@@ -1,4 +1,5 @@
 ---
+author: envygeeks
 title: Shell Escaping in Ruby
 date: 2016-02-24
 tags: [

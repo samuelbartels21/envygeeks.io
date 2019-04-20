@@ -1,6 +1,7 @@
 ---
-description: "Jekyll Assets 3 has been released, here's what's new."
-title: "Jekyll Assets 3 has been released, here's what's new."
+author: envygeeks
+description: Jekyll Assets 3 has been released, here's what's new.
+title: Jekyll Assets 3 has been released, here's what's new.
 date: 2017-11-21
 tags: [
   jekyll-assets,

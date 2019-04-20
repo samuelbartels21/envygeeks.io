@@ -1,4 +1,5 @@
 ---
+author: envygeeks
 title: Using `html-pipeline` in Jekyll.
 date: 2013-06-19
 tags: [

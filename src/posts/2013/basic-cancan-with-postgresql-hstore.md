@@ -1,4 +1,5 @@
 ---
+author: envygeeks
 title: Basic CanCan in Rails 4 using PostgreSQL `hstore`
 slug: basic-cancan-with-postgresql-hstore
 date: 2013-06-13

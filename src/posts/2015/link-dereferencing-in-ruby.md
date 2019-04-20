@@ -1,4 +1,5 @@
 ---
+author: envygeeks
 title: Link Dereferencing in Ruby.
 date: 2015-11-15
 tags: [

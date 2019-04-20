@@ -1,4 +1,5 @@
 ---
+author: envygeeks
 title: Tag your Bash history!
 date: 2015-11-16
 tags: [

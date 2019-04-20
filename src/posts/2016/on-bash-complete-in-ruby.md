@@ -1,4 +1,5 @@
 ---
+author: envygeeks
 title: Bash completion in Ruby
 date: 2016-02-16
 tags: [

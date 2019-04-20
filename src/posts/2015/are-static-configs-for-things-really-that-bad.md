@@ -1,4 +1,5 @@
 ---
+author: envygeeks
 title: Are static configs for things really all that bad?
 date: 2015-10-15
 tags: [
