@@ -26,31 +26,7 @@
 </template>
 
 <script>
-  /**
-   * @param t [Object] "this"
-   * getTitle allows you to dynamically set the title
-   * @return [String]
-   */
-  function title(t) {
-    let sMeta = t.$static.meta
-    let pData = t.$options.propsData
-    let title = `${sMeta.title} - ${sMeta.subTitle}`;
-    if (typeof pData.pageTitle == "undefined") return title;
-    if (typeof pData.pageTitleInHeader == "undefined") pData.pageTitleInHeader = true;
-    if (!pData.pageTitleInHeader) return title;
-    return `${title} - ${pData.pageTitle}`;
-  }
-
   export default {
-    metaInfo() {
-      return {
-        titleTemplate: title(this),
-        bodyAttrs: {
-          class: "body"
-        }
-      }
-    },
-
     props: [
       'pageTitleInHeader',
       'pageTitle'
