@@ -44,15 +44,15 @@ module.exports = {
 
   plugins: [
     {
-      use: '@gridsome/source-filesystem',
+      use: "@gridsome/source-filesystem",
       options: {
-        path: 'src/posts/**/*.md',
-        route: '/blog/:year/:month/:day/:slug',
-        typeName: 'Post',
+        path: "src/posts/**/*.md",
+        route: "/blog/:year/:month/:day/:slug",
+        typeName: "Post",
         refs: {
           tags: {
-            typeName: 'Tag',
-            route: '/tag/:id',
+            typeName: "Tag",
+            route: "/tag/:id",
             create: true
           }
         }
@@ -60,11 +60,11 @@ module.exports = {
     },
 
     {
-      use: '@gridsome/plugin-critical',
+      use: "@gridsome/plugin-critical",
       options: {
         width: parseInt(vars.layoutWidth),
         paths: [
-          '/'
+          "/"
         ]
       }
     }
