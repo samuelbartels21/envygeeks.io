@@ -58,6 +58,13 @@ module.exports = {
         }
       }
     },
+    {
+      use: "@gridsome/source-filesystem",
+      options: {
+        path: "src/authors/**/*.json",
+        typeName: "Author"
+      }
+    }
 
     {
       use: "@gridsome/plugin-critical",
