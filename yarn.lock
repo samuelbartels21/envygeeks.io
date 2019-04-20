@@ -714,6 +714,13 @@
     lodash "^4.17.10"
     slash "^2.0.0"
 
+"@gridsome/transformer-json@^0.1.0":
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/@gridsome/transformer-json/-/transformer-json-0.1.0.tgz#63d8d5925312e7e293ecf913a1ae4d5158d9d049"
+  integrity sha512-ZNneMsX0C7WDdYLNCcAAhYgs6gxe/c4IEJfkeGqzq+kFJFkl0nCTJLIc9o5ODFRx4KXkmPmsFNOuG+IZvFWvfg==
+  dependencies:
+    json-parse-better-errors "^1.0.2"
+
 "@gridsome/transformer-remark@^0.2.1":
   version "0.2.1"
   resolved "https://registry.yarnpkg.com/@gridsome/transformer-remark/-/transformer-remark-0.2.1.tgz#4d495abc21bd429160ef447f9c5a31142a46d06b"
@@ -736,6 +743,13 @@
     unified "^7.0.0"
     unist-util-visit "^1.4.0"
     vfile "^4.0.0"
+
+"@gridsome/transformer-yaml@^0.1.0":
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/@gridsome/transformer-yaml/-/transformer-yaml-0.1.0.tgz#879b06e33e406a514770e511927dfa4abf2e5105"
+  integrity sha512-890GXJplZ+V/fxViT5BMqshe2d5Pclw0VHQhhprykyFQBKE8cK7EccH/JCtH1f/09e+bBJdxoa43Es6nLt+5PA==
+  dependencies:
+    js-yaml "^3.12.1"
 
 "@hjvedvik/tasks@^0.0.8":
   version "0.0.8"
@@ -5557,7 +5571,7 @@ js-library-detector@^5.1.0:
   resolved "https://registry.yarnpkg.com/js-tokens/-/js-tokens-4.0.0.tgz#19203fb59991df98e3a287050d4647cdeaf32499"
   integrity sha512-RdJUflcE3cUzKiMqQgsCu06FPu9UdIJO0beYbPhHN4k6apgJtifcoCtT9bcxOpYBtpD2kCM6Sbzg4CausW/PKQ==
 
-js-yaml@^3.11.0, js-yaml@^3.13.0, js-yaml@^3.5.2, js-yaml@^3.9.0:
+js-yaml@^3.11.0, js-yaml@^3.12.1, js-yaml@^3.13.0, js-yaml@^3.5.2, js-yaml@^3.9.0:
   version "3.13.1"
   resolved "https://registry.yarnpkg.com/js-yaml/-/js-yaml-3.13.1.tgz#aff151b30bfdfa8e49e05da22e7415e9dfa37847"
   integrity sha512-YfbcO7jXDdyj0DGxYVSlSeQNHbD7XPWvrVWeVUujrQEoZzWJIRrCPoyk6kL6IAjAG2IolMK4T0hNUe0HOUs5Jw==
