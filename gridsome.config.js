@@ -50,6 +50,10 @@ module.exports = {
         route: "/blog/:year/:month/:day/:slug",
         typeName: "Post",
         refs: {
+          author: {
+            typeName: "Author",
+            create: false
+          },
           tags: {
             typeName: "Tag",
             route: "/tag/:id",
