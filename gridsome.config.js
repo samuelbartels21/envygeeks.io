@@ -64,8 +64,7 @@ module.exports = {
         path: "src/authors/**/*.json",
         typeName: "Author"
       }
-    }
-
+    },
     {
       use: "@gridsome/plugin-critical",
       options: {
