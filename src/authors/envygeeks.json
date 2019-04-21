@@ -1,8 +1,10 @@
 {
-  "slug": "envygeeks",
+  "id": "envygeeks",
   "github": "envygeeks",
+  "title": "Jordon Bedwell AKA EnvyGeeks",
+  "content": "I'm an open source programmer, and systems person.",
   "websiteUrl": "https://envygeeks.io",
   "name": "Jordon Bedwell",
   "twitter": "envygeeks",
-  "avatar_url": null,
+  "avatar_url": null
 }
