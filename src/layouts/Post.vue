@@ -14,8 +14,12 @@
       Layout
     },
 
-    props: [
-      "many"
-    ]
+    props: {
+      many: {
+        default: false,
+        required: false,
+        type: Boolean
+      }
+    }
   }
 </script>
