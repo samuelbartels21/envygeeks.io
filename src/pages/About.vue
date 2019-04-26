@@ -19,7 +19,7 @@
     <g-image
       height=200
       alt="Jordon Bedwell Avatar"
-      src="~/assets/avatar.jpg"
+      src="~/assets/avatars/envygeeks.jpg"
       class="avatar"
       width=200
     />
