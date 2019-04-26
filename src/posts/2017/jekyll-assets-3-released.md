@@ -1,8 +1,9 @@
 ---
 author: envygeeks
+slug: jekyll-assets-3-released
 description: Jekyll Assets 3 has been released, here's what's new.
 title: Jekyll Assets 3 has been released, here's what's new.
-date: 2017-11-21
+date: Tue, 21 Nov 2017 00:00:00 -0600
 tags: [
   jekyll-assets,
   jekyll

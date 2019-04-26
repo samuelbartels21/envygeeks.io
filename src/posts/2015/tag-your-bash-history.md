@@ -1,7 +1,7 @@
 ---
 author: envygeeks
+date: Mon, 16 Nov 2015 00:00:00 -0600
 title: Tag your Bash history!
-date: 2015-11-16
 tags: [
   ubuntu,
   bash

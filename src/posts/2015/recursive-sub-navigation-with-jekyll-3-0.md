@@ -1,7 +1,7 @@
 ---
 author: envygeeks
 title: Recursive (sub-)navigation with Jekyll 3.0
-date: 2015-12-06
+date: Sun, 06 Dec 2015 00:00:00 -0600
 tags: [
   jekyll,
   ruby

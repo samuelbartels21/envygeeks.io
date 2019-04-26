@@ -2,7 +2,7 @@
 author: envygeeks
 title: Using PostgreSQL HStore to store your tags in Rails 3
 slug: using-hstore-to-store-your-tags-in-rails
-date: 2012-11-17
+date: Sat, 17 Nov 2012 00:00:00 -0600
 tags: [
   hstore,
   postgresql,

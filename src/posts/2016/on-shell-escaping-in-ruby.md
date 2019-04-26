@@ -1,7 +1,7 @@
 ---
 author: envygeeks
+date: Wed, 24 Feb 2016 00:00:00 -0600
 title: Shell Escaping in Ruby
-date: 2016-02-24
 tags: [
   ruby
 ]
