@@ -1,0 +1,11 @@
+{
+  "id": "schema",
+  "title": "String",
+  "content": "String",
+  "avatar": "String",
+  "website": "String",
+  "twitter": "String",
+  "github": "String",
+  "name": "String",
+  "slug": "String"
+}
