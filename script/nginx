@@ -1,0 +1,8 @@
+#!/bin/bash
+[[ "$DEBUG" == true ]] && set -x
+set -e
+
+docker run \
+  -v $PWD/dist:/usr/share/nginx/html:ro \
+  -p 8080:80 \
+  nginx
