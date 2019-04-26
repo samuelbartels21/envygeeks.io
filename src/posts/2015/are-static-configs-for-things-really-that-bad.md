@@ -1,7 +1,7 @@
 ---
 author: envygeeks
 title: Are static configs for things really all that bad?
-date: Thu, 15 Oct 2015 00:00:00 -0500
+date: 2015-10-15T00:00:00-05:00
 tags: [
   ruby
 ]

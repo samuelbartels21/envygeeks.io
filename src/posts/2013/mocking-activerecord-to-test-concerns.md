@@ -1,7 +1,7 @@
 ---
 author: envygeeks
 title: Mocking ActiveRecord to test concerns.
-date: Mon, 24 Jun 2013 00:00:00 -0500
+date: 2013-06-24T00:00:00-05:00
 tags: [
   rspec,
   rails3,

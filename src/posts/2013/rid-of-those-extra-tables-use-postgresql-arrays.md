@@ -1,7 +1,7 @@
 ---
 author: envygeeks
 title: Rid of those extra tables, use PostgreSQL arrays.
-date: Wed, 12 Jun 2013 00:00:00 -0500
+date: 2013-06-12T00:00:00-05:00
 tags: [
   rails4,
   postgresql,

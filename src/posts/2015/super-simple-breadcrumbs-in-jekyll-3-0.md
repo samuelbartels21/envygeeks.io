@@ -1,7 +1,7 @@
 ---
 author: envygeeks
 title: Breadcrumbs in Jekyll 3.0+
-date: Sun, 06 Dec 2015 00:00:00 -0600
+date: 2015-12-06T00:00:00-06:00
 tags: [
   jekyll,
   ruby

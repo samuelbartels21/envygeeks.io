@@ -1,6 +1,6 @@
 ---
 author: envygeeks
-date: Tue, 16 Feb 2016 00:00:00 -0600
+date: 2016-02-16T00:00:00-06:00
 title: Bash completion in Ruby
 tags: [
   ruby,

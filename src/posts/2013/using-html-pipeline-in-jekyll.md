@@ -1,7 +1,7 @@
 ---
 author: envygeeks
 title: Using `html-pipeline` in Jekyll.
-date: Wed, 19 Jun 2013 00:00:00 -0500
+date: 2013-06-19T00:00:00-05:00
 tags: [
   jekyll,
   ruby

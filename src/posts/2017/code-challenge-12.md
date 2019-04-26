@@ -1,7 +1,7 @@
 ---
 author: envygeeks
 slug: code-challenge-12
-date: Wed, 05 Jul 2017 00:00:00 -0500
+date: 2017-07-05T00:00:00-05:00
 title: "Challenge #12"
 tags: [
   code-challenge
