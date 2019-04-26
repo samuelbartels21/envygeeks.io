@@ -18,13 +18,11 @@ Here is what's new:
 
 ## One Tag to Rule Them All
 
-We've removed {% raw %}`{% css %}`{% endraw %}, {% raw %}`{% link %}`{% endraw
-%}, {% raw %}`{% img %}`{% endraw %}, and any other tag, and left only one tag
-to rule them all {% raw %}`{% asset %}`{% endraw %}, since Sprockets 4 now
-requires you to add an extension for most asset searching, it's no longer
-necessary for us to carry multiple tags to set a series of basic content types,
-we now have a single tag that deals with everything, including determining
-content type.
+We've removed `{% css %}`, `{% link %}`, `{% img %}`, and any other tag, and
+left only one tag to rule them all `{% asset %}`, since Sprockets 4 now requires
+you to add an extension for most asset searching, it's no longer necessary for
+us to carry multiple tags to set a series of basic content types, we now have a
+single tag that deals with everything, including determining content type.
 
 ## Super Fast
 
@@ -106,7 +104,6 @@ https://github.com/envygeeks/jekyll-assets#responsive-images
 
 ### Example
 
-{% raw %}
 ```liquid
 {% asset img.png @pic
     srcset:max-width="800 2x"
@@ -114,7 +111,6 @@ https://github.com/envygeeks/jekyll-assets#responsive-images
     srcset:max-width="400 1x"
       %}
 ```
-{% endraw %}
 
 #### Result
 
@@ -129,7 +125,6 @@ https://github.com/envygeeks/jekyll-assets#responsive-images
 
 ### Example
 
-{% raw %}
 ```liquid
 {% asset img.png
     srcset:width="400 1x"
@@ -143,7 +138,6 @@ https://github.com/envygeeks/jekyll-assets#responsive-images
     srcset:width=800
       %}
 ```
-{% endraw %}
 
 #### Result
 
@@ -197,11 +191,9 @@ extracted into it's own so bugs can be fixed.  And aside from that, it uses
 Jekyll style standard syntax, with much more powerful handling of arguments. We
 now support array's, hashes, and it looks more like Jekyll.
 
-{% raw %}
 ```liquid
 {% asset asset.ext key:subkey=val array=1 array=2 %}
 ```
-{% endraw %}
 
 ## Proxies in SCSS
 
@@ -211,13 +203,11 @@ same as `asset_path` except with extra spaces, this even works with global
 (read: `site`) variables, avoiding the Liquid broke my JavaScript problem with
 `.css.liquid` or `.liquid.css`, see it in action for yourself
 
-{% raw %}
 ```scss
 body {
   background-image: asset_url("'{{ site.bg }}' magick:resize=1200")
 }
 ```
-{% endraw %}
 
 
 ## SourceMaps
@@ -236,9 +226,9 @@ assets:
 You can now customize the defaults.  You can disable any default we create by
 shipping `!attrName`, which will tell us you don't want it, or you can add your
 own defaults if you want, for example, lets say you want your movies to
-autoplay, but you don't want to add `@autoplay` to every single {% raw %}`{%
-asset %}`{% endraw %}  You can now create a simple plugin, make sure it's
-required inside of your Jekyll, and do the following:
+autoplay, but you don't want to add `@autoplay` to every single `{% asset %}`.
+You can now create a simple plugin, make sure it's required inside of your
+Jekyll, and do the following:
 
 ```ruby
 # Frozen-string-literal: true

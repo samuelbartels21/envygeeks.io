@@ -105,7 +105,6 @@ end
   _includes/nav.html
 </p>
 
-{% raw %}
 ```html
 <ul>
   {% for _page in looping %}
@@ -122,13 +121,10 @@ end
   {% endfor %}
 </ul>
 ```
-{% endraw %}
 
 Now in your main layout do this:
 
-{% raw %}
 ```html
 {% looping = site.nav %}
 {% include   nav.html %}
 ```
-{% endraw %}

@@ -79,7 +79,6 @@ end
 
 And in your default layout:
 
-{% raw %}
 ```html
 <div class"breadcrumbs">
   {% for crumb in breadcrumbs %}
@@ -95,4 +94,3 @@ And in your default layout:
   {% endfor %}
 </div>
 ```
-{% endraw %}
