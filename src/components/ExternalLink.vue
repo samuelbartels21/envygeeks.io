@@ -7,8 +7,11 @@
 <script>
   export default {
     name: "ExternalLink",
-    props: [
-      "url"
-    ]
+    props: {
+      url: {
+        required: true,
+        type: String
+      }
+    }
   }
 </script>

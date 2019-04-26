@@ -29,9 +29,12 @@
       onClick
     },
 
-    props: [
-      "expandAndContractOn"
-    ]
+    props: {
+      expandAndContractOn: {
+        required: false,
+        type: Object
+      }
+    }
   }
 
   /**

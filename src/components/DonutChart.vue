@@ -5,10 +5,16 @@
   export default {
     extends: Donut,
     name: "Donut",
-    props: [
-      "labels",
-      "values"
-    ],
+    props: {
+      labels: {
+        required: true,
+        type: Array
+      },
+      values: {
+        required: true,
+        type: Array
+      }
+    },
 
     mounted () {
       this.renderChart({

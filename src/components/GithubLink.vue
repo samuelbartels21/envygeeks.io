@@ -11,10 +11,27 @@
     components: {
       ExternalLink
     },
-    props: [
-      "repo",
-      "user"
-    ]
+
+    props: {
+      /**
+       * @param repo
+       * the repository to link
+       * @val string
+       */
+      repo: {
+        required: true,
+        type: String
+      },
+      /**
+       * @param user
+       * the user for the repo
+       * @val string
+       */
+      user: {
+        required: true,
+        type: String
+      }
+    }
   }
 </script>
 
