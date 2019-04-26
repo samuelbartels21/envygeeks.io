@@ -167,6 +167,7 @@
       text-align: right;
       shape-outside: circle();
       border-radius: 50%;
+      margin: 2rem 0;
       height: 240px;
       float: right;
     }
@@ -187,9 +188,10 @@
    */
   .avatar {
     height: 8.3rem;
-    padding: 0.8rem 1rem 0 0;
+    padding: 2.8rem 1rem 0 0;
     width: 8.3rem;
     float: left;
+
   }
 
   /**
