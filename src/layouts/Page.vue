@@ -1,7 +1,7 @@
 <template>
   <Layout>
     <main role=main class="content page">
-      <header v-if="pageTitle" class=page__title>
+      <header v-if=pageTitle class=page__title>
         <h1>{{ pageTitle }}</h1>
       </header>
       <slot/>
@@ -24,7 +24,9 @@
   .page {
     font-size: 1.125rem;
     line-height: 2.5rem;
+    margin: 4rem 0;
     color: $grey8;
+    float: left;
 
     p {
       margin: 2rem 0;
