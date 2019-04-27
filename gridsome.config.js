@@ -26,6 +26,11 @@ module.exports = {
       id: 2,
       title: "About",
       to: "/about"
+    },
+    {
+      id: 3,
+      title: "Archives",
+      to: "/archives"
     }
   ],
 
