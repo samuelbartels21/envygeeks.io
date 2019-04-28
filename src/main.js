@@ -1,18 +1,18 @@
-import DefaultLayout from "~/layouts/Default.vue"
-export default function (Vue, { router, head, isClient }) {
-  Vue.component("Layout", DefaultLayout)
+import { headers } from "../gridsome.config.js";
+import { relativeTime } from "./filters/relativeTime";
+import { formatTime } from "./filters/formatTime";
+import Layout from "~/layouts/Default.vue";
 
-  /**
-   * Google Fonts
-   * @todo Eventually this should be hosted
-   *   by me to remove privacy concerns.
-   */
-  head.link.push({
-    rel: "stylesheet",
-    href: "https://fonts.googleapis.com/css?family=" +
-      "Lora:300,300i,400,400i|" +
-      "Montserrat:300,300i,400,400i,700,700i|" +
-      "Noto+Sans:400,400i|" +
-      "IBM+Plex+Mono:400"
-  })
+export default function (Vue, { router, head, isClient }) {
+  Vue.filter("formatTime", formatTime);
+  Vue.filter("relativeTime", relativeTime);
+  Vue.component("Layout", Layout);
+
+  Object.keys(headers).forEach(type => {
+    headers[type].forEach(header => {
+      head[type].push(
+        header
+      );
+    });
+  });
 }

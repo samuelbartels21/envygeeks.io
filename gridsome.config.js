@@ -1,5 +1,3 @@
-vars = require("./src/assets/vars.base.js");
-
 module.exports = {
   myName: "Jordon Bedwell",
   twitterUser: "envygeeks",
@@ -11,11 +9,6 @@ module.exports = {
   siteUrl: "envygeeks.io",
   titleTemplate: "%s",
   useSSL: true,
-
-  /**
-   * Site
-   * Nav
-   */
   siteNav: [
     {
       id: 1,
@@ -33,20 +26,19 @@ module.exports = {
       to: "/archives"
     }
   ],
-
-  /**
-   * Because Gridsome is inconsistent
-   * with the way it maps out configuration
-   * and meta (in that they load some
-   * early, some late) we map config
-   * into meta as well for a 1:1
-   * type of configuration.
-   */
-  skipOnMeta: [
-    "transformers",
-    "plugins"
-  ],
-
+  headers: {
+    link: [
+      {
+        rel: "stylesheet",
+        href: "https://fonts.googleapis.com/css?family=" + [
+          "Lora:300,300i,400,400i",
+          "Montserrat:300,300i,400,400i,700,700i",
+          "Noto+Sans:400,400i",
+          "IBM+Plex+Mono:400"
+        ].join("|")
+      }
+    ]
+  },
   plugins: [
     {
       use: "@gridsome/source-filesystem",
@@ -77,14 +69,12 @@ module.exports = {
     {
       use: "@gridsome/plugin-critical",
       options: {
-        width: parseInt(vars.layoutWidth),
         paths: [
           "/"
         ]
       }
     }
   ],
-
   transformers: {
     remark: {
       externalLinksTarget: "_blank",
@@ -98,5 +88,10 @@ module.exports = {
         "@gridsome/remark-prismjs"
       ]
     }
-  }
+  },
+  skipOnMeta: [
+    "headers",
+    "transformers",
+    "plugins"
+  ],
 }
