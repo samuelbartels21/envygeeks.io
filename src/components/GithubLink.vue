@@ -19,7 +19,7 @@
       },
 
       user: {
-        required: true,
+        required: false,
         type: String
       }
     }
