@@ -14,6 +14,12 @@
   export default {
     components: {
       Layout
+    },
+    props: {
+      pageTitle: {
+        required: false,
+        type: String
+      }
     }
   }
 </script>
@@ -24,7 +30,7 @@
   .page {
     font-size: 1.125rem;
     line-height: 2.5rem;
-    margin: 4rem 0;
+    margin: 3rem 0;
     color: $grey8;
     float: left;
 
@@ -39,7 +45,7 @@
         line-height: 4rem;
         text-align: center;
         font-style: italic;
-        margin: 3rem 0;
+        margin: 0 0 3rem;
       }
     }
   }
