@@ -17,11 +17,11 @@
     />
 
     <g-image
-      height=200
+      height="200"
       alt="Jordon Bedwell Avatar"
       src="~/assets/avatars/envygeeks.jpg"
       class="avatar"
-      width=200
+      width="200"
     />
 
     <p>Hi, I’m Jordon Bedwell. I’m an Open Source Programmer, Programmer For
@@ -131,9 +131,9 @@
 
 <script>
   import GithubLink from "~/components/GithubLink.vue"
-  import ExternalLink from "~/components/ExternalLink.vue";
-  import DonutChart from "~/components/DonutChart.vue";
-  import Layout from "~/layouts/Page.vue";
+  import ExternalLink from "~/components/ExternalLink.vue"
+  import DonutChart from "~/components/DonutChart.vue"
+  import Layout from "~/layouts/Page.vue"
 
   export default {
     components: {

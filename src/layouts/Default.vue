@@ -1,19 +1,19 @@
 <template>
-  <div class=layout>
-    <header class=header>
-      <div class=title>
-        <span class=title__one>
-          <g-link to="/" rel=me>
+  <div class="layout">
+    <header class="header">
+      <div class="title">
+        <span class="title__one">
+          <g-link to="/" rel="me">
             {{ $static.meta.title }}
           </g-link>
         </span>
-        <span class=title__two>
+        <span class="title__two">
           {{ $static.meta.subTitle }}
         </span>
       </div>
-      <nav class=nav>
+      <nav class="nav">
         <ul>
-          <li class=nav__item v-for="nav in $static.meta.nav" :key="nav.id">
+          <li class="nav__item" v-for="nav in $static.meta.nav" :key="nav.id">
             <g-link :to="nav.to">
               {{ nav.title }}
             </g-link>

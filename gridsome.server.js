@@ -1,6 +1,6 @@
-const config = require("./gridsome.config.js");
-const skippable = require("./gridsome.config.js").skipOnMeta;
-const join = require("path").join;
+const config = require("./gridsome.config.js")
+const skippable = require("./gridsome.config.js").skipOnMeta
+const join = require("path").join
 
 module.exports = function(api) {
   api.loadSource(store => {
@@ -8,8 +8,8 @@ module.exports = function(api) {
       if (!skippable.includes(k)) {
         store.addMetaData(k,
           config[k]
-        );
+        )
       }
-    });
-  });
+    })
+  })
 }

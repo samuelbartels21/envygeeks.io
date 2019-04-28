@@ -1,5 +1,5 @@
 <template>
-  <Layout :many=true>
+  <Layout :many="true">
     <slot/>
   </Layout>
 </template>

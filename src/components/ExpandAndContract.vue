@@ -1,20 +1,20 @@
 <template>
-  <div class=expandable-wrapper data-expanded=false>
-    <a v-on:click=onClick class=button>
+  <div class="expandable-wrapper" data-expanded="false">
+    <a v-on:click="onClick" class="button">
       <g-image
-        class=in
-        height=24
+        class="in"
+        height="24"
         src="~/assets/in.svg"
-        alt=Contract
-        width=24
+        alt="Contract"
+        width="24"
       />
 
       <g-image
-        class=out
-        height=24
+        class="out"
+        height="24"
         src="~/assets/out.svg"
-        alt=Expand
-        width=24
+        alt="Expand"
+        width="24"
       />
     </a>
 
@@ -23,7 +23,7 @@
 </template>
 
 <script>
-  import Vue from "vue";
+  import Vue from "vue"
   const opts = {
     methods: {
       onClick
@@ -44,7 +44,7 @@
    * @return [null]
    */
   function onClick(event) {
-    let el = this.$el, state = el.getAttribute("data-expanded");
+    let el = this.$el, state = el.getAttribute("data-expanded")
     if (state === "true") {
       el.setAttribute("data-expanded",
         false
@@ -70,12 +70,12 @@
       let Component = Vue.extend(opts)
       let eac = new Component({
         parent: ctx
-      });
+      })
 
-      eac.$mount();
-      sEl.parentNode.insertBefore(eac.$el, sEl);
-      eac.$el.appendChild(sEl);
-    });
+      eac.$mount()
+      sEl.parentNode.insertBefore(eac.$el, sEl)
+      eac.$el.appendChild(sEl)
+    })
   }
 </script>
 

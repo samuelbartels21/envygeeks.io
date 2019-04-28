@@ -1,6 +1,6 @@
 <script>
-  import { shuffledColors } from "~/assets/colors";
-  import { Doughnut as Donut } from "vue-chartjs";
+  import { shuffledColors } from "~/assets/colors"
+  import { Doughnut as Donut } from "vue-chartjs"
 
   export default {
     extends: Donut,

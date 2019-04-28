@@ -1,4 +1,4 @@
-import moment from "moment";
+import moment from "moment"
 
 /**
  * relativeTime turns time into "3 years ago"

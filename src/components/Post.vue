@@ -1,11 +1,11 @@
 <template>
-  <article class=post>
-    <header ref=header v-if=main class=post__title>
+  <article class="post">
+    <header ref="header" v-if="main" class="post__title">
       <h1>
         {{ post.title }}
       </h1>
     </header>
-    <header ref=header v-else class=post__title>
+    <header ref="header" v-else class="post__title">
       <h1>
         <a :href="post.path">
           {{ post.title }}
@@ -14,23 +14,23 @@
     </header>
 
     <div
-      ref=content
+      class="post__content"
       v-html="post.content"
-      class=post__content
+      ref="content"
     />
 
-    <footer ref=footer class=post__meta>
+    <footer ref="footer" class="post__meta">
       <div class="meta__avatar meta--left">
         <ExternalLink :url="post.author.website">
           <img
-            heigh=48
+            heigh="48"
             :src="post.author.avatar"
-            width=48
+            width="48"
           />
         </ExternalLink>
       </div>
 
-      <div class=meta--left>
+      <div class="meta--left">
         <div>
           <p class="meta__author meta--left">
             <ExternalLink :url="post.author.website">
@@ -46,7 +46,7 @@
           </ul>
         </div>
 
-        <div class=meta__date>
+        <div class="meta__date">
           <time :datetime="post.date">
             {{ post.date | relativeTime }}
           </time>
@@ -54,7 +54,7 @@
       </div>
     </footer>
 
-    <aside v-if="!main" class=post__read>
+    <aside v-if="!main" class="post__read">
       <a :href="post.path">
         Read More ({{ post.timeToRead }} min. read) ≫
       </a>
@@ -63,13 +63,13 @@
 </template>
 
 <script>
-  import ExternalLink from "~/components/ExternalLink.vue";
-  import { expandAndContractSetup } from "~/components/ExpandAndContract.vue";
+  import ExternalLink from "~/components/ExternalLink.vue"
+  import { expandAndContractSetup } from "~/components/ExpandAndContract.vue"
 
   function shorten(t) {
-    let el = t.$refs.content;
+    let el = t.$refs.content
     while (el.childNodes.length > 3) {
-      el.removeChild(el.lastChild);
+      el.removeChild(el.lastChild)
     }
   }
 
@@ -80,29 +80,16 @@
     },
 
     props: {
-      /**
-       * @param main
-       * whether or not this is main
-       * @val [true, false]
-       */
       main: {
         required: true,
         type: Boolean
       },
-      /**
-       * @param trim
-       * trim the post down
-       * @val [true, false]
-       */
+
       trim: {
         required: true,
         type: Boolean
       },
-      /**
-       * @val graphql
-       * the post graphql object
-       * @param post
-       */
+
       post: {
         required: true,
         type: Object
@@ -110,14 +97,14 @@
     },
 
     mounted() {
-      if (this.trim) shorten(this);
-      let selector = "pre[class*='language-']";
-      let el = this.$refs.content;
+      if (this.trim) shorten(this)
+      let selector = "pre[class*='language-']"
+      let el = this.$refs.content
       expandAndContractSetup(
         this, el, selector
-      );
+      )
     }
-  };
+  }
 </script>
 
 <style lang=scss>

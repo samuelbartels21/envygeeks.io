@@ -1,6 +1,6 @@
 <template>
   <Layout>
-    <main role=main :class="many ? 'content posts' : 'content'">
+    <main role="main" :class="many ? 'content posts' : 'content'">
       <slot/>
     </main>
   </Layout>

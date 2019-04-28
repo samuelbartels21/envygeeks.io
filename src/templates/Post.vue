@@ -2,7 +2,7 @@
   <Layout>
     <Post
       :post="$page.post"
-      :main=true
+      :main="true"
     />
   </Layout>
 </template>

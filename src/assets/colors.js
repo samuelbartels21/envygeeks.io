@@ -16,7 +16,7 @@ export const colors = {
   grey7: "#525f7f",
   grey8: "#32325d",
   grey9: "#212529"
-};
+}
 
 export function shuffledColors() {
   let array = [
@@ -24,8 +24,8 @@ export function shuffledColors() {
     colors.orange,
     colors.green,
     colors.pink,
-    colors.blue,
-  ];
+    colors.blue
+  ]
 
   for (let i = array.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
@@ -36,7 +36,7 @@ export function shuffledColors() {
     ] = [
       array[j],
       array[i]
-    ];
+    ]
   }
 
   return array

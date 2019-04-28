@@ -1,4 +1,4 @@
-import { DateTime } from "luxon";
+import { DateTime } from "luxon"
 
 /**
  * formatTime allows you to format time
@@ -7,8 +7,8 @@ import { DateTime } from "luxon";
  * @return [String]
  */
 export function formatTime(string, format) {
-  let time = DateTime.fromISO(string);
+  let time = DateTime.fromISO(string)
   return time.toFormat(
     format
-  );
+  )
 }

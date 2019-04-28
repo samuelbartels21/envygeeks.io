@@ -5,7 +5,7 @@
 </template>
 
 <script>
-  import ExternalLink from "~/components/ExternalLink.vue";
+  import ExternalLink from "~/components/ExternalLink.vue"
   export default {
     name: "GithubLink",
     components: {
@@ -13,20 +13,11 @@
     },
 
     props: {
-      /**
-       * @param repo
-       * the repository to link
-       * @val string
-       */
       repo: {
         required: true,
         type: String
       },
-      /**
-       * @param user
-       * the user for the repo
-       * @val string
-       */
+
       user: {
         required: true,
         type: String

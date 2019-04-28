@@ -1,27 +1,27 @@
 <template>
   <Layout>
-    <div class=tags>
+    <div class="tags">
       <ul>
-        <li class=tag__item v-for="edge in $page.tags.edges">
+        <li class="tag__item" v-for="edge in $page.tags.edges">
           <a :href="edge.node.path">
             {{ edge.node.slug }}
           </a>
         </li>
       </ul>
     </div>
-    <div class=archives>
-      <div class=archive__year v-for="edges, year in group($page.posts.edges)">
+    <div class="archives">
+      <div class="archive__year" v-for="edges, year in group($page.posts.edges)">
         <h2>{{ year }}</h2>
 
         <article v-for="edge in edges">
-          <header class=left>
+          <header class="left">
             <h3>
               <a :href="edge.node.path">
                 {{ edge.node.title }}
               </a>
             </h3>
           </header>
-          <footer class=right>
+          <footer class="right">
             <time :datetime="edge.node.date">
               {{ edge.node.date | relativeTime }}
             </time>
@@ -33,8 +33,8 @@
 </template>
 
 <script>
-  import Layout from "~/layouts/Archive";
-  import { DateTime } from "luxon";
+  import Layout from "~/layouts/Archive"
+  import { DateTime } from "luxon"
 
   /**
    * group the posts by year
@@ -42,9 +42,7 @@
    * @return [Object<Array>]
    */
   function groupPosts(posts) {
-    let grouped = {
-      //
-    };
+    let grouped = {}
 
     posts.forEach(post => {
       let date = DateTime.fromISO(post.node.date);
@@ -53,10 +51,10 @@
       if (!grouped[y]) {
         grouped[y] = [
           //
-        ];
+        ]
       }
 
-      grouped[y].push(post);
+      grouped[y].push(post)
     })
 
     return grouped;
