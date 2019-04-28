@@ -116,22 +116,19 @@
       id="hacking"
     />
 
-    <p>I am heavy <ExternalLink url="https://docker.com">Docker</ExternalLink>
-    user, a Linux user, and I manage and maintain a great many <ExternalLink
-    url="https://jekyllrb.com">Jekyll</ExternalLink> plugins, and other Ruby
-    projects, that hopefully you love and enjoy. I’ve built tools like
-    <GithubLink repo="docker-template"/>Docker Template</GithubLink>, plugins
-    like <GithubLink repo="jekyll-assets">Jekyll Assets</GithubLink>, and Docker
-    zimages like <GithubLink repo="jekyll-docker">Jekyll Docker</GithubLink>,
-    and I currently manage many other Docker images. Unless I’ve removed them,
-    or planned to deprecate them because the ecosystem has taken over to do a
+    <p>I'm heavy <a-ext href="https://docker.com">Docker</a-ext> user, a Linux
+    user, and I maintain a great many <a-ext href="https://jekyllrb.com">Jekyll
+    </a-ext> plugins, and other Ruby projects, that hopefully you love and
+    enjoy. I’ve built tools like <a-gh repo="docker-template"/>Docker Template
+    z</a-gh>, plugins like <a-gh repo="jekyll-assets">Jekyll Assets</a-gh>, and
+    Docker zimages like <a-gh repo="jekyll-docker">Jekyll Docker</a-gh>, and I
+    currently manage many other Docker images. Unless I’ve removed them, or
+    planned to deprecate them because the ecosystem has taken over to do a
     better job.</p>
   </layout>
 </template>
 
 <script>
-  import GithubLink from "~/components/GithubLink.vue"
-  import ExternalLink from "~/components/ExternalLink.vue"
   import DonutChart from "~/components/DonutChart.vue"
   import Layout from "~/layouts/Page.vue"
 
@@ -142,7 +139,6 @@
       GithubLink,
       Layout
     },
-
     metaInfo: {
       title: "About Me: Jordon Bedwell",
     }

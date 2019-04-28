@@ -25,12 +25,12 @@
 <script>
   import Vue from "vue"
   const opts = {
+    name: "Expandable",
     methods: {
       onClick
     },
-
     props: {
-      expandAndContractOn: {
+      on: {
         required: false,
         type: Object
       }
@@ -65,8 +65,9 @@
    * @return [null]
    */
   export default opts
-  export function expandAndContractSetup(ctx, el, selector) {
-    el.querySelectorAll(selector).forEach(sEl => {
+  export function expandOn(ctx, el, selector) {
+    let els = el.querySelectorAll(selector)
+    els.forEach(sEl => {
       let Component = Vue.extend(opts)
       let eac = new Component({
         parent: ctx
@@ -79,7 +80,7 @@
   }
 </script>
 
-<style lang=scss scoped>
+<style lang="scss" scoped>
   @import "~/assets/colors.scss";
 
   .button {

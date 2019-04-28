@@ -21,21 +21,21 @@
 
     <footer ref="footer" class="post__meta">
       <div class="meta__avatar meta--left">
-        <ExternalLink :url="post.author.website">
+        <a-ext :href="post.author.website">
           <img
             heigh="48"
             :src="post.author.avatar"
             width="48"
           />
-        </ExternalLink>
+        </a-ext>
       </div>
 
       <div class="meta--left">
         <div>
           <p class="meta__author meta--left">
-            <ExternalLink :url="post.author.website">
+            <a-ext :href="post.author.website">
               {{ post.author.name }}
-            </ExternalLink>
+            </a-ext>
           </p>
           <ul class="meta__tags meta--right">
             <li v-for="tag in post.tags">
@@ -63,8 +63,7 @@
 </template>
 
 <script>
-  import ExternalLink from "~/components/ExternalLink.vue"
-  import { expandAndContractSetup } from "~/components/ExpandAndContract.vue"
+  import { expandOn } from "~/components/Expandable.vue"
 
   function shorten(t) {
     let el = t.$refs.content
@@ -75,32 +74,25 @@
 
   export default {
     name: "Post",
-    components: {
-      ExternalLink
-    },
-
     props: {
       main: {
         required: true,
         type: Boolean
       },
-
       trim: {
         required: true,
         type: Boolean
       },
-
       post: {
         required: true,
         type: Object
       }
     },
-
     mounted() {
       if (this.trim) shorten(this)
       let selector = "pre[class*='language-']"
       let el = this.$refs.content
-      expandAndContractSetup(
+      expandOn(
         this, el, selector
       )
     }

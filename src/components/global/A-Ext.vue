@@ -1,14 +1,14 @@
 <template>
-  <a :href="url" rel="noopener noreferrer nofollow" target="_blank">
+  <a :href="href" rel="noopener noreferrer nofollow" target="_blank">
     <slot/>
   </a>
 </template>
 
 <script>
   export default {
-    name: "ExternalLink",
+    name: "a-ext",
     props: {
-      url: {
+      href: {
         required: true,
         type: String
       }
