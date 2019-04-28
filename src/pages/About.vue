@@ -129,20 +129,18 @@
 </template>
 
 <script>
-  import DonutChart from "~/components/DonutChart.vue"
+  import DonutChart from "~/components/charts/Donut.vue"
   import Layout from "~/layouts/Page.vue"
 
   export default {
     components: {
       DonutChart,
-      ExternalLink,
-      GithubLink,
       Layout
     },
     metaInfo: {
       title: "About Me: Jordon Bedwell",
     }
-  };
+  }
 </script>
 
 <style lang=scss>

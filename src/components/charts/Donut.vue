@@ -15,7 +15,6 @@
         type: Array
       }
     },
-
     mounted () {
       this.renderChart({
         labels: this.labels,
