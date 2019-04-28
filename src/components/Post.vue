@@ -1,15 +1,15 @@
 <template>
   <article class="post">
-    <header ref="header" v-if="main" class="post__title">
+    <header ref="header" class="post__title">
       <h1>
-        {{ post.title }}
-      </h1>
-    </header>
-    <header ref="header" v-else class="post__title">
-      <h1>
-        <a :href="post.path">
+        <template v-if="main">
           {{ post.title }}
-        </a>
+        </template>
+        <template v-else>
+          <a :href="post.path">
+            {{ post.title }}
+          </a>
+        </template>
       </h1>
     </header>
 
@@ -80,7 +80,8 @@
         type: Boolean
       },
       trim: {
-        required: true,
+        default: false,
+        required: false,
         type: Boolean
       },
       post: {
