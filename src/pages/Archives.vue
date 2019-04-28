@@ -22,7 +22,9 @@
             </h3>
           </header>
           <footer class=right>
-            <Ago :val="edge.node.date"/>
+            <time :datetime="edge.node.date">
+              {{ edge.node.date | relativeTime }}
+            </time>
           </footer>
         </article>
       </div>
@@ -31,7 +33,6 @@
 </template>
 
 <script>
-  import Ago from "~/components/Ago";
   import Layout from "~/layouts/Archive";
   import { DateTime } from "luxon";
 
@@ -67,8 +68,7 @@
     },
 
     components: {
-      Layout,
-      Ago
+      Layout
     }
   }
 </script>

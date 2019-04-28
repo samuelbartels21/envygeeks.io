@@ -48,7 +48,7 @@
 
         <div class=meta__date>
           <time :datetime="post.date">
-            {{ post.date }}
+            {{ post.date | relativeTime }}
           </time>
         </div>
       </div>
@@ -65,23 +65,12 @@
 <script>
   import ExternalLink from "~/components/ExternalLink.vue";
   import { expandAndContractSetup } from "~/components/ExpandAndContract.vue";
-  import moment from "moment";
 
   function shorten(t) {
     let el = t.$refs.content;
     while (el.childNodes.length > 3) {
       el.removeChild(el.lastChild);
     }
-  }
-
-  function convertTime(t) {
-    let els = t.$refs.footer.querySelectorAll("time");
-    els.forEach(el => {
-      console.log("converting time on: ", el);
-      let val = el.getAttribute("datetime");
-      el.innerText = moment(val)
-        .fromNow();
-    })
   }
 
   export default {
@@ -121,7 +110,6 @@
     },
 
     mounted() {
-      convertTime(this);
       if (this.trim) shorten(this);
       let selector = "pre[class*='language-']";
       let el = this.$refs.content;
