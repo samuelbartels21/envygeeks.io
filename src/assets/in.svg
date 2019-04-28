@@ -1,12 +1,8 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<svg width="1024px" height="1024px" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <!-- Generator: Sketch 54.1 (76490) - https://sketchapp.com -->
-    <title>in</title>
-    <desc>Created with Sketch.</desc>
-    <g id="in" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <rect id="rectangle" fill="#2DCE89" x="0" y="0" width="120" height="1024"></rect>
-        <rect id="rectangle" fill="#2DCE89" x="904" y="0" width="120" height="1024"></rect>
-        <path d="M256,572 L120,572 L120,452 L256,452 L256,320 L512,512 L256,704 L256,572 Z" id="shape" fill="#2DCE89"></path>
-        <path d="M768,452 L904,452 L904,572 L768,572 L768,704 L512,512 L768,320 L768,452 Z" id="shape" fill="#2DCE89"></path>
-    </g>
+<svg height="1024" viewBox="0 0 1024 1024" width="1024" xmlns="http://www.w3.org/2000/svg">
+  <g fill="#2dce89" fill-rule="evenodd">
+    <path d="m0 0h120v1024h-120z"/>
+    <path d="m904 0h120v1024h-120z"/>
+    <path d="m256 572h-136v-120h136v-132l256 192-256 192z"/>
+    <path d="m768 452h136v120h-136v132l-256-192 256-192z"/>
+  </g>
 </svg>

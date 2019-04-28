@@ -19,7 +19,7 @@
     <g-image
       height="200"
       alt="Jordon Bedwell Avatar"
-      src="~/assets/avatars/envygeeks.jpg"
+      src="~/assets/envygeeks.jpg"
       class="avatar"
       width="200"
     />
@@ -112,7 +112,7 @@
 
     <g-image
       class="hacking"
-      src="~/assets/gifs/hacking.gif"
+      src="~/assets/hacking.gif"
       id="hacking"
     />
 
@@ -182,7 +182,7 @@
    */
   .avatar {
     height: 8.3rem;
-    padding: 2.8rem 1rem 0 0;
+    padding: .8rem 1rem 0 0;
     width: 8.3rem;
     float: left;
 
