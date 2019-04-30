@@ -1,10 +1,11 @@
 <template>
-  <div class="expandable-wrapper" data-expanded="false">
+  <div v-if="!on" class="expandable-wrapper" data-expanded="false">
     <a v-on:click="onClick" class="button">
       <g-image
         class="in"
         height="24"
         src="~/assets/in.svg"
+        immediate="true"
         alt="Contract"
         width="24"
       />
@@ -13,6 +14,7 @@
         class="out"
         height="24"
         src="~/assets/out.svg"
+        immediate="true"
         alt="Expand"
         width="24"
       />
@@ -27,7 +29,23 @@
   const opts = {
     name: "Expandable",
     methods: {
-      onClick
+      onClick(event) {
+        // this.$el is pretty buggy tbqf
+        let state = this.$el.getAtrribute("data-expanded")
+        if (state === "true") {
+          el.setAttribute(
+            "data-expanded",
+            false
+          )
+        } else {
+          if (state === "false") {
+            el.setAttribute(
+              "data-expanded",
+              true
+            )
+          }
+        }
+      }
     },
     props: {
       on: {
@@ -37,45 +55,27 @@
     }
   }
 
-  /**
-   * onClick allows us to expand and
-   * contract the given element passed from
-   * upstream to us via the modal
-   * @return [null]
-   */
-  function onClick(event) {
-    let el = this.$el, state = el.getAttribute("data-expanded")
-    if (state === "true") {
-      el.setAttribute("data-expanded",
-        false
-      )
-    } else {
-      if (state == "false") {
-        el.setAttribute("data-expanded",
-          true
-        )
-      }
-    }
-  }
+  export default opts
 
   /**
-   * setup allows you to set this component
-   * up wherever you wish in a programatic way
-   * without much effort at all.
+   * expandOn an element
+   * @param ctx [Object] current this
+   * @param el [Object] the current element
+   * @param selector [String] the selector
+   * @note instead of using the Component
    * @return [null]
    */
-  export default opts
-  export function expandOn(ctx, el, selector) {
-    let els = el.querySelectorAll(selector)
-    els.forEach(sEl => {
+  export function expandOn(ctx, el, sel) {
+    let els = el.querySelectorAll(sel)
+    els.forEach(child => {
       let Component = Vue.extend(opts)
-      let eac = new Component({
+      let component = new Component({
         parent: ctx
       })
 
-      eac.$mount()
-      sEl.parentNode.insertBefore(eac.$el, sEl)
-      eac.$el.appendChild(sEl)
+      component.$mount()
+      child.parentNode.insertBefore(component.$el, child)
+      component.$el.appendChild(child)
     })
   }
 </script>
