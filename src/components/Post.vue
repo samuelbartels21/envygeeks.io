@@ -14,9 +14,9 @@
     </header>
 
     <div
-      class="post__content"
-      v-html="post.content"
       ref="content"
+      class="post__content"
+      v-html="content"
     />
 
     <footer ref="footer" class="post__meta">
@@ -63,14 +63,8 @@
 </template>
 
 <script>
-  import { expandOn } from "~/components/Expandable.vue"
-
-  function shorten(t) {
-    let el = t.$refs.content
-    while (el.childNodes.length > 3) {
-      el.removeChild(el.lastChild)
-    }
-  }
+  import { expandOn  } from "~/components/Expandable.vue"
+  import { toExcerpt } from "~/filters/toExcerpt.js"
 
   export default {
     name: "Post",
@@ -89,8 +83,15 @@
         type: Object
       }
     },
+    computed: {
+      content() {
+        if (!this.trim) return this.post.content
+        return toExcerpt(
+          this.post.content
+        )
+      }
+    },
     mounted() {
-      if (this.trim) shorten(this)
       let selector = "pre[class*='language-']"
       let el = this.$refs.content
       expandOn(
