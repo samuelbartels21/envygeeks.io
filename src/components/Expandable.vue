@@ -1,5 +1,5 @@
 <template>
-  <div v-if="!on" class="expandable-wrapper" data-expanded="false">
+  <div class="expandable-wrapper" data-expanded="false">
     <a v-on:click="onClick" class="button">
       <g-image
         class="in"
@@ -26,31 +26,28 @@
 
 <script>
   import Vue from "vue"
+
   const opts = {
     name: "Expandable",
     methods: {
       onClick(event) {
-        // this.$el is pretty buggy tbqf
-        let state = this.$el.getAtrribute("data-expanded")
+        const el = this.$el
+        const key = "data-expanded"
+        const state = el.getAttribute(key)
         if (state === "true") {
           el.setAttribute(
-            "data-expanded",
-            false
+            key,
+            "false"
           )
-        } else {
-          if (state === "false") {
-            el.setAttribute(
-              "data-expanded",
-              true
-            )
-          }
+
+          return
         }
-      }
-    },
-    props: {
-      on: {
-        required: false,
-        type: Object
+
+        // Must be false
+        el.setAttribute(
+          key,
+          "true"
+        )
       }
     }
   }
@@ -66,8 +63,7 @@
    * @return [null]
    */
   export function expandOn(ctx, el, sel) {
-    let els = el.querySelectorAll(sel)
-    els.forEach(child => {
+    el.querySelectorAll(sel).forEach(child => {
       let Component = Vue.extend(opts)
       let component = new Component({
         parent: ctx
@@ -75,7 +71,9 @@
 
       component.$mount()
       child.parentNode.insertBefore(component.$el, child)
-      component.$el.appendChild(child)
+      component.$el.appendChild(
+        child
+      )
     })
   }
 </script>
