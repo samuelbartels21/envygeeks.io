@@ -53,7 +53,7 @@
 
   .posts {
     .post {
-      border-bottom: 1px dashed $grey3;
+      border-bottom: 1px dashed $grey4;
 
       .post__title {
         h1 {

@@ -10,10 +10,10 @@
       </ul>
     </div>
     <div class="archives">
-      <div class="archive__year" v-for="edges, year in group($page.posts.edges)">
+      <div class="archive__year" v-for="edges, year in posts">
         <h2>{{ year }}</h2>
 
-        <article v-for="edge in edges">
+        <article class="post" v-for="edge in edges">
           <header class="left">
             <h3>
               <a :href="edge.node.path">
@@ -21,9 +21,16 @@
               </a>
             </h3>
           </header>
-          <footer class="right">
+          <footer class="meta right">
+            <ul class="meta__tags">
+              <li v-for="tag in edge.node.tags">
+                <a :href="tag.path">
+                  #{{ tag.slug }}
+                </a>
+              </li>
+            </ul>
             <time :datetime="edge.node.date">
-              {{ edge.node.date | relativeTime }}
+              {{ edge.node.date | formatTime("MM/dd") }}
             </time>
           </footer>
         </article>
@@ -41,13 +48,12 @@
    * @param posts [Object] the posts object
    * @return [Object<Array>]
    */
-  function groupPosts(posts) {
+  function grouped(posts) {
     let grouped = {}
 
     posts.forEach(post => {
       let date = DateTime.fromISO(post.node.date);
       let y = date.year;
-
       if (!grouped[y]) {
         grouped[y] = [
           //
@@ -61,12 +67,15 @@
   }
 
   export default {
-    methods: {
-      group: groupPosts
-    },
-
     components: {
       Layout
+    },
+    computed: {
+      posts() {
+        return grouped(
+          this.$page.posts.edges
+        )
+      }
     }
   }
 </script>
@@ -84,23 +93,45 @@
           margin: 3rem 0;
           float: left;
         }
+      }
+    }
 
-        article {
-          width: 100%;
-          border-bottom: 1px dashed $grey2;
-          padding: 1rem 0;
+    .post {
+      width: 100%;
+      border-bottom: 1px dashed $grey2;
+      padding: 1rem 0;
+      float: left;
+
+      header {
+        h3 {
+          padding: 0;
+          font-size: inherit;
+          line-height: inherit;
+          font-style: italic;
+          margin: 0;
+
+          a {
+            text-decoration: none;
+          }
+        }
+      }
+
+      .meta {
+        &__tags {
+          margin: 0;
           float: left;
+          padding: 0;
 
-          header {
-            h3 {
-              padding: 0;
-              font-size: inherit;
-              line-height: inherit;
-              font-style: italic;
-              margin: 0;
+          li {
+            display: inline-block;
 
-              a {
-                text-decoration: none;
+            a {
+              margin-right: .3rem;
+              text-decoration: none;
+              color: $grey4;
+
+              &:hover {
+                color: $blue;
               }
             }
           }
@@ -172,6 +203,11 @@
           date
           title
           path
+
+          tags(limit: 1) {
+            slug
+            path
+          }
         }
       }
     }

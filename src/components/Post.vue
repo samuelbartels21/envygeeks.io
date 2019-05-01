@@ -13,12 +13,6 @@
       </h1>
     </header>
 
-    <div
-      ref="content"
-      class="post__content"
-      v-html="content"
-    />
-
     <footer ref="footer" class="post__meta">
       <div class="meta__avatar meta--left">
         <a-ext :href="post.author.website">
@@ -39,8 +33,8 @@
           </p>
           <ul class="meta__tags meta--right">
             <li v-for="tag in post.tags">
-              <a :href="tag.path">
-                {{ tag.slug }}
+              <a class="meta__tag" :href="tag.path">
+                #{{ tag.slug }}
               </a>
             </li>
           </ul>
@@ -53,6 +47,12 @@
         </div>
       </div>
     </footer>
+
+    <div
+      ref="content"
+      class="post__content"
+      v-html="content"
+    />
 
     <aside v-if="!main" class="post__read">
       <a :href="post.path">
@@ -121,8 +121,16 @@
       padding: 0;
     }
 
+    .post__read {
+      a {
+        text-decoration: none;
+        font-style: italic;
+      }
+    }
+
     &__meta {
       float: left;
+      margin-bottom: 2rem;
       width: 100%;
 
       .meta {
@@ -169,7 +177,7 @@
           &::after,
           &::before {
             font-weight: normal;
-            color: darken($grey, 24);
+            color: $grey6;
           }
         }
 
@@ -189,7 +197,13 @@
             display: inline;
 
             a {
-              color: inherit;
+              font-style: italic;
+              text-decoration: none;
+              color: $grey6;
+
+              &:hover {
+                color: $teal;
+              }
             }
 
             &::after {
@@ -220,9 +234,8 @@
         color: $orange;
         line-height: 4rem;
         font-style: italic;
-        text-align: center;
-        font-size: 3rem;
-        margin: 3rem 0;
+        font-size: 1.6rem;
+        margin: 3rem 0 0;
 
         a {
           text-decoration: none;
@@ -379,6 +392,7 @@
       font-style: italic;
       border-left: 4px solid $grey3;
       padding: 0 0.5rem;
+      float: left;
 
       p {
         margin: 0.5rem 0;
