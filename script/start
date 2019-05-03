@@ -2,4 +2,5 @@
 [[ "$DEBUG" ]] && set -x
 set -e
 
-npx gridsome develop
+npx gridsome develop \
+  --host=127.0.0.1
