@@ -23,3 +23,10 @@
     }
   }
 </script>
+
+<style lang="scss">
+  .content {
+    width: 100%;
+    float: left;
+  }
+</style>
