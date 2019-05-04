@@ -24,14 +24,15 @@ export default function (Vue, { router, head, isClient }) {
   Vue.component("a-gh", A_GH)
 
   /**
-   * Config => Meta
-   * GraphQL
+   * gridsome.config.js: headers
+   * Edit headers inside of that file
+   * they'll be mapped out here
    */
   Object.keys(headers).forEach(type => {
     headers[type].forEach(header => {
       head[type].push(
         header
-      )
-    })
-  })
+      );
+    });
+  });
 }
