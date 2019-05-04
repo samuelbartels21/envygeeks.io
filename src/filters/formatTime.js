@@ -1,4 +1,4 @@
-import { DateTime } from "luxon"
+import { DateTime } from "luxon";
 
 /**
  * formatTime allows you to format time
@@ -6,9 +6,9 @@ import { DateTime } from "luxon"
  * @see https://vuejs.org/v2/guide/filters.html
  * @return [String]
  */
-export function formatTime(string, format) {
-  let time = DateTime.fromISO(string)
+export default function (string, format) {
+  let time = DateTime.fromISO(string);
   return time.toFormat(
     format
-  )
+  );
 }

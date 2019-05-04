@@ -4,17 +4,17 @@
  * of text (paragraphs) you defined.
  * @return [String]
  */
-export function toExcerpt(el, limit) {
-  if (!limit) limit = 3
+export default function (el, limit) {
+  if (!limit) limit = 3;
   if (typeof el === "string") {
     return fromString(
       el, limit
-    )
+    );
   }
 
   return fromDOM(
     el, limit
-  )
+  );
 }
 
 /**
@@ -27,10 +27,10 @@ export function toExcerpt(el, limit) {
  */
 function fromDOM(el, limit) {
   while (el.childNodes.length > limit) {
-    el.removeChild(el.lastChild)
+    el.removeChild(el.lastChild);
   }
 
-  return el
+  return el;
 }
 
 /**
@@ -42,10 +42,10 @@ function fromDOM(el, limit) {
  * @return [String]
  */
 function fromString(str, limit) {
-  let frag = document.createDocumentFragment()
-  let temp = document.createElement("temp")
+  let frag = document.createDocumentFragment();
+  let temp = document.createElement("temp");
 
-  temp.innerHTML = str
+  temp.innerHTML = str;
   return fromDOM(temp, limit).
-    innerHTML
+    innerHTML;
 }

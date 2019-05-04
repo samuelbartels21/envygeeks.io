@@ -1,19 +1,20 @@
-import { headers } from "../gridsome.config.js"
-import { toExcerpt } from "./filters/toExcerpt.js"
-import { relativeTime } from "./filters/relativeTime.js"
-import { formatTime } from "./filters/formatTime.js"
-import A_Ext from "./components/global/A-Ext.vue"
-import A_GH from "./components/global/A-GH.vue"
-import Layout from "~/layouts/Default.vue"
+import toExcerpt from "./filters/toExcerpt.js";
+import relativeTime from "./filters/relativeTime.js";
+import formatTime from "./filters/formatTime.js";
+import A_Ext from "./components/global/A-Ext.vue";
+import A_GH from "./components/global/A-GH.vue";
+import { headers } from "../gridsome.config.js";
+import Base from "~/layouts/Base.vue";
 
 export default function (Vue, { router, head, isClient }) {
 
   /**
-   * Filters
+   * {{ var | filter }}
+   * Tag Filters
    */
-  Vue.filter("formatTime", formatTime)
-  Vue.filter("relativeTime", relativeTime)
-  Vue.filter("toExcerpt", toExcerpt)
+  Vue.filter("formatTime", formatTime);     // {{ var | formatTime}}
+  Vue.filter("relativeTime", relativeTime); // {{ var | relativeTime }}
+  Vue.filter("toExcerpt", toExcerpt);       // {{ var | toExcerpt }}
 
   /**
    * Components
