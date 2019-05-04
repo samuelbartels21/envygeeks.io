@@ -37,6 +37,16 @@ module.exports = {
           "IBM+Plex+Mono:400"
         ].join("|")
       }
+    ],
+    meta: [
+      {
+        name: "HandheldFriendly",
+        content: "True"
+      },
+      {
+        httpEquiv: "X-UA-Compatible",
+        content: "IE=edge"
+      }
     ]
   },
   plugins: [
