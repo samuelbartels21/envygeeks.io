@@ -25,20 +25,6 @@
   </div>
 </template>
 
-<static-query>
-  query {
-    meta: metaData {
-      subTitle: siteSubTitle
-      title: siteTitle
-      nav: siteNav {
-        id
-        title
-        to
-      }
-    }
-  }
-</static-query>
-
 <style lang=scss>
   @import "~/assets/colors.scss";
   @import "~/assets/vars.scss";
@@ -170,3 +156,17 @@
     }
   }
 </style>
+
+<static-query>
+  query {
+    meta: metaData {
+      subTitle: siteSubTitle
+      title: siteTitle
+      nav: siteNav {
+        id
+        title
+        to
+      }
+    }
+  }
+</static-query>

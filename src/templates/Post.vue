@@ -1,10 +1,10 @@
 <template>
-  <Layout>
-    <Post
+  <Post>
+    <PostCard
       :post="$page.post"
       :main="true"
     />
-  </Layout>
+  </Post>
 </template>
 
 <page-query>
@@ -31,11 +31,11 @@
 </page-query>
 
 <script>
-  import Post from "~/components/Post.vue";
-  import Layout from "~/layouts/Post.vue";
+  import PostCard from "~/components/Post.vue";
+  import Post from "~/layouts/Post.vue";
   export default {
     components: {
-      Layout,
+      PostCard,
       Post
     },
     metaInfo() {

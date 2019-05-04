@@ -1,5 +1,5 @@
 <template>
-  <Layout>
+  <Page :many="true">
     <div class="tags">
       <ul>
         <li class="tag__item" v-for="edge in $page.tags.edges">
@@ -12,20 +12,8 @@
     <Archive
       :posts="$page.posts"
     />
-  </Layout>
+  </Page>
 </template>
-
-<script>
-  import Archive from "~/components/Archive"
-  import Layout  from "~/layouts/Archive"
-
-  export default {
-    components: {
-      Archive,
-      Layout
-    }
-  }
-</script>
 
 <style lang=scss>
   @import "~/assets/colors.scss";
@@ -71,6 +59,17 @@
     }
   }
 </style>
+
+<script>
+  import Archive from "~/components/Archive";
+  import Page  from "~/layouts/Page";
+  export default {
+    components: {
+      Archive,
+      Page
+    }
+  };
+</script>
 
 <page-query>
   query {

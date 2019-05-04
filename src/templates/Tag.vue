@@ -26,7 +26,7 @@
 
 <script>
   import Archive from "~/components/Archive"
-  import Layout  from "~/layouts/Archive"
+  import Layout  from "~/layouts/Post"
   export default {
     components: {
       Archive,
@@ -39,7 +39,7 @@
     },
     metaInfo() {
       return {
-        title: this.title
+        title: this.title,
       }
     }
   }

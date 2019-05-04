@@ -64,7 +64,7 @@
 
 <script>
   import { expandOn  } from "~/components/Expandable.vue"
-  import { toExcerpt } from "~/filters/toExcerpt.js"
+  import toExcerpt from "~/filters/toExcerpt.js"
 
   export default {
     name: "Post",

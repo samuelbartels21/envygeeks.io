@@ -18,10 +18,11 @@ export default function (Vue, { router, head, isClient }) {
 
   /**
    * Components
+   * <Tag>
    */
-  Vue.component("a-ext", A_Ext)
-  Vue.component("Layout", Layout)
-  Vue.component("a-gh", A_GH)
+  Vue.component("Base", Base);              // Tag: <Base>
+  Vue.component("a-ext", A_Ext);            // Tag: <a-ext>
+  Vue.component("a-gh", A_GH);              // Tag: <a-gh>
 
   /**
    * gridsome.config.js: headers

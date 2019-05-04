@@ -1,30 +1,15 @@
 <template>
-  <Layout>
+  <Base>
     <main role="main" class="content page">
       <header v-if="pageTitle" class="page__title">
         <h1>{{ pageTitle }}</h1>
       </header>
       <slot/>
     </main>
-  </Layout>
+  </Base>
 </template>
 
-<script>
-  import Layout from "~/layouts/Default.vue"
-  export default {
-    components: {
-      Layout
-    },
-    props: {
-      pageTitle: {
-        required: false,
-        type: String
-      }
-    }
-  }
-</script>
-
-<style lang=scss>
+<style lang="scss">
   @import "~/assets/colors.scss";
 
   .page {
@@ -50,3 +35,14 @@
     }
   }
 </style>
+
+<script>
+  export default {
+    props: {
+      pageTitle: {
+        required: false,
+        type: String
+      }
+    }
+  };
+</script>

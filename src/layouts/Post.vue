@@ -1,27 +1,28 @@
 <template>
-  <Layout>
-    <main role="main" :class="many ? 'content posts' : 'content'">
+  <Base>
+    <main role="main" :class="mainClassName">
       <slot/>
     </main>
-  </Layout>
+  </Base>
 </template>
 
 <script>
-  import Layout from "~/layouts/Default.vue"
   export default {
     name: "Post",
-    components: {
-      Layout
-    },
-
     props: {
       many: {
         default: false,
         required: false,
         type: Boolean
       }
+    },
+    computed: {
+      mainClassName() {
+        if (this.many) return "content posts";
+        return "content";
+      }
     }
-  }
+  };
 </script>
 
 <style lang="scss">
