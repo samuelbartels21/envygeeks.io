@@ -27,6 +27,7 @@
 
 <style lang=scss>
   @import "~/assets/colors.scss";
+  @import "~/assets/normalize.scss";
   @import "~/assets/vars.scss";
 
   /**
