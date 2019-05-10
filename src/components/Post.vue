@@ -49,11 +49,10 @@
       </div>
     </footer>
 
-    <Excerpt
-      ref="content"
-      v-html="post.content"
+    <div
+      ref="postContent"
       className="post__content"
-      :limit="limit"
+      v-html="post.content"
     />
 
     <aside v-if="!main" class="post__read">
@@ -65,27 +64,38 @@
 </template>
 
 <script>
-  import Excerpt from "~/components/Excerpt";
+  function trimPostContent(ctx, el) {
+    if (!ctx.trim) return;
+
+    while (el.childNodes.length > ctx.limit) {
+      el.removeChild(
+        el.lastChild
+      )
+    }
+  }
+
   export default {
     name: "PostPartial",
-    components: {
-      Excerpt
-    },
     props: {
       main: Boolean,
       trim: Boolean,
       post: Object,
+      limit: {
+        type: Number,
+        default: 3
+      }
     },
     computed: {
       avatarAlt() {
         return `Avatar for: ${
           this.post.author.name
         }`
-      },
-      limit() {
-        if (this.trim) return 3;
-        return Infinity
       }
+    },
+    mounted() {
+      trimPostContent(this,
+        this.$refs.postContent
+      );
     }
   }
 </script>
