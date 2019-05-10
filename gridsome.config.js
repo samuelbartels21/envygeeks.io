@@ -35,7 +35,7 @@ module.exports = {
           "Montserrat:300,300i,400,400i,700,700i",
           "Noto+Sans:400,400i",
           "IBM+Plex+Mono:400"
-        ].join("|")
+        ].join("%7C")
       }
     ],
     meta: [
@@ -44,7 +44,7 @@ module.exports = {
         content: "True"
       },
       {
-        httpEquiv: "X-UA-Compatible",
+        "http-equiv": "X-UA-Compatible",
         content: "IE=edge"
       }
     ]
