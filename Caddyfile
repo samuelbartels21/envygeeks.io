@@ -1,0 +1,4 @@
+http://wildred.local:8080,
+http://localhost:8080 {
+  root /Users/jordon/development/envygeeks.io/dist
+}
