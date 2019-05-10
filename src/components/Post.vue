@@ -17,7 +17,8 @@
       <div class="meta__avatar meta--left">
         <a-ext :href="post.author.website">
           <img
-            heigh="48"
+            height="48"
+            :alt="avatarAlt"
             :src="post.author.avatar"
             width="48"
           />
@@ -48,10 +49,11 @@
       </div>
     </footer>
 
-    <div
+    <Excerpt
       ref="content"
-      class="post__content"
-      v-html="content"
+      v-html="post.content"
+      className="post__content"
+      :limit="limit"
     />
 
     <aside v-if="!main" class="post__read">
@@ -63,40 +65,27 @@
 </template>
 
 <script>
-  import { expandOn  } from "~/components/Expandable.vue"
-  import toExcerpt from "~/filters/toExcerpt.js"
-
+  import Excerpt from "~/components/Excerpt";
   export default {
-    name: "Post",
+    name: "PostPartial",
+    components: {
+      Excerpt
+    },
     props: {
-      main: {
-        required: true,
-        type: Boolean
-      },
-      trim: {
-        default: false,
-        required: false,
-        type: Boolean
-      },
-      post: {
-        required: true,
-        type: Object
-      }
+      main: Boolean,
+      trim: Boolean,
+      post: Object,
     },
     computed: {
-      content() {
-        if (!this.trim) return this.post.content
-        return toExcerpt(
-          this.post.content
-        )
+      avatarAlt() {
+        return `Avatar for: ${
+          this.post.author.name
+        }`
+      },
+      limit() {
+        if (this.trim) return 3;
+        return Infinity
       }
-    },
-    mounted() {
-      let selector = "pre[class*='language-']"
-      let el = this.$refs.content
-      expandOn(
-        this, el, selector
-      )
     }
   }
 </script>
@@ -363,24 +352,6 @@
 
         &.entity {
           cursor: help;
-        }
-      }
-    }
-
-    .expandable-wrapper {
-      .button {
-        float: right;
-        position: relative;
-        z-index: 100;
-        top: 2.5rem;
-        right: 1rem;
-      }
-
-      &[data-expanded=true] {
-        pre[class*="language-"] {
-          width: 100vw;
-          margin-left: -50vw;
-          left: 50%;
         }
       }
     }

@@ -1,5 +1,5 @@
 <template>
-  <Layout page-title="About Me">
+  <PageLayout page-title="About Me">
     <DonutChart class="chart__programming"
       :labels="[
         'Ruby',
@@ -125,17 +125,17 @@
     currently manage many other Docker images. Unless I’ve removed them, or
     planned to deprecate them because the ecosystem has taken over to do a
     better job.</p>
-  </layout>
+  </PageLayout>
 </template>
 
 <script>
-  import DonutChart from "~/components/charts/Donut.vue"
-  import Layout from "~/layouts/Page.vue"
+  import DonutChart from "~/components/DonutChart"
+  import PageLayout from "~/layouts/Page"
 
   export default {
     components: {
       DonutChart,
-      Layout
+      PageLayout
     },
     metaInfo: {
       title: "About Me: Jordon Bedwell",

@@ -1,12 +1,12 @@
 <template>
-  <Base>
-    <main role="main" class="content page">
+  <BaseLayout>
+    <main class="content page">
       <header v-if="pageTitle" class="page__title">
         <h1>{{ pageTitle }}</h1>
       </header>
       <slot/>
     </main>
-  </Base>
+  </BaseLayout>
 </template>
 
 <style lang="scss">

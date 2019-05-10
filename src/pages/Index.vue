@@ -1,22 +1,22 @@
 <template>
-  <Layout :many="true">
-    <Post
+  <PostLayout :many="true">
+    <PostPartial
       :trim="true"
       :key="edge.node.id"
       v-for="edge in $page.posts.edges"
       :post="edge.node"
       :main="false"
     />
-  </Layout>
+  </PostLayout>
 </template>
 
 <script>
-  import Post from "~/components/Post.vue"
-  import Layout from "~/layouts/Post.vue"
+  import PostPartial from "~/components/Post"
+  import PostLayout from "~/layouts/Post"
   export default {
     components: {
-      Layout,
-      Post
+      PostPartial,
+      PostLayout
     }
   }
 </script>

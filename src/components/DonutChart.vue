@@ -3,8 +3,8 @@
   import { Doughnut as Donut } from "vue-chartjs"
 
   export default {
+    name: "DonutChart",
     extends: Donut,
-    name: "Donut",
     props: {
       labels: {
         required: true,

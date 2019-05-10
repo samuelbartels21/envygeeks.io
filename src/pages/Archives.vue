@@ -1,5 +1,5 @@
 <template>
-  <Page :many="true">
+  <PageLayout :many="true">
     <div class="tags">
       <ul>
         <li class="tag__item" v-for="edge in $page.tags.edges">
@@ -9,10 +9,10 @@
         </li>
       </ul>
     </div>
-    <Archive
+    <ArchivePartial
       :posts="$page.posts"
     />
-  </Page>
+  </PageLayout>
 </template>
 
 <style lang=scss>
@@ -61,12 +61,12 @@
 </style>
 
 <script>
-  import Archive from "~/components/Archive";
-  import Page  from "~/layouts/Page";
+  import ArchivePartial from "~/components/Archive";
+  import PageLayout  from "~/layouts/Page";
   export default {
     components: {
-      Archive,
-      Page
+      ArchivePartial,
+      PageLayout
     }
   };
 </script>

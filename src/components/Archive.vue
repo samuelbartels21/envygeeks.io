@@ -55,7 +55,7 @@
   }
 
   export default {
-    name: "Archive",
+    name: "ArchivePartial",
     props: {
       posts: {
         required: false,
@@ -64,7 +64,6 @@
     },
     computed: {
       gPosts() {
-        console.log(this);
         return grouped(
           this.posts.edges
         )
@@ -100,6 +99,7 @@
           padding: 0;
           font-size: inherit;
           line-height: inherit;
+          font-weight: inherit;
           font-style: italic;
           margin: 0;
 

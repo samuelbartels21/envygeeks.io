@@ -19,7 +19,9 @@
     },
     computed: {
       ghUser() {
-        return this.user || this.$static.meta.githubUser
+        return this.user ||
+          this.$static.meta
+            .githubUser
       }
     }
   }

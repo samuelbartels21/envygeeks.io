@@ -1,10 +1,11 @@
 <template>
-  <Post>
-    <PostCard
+  <PostLayout>
+    <PostPartial
+      :excerpt="false"
       :post="$page.post"
       :main="true"
     />
-  </Post>
+  </PostLayout>
 </template>
 
 <page-query>
@@ -31,12 +32,12 @@
 </page-query>
 
 <script>
-  import PostCard from "~/components/Post.vue";
-  import Post from "~/layouts/Post.vue";
+  import PostPartial from "~/components/Post";
+  import PostLayout from "~/layouts/Post";
   export default {
     components: {
-      PostCard,
-      Post
+      PostPartial,
+      PostLayout
     },
     metaInfo() {
       return {

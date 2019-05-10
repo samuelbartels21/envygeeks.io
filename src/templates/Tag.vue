@@ -1,12 +1,12 @@
 <template>
-  <Layout :page-title="title">
+  <PostLayout :page-title="title">
     <header class="page__title">
       <h1>{{ title }}</h1>
     </header>
-    <Archive
+    <ArchivePartial
       :posts="$page.tag.belongsTo"
     />
-  </Layout>
+  </PostLayout>
 </template>
 
 <style lang="scss">
@@ -25,12 +25,12 @@
 </style>
 
 <script>
-  import Archive from "~/components/Archive"
-  import Layout  from "~/layouts/Post"
+  import ArchivePartial from "~/components/Archive"
+  import PostLayout  from "~/layouts/Post"
   export default {
     components: {
-      Archive,
-      Layout
+      ArchivePartial,
+      PostLayout
     },
     computed: {
       title() {

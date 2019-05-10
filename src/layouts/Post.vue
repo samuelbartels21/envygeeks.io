@@ -1,9 +1,9 @@
 <template>
-  <Base>
-    <main role="main" :class="mainClassName">
+  <BaseLayout>
+    <main :class="mainClassName">
       <slot/>
     </main>
-  </Base>
+  </BaseLayout>
 </template>
 
 <script>

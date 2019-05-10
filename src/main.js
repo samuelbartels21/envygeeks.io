@@ -1,28 +1,16 @@
-import toExcerpt from "./filters/toExcerpt.js";
-import relativeTime from "./filters/relativeTime.js";
-import formatTime from "./filters/formatTime.js";
-import A_Ext from "./components/global/A-Ext.vue";
-import A_GH from "./components/global/A-GH.vue";
+import a_ext from "./components/a_ext.vue";
+import relativeTime from "./filters/relative_time.js";
+import formatTime from "./filters/format_time.js";
 import { headers } from "../gridsome.config.js";
-import Base from "~/layouts/Base.vue";
+import BaseLayout from "~/layouts/Base.vue";
+import a_gh from "./components/a_gh.vue";
 
 export default function (Vue, { router, head, isClient }) {
-
-  /**
-   * {{ var | filter }}
-   * Tag Filters
-   */
   Vue.filter("formatTime", formatTime);     // {{ var | formatTime}}
   Vue.filter("relativeTime", relativeTime); // {{ var | relativeTime }}
-  Vue.filter("toExcerpt", toExcerpt);       // {{ var | toExcerpt }}
-
-  /**
-   * Components
-   * <Tag>
-   */
-  Vue.component("Base", Base);              // Tag: <Base>
-  Vue.component("a-ext", A_Ext);            // Tag: <a-ext>
-  Vue.component("a-gh", A_GH);              // Tag: <a-gh>
+  Vue.component("BaseLayout", BaseLayout);  // Tag: <Base>
+  Vue.component("a-ext", a_ext);            // Tag: <a-ext>
+  Vue.component("a-gh", a_gh);              // Tag: <a-gh>
 
   /**
    * gridsome.config.js: headers
