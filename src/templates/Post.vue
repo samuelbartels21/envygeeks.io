@@ -24,7 +24,7 @@
       }
 
       tags {
-        slug
+        title
         path
       }
     }

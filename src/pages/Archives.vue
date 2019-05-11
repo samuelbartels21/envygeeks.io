@@ -4,7 +4,7 @@
       <ul>
         <li class="tag__item" v-for="edge in $page.tags.edges">
           <a :href="edge.node.path">
-            {{ edge.node.slug }}
+            {{ edge.node.title }}
           </a>
         </li>
       </ul>
@@ -76,7 +76,7 @@
     tags: allTag(sortBy: "slug", order: ASC) {
       edges {
         node {
-          slug
+          title
           path
         }
       }
@@ -90,7 +90,7 @@
           path
 
           tags(limit: 1) {
-            slug
+            title
             path
           }
         }

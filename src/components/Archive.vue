@@ -15,7 +15,7 @@
           <ul class="meta__tags">
             <li v-for="tag in edge.node.tags">
               <a :href="tag.path">
-                #{{ tag.slug }}
+                #{{ tag.title }}
               </a>
             </li>
           </ul>

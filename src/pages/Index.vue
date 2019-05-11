@@ -39,7 +39,7 @@
           }
 
           tags {
-            slug
+            title
             path
           }
         }

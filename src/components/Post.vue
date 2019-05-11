@@ -35,7 +35,7 @@
           <ul class="meta__tags meta--right">
             <li v-for="tag in post.tags">
               <a class="meta__tag" :href="tag.path">
-                #{{ tag.slug }}
+                #{{ tag.title }}
               </a>
             </li>
           </ul>
