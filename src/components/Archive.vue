@@ -37,7 +37,9 @@
    * @return [Object<Array>]
    */
   function grouped(posts) {
-    let grouped = {}
+    let grouped = {
+      //
+    }
 
     posts.forEach(post => {
       let date = DateTime.fromISO(post.node.date);
@@ -48,8 +50,10 @@
         ]
       }
 
-      grouped[y].push(post)
-    })
+      grouped[y].push(
+        post
+      );
+    });
 
     return grouped;
   }

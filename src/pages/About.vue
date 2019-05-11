@@ -143,7 +143,7 @@
   }
 </script>
 
-<style lang=scss>
+<style lang="scss">
   @import "~/assets/colors.scss";
 
   h2 {
@@ -161,7 +161,7 @@
       text-align: right;
       shape-outside: circle();
       border-radius: 50%;
-      margin: 2rem 0;
+      margin: 1rem 0;
       height: 240px;
       float: right;
     }
