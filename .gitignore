@@ -52,6 +52,7 @@ site/
 .cache
 src/.temp
 node_modules
+src/assets/original
 .env.*
 dist
 .env
