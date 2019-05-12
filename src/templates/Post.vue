@@ -41,7 +41,13 @@
     },
     metaInfo() {
       return {
-        title: this.$page.post.title
+        title: this.$page.post.title,
+        meta: [
+          {
+            content: this.$page.post.author.name,
+            name: "author"
+          }
+        ]
       }
     }
   }
