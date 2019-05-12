@@ -2,4 +2,6 @@
 [[ "$DEBUG" = true ]] && set -x
 set -e
 
+rm -rf dist/
 npx gridsome build
+script/cleanup
