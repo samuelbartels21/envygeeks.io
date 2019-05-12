@@ -2,10 +2,13 @@
 [[ "$DEBUG" ]] && set -x
 set -e
 
-port=${PORT:-8080}
+port=${PORT:-80}
 host=${HOST:-localhost}
 script/build
-caddy &
+
+nginx \
+  -c $PWD/nginx.conf \
+  &
 
 pid=$!
 open "http://${host}:${port}"
