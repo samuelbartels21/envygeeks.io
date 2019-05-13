@@ -255,7 +255,7 @@
      * Go
      */
     :not(pre) code[class*=language-] {
-      font-size: inherit;
+      font-size: 1rem;
       line-height: 1.4rem;
       background-color: $grey1;
       border: 1px solid $grey3;
@@ -274,10 +274,10 @@
       word-spacing: normal;
       padding: 1rem 1rem;
       position: relative;
-      font-size: inherit;
       word-wrap: normal;
       text-align: left;
       white-space: pre;
+      font-size: 1rem;
       overflow: auto;
       hyphens: none;
       width: 100%;
