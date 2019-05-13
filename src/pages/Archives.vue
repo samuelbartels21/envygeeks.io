@@ -58,6 +58,14 @@
       }
     }
   }
+
+  @media (max-width: 800px) {
+    .tags {
+      ul {
+        width: 100%;
+      }
+    }
+  }
 </style>
 
 <script>

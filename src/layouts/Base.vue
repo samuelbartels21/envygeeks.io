@@ -31,6 +31,10 @@
   @import "~/components/scss/normalize.scss";
   @import "~/components/scss/vars.scss";
 
+  html, body {
+    width: 100%;
+  }
+
   /**
    * 16px
    */
@@ -45,7 +49,7 @@
   a {
     color: $blue;
     &:hover {
-      color: $green;
+      color: $pink;
     }
   }
 
@@ -116,6 +120,15 @@
       line-height: 1.4rem;
       font-size: 1.4rem;
       grid-area: a;
+    }
+  }
+
+  @media (max-width: 800px) {
+    .title {
+      &__one { padding: 0; }
+      &__two {
+        display: none;
+      }
     }
   }
 
