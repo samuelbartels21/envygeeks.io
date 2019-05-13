@@ -5,3 +5,4 @@ set -e
 rm -rf dist/
 npx gridsome build
 script/cleanup
+script/minify
