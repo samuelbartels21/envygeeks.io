@@ -50,7 +50,7 @@
   a {
     color: $blue;
     &:hover {
-      color: $pink;
+      color: $purple;
     }
   }
 
