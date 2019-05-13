@@ -27,17 +27,6 @@ module.exports = {
     }
   ],
   headers: {
-    link: [
-      {
-        rel: "stylesheet",
-        href: "https://fonts.googleapis.com/css?family=" + [
-          "Lora:300,300i,400,400i",
-          "Montserrat:300,300i,400,400i,700,700i",
-          "Noto+Sans:400,400i",
-          "IBM+Plex+Mono:400"
-        ].join("%7C")
-      }
-    ],
     meta: [
       {
         name: "HandheldFriendly",
