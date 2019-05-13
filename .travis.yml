@@ -1,0 +1,29 @@
+script: script/test
+before_script: script/build --verbose
+install: script/install
+language: ruby
+os: linux
+rvm: 2.4
+addons:
+  ssh_known_hosts:
+    - envygeeks.io
+cache:
+  bundler: true
+  directories:
+    - vendor/bundle
+    - node_modules
+deploy:
+  - skip_cleanup: true
+    script: script/deploy
+    provider: script
+    on:
+      branch: master
+notifications:
+  email:
+    on_success: never
+    on_failure: change
+env:
+  global:
+  - NODE_ENV=production
+  - ENVYGEEKS_ENV=production
+  - VUE_ENV=production
