@@ -1,6 +1,7 @@
 export const colors = {
   teal: "#11cdef",
   black: "#172b4d",
+  purple: "#b557eb",
   orange: "#fb6340",
   green: "#2dce89",
   pink: "#f5365c",
@@ -22,6 +23,7 @@ export function shuffled() {
   let array = [
     colors.teal,
     colors.orange,
+    colors.purple,
     colors.green,
     colors.pink,
     colors.blue

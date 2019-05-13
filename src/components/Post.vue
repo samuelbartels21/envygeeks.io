@@ -199,10 +199,10 @@
             a {
               font-style: italic;
               text-decoration: none;
-              color: $grey6;
+              color: $grey7;
 
               &:hover {
-                color: $teal;
+                color: $blue;
               }
             }
 

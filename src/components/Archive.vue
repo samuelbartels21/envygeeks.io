@@ -19,7 +19,7 @@
               </a>
             </li>
           </ul>
-          <time :datetime="edge.node.date">
+          <time class="meta__time" :datetime="edge.node.date">
             {{ edge.node.date | formatTime("MM/dd") }}
           </time>
         </footer>
@@ -125,15 +125,20 @@
             a {
               margin-right: .3rem;
               text-decoration: none;
-              color: $grey4;
+              color: $grey7;
 
               &:hover {
-                color: $blue;
+                color: $pink;
               }
             }
           }
         }
+
+        &__time {
+          color: $purple;
+        }
       }
+
     }
   }
 
