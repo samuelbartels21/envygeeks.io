@@ -49,7 +49,7 @@
 </page-query>
 
 <style lang="scss">
-  @import "~/assets/colors.scss";
+  @import "~/components/scss/colors.scss";
 
   .posts {
     .post {

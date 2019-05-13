@@ -18,7 +18,7 @@ export const colors = {
   grey9: "#212529"
 }
 
-export function shuffledColors() {
+export function shuffled() {
   let array = [
     colors.teal,
     colors.orange,

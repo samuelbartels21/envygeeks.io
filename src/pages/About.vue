@@ -129,7 +129,7 @@
 </template>
 
 <script>
-  import DonutChart from "~/components/DonutChart"
+  import DonutChart from "~/components/charts/Donut"
   import PageLayout from "~/layouts/Page"
 
   export default {
@@ -144,7 +144,7 @@
 </script>
 
 <style lang="scss">
-  @import "~/assets/colors.scss";
+  @import "~/components/scss/colors.scss";
 
   h2 {
     border-bottom: 1px dashed $grey3;

@@ -16,10 +16,11 @@
     <footer ref="footer" class="post__meta">
       <div class="meta__avatar meta--left">
         <a-ext :href="post.author.website">
-          <img
+          <g-image
             height="48"
             :alt="avatarAlt"
-            :src="post.author.avatar"
+            :src="require(`!!assets-loader!@/assets/${post.author.avatar}`)"
+            context="~/assets"
             width="48"
           />
         </a-ext>
@@ -101,8 +102,8 @@
 </script>
 
 <style lang=scss>
-  @import "~/assets/colors.scss";
-  @import "~/assets/vars.scss";
+  @import "~/components/scss/colors.scss";
+  @import "~/components/scss/vars.scss";
 
   .post {
     color: $grey8;

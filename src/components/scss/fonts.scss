@@ -1,0 +1,159 @@
+/**
+ * Lora Regular
+ */
+@font-face {
+  font-style: normal;
+  font-display: fallback;
+  font-family: "Lora";
+  font-weight: 400;
+
+  src: local("Lora Regular"), local("Lora-Regular"),
+       url("/assets/fonts/lora-v13.woff2") format("woff2"),
+       url("/assets/fonts/lora-v13.woff") format("woff");
+}
+
+/**
+ * Lora Italic
+ */
+@font-face {
+  font-style: italic;
+  font-display: fallback;
+  font-family: "Lora";
+  font-weight: 400;
+
+  src: local("Lora Italic"), local("Lora-Italic"),
+       url("/assets/fonts/lora-v13-italic.woff2") format("woff2"),
+       url("/assets/fonts/lora-v13-italic.woff") format("woff");
+}
+
+/**
+ * Montserrat Italic
+ * Weight: 300
+ */
+@font-face {
+  font-style: italic;
+  font-family: "Montserrat";
+  font-display: swap;
+  font-weight: 300;
+
+  src: local("Montserrat Light Italic"), local("Montserrat-LightItalic"),
+       url("/assets/fonts/montserrat-v13-300italic.woff2") format("woff2"),
+       url("/assets/fonts/montserrat-v13-300italic.woff") format("woff");
+}
+
+/**
+ * Montserrat Regular
+ * Weight: 400
+ */
+@font-face {
+  font-style: normal;
+  font-family: "Montserrat";
+  font-display: swap;
+  font-weight: 400;
+
+  src: local("Montserrat Regular"), local("Montserrat-Regular"),
+       url("/assets/fonts/montserrat-v13-.woff2") format("woff2"),
+       url("/assets/fonts/montserrat-v13-.woff") format("woff");
+}
+
+/**
+ * Montserrat
+ * Weight: 300
+ */
+@font-face {
+  font-style: normal;
+  font-family: "Montserrat";
+  font-display: swap;
+  font-weight: 300;
+
+  src: local("Montserrat Light"), local("Montserrat-Light"),
+       url("/assets/fonts/montserrat-v13-300.woff2") format("woff2"),
+       url("/assets/fonts/montserrat-v13-300.woff") format("woff");
+}
+
+/**
+ * Montserrat Regular
+ */
+@font-face {
+  font-style: italic;
+  font-family: "Montserrat";
+  font-display: swap;
+  font-weight: 400;
+
+  src: local("Montserrat Italic"), local("Montserrat-Italic"),
+       url("/assets/fonts/montserrat-v13-italic.woff2") format("woff2"),
+       url("/assets/fonts/montserrat-v13-italic.woff") format("woff");
+}
+
+/**
+ * Montserrat Bold
+ * Weight: 700
+ */
+@font-face {
+  font-style: normal;
+  font-family: "Montserrat";
+  font-display: fallback;
+  font-weight: 700;
+
+  src: local("Montserrat Bold"), local("Montserrat-Bold"),
+       url("/assets/fonts/montserrat-v13-700.woff2") format("woff2"),
+       url("/assets/fonts/montserrat-v13-700.woff") format("woff");
+}
+
+/**
+ * Montserrat Italic
+ * Weight: 700
+ */
+@font-face {
+  font-style: italic;
+  font-family: "Montserrat";
+  font-display: swap;
+  font-weight: 700;
+
+  src: local("Montserrat Bold Italic"), local("Montserrat-BoldItalic"),
+       url("/assets/fonts/montserrat-v13-700italic.woff2") format("woff2"),
+       url("/assets/fonts/montserrat-v13-700italic.woff") format("woff");
+}
+
+/**
+ * Noto Sans Regular
+ */
+@font-face {
+  font-style: normal;
+  font-display: swap;
+  font-family: 'Noto Sans';
+  font-weight: 400;
+
+  src: local('Noto Sans'), local('NotoSans'),
+       url('/assets/fonts/noto-sans-v8.woff2') format('woff2'),
+       url('/assets/fonts/noto-sans-v8.woff') format('woff');
+}
+
+/**
+ * Noto Sans Italic
+ */
+@font-face {
+  font-style: italic;
+  font-family: 'Noto Sans';
+  font-display: swap;
+  font-weight: 400;
+
+  src: local('Noto Sans Italic'), local('NotoSans-Italic'),
+       url('/assets/fonts/noto-sans-v8-italic.woff2') format('woff2'),
+       url('/assets/fonts/noto-sans-v8-italic.woff') format('woff');
+}
+
+/**
+ * IBM Plex Mono
+ * One Trick
+ */
+@font-face {
+  font-style: normal;
+  font-family: 'IBM Plex Mono';
+  font-display: swap;
+  font-weight: 400;
+
+  src: local('IBM Plex Mono'), local('IBMPlexMono'),
+       url('/assets/fonts/ibm-plex-mono-v4.woff2') format('woff2'),
+       url('/assets/fonts/ibm-plex-mono-v4.woff') format('woff');
+}
