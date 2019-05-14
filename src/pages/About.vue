@@ -116,14 +116,14 @@
       id="hacking"
     />
 
-    <p>I'm heavy <a-ext href="https://docker.com">Docker</a-ext> user, a Linux
-    user, and I maintain a great many <a-ext href="https://jekyllrb.com">Jekyll
-    </a-ext> plugins, and other Ruby projects, that hopefully you love and
-    enjoy. I’ve built tools like <a-gh repo="docker-template">Docker Template
-    </a-gh>, plugins like <a-gh repo="jekyll-assets">Jekyll Assets</a-gh>, and
-    Docker zimages like <a-gh repo="jekyll-docker">Jekyll Docker</a-gh>, and I
-    currently manage many other Docker images. Unless I’ve removed them, or
-    planned to deprecate them because the ecosystem has taken over to do a
+    <p>I'm heavy <a-ext href="https://docker.com" text="Docker"/> user, a Linux
+    user, and I maintain a great many <a-ext href="https://jekyllrb.com"
+    text="Jekyll"/> plugins, and other Ruby projects, that hopefully you love
+    and enjoy. I’ve built tools like <a-gh repo="docker-template" name="Docker
+    Template"/>, plugins like <a-gh repo="jekyll-assets" name="Jekyll Assets"/>,
+    and Docker zimages like <a-gh repo="jekyll-docker" name="Jekyll Docker"/>,
+    and I currently manage many other Docker images. Unless I’ve removed them,
+    or planned to deprecate them because the ecosystem has taken over to do a
     better job.</p>
   </PageLayout>
 </template>

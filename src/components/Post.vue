@@ -6,9 +6,7 @@
           {{ post.title }}
         </template>
         <template v-else>
-          <a :href="post.path">
-            {{ post.title }}
-          </a>
+          <a :href="post.path">{{ post.title }}</a>
         </template>
       </h1>
     </header>
@@ -29,15 +27,14 @@
       <div class="meta--left">
         <div>
           <p class="meta__author meta--left">
-            <a-ext :href="post.author.website">
-              {{ post.author.name }}
-            </a-ext>
+            <a-ext
+              :href="post.author.website"
+              :text="post.author.name"
+            />
           </p>
           <ul class="meta__tags meta--right">
             <li v-for="tag in post.tags">
-              <a class="meta__tag" :href="tag.path">
-                #{{ tag.title }}
-              </a>
+              <a class="meta__tag" :href="tag.path">#{{ tag.title }}</a>
             </li>
           </ul>
         </div>
@@ -57,9 +54,7 @@
     />
 
     <aside v-if="!main" class="post__read">
-      <a :href="post.path">
-        Read More ({{ post.timeToRead }} min. read) ≫
-      </a>
+      <a :href="post.path">Read More ({{ post.timeToRead }} min. read) ≫</a>
     </aside>
   </article>
 </template>
@@ -164,12 +159,9 @@
           padding: 0;
           color: $blue;
           line-height: 1.2em;
+          font-style: italic;
           font-weight: bold;
           margin: 0;
-
-          a {
-            text-decoration: none;
-          }
 
           &::before { content: " by "; }
           &::after  { content: " on "; }
@@ -224,6 +216,11 @@
       float: left;
       text-align: right;
       width: 100%;
+
+      a {
+        text-decoration: underline !important;
+        font-weight: bold;
+      }
     }
 
     /**
