@@ -42,7 +42,6 @@
     padding: 0;
     font-family: $main-font;
     font-size: $base-font-size;
-    background-color: $grey1;
     color: $black;
     margin: 0;
   }
