@@ -8,7 +8,5 @@ jobs:
     - uses: actions/setup-node@v1
       with:
         node-version: '10.x'
-    - name: install, build/test
-      run: |
-        npm install
-        npx gridsome build
+    - run: npm install
+    - run: npx gridsome build
