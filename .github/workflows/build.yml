@@ -6,5 +6,6 @@ jobs:
     steps:
     - uses: actions/checkout@v1
     - uses: docker
-      image: Dockerfile
+    - run: docker build -t envygeeks.io
+    - uses: docker://envygeeks/website:latest
     - run: script/build
