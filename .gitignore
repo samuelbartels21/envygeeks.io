@@ -1,11 +1,10 @@
-# --
+#
 # OS Level
-# --
+#
 .DS_Store
-
-# --
+#
 # Ruby
-# --
+#
 vendor/
 coverage/
 Gemfile.lock
@@ -14,25 +13,22 @@ spec/fixture/result/
 spec/fixture/out/
 .bundle/
 *.gem
-
-# --
+#
 # CodeClimate
-# --
+#
 cctr
-
-# --
+#
 # Jekyll
-# --
+#
 _site/
 .jekyll-cache/
 .jekyll-metadata
 .asset-cache/
 _drafts/
 site/
-
-# --
+#
 # Rails
-# --
+#
 /db/*.sqlite3
 /npm-error.log
 .byebug_history
@@ -44,10 +40,9 @@ site/
 .pry_history
 /log
 /tmp
-
-# --
+#
 # Other
-# --
+#
 *.log
 .cache
 src/.temp
@@ -56,3 +51,7 @@ src/assets/original
 .env.*
 dist
 .env
+#
+# Editor
+#
+/.idea
