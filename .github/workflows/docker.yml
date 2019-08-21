@@ -10,4 +10,5 @@ jobs:
         DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
         DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
     - uses: actions/docker/cli@master
-      args: build -t envygeeks/website:latest .
+      with:
+        args: build -t envygeeks/website:latest .
