@@ -1,4 +1,4 @@
-name: Docker Image
+name: Build Docker Image
 on: [push]
 jobs:
   build:
@@ -12,3 +12,6 @@ jobs:
     - uses: actions/docker/cli@master
       with:
         args: build -t envygeeks/website:latest .
+    - uses: actions/docker/cli@master
+      with:
+        args: push envygeeks/website:latest
