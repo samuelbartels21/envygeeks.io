@@ -4,6 +4,8 @@ set -e
 
 DEPLOY_FQDN=${DEPLOY_FQDN:-localhost}
 DEPLOY_HOSTNAME=${DEPLOY_HOSTNAME:-envygeeks.io}
-rsync -av dist/ jordon@"${DEPLOY_FQDN}":\
+DEPLOY_USER=${DEPLOY_USER:-jordon}
+
+rsync -av dist/ "${DEPLOY_USER}"@"${DEPLOY_FQDN}":\
   /srv/nginx/"${DEPLOY_HOSTNAME}"
 

@@ -1,8 +1,7 @@
 name: 'Continuous Integration'
 on:
-  push:
-    branches:
-      - master
+  - pull-request
+  - push
 jobs:
   build:
     name: 'Build'
@@ -63,9 +62,30 @@ jobs:
           npm install
           script/minify
           ls -la dist/
-          which -a rsync
-          which -a ssh
       - uses: actions/upload-artifact@master
         with:
           name: website
           path: dist/
+  deploy:
+    name: 'Deploy'
+    if: github.event_name != 'pull_request'
+    runs-on: ubuntu-latest
+    env:
+      DEPLOY_FQDN: ${{ secrets.DEPLOY_FQDN }}
+      DEPLOY_HOSTNAME: ${{ secrets.HOSTNAME }}
+      DEPLOY_USER: ${{ secrets.DEPLOY_USER }}
+      DEPLOY_KEY: ${{ secrets.DEPLOY_KEY }}
+    needs:
+      - minify
+      - cleanup
+      - build
+    steps:
+      - uses: actions/checkout@v1
+      - uses: actions/download-artifact@master
+        with:
+          name: website
+          path: dist/
+      - name: 'Run deploy'
+        run: |
+          printf "${DEPLOY_USER}\n" > ~/.ssh/id_rsa
+          rsync --help
