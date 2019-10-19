@@ -1,3 +1,3 @@
-#!/bin/bash
-[[ "$DEBUG" ]] && set -x
+#!/bin/sh
+[ "$DEBUG" ] && set -x
 set -e

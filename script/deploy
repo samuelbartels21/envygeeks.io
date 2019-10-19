@@ -1,8 +1,9 @@
-#!/bin/bash
-[[ "$DEBUG" ]] && set -x
+#!/bin/sh
+[ "$DEBUG" ] && set -x
 set -e
 
-server=${ENVYGEEKS_SERVER:-localhost}
-rsync -av dist/ \
-  jordon@${server}:/srv/nginx/envygeeks.io
+DEPLOY_FQDN=${DEPLOY_FQDN:-localhost}
+DEPLOY_HOSTNAME=${DEPLOY_HOSTNAME:-envygeeks.io}
+rsync -av dist/ jordon@"${DEPLOY_FQDN}":\
+  /srv/nginx/"${DEPLOY_HOSTNAME}"
 

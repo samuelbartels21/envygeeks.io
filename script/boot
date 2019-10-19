@@ -1,8 +1,8 @@
 #!/bin/bash
-[[ "$DEBUG" ]] && set -x
+[ "$DEBUG" ] && set -x
 set -e
 
 script/build
-nginx -c $PWD/nginx.conf &; pid=$!
+nginx -c "${PWD}"/nginx.conf & pid=$!
 open "http://localhost:80"
 wait "$pid"

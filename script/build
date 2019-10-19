@@ -1,8 +1,6 @@
-#!/bin/bash
-[[ "$DEBUG" = true ]] && set -x
+#!/bin/sh
+[ "$DEBUG" = true ] && set -x
 set -e
 
 rm -rf dist/
 npx gridsome build
-script/cleanup
-script/minify

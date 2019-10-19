@@ -1,8 +1,8 @@
-#!/bin/bash
-[[ "$DEBUG" = true ]] && set -x
+#!/bin/sh
+[ "$DEBUG" = true ] && set -x
 set -e
 
-npx html-minifier $args --output-dir=dist/ \
+npx html-minifier --output-dir=dist/ \
   --input-dir=dist/ --file-ext=html --minify-js --minify-css \
   --remove-comments --collapse-whitespace --remove-tag-whitespace \
   --collapse-boolean-attributes --remove-style-link-type-attributes \
