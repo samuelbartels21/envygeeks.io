@@ -15,10 +15,10 @@ jobs:
         with:
           ruby-version: '2.x'
       - run: npm install
-      - run: bundle install --path vendor/bundle
+      - run: |
+          bundle install \
+            --path vendor/bundle
       - run: script/build
-      - run: script/cleanup
-      - run: script/minify
       - uses: actions/upload-artifact@master
         with:
           name: website
@@ -42,5 +42,6 @@ jobs:
           path: dist/
       - run: mkdir -p "${HOME}/.ssh"
       - run: chmod og-rwx "${HOME}/.ssh"
-      - run: echo "${DEPLOY_KEY}" | tee "${HOME}/.ssh/id_rsa"
+      - run: echo "${DEPLOY_KEY}" | tee "${HOME}/.ssh/id_rsa" >/dev/null
+      - run: ssh-keyscan -H "${DEPLOY_SERVER}" >> ~/.ssh/known_hosts
       - run: script/deploy
