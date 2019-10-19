@@ -14,7 +14,7 @@ jobs:
           node-version: '10.x'
       - name: Run build
         run: |
-          npm install --ignore-scripts
+          npm install
           script/build
       - uses: actions/upload-artifact@master
         with:
