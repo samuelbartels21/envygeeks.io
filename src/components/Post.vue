@@ -384,4 +384,17 @@
       }
     }
   }
+
+  @media (max-width: ($layout-width + 50px)) {
+    .post {
+      width: 100%;
+
+      .post__title {
+        h1 {
+          line-height: 2.2rem;
+          padding-bottom: 1rem;
+        }
+      }
+    }
+  }
 </style>

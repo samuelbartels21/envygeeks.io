@@ -145,6 +145,7 @@
 
 <style lang="scss">
   @import "~/components/scss/colors.scss";
+  @import "~/components/scss/vars.scss";
 
   h2 {
     border-bottom: 1px dashed $grey3;
@@ -208,6 +209,12 @@
       h3 {
         color: $orange;
       }
+    }
+  }
+
+  @media (max-width: 520px) {
+    .skills {
+      grid-template-areas: 'a b';
     }
   }
 </style>
