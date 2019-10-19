@@ -6,7 +6,7 @@ import BaseLayout from "~/layouts/Base.vue";
 import a_gh from "./components/a_gh.vue";
 
 export default function (Vue, { router, head, isClient }) {
-  Vue.filter("formatTime", formatTime);     // {{ var | formatTime}}
+  Vue.filter("formatTime", formatTime);     // {{ var | formatTime }}
   Vue.filter("relativeTime", relativeTime); // {{ var | relativeTime }}
   Vue.component("BaseLayout", BaseLayout);  // Tag: <Base>
   Vue.component("a-ext", a_ext);            // Tag: <a-ext>

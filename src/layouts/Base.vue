@@ -174,7 +174,7 @@
 
 <static-query>
   query {
-    meta: metaData {
+    meta: metadata {
       subTitle: siteSubTitle
       title: siteTitle
       nav: siteNav {

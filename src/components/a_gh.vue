@@ -38,7 +38,7 @@
 
 <static-query>
   query {
-    meta: metaData {
+    meta: metadata {
       githubUser
     }
   }

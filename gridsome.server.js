@@ -6,7 +6,7 @@ module.exports = function(api) {
   api.loadSource(store => {
     Object.keys(config).forEach(k => {
       if (!skippable.includes(k)) {
-        store.addMetaData(k,
+        store.addMetadata(k,
           config[k]
         )
       }
