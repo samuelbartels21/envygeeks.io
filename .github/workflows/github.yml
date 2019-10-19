@@ -8,15 +8,35 @@ jobs:
     name: 'Build'
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v1
-    - uses: actions/setup-node@v1
-      with:
-        node-version: '10.x'
-    - name: Run build
-      run: |
-        npm install
-        script/build
-    - uses: actions/upload-artifact@master
-      with:
-        name: website
-        path: dist/
+      - uses: actions/checkout@v1
+      - uses: actions/setup-node@v1
+        with:
+          node-version: '10.x'
+      - name: Run build
+        run: |
+          npm install --ignore-scripts
+          script/build
+      - uses: actions/upload-artifact@master
+        with:
+          name: website
+          path: dist/
+  cleanup:
+    name: 'Cleanup'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - uses: actions/download-artifact@master
+        with:
+          name: website
+          path: dist/
+      - uses: actions/setup-ruby@v1
+        with:
+          ruby-version: '2.x'
+      - name: 'Run Cleanup'
+        run: |
+          bundle install --path vendor/bundle
+          script/cleanup
+      - uses: actions/upload-artifact@master
+        with:
+          name: website
+          path: dist/

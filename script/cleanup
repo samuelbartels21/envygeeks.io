@@ -2,11 +2,12 @@
 # Frozen-String-Literal: true
 # Encoding: utf-8
 
-require 'fileutils'
 require 'bundler/setup'
+require 'fileutils'
 require 'pathutil'
 require 'pry'
 
+$stdout.puts 'Converting dir/index.html -> dir.html'
 base = Pathutil.pwd.join('dist')
 base.glob('**/index.html').map do |file|
   next if file.dirname == base
