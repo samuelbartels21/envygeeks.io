@@ -40,10 +40,7 @@ jobs:
         with:
           name: website
           path: dist/
-      - name: 'Run deploy'
-        run: |
-          mkdir -p "${HOME}/.ssh"
-          chmod og-rwx "${HOME}/.ssh"
-          echo "${DEPLOY_KEY}" | tee "${HOME}/.ssh/id_rsa"
-          rm -rf "${HOME}/.ssh"
-          rsync --help
+      - run: mkdir -p "${HOME}/.ssh"
+      - run: chmod og-rwx "${HOME}/.ssh"
+      - run: echo "${DEPLOY_KEY}" | tee "${HOME}/.ssh/id_rsa"
+      - run: script/deploy
