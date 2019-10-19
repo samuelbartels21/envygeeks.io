@@ -280,6 +280,11 @@
       width: 100%;
       tab-size: 8;
 
+      > code {
+        background: none;
+        border: none;
+      }
+
        ::selection,
       &::selection {
         text-shadow: none;
