@@ -71,10 +71,11 @@ jobs:
     if: github.event_name != 'pull_request'
     runs-on: ubuntu-latest
     env:
-      DEPLOY_FQDN: ${{ secrets.DEPLOY_FQDN }}
-      DEPLOY_HOSTNAME: ${{ secrets.HOSTNAME }}
-      DEPLOY_USER: ${{ secrets.DEPLOY_USER }}
       DEPLOY_KEY: ${{ secrets.DEPLOY_KEY }}
+      DEPLOY_KEY_PATH: ${{ secrets.DEPLOY_KEY_PATH }}
+      DEPLOY_SERVER: ${{ secrets.DEPLOY_SERVER }}
+      DEPLOY_PATH: ${{ secrets.DEPLOY_PATH }}
+      DEPLOY_USER: ${{ secrets.DEPLOY_USER }}
     needs:
       - minify
       - cleanup
@@ -87,5 +88,6 @@ jobs:
           path: dist/
       - name: 'Run deploy'
         run: |
-          printf "${DEPLOY_USER}\n" > ~/.ssh/id_rsa
+          tee "${DEPLOY_KEY}" "${DEPLOY_KEY_PATH}"
           rsync --help
+          rm -rf deploy.key

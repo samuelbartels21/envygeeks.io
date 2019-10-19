@@ -1,11 +1,11 @@
 #!/bin/sh
-[ "$DEBUG" ] && set -x
-set -e
 
-DEPLOY_FQDN=${DEPLOY_FQDN:-localhost}
-DEPLOY_HOSTNAME=${DEPLOY_HOSTNAME:-envygeeks.io}
+DEPLOY_SERVER=${DEPLOY_SERVER:-envygeeks.io}
+DEPLOY_PATH=${DEPLOY_PATH:-/srv/nginx/envygeeks.io}
+DEPLOY_KEY_PATH=${DEPLOY_KEY_PATH:-~/.ssh/id_rsa}
 DEPLOY_USER=${DEPLOY_USER:-jordon}
 
-rsync -av dist/ "${DEPLOY_USER}"@"${DEPLOY_FQDN}":\
-  /srv/nginx/"${DEPLOY_HOSTNAME}"
-
+set -e
+[ "$DEBUG" ] && set -x
+rsync -av -e "ssh -i \"${DEPLOY_KEY_PATH}\"" dist/ \
+  "${DEPLOY_USER}"@"${DEPLOY_SERVER}":"${DEPLOY_PATH}"
