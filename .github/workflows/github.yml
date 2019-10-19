@@ -11,24 +11,14 @@ jobs:
       - uses: actions/setup-node@v1
         with:
           node-version: '10.x'
-      - name: Run build
-        run: |
-          npm install
-          script/build
       - uses: actions/setup-ruby@v1
         with:
           ruby-version: '2.x'
-      - name: 'Run Cleanup'
-        run: |
-          bundle install \
-            --path vendor/bundle
-          script/cleanup
-      - uses: actions/setup-node@v1
-        with:
-          node-version: '10.x'
-      - name: Run minify
-        run: |
-          script/minify
+      - run: npm install
+      - run: bundle install --path vendor/bundle
+      - run: script/build
+      - run: script/cleanup
+      - run: script/minify
       - uses: actions/upload-artifact@master
         with:
           name: website
