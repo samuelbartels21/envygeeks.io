@@ -43,3 +43,26 @@ jobs:
         with:
           name: website
           path: dist/
+  minify:
+    name: 'Minify'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - uses: actions/download-artifact@master
+        with:
+          name: website
+          path: dist/
+      - uses: actions/setup-node@v1
+        with:
+          node-version: '10.x'
+      - name: Run minify
+        run: |
+          npm install
+          script/minify
+          ls -la dist/
+          which -a rsync
+          which -a ssh
+      - uses: actions/upload-artifact@master
+        with:
+          name: website
+          path: dist/
