@@ -3,4 +3,5 @@
 set -e
 [ "$DEBUG" ] && set -x
 rsync -av dist/ \
-  "${DEPLOY_USER}"@"${DEPLOY_SERVER}":"${DEPLOY_PATH}"
+  "${DEPLOY_USER}"@"${DEPLOY_SERVER}":"${DEPLOY_PATH}" \
+  --delete
