@@ -4,7 +4,7 @@ import { DateTime } from "luxon";
  * formatTime allows you to format time
  * @param string [String] the time in an ISO format
  * @see https://vuejs.org/v2/guide/filters.html
- * @return [String]
+ * @return String
  */
 export default function (string, format) {
   let time = DateTime.fromISO(string);
