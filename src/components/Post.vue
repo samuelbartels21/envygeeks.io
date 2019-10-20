@@ -103,8 +103,9 @@
   .post {
     color: $grey8;
     font-size: 1.125rem;
-    width: $layout-width;
     line-height: 2.5rem;
+    max-width: $layout-width;
+    width: 100%;
     float: left;
 
     h2, h3, h4, h5, h6 {
@@ -387,8 +388,6 @@
 
   @media (max-width: ($layout-width + 50px)) {
     .post {
-      width: 100%;
-
       .post__title {
         h1 {
           line-height: 2.2rem;
