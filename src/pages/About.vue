@@ -212,6 +212,21 @@
     }
   }
 
+  @media (max-width: 800px) {
+    .chart {
+      &__programming {
+        width: 8rem;
+        margin-top: 1rem;
+        height: 8rem;
+      }
+    }
+
+    .avatar {
+      width: 5rem;
+      height: 5rem;
+    }
+  }
+
   @media (max-width: 520px) {
     .skills {
       grid-template-areas: 'a b';
