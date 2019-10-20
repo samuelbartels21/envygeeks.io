@@ -252,12 +252,11 @@
      * Go
      */
     :not(pre) code[class*=language-] {
-      font-size: 1rem;
-      line-height: 1.4rem;
+      font-size: 0.9rem;
       background-color: $grey1;
       border: 1px solid $grey3;
       border-radius: .3rem;
-      padding: .2rem;
+      padding: .1rem;
     }
 
     pre[class*="language-"] {
@@ -282,6 +281,7 @@
 
       > code {
         background: none;
+        font-size: inherit;
         border: none;
       }
 
