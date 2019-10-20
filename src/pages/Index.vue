@@ -11,8 +11,8 @@
 </template>
 
 <script>
-  import PostPartial from "~/components/Post"
-  import PostLayout from "~/layouts/Post"
+  import PostPartial from "../components/Post"
+  import PostLayout from "../layouts/Post"
   export default {
     components: {
       PostPartial,

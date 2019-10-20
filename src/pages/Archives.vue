@@ -69,8 +69,8 @@
 </style>
 
 <script>
-  import ArchivePartial from "~/components/Archive";
-  import PageLayout  from "~/layouts/Page";
+  import ArchivePartial from "../components/Archive";
+  import PageLayout  from "../layouts/Page";
   export default {
     components: {
       ArchivePartial,

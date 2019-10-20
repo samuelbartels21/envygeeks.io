@@ -1,5 +1,5 @@
 <script>
-  import { shuffled as shuffledColors } from "~/components/javascript/colors"
+  import { shuffled as shuffledColors } from "../javascript/colors"
   import { Doughnut as Donut } from "vue-chartjs"
 
   export default {

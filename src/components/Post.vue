@@ -18,7 +18,7 @@
             height="48"
             :alt="avatarAlt"
             :src="require(`!!assets-loader!@/assets/${post.author.avatar}`)"
-            context="~/assets"
+            context="../assets"
             width="48"
           />
         </a-ext>

@@ -19,7 +19,7 @@
     <g-image
       height="200"
       alt="Jordon Bedwell Avatar"
-      src="~/assets/envygeeks.jpg"
+      src="../assets/envygeeks.jpg"
       class="avatar"
       width="200"
     />
@@ -112,7 +112,7 @@
 
     <g-image
       class="hacking"
-      src="~/assets/hacking.gif"
+      src="../assets/hacking.gif"
       id="hacking"
     />
 
@@ -129,8 +129,8 @@
 </template>
 
 <script>
-  import DonutChart from "~/components/charts/Donut"
-  import PageLayout from "~/layouts/Page"
+  import DonutChart from "../components/charts/Donut"
+  import PageLayout from "../layouts/Page"
 
   export default {
     components: {

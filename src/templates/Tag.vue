@@ -25,8 +25,8 @@
 </style>
 
 <script>
-  import ArchivePartial from "~/components/Archive"
-  import PostLayout  from "~/layouts/Post"
+  import ArchivePartial from "../components/Archive"
+  import PostLayout  from "../layouts/Post"
   export default {
     components: {
       ArchivePartial,

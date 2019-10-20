@@ -2,7 +2,7 @@ import a_ext from "./components/a_ext.vue";
 import relativeTime from "./components/filters/relative_time.js";
 import formatTime from "./components/filters/format_time.js";
 import { headers } from "../gridsome.config.js";
-import BaseLayout from "~/layouts/Base.vue";
+import BaseLayout from "./layouts/Base.vue";
 import a_gh from "./components/a_gh.vue";
 
 export default function (Vue, { router, head, isClient }) {
