@@ -97,8 +97,8 @@
 </script>
 
 <style lang=scss>
-  @import "./scss/colors.scss";
-  @import "./scss/vars.scss";
+  @import "./scss/colors";
+  @import "./scss/vars";
 
   .post {
     color: $grey8;

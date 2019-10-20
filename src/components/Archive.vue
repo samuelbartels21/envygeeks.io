@@ -77,7 +77,7 @@
 </script>
 
 <style lang="scss">
-  @import "./scss/colors.scss";
+  @import "./scss/colors";
 
   .archives {
     float: left;

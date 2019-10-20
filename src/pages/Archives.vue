@@ -16,8 +16,8 @@
 </template>
 
 <style lang=scss>
-  @import "../components/scss/colors.scss";
-  @import "../components/scss/vars.scss";
+  @import "../components/scss/colors";
+  @import "../components/scss/vars";
 
   .tags {
     margin: 6rem 0 0;
