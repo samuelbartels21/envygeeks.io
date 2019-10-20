@@ -1,5 +1,13 @@
 <template>
   <article class="post">
+    <aside ref="aside" class="meta__tags">
+      <ul>
+        <li v-for="tag in post.tags">
+          <a class="meta__tag" :href="tag.path">#{{ tag.title }}</a>
+        </li>
+      </ul>
+    </aside>
+
     <header ref="header" class="post__title">
       <h1>
         <template v-if="main">
@@ -11,8 +19,14 @@
       </h1>
     </header>
 
+    <div
+      ref="postContent"
+      className="post__content"
+      v-html="post.content"
+    />
+
     <footer ref="footer" class="post__meta">
-      <div class="meta__avatar meta--left">
+      <div class="meta__avatar">
         <a-ext :href="post.author.website">
           <g-image
             height="48"
@@ -24,34 +38,19 @@
         </a-ext>
       </div>
 
-      <div class="meta--left">
-        <div>
-          <p class="meta__author meta--left">
-            <a-ext
-              :href="post.author.website"
-              :text="post.author.name"
-            />
-          </p>
-          <ul class="meta__tags meta--right">
-            <li v-for="tag in post.tags">
-              <a class="meta__tag" :href="tag.path">#{{ tag.title }}</a>
-            </li>
-          </ul>
-        </div>
+      <p class="meta__author">
+        <a-ext
+          :href="post.author.website"
+          :text="post.author.name"
+        />
+      </p>
 
-        <div class="meta__date">
-          <time :datetime="post.date">
-            {{ post.date | relativeTime }}
-          </time>
-        </div>
+      <div class="meta__date">
+        <time :datetime="post.date">
+          {{ post.date | relativeTime }}
+        </time>
       </div>
     </footer>
-
-    <div
-      ref="postContent"
-      className="post__content"
-      v-html="post.content"
-    />
 
     <aside v-if="!main" class="post__read">
       <a :href="post.path">Read More ({{ post.timeToRead }} min. read) ≫</a>
@@ -127,89 +126,89 @@
     &__meta {
       float: left;
       margin-bottom: 2rem;
+      grid-template-columns: repeat(auto-fill, minmax(52px, 1fr));
+      max-width: 100%;
+      display: grid;
       width: 100%;
+    }
 
-      .meta {
-        &--right { float: right; }
-        &--left  {
+    .meta {
+      &__avatar {
+        grid-row: 1 / 4;
+
+        a {
+          width: 2.9rem;
+          height: 2.9rem;
+          border-radius: 50%;
+          border: 2px solid $grey2;
+          padding: 1px;
           float: left;
+
+          img {
+            height: inherit;
+            border-radius: 50%;
+            width: inherit;
+          }
+        }
+      }
+
+      &__author {
+        padding: 0;
+        color: $blue;
+        line-height: 1.2em;
+        grid-column-start: 2;
+        margin: .23rem 0 0 .5rem;
+        white-space: nowrap;
+        font-style: italic;
+        font-weight: bold;
+      }
+
+      &__tags {
+        margin: 3rem 0 0;
+        grid-column-start: 2;
+        display: inline-block;
+        list-style-type: none;
+        line-height: 1.2em;
+        padding: 0;
+
+        ul {
+          padding: 0;
+          margin: 0;
         }
 
-        &__avatar {
-          a {
-            width: 2.9rem;
-            height: 2.9rem;
-            border-radius: 50%;
-            border: 2px solid $grey2;
-            padding: 1px;
-            float: left;
+        &::after {
+          content: "\a";
+        }
 
-            img {
-              height: inherit;
-              border-radius: 50%;
-              width: inherit;
+        li {
+          line-height: inherit;
+          display: inline;
+
+          a {
+            font-style: italic;
+            text-decoration: none;
+            color: $grey7;
+
+            &:hover {
+              color: $blue;
             }
           }
-        }
-
-        &__avatar + div {
-          margin-left: 1rem;
-        }
-
-        &__author {
-          padding: 0;
-          color: $blue;
-          line-height: 1.2em;
-          font-style: italic;
-          font-weight: bold;
-          margin: 0;
-
-          &::before { content: " by "; }
-          &::after  { content: " on "; }
-
-          &::after,
-          &::before {
-            font-weight: normal;
-            color: $grey6;
-          }
-        }
-
-        &__tags {
-          margin: 0 0 0 .5rem;
-          display: inline-block;
-          list-style-type: none;
-          line-height: 1.2em;
-          padding: 0;
 
           &::after {
-            content: "\a";
+            content: ", ";
           }
 
-          li {
-            line-height: inherit;
-            display: inline;
-
-            a {
-              font-style: italic;
-              text-decoration: none;
-              color: $grey7;
-
-              &:hover {
-                color: $blue;
-              }
-            }
-
+          &:last-child {
             &::after {
-              content: ", ";
-            }
-
-            &:last-child {
-              &::after {
-                content: "";
-              }
+              content: "";
             }
           }
         }
+      }
+
+      &__date {
+        margin: 0 0 0 .5rem;
+        grid-column: 2 / -1;
       }
     }
 
@@ -233,7 +232,7 @@
         font-style: italic;
         line-height: $post-title-line-height;
         font-size: $post-title-font-size;
-        margin: 3rem 0;
+        margin: 0rem 0 3rem;
 
         a {
           text-decoration: none;
