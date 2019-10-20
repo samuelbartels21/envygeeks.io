@@ -14,8 +14,8 @@ jobs:
       - uses: actions/setup-ruby@v1
         with:
           ruby-version: '2.x'
-      - run: npm install
       - run: bundle install
+      - run: npm install > /dev/null
       - run: script/build
       - uses: actions/upload-artifact@master
         with:
