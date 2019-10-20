@@ -26,10 +26,10 @@
 </template>
 
 <style lang=scss>
-  @import "~/components/scss/fonts.scss";
-  @import "~/components/scss/colors.scss";
-  @import "~/components/scss/normalize.scss";
-  @import "~/components/scss/vars.scss";
+  @import "../components/scss/fonts";
+  @import "../components/scss/normalize";
+  @import "../components/scss/colors";
+  @import "../components/scss/vars";
 
   html, body {
     width: 100%;

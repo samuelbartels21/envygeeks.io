@@ -10,7 +10,8 @@
 </template>
 
 <style lang="scss">
-  @import "~/components/scss/colors.scss";
+  @import "../components/scss/colors";
+  @import "../components/scss/vars";
 
   .page {
     font-size: 1.125rem;

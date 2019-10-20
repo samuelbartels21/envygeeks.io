@@ -144,8 +144,8 @@
 </script>
 
 <style lang="scss">
-  @import "~/components/scss/colors.scss";
-  @import "~/components/scss/vars.scss";
+  @import "../components/scss/colors.scss";
+  @import "../components/scss/vars.scss";
 
   h2 {
     border-bottom: 1px dashed $grey3;
