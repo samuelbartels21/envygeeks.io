@@ -14,8 +14,8 @@
   @import "../components/scss/vars";
 
   .page {
-    font-size: 1.125rem;
-    line-height: 2.5rem;
+    font-size: $font-size;
+    line-height: $line-height;
     margin: 3rem 0;
     color: $grey8;
     float: left;
@@ -27,9 +27,9 @@
 
     &__title {
       h1 {
-        font-size: 3rem;
-        line-height: 4rem;
         text-align: center;
+        line-height: $page-header-line-height;
+        font-size: $page-header-font-size;
         font-style: italic;
         margin: 0 0 3rem;
       }

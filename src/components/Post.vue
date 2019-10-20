@@ -102,8 +102,8 @@
 
   .post {
     color: $grey8;
-    font-size: 1.125rem;
-    line-height: 2.5rem;
+    font-size: $font-size;
+    line-height: $line-height;
     max-width: $layout-width;
     width: 100%;
     float: left;
@@ -230,10 +230,10 @@
     &__title {
       h1 {
         color: $orange;
-        line-height: 4rem;
         font-style: italic;
-        font-size: 1.6rem;
-        margin: 3rem 0 0;
+        line-height: $post-title-line-height;
+        font-size: $post-title-font-size;
+        margin: 3rem 0;
 
         a {
           text-decoration: none;
@@ -391,7 +391,6 @@
       .post__title {
         h1 {
           line-height: 2.2rem;
-          padding-bottom: 1rem;
         }
       }
     }

@@ -50,20 +50,21 @@
 
 <style lang="scss">
   @import "../components/scss/colors";
+  @import "../components/scss/vars";
 
   .posts {
     .post {
       border-bottom: 1px dashed $grey4;
+      .post {
+        &__title {
+          h1 {
+            font-size: $post-title-font-size;
+            text-align: left;
 
-      .post__title {
-        h1 {
-          text-align: left;
-          font-size: 1.6rem;
-          margin-bottom: 0;
-
-          a {
-            text-decoration: none;
-            color: $pink;
+            a {
+              text-decoration: none;
+              color: $pink;
+            }
           }
         }
       }

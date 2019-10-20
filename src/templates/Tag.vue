@@ -10,14 +10,16 @@
 </template>
 
 <style lang="scss">
+  @import "../components/scss/vars";
+
   .page__title {
     text-align: center;
     margin: 3rem 0;
 
     h1 {
-      font-size: 3rem;
-      line-height: 4rem;
       text-align: center;
+      line-height: $page-header-line-height;
+      font-size: $page-header-font-size;
       font-style: italic;
       margin: 0 0 3rem;
     }
