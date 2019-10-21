@@ -2,6 +2,6 @@
 
 set -e
 [ "$DEBUG" ] && set -x
-rsync -av --chown="${DEPLOY_CHOWN}" dist/ \
+rsync -av dist/ \
   "${DEPLOY_USER}"@"${DEPLOY_SERVER}":"${DEPLOY_PATH}" \
   --delete
