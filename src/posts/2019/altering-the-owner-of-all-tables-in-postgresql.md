@@ -16,11 +16,13 @@ You can alter the owner of multiple tables at once by scripting PL/pgSQL
 alter database mydb owner to myowner;
 do $$ declare t text; begin
     for t in select table_name
-                      from information_schema.tables
-                      where table_schema = 'public'
-                          and table_catalog = 'mydb'
+                from information_schema.tables
+                where table_schema = 'public'
+                    and table_catalog = 'mydb'
     loop
-        execute format('alter table mydb.myschema.%s owner to myowner', t);
+        execute format(
+            'alter table mydb.myschema.%s owner to myowner', t
+        );
     end loop;
 end $$;
 ```
