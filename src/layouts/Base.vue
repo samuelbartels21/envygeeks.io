@@ -73,7 +73,6 @@
    */
   .header {
     display: flex;
-    border-bottom: 1px dashed $grey3;
     justify-content: space-between;
     align-items: center;
     width: 100%;
