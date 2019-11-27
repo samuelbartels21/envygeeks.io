@@ -27,13 +27,13 @@
 
     <footer ref="footer" class="post__meta">
       <div class="meta__avatar">
-        <a-ext :href="post.author.website">
+        <a-ext :href="author.website">
           <g-image
-            height="48"
-            :alt="avatarAlt"
-            :src="require(`!!assets-loader!@/assets/${post.author.avatar}`)"
-            context="../assets"
-            width="48"
+            height="46"
+            :src="author.avatar"
+            :alt="author.avatarAlt"
+            fit="contain"
+            width="46"
           />
         </a-ext>
       </div>
@@ -81,10 +81,16 @@
       }
     },
     computed: {
-      avatarAlt() {
-        return `Avatar for: ${
-          this.post.author.name
-        }`
+      author() {
+        return {
+          website: this.post.author.website,
+          avatarAlt: `Avatar for: ${this.post.author.name}`,
+          avatar: require(
+            `!!assets-loader!@/assets/${
+              this.post.author.avatar_small
+            }`
+          ),
+        }
       }
     },
     mounted() {

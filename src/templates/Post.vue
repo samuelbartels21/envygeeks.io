@@ -19,6 +19,7 @@
 
       author {
         avatar
+        avatar_small
         website
         name
       }
