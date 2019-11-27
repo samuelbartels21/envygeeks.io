@@ -43,7 +43,6 @@ module.exports = {
       use: "@gridsome/source-filesystem",
       options: {
         path: "src/posts/**/*.md",
-        route: "/blog/:year/:month/:day/:title",
         typeName: "Post",
         refs: {
           author: {
@@ -52,7 +51,6 @@ module.exports = {
           },
           tags: {
             typeName: "Tag",
-            route: "/tag/:id",
             create: true
           }
         }
@@ -66,6 +64,10 @@ module.exports = {
       }
     }
   ],
+  templates: {
+    Post: "/blog/:year/:month/:day/:title",
+    Tag: "/tag/:id"
+  },
   transformers: {
     remark: {
       externalLinksTarget: "_blank",
