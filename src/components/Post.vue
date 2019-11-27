@@ -158,12 +158,10 @@
         grid-column-start: 2;
         margin: .23rem 0 0 .5rem;
         white-space: nowrap;
-        font-style: italic;
-        font-weight: bold;
       }
 
       &__tags {
-        margin: 3rem 0 0;
+        margin: 6rem 0 0;
         grid-column-start: 2;
         display: inline-block;
         list-style-type: none;
