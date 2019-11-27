@@ -1,7 +1,6 @@
-name: 'Continuous Integration'
+name: 'Pull Request'
 on:
   - pull_request
-  - push
 jobs:
   build:
     name: 'Build'
