@@ -391,4 +391,10 @@
       }
     }
   }
+
+  @media (max-width: 380px) {
+    .post {
+      line-height: $small-screen-line-height;
+    }
+  }
 </style>
