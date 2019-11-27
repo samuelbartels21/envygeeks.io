@@ -226,10 +226,11 @@
     &__title {
       h1 {
         color: $orange;
-        font-style: italic;
+        letter-spacing: -1px;
+        font-family: $secondary-font;
         line-height: $post-title-line-height;
         font-size: $post-title-font-size;
-        margin: 0rem 0 3rem;
+        margin: 0 0 3rem;
 
         a {
           text-decoration: none;
