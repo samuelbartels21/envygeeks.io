@@ -39,10 +39,11 @@
         color: #fff;
         padding: .4rem 1rem;
         list-style-type: none;
+        line-height: $line-height;
         box-shadow: 1px 1px 2px $grey2;
         background-color: $blue;
         border-radius: 1000px;
-        line-height: 1.6rem;
+        font-size: 0.9rem;
         margin: .4rem;
 
         &:hover {
