@@ -24,24 +24,13 @@
       width="200"
     />
 
-    <p>Hi, I’m Jordon Bedwell. I’m an Open Source Programmer, Programmer For
-    Hire, a systems person. I’m also a firm believer in Time Travel. I love
-    Doctor Who, Family Guy, Downton Abbey, and helping people as much as I can.
-    You might know me, you probably don’t. I’m sure I’ve touched a project that
-    you’ve used before, knowingly or not, and I plan to keep helping out Open
-    Source for as long as I can, because everybody deserves high quality Open
-    Source software. It’s even how I’m trying to make a living.</p>
-
-    <p>In the past it was my day to day job to scale things like Jekyll builds
-    across large Docker (and later Kubernetes) clusters to thousands of builds
-    at once. I also programmed applications that many users used between there,
-    and those systems. No, not at Github, somewhere else. I am also often hired
-    to do custom Jekyll work, like teaching people how to get Jekyll to play
-    well in a large org, or to build plugins to make life easier when working
-    with Jekyll. When doing freelance work most people hire me to do initial ops
-    work, Rails apps, and even systems programming with languages like Go, and
-    Rust. If you were to ask me what I do, I would say I “hack”, because I work
-    on my different things!</p>
+    <p>Hey, I’m Jordon Bedwell. I’m a programmer, and systems person for
+    hire. I’m also a firm believer in Time Travel. I love  Doctor Who, Family Guy,
+    Downton Abbey, and helping people achieve their goals as much as I can. You
+    might know me, you probably don’t. I’m sure I’ve touched  a project that
+    you’ve used before, knowingly or not, and I plan to keep helping out
+    Open Source for as long as I can, because everybody deserves
+    high quality open source software.</p>
 
     <h2>Skills</h2>
     <div class="skills">
@@ -51,7 +40,6 @@
           <li>macOS</li>
           <li>Alpine Linux</li>
           <li>Ubuntu GNU+Linux</li>
-          <li>Ubuntu Cloud</li>
           <li>OpenBSD</li>
         </ul>
       </div>
@@ -61,7 +49,6 @@
           <li>AWS</li>
           <li>Heroku</li>
           <li>Digital Ocean</li>
-          <li>Linode</li>
           <li>GCE</li>
         </ul>
       </div>
@@ -72,6 +59,17 @@
           <li>Kubernetes</li>
           <li>ECS</li>
           <li>LXD</li>
+        </ul>
+      </div>
+      <div class="skills__set">
+        <h3>API's</h3>
+        <ul>
+          <li>Stripe</li>
+          <li>MailChimp</li>
+          <li>Phillips Hue</li>
+          <li>Github</li>
+          <li>AWS</li>
+          <li>GCE</li>
         </ul>
       </div>
       <div class="skills__set">
@@ -97,17 +95,6 @@
           <li>jQuery</li>
         </ul>
       </div>
-      <div class="skills__set">
-        <h3>API's</h3>
-        <ul>
-          <li>Stripe</li>
-          <li>MailChimp</li>
-          <li>Phillips Hue</li>
-          <li>Github</li>
-          <li>AWS</li>
-          <li>GCE</li>
-        </ul>
-      </div>
     </div>
 
     <g-image
@@ -116,15 +103,15 @@
       id="hacking"
     />
 
-    <p>I'm heavy <a-ext href="https://docker.com" text="Docker"/> user, a Linux
-    user, and I maintain a great many <a-ext href="https://jekyllrb.com"
-    text="Jekyll"/> plugins, and other Ruby projects, that hopefully you love
-    and enjoy. I’ve built tools like <a-gh repo="docker-template" name="Docker
-    Template"/>, plugins like <a-gh repo="jekyll-assets" name="Jekyll Assets"/>,
-    and Docker zimages like <a-gh repo="jekyll-docker" name="Jekyll Docker"/>,
-    and I currently manage many other Docker images. Unless I’ve removed them,
-    or planned to deprecate them because the ecosystem has taken over to do a
-    better job.</p>
+    <p>I'm a <a-ext href="https://docker.com" text="Docker"/> user, a Linux
+    & Unix user, a mainly Ruby, and Go programmer, and I maintain a great many
+    <a-ext href="https://jekyllrb.com" text="Jekyll"/> plugins, and other various
+    projects, that hopefully you love and enjoy. I’ve built tools like <a-gh
+    repo="docker-template" name="Docker Template"/>, plugins like <a-gh
+    repo="jekyll-assets" name="Jekyll Assets"/>, and Docker images like <a-gh
+    repo="jekyll-docker" name="Jekyll Docker"/>, and I currently manage many
+    other Docker images. Unless I’ve removed them, or planned to deprecate
+    them because the ecosystem has taken over to do a better job.</p>
   </PageLayout>
 </template>
 
