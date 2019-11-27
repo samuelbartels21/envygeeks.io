@@ -48,6 +48,7 @@ site/
 src/.temp
 node_modules
 src/assets/original
+/yarn.lock
 .env.*
 dist
 .env

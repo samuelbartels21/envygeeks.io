@@ -1,6 +1,9 @@
 <script>
+  import Chart from "chart.js";
+  import "../../../node_modules/chart.js/dist/Chart.css";
   import { shuffled as shuffledColors } from "../javascript/colors"
   import { Doughnut as Donut } from "vue-chartjs"
+  Chart.platform.disableCSSInjection = true;
 
   export default {
     name: "DonutChart",
