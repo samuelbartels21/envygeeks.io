@@ -16,7 +16,3 @@ jobs:
       - run: bundle install
       - run: npm install > /dev/null
       - run: script/build
-      - uses: actions/upload-artifact@master
-        with:
-          name: website
-          path: dist/
