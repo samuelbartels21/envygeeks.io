@@ -263,7 +263,7 @@
       word-break: normal;
       line-height: 1.3rem;
       background: #282c34;
-      font-family: "IBM Plex Mono", monospace;
+      font-family: $mono-font;
       box-sizing: border-box;
       word-spacing: normal;
       padding: 1rem 1rem;
