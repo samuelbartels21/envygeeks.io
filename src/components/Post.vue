@@ -122,13 +122,6 @@
       padding: 0;
     }
 
-    .post__read {
-      a {
-        text-decoration: none;
-        font-style: italic;
-      }
-    }
-
     &__meta {
       float: left;
       margin-bottom: 2rem;
@@ -220,12 +213,12 @@
 
     &__read {
       float: left;
+      margin-bottom: 1rem;
       text-align: right;
       width: 100%;
 
       a {
-        text-decoration: underline !important;
-        font-weight: bold;
+        text-decoration: none;
       }
     }
 
