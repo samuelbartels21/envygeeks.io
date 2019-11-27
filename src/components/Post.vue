@@ -371,10 +371,11 @@
      * Quotes
      */
     blockquote {
+      display: block;
       font-style: italic;
       border-left: 4px solid $grey3;
+      box-sizing: border-box;
       padding: 0 0.5rem;
-      float: left;
 
       p {
         margin: 0.5rem 0;
