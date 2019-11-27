@@ -1,16 +1,16 @@
-import a_ext from "./components/a_ext.vue";
+import ExternalLink from "./components/ExternalLink.vue";
 import relativeTime from "./components/filters/relative_time.js";
 import formatTime from "./components/filters/format_time.js";
 import { headers } from "../gridsome.config.js";
 import BaseLayout from "./layouts/Base.vue";
-import a_gh from "./components/a_gh.vue";
+import Github from "./components/Github.vue";
 
 export default function (Vue, { router, head, isClient }) {
   Vue.filter("formatTime", formatTime);     // {{ var | formatTime }}
   Vue.filter("relativeTime", relativeTime); // {{ var | relativeTime }}
   Vue.component("BaseLayout", BaseLayout);  // Tag: <Base>
-  Vue.component("a-ext", a_ext);            // Tag: <a-ext>
-  Vue.component("a-gh", a_gh);              // Tag: <a-gh>
+  Vue.component("a-ext", ExternalLink);     // Tag: <a-ext>
+  Vue.component("a-gh", Github);            // Tag: <a-gh>
 
   /**
    * gridsome.config.js: headers
