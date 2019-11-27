@@ -94,7 +94,7 @@
     &__one {
       grid-area: b;
       padding-left: 1rem;
-      font-family: "Lora";
+      font-family: $main-font;
       font-size: 1.125rem;
       font-style: italic;
       font-weight: 300;
@@ -112,7 +112,7 @@
     &__two {
       display: block;
       font-weight: bold;
-      font-family: "Montserrat";
+      font-family: $secondary-font;
       border-right: 1px solid #000;
       text-transform: uppercase;
       padding-right: 1rem;
