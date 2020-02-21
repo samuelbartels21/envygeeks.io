@@ -52,7 +52,7 @@
       </div>
     </footer>
 
-    <aside v-if="!main" class="post__read">
+    <aside v-if="!main && readMore" class="post__read">
       <a :href="post.path">Read More ({{ post.timeToRead }} min. read) ≫</a>
     </aside>
   </article>
@@ -75,6 +75,10 @@
       main: Boolean,
       trim: Boolean,
       post: Object,
+      readMore: {
+        type: Boolean,
+        default: true
+      },
       limit: {
         type: Number,
         default: 3
