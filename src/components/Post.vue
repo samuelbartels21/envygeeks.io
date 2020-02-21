@@ -263,6 +263,7 @@
 
     pre[class*="language-"] {
       color: #abb2bf;
+      margin: 2rem 0;
       background: none;
       word-break: normal;
       line-height: 1.3rem;
