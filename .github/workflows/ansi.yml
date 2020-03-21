@@ -1,0 +1,17 @@
+name: 'ANSI Test'
+on:
+  - pull_request
+  - push:
+    branches:
+      - master
+jobs:
+  ansi:
+    name: 'ANSI Test'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - uses: actions/setup-ruby@v1
+        with:
+          ruby-version: '2.x'
+      - run: bundle install
+      - run: script/ansi

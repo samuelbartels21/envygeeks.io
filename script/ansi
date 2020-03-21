@@ -1,0 +1,9 @@
+#!/usr/bin/env ruby
+
+require 'bundler/setup'
+require 'simple/ansi'
+
+$stdout.puts Simple::Ansi.blue('Blue')
+$stdout.puts Simple::Ansi.yellow('Yellow')
+$stdout.puts Simple::Ansi.green('Green')
+$stdout.puts Simple::Ansi.red('Red')
