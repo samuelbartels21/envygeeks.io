@@ -1,6 +1,6 @@
 <template>
   <div class="archives">
-    <div class="archive__year" v-for="edges, year in gPosts">
+    <div class="archive__year" v-for="edges,year in gPosts">
       <h2>{{ year }}</h2>
 
       <article class="post" v-for="edge in edges">
