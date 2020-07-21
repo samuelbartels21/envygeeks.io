@@ -38,12 +38,12 @@
         </a-ext>
       </div>
 
-      <p class="meta__author">
+      <span class="meta__author">
         <a-ext
           :href="post.author.website"
           :text="post.author.name"
         />
-      </p>
+      </span>
 
       <div class="meta__date">
         <time :datetime="post.date">
@@ -110,15 +110,17 @@
   @import "./scss/vars";
 
   .post {
-    color: $grey8;
-    font-size: $font-size;
-    line-height: $line-height;
+    color: $grey-800;
+    font-size: $post-body-font-size;
+    line-height: $post-body-line-height;
     max-width: $layout-width;
     width: 100%;
     float: left;
 
     h2, h3, h4, h5, h6 {
-      color: $blue;
+      font-family: $post-title-font-family;
+      letter-spacing: $post-title-letter-spacing;
+      color: $blue-600;
     }
 
     p {
@@ -126,132 +128,20 @@
       padding: 0;
     }
 
-    &__meta {
-      float: left;
-      margin-bottom: 2rem;
-      grid-template-columns: repeat(auto-fill, minmax(52px, 1fr));
-      max-width: 100%;
-      display: grid;
-      width: 100%;
-    }
+    blockquote {
+      display: block;
+      font-style: italic;
+      border-left: 4px solid $grey3;
+      box-sizing: border-box;
+      padding: 0 0.5rem;
 
-    .meta {
-      &__avatar {
-        grid-row: 1 / 4;
-
-        a {
-          width: 2.9rem;
-          height: 2.9rem;
-          border-radius: 50%;
-          border: 2px solid $grey2;
-          padding: 1px;
-          float: left;
-
-          img {
-            height: inherit;
-            border-radius: 50%;
-            width: inherit;
-          }
-        }
-      }
-
-      &__author {
-        padding: 0;
-        color: $blue;
-        line-height: 1.2em;
-        grid-column-start: 2;
-        margin: .23rem 0 0 .5rem;
-        white-space: nowrap;
-      }
-
-      &__tags {
-        margin: 6rem 0 0;
-        grid-column-start: 2;
-        display: inline-block;
-        list-style-type: none;
-        line-height: 1.2em;
-        padding: 0;
-
-        ul {
-          padding: 0;
-          margin: 0;
-        }
-
-        &::after {
-          content: "\a";
-        }
-
-        li {
-          line-height: inherit;
-          display: inline;
-
-          a {
-            font-style: italic;
-            text-decoration: none;
-            color: $grey7;
-
-            &:hover {
-              color: $blue;
-            }
-          }
-
-          &::after {
-            content: ", ";
-          }
-
-          &:last-child {
-            &::after {
-              content: "";
-            }
-          }
-        }
-      }
-
-      &__date {
-        margin: 0 0 0 .5rem;
-        grid-column: 2 / -1;
-      }
-    }
-
-    &__read {
-      float: left;
-      margin-bottom: 1rem;
-      text-align: right;
-      width: 100%;
-
-      a {
-        text-decoration: none;
-      }
-    }
-
-    /**
-     * Title
-     */
-    &__title {
-      h1 {
-        color: $orange;
-        letter-spacing: -1px;
-        font-family: $secondary-font;
-        line-height: $post-title-line-height;
-        font-size: $post-title-font-size;
-        margin: 0 0 3rem;
-
-        a {
-          text-decoration: none;
-          color: inherit;
-
-          &:hover {
-            color: $blue;
-          }
-        }
+      p {
+        margin: 0.5rem 0;
       }
     }
 
     /**
      * Code
-     * JavaScript
-     * Ruby
-     * Go
      */
     :not(pre) code[class*=language-] {
       font-size: 0.9rem;
@@ -372,19 +262,114 @@
         }
       }
     }
+  }
 
-    /**
-     * Quotes
-     */
-    blockquote {
-      display: block;
-      font-style: italic;
-      border-left: 4px solid $grey3;
-      box-sizing: border-box;
-      padding: 0 0.5rem;
+  .post__meta {
+    float: left;
+    margin-bottom: 2rem;
+    grid-template-columns: repeat(auto-fill, minmax(52px, 1fr));
+    max-width: 100%;
+    display: grid;
+    width: 100%;
+  }
 
-      p {
-        margin: 0.5rem 0;
+  .meta__avatar {
+    grid-row: 1 / 4;
+
+    a {
+      width: 2.9rem;
+      height: 2.9rem;
+      border-radius: 50%;
+      border: 2px solid $grey2;
+      padding: 1px;
+      float: left;
+
+      img {
+        height: inherit;
+        border-radius: 50%;
+        width: inherit;
+      }
+    }
+  }
+
+  .meta__author {
+    color: $blue;
+    line-height: 1.2em;
+    margin: .23rem 0 0 .5rem;
+    grid-column-start: 2;
+    white-space: nowrap;
+    padding: 0;
+  }
+
+  .meta__tags {
+    margin: 6rem 0 0;
+    grid-column-start: 2;
+    display: inline-block;
+    list-style-type: none;
+    line-height: 1.2em;
+    padding: 0;
+
+    ul {
+      padding: 0;
+      margin: 0;
+    }
+
+    li {
+      line-height: inherit;
+      display: inline;
+
+      a {
+        font-style: italic;
+        text-decoration: none;
+        background-color: $purple-200;
+        border-radius: 120px;
+        color: $purple-600;
+        padding: 3px 12px;
+
+        &:hover {
+          color: $blue;
+        }
+      }
+
+      &::after {
+        content: "\a";
+      }
+    }
+  }
+
+  .meta__date {
+    margin: 0 0 0 .5rem;
+    grid-column: 2 / -1;
+  }
+
+  .post__read {
+    float: left;
+    margin-bottom: 1rem;
+    text-align: right;
+    width: 100%;
+
+    a {
+      text-decoration: none;
+    }
+  }
+
+  .post__title {
+    h1 {
+      color: $pink-600;
+      font-family: $post-title-font-family;
+      letter-spacing: $post-title-letter-spacing;
+      font-weight: $post-title-font-weight;
+      line-height: $post-title-line-height;
+      font-size: $post-title-font-size;
+      margin: 0 0 3rem;
+
+      a {
+        text-decoration: none;
+        color: inherit;
+
+        &:hover {
+          color: $purple-600;
+        }
       }
     }
   }
@@ -401,7 +386,7 @@
 
   @media (max-width: 380px) {
     .post {
-      line-height: $small-screen-line-height;
+      line-height: $post-body-small-screen-line-height;
     }
   }
 </style>
