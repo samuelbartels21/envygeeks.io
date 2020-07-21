@@ -39,7 +39,7 @@
         color: #fff;
         padding: .4rem 1rem;
         list-style-type: none;
-        line-height: $line-height;
+        line-height: $body-line-height;
         box-shadow: 1px 1px 2px $grey2;
         background-color: $blue;
         border-radius: 1000px;
@@ -52,7 +52,7 @@
 
         a {
           font-style: italic;
-          font-family: $secondary-font;
+          font-family: $lora-font;
           text-decoration: none;
           color: #fff;
         }

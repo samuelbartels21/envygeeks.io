@@ -1,12 +1,55 @@
-$line-height: 1.9rem;
-$base-font-size: 100%;
-$small-screen-line-height: 1.6rem;
-$secondary-font: "Montserrat", sans-serif;
+/**
+ * Fonts
+ */
 $mono-font: "Dank Mono", monospace;
-$post-title-font-size: 1.6rem;
+$post-title-font-family: 'Poppins', sans-serif;
+$navigation-font-family: 'Poppins', sans-serif;
+$page-title-font-family: '';
+$site-title-font-family: '';
+$body-font: "Lora";
+  $poppins-font: "Poppins", sans-serif;
+  $montserrat-font-family: "Montserrat", serif;
+  $dank-mono-font: "Dank Mono", monospace;
+  $lora-font: "Lora", serif;
+
+  /**
+   * Sizes
+   */
+  $body-font-size: 100%;
+  $page-title-font-size: 3rem;
+  $navigation-font-size: 0.875rem;
+  $post-title-font-size: 1.7rem;
+  $post-body-font-size: 1.06rem;
+  $page-body-font-size: 1.06rem;
+
+  /**
+   * Weights
+   */
+  $post-title-font-weight: 800;
+  $navigation-font-weight: 800;
+
+/**
+ * Letter Spacing
+ */
+$post-title-letter-spacing: -1px;
+$page-title-letter-spacing: -1px;
+$site-title-letter-spacing: inherit;
+$page-body-letter-spacing: inherit;
+$post-body-letter-spacing: inherit;
+/**
+ * Line Heights
+ */
+$body-line-height: 100%;
+$post-body-line-height: 1.9rem;
+$page-body-line-height: 1.9rem;
+$body-small-screen-line-height: 100%;
+$post-body-small-screen-line-height: 1.6rem;
+$page-body-small-screen-line-height: 1.6rem;
 $post-title-line-height: 4rem;
-$page-header-line-height: 4rem;
-$page-header-font-size: 3rem;
+$page-title-line-height: 4rem;
+$site-title-line-height: 4rem;
+
+/**
+ * Layout
+ */
 $layout-width: 750px;
-$font-size: 1.06rem;
-$main-font: "Lora";

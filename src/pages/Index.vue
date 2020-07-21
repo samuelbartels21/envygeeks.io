@@ -56,19 +56,6 @@
   .posts {
     .post {
       border-bottom: 1px dashed $grey4;
-      .post {
-        &__title {
-          h1 {
-            font-size: $post-title-font-size;
-            text-align: left;
-
-            a {
-              text-decoration: none;
-              color: $pink;
-            }
-          }
-        }
-      }
     }
   }
 </style>

@@ -18,8 +18,8 @@
 
     h1 {
       text-align: center;
-      line-height: $page-header-line-height;
-      font-size: $page-header-font-size;
+      line-height: $page-title-line-height;
+      font-size: $page-title-font-size;
       font-style: italic;
       margin: 0 0 3rem;
     }

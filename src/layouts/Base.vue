@@ -40,9 +40,9 @@
    */
   body {
     padding: 0;
-    font-family: $main-font;
-    font-size: $base-font-size;
-    color: $black;
+    font-family: $body-font;
+    font-size: $body-font-size;
+    color: $grey-800;
     margin: 0;
   }
 
@@ -83,7 +83,7 @@
    */
   .title {
     grid-template-areas: "a b";
-    font-family: $secondary-font;
+    font-family: $lora-font;
     align-items: center;
     padding: 1rem 0;
     display: grid;
@@ -94,7 +94,7 @@
     &__one {
       grid-area: b;
       padding-left: 1rem;
-      font-family: $main-font;
+      font-family: $lora-font;
       font-size: 1.125rem;
       font-style: italic;
       font-weight: 300;
@@ -112,7 +112,7 @@
     &__two {
       display: block;
       font-weight: bold;
-      font-family: $secondary-font;
+      font-family: $lora-font;
       border-right: 1px solid #000;
       text-transform: uppercase;
       padding-right: 1rem;
@@ -148,12 +148,12 @@
 
     &__item {
       a {
-        font-size: 0.875rem;
         text-decoration: none;
-        font-family: "Montserrat";
+        font-size: $navigation-font-size;
+        font-family: $navigation-font-family;
+        font-weight: $navigation-font-weight;
         text-transform: uppercase;
         padding: 1rem .5rem;
-        font-weight: bold;
         display: block;
         color: inherit;
 
