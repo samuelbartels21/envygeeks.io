@@ -1,13 +1,14 @@
+
 <template>
   <div class="layout">
     <header class="header">
       <div class="title">
-        <span class="title__one">
+        <span class="title__main">
           <g-link to="/" rel="me">
             {{ $static.meta.title }}
           </g-link>
         </span>
-        <span class="title__two">
+        <span class="title__sub">
           {{ $static.meta.subTitle }}
         </span>
       </div>
@@ -35,136 +36,118 @@
     width: 100%;
   }
 
-  /**
-   * 16px
-   */
   body {
     padding: 0;
-    font-family: $body-font;
-    font-size: $body-font-size;
-    color: $grey-800;
+    font-weight: var(--body-font-weight);
+    font-family: var(--body-font-family);
+    font-size: var(--body-font-size);
+    color: var(--body-color);
     margin: 0;
   }
 
   a {
-    color: $blue;
+    color: var(--anchor-color);
     &:hover {
-      color: $purple;
+      color: var(--anchor-hover-color);
     }
   }
 
   .layout {
     flex-direction: row;
-    max-width: $layout-width;
+    max-width: var(--layout-width);
+    margin: var(--layout-gutter);
     justify-content: center;
     flex-flow: row wrap;
-    margin: 0 auto 4rem;
     display: flex;
   }
 
-  @media (max-width: ($layout-width + 50px)) {
-    .layout {
-      margin: 0 1rem;
-    }
-  }
-
-  /**
-   * Header
-   */
   .header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     width: 100%;
-  }
 
-  /**
-   * Title
-   */
-  .title {
-    grid-template-areas: "a b";
-    font-family: $lora-font;
-    align-items: center;
-    padding: 1rem 0;
-    display: grid;
-
-    /**
-     * 18px
-     */
-    &__one {
-      grid-area: b;
-      padding-left: 1rem;
-      font-family: $lora-font;
-      font-size: 1.125rem;
-      font-style: italic;
-      font-weight: 300;
-      display: block;
-
-      a {
-        text-decoration: none;
-        color: inherit;
-      }
-    }
-
-    /**
-     * 22px
-     */
-    &__two {
-      display: block;
-      font-weight: bold;
-      font-family: $lora-font;
-      border-right: 1px solid #000;
-      text-transform: uppercase;
-      padding-right: 1rem;
-      line-height: 1.4rem;
-      font-size: 1.4rem;
-      grid-area: a;
-    }
-  }
-
-  @media (max-width: 800px) {
     .title {
-      &__one { padding: 0; }
-      &__two {
-        display: none;
-      }
-    }
-  }
+      align-items: center;
+      font-family: var(--site-title-font-family);
+      grid-template-areas: "a b";
+      padding: 1rem 0;
+      display: grid;
 
-  /**
-   * Nav
-   */
-  .nav {
-    ul {
-      padding: 0;
-      text-align: right;
-      list-style-type: none;
-      margin: 0;
-
-      li {
-        display: inline-block;
-      }
-    }
-
-    &__item {
-      a {
-        text-decoration: none;
-        font-size: $navigation-font-size;
-        font-family: $navigation-font-family;
-        font-weight: $navigation-font-weight;
-        text-transform: uppercase;
-        padding: 1rem .5rem;
+      .title__main {
+        grid-area: b;
+        padding-left: 1rem;
+        font-style: var(--site-title-font-style);
+        font-weight: var(--site-title-font-weight);
+        text-transform: var(--site-title-text-transform);
+        line-height: var(--site-title-line-height);
+        font-family: var(--site-title-font-family);
+        font-size: var(--site-title-font-size);
         display: block;
-        color: inherit;
 
-        &:hover {
-          color: $orange;
+        a {
+          text-decoration: none;
+          color: inherit;
         }
       }
 
-      &:last-child {
+      .title__sub {
+        display: block;
+        font-size: var(--site-subtitle-font-size);
+        line-height: var(--site-subtitle-line-height);
+        font-weight: var(--site-subtitle-font-weight);
+        border-right: 1px solid var(--site-title-splitter-color);
+        text-transform: var(--site-subtitle-text-transform);
+        font-family: var(--site-subtitle-font-family);
+        font-style: var(--site-subtitle-font-style);
+        padding-right: 1rem;
+        grid-area: a;
+      }
+    }
+
+    .nav {
+      ul {
+        padding: 0;
+        text-align: right;
+        list-style-type: none;
+        margin: 0;
+
+        li {
+          display: inline-block;
+        }
+      }
+
+      .nav__item {
         a {
-          padding-right: 0;
+          text-decoration: none;
+          font-size: var(--navigation-font-size);
+          font-family: var(--navigation-font-family);
+          text-transform: var(--navigation-text-transform);
+          font-weight: var(--navigation-font-weight);
+          color: var(--navigation-color);
+          padding: 1rem .5rem;
+          display: block;
+
+          &:hover {
+            color: var(--navigation-hover-color);
+          }
+        }
+
+        &:last-child {
+          a {
+            padding-right: 0;
+          }
+        }
+      }
+    }
+  }
+
+  @media (max-width: $responsive-width) {
+    .header {
+      .title {
+        .title__main { padding: 0; }
+        .title__sub  {
+          display: none;
         }
       }
     }

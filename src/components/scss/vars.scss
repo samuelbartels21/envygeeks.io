@@ -1,12 +1,109 @@
+$layout-width: 750px;
+$responsive-width: $layout-width + 50px;
+$min-width: $responsive-width;
+@import "colors";
+
+:root {
+  --primary-font-color: #{$grey-800};
+  --poppins-font-family: "Poppins", sans-serif;
+  --montserrat-font-family: "Montserrat", sans-serif;
+  --dank-mono-font-family: "Dank Mono", monospace;
+  --lora-font-family: "Lora", serif;
+
+  /**
+   * Layout/Base.vue
+   */
+  --min-width: #{$min-width};
+  --body-font-weight: initial;
+  --responsive-width: #{$responsive-width};
+  --body-font-family: var(--lora-font-family);
+  --layout-width: #{$layout-width};
+  --layout-gutter: 0 auto 4rem;
+  --body-color: #{$grey-800};
+  --body-font-size: 100%;
+
+    /**
+     * Globals
+     */
+    --anchor-color: #{$blue};
+    --anchor-hover-color: #{$purple};
+
+    /**
+     * Header
+     */
+    --site-title-font-style: italic;
+    --site-title-text-transform: initial;
+    --site-title-splitter-color: var(--grey-800);
+    --site-title-font-size: 1.125rem; // Variable fonts 😭
+    --site-title-font-family: var(--lora-font-family);
+    --site-title-line-height: initial;
+    --site-title-font-weight: 300;
+
+      /**
+       * Subtitle
+       * Left
+       */
+      --site-subtitle-font-weight: bold;
+      --site-subtitle-text-transform: uppercase;
+      --site-subtitle-font-family: var(--lora-font-family);
+      --site-subtitle-line-height: 1.4rem; // Variable fonts 😭
+      --site-subtitle-font-style: inherit;
+      --site-subtitle-font-size: 1.4rem;
+
+    /**
+     * Navigation
+     */
+    --navigation-font-weight: 800;
+    --navigation-text-transform: uppercase;
+    --navigation-font-family: var(--poppins-font-family);
+    --navigation-hover-color: var(--orange-600);
+    --navigation-font-size: 0.875rem;
+    --navigation-color: inherit;
+}
+
 /**
- * Fonts
+ * Anything smaller than the width of the layout
+ * These are "small" devices and all treated equally
+ * and they all get the same adjustments because we
+ * have a very simple single column layout.
  */
+@media (max-width: ($layout-width + 50px)) {
+  :root {
+    --layout-gutter: 0 1rem;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 $mono-font: "Dank Mono", monospace;
 $post-title-font-family: 'Poppins', sans-serif;
 $navigation-font-family: 'Poppins', sans-serif;
-$page-title-font-family: '';
-$site-title-font-family: '';
-$body-font: "Lora";
+$page-title-font-family: 'Poppins', sans-serif;
+$site-title-font-family: 'Lora', serif;
+$body-font: "Lora", serif;
   $poppins-font: "Poppins", sans-serif;
   $montserrat-font-family: "Montserrat", serif;
   $dank-mono-font: "Dank Mono", monospace;
@@ -28,6 +125,12 @@ $body-font: "Lora";
   $post-title-font-weight: 800;
   $navigation-font-weight: 800;
 
+  /**
+   * Styles
+   */
+  $site-title-main-font-style: italic;
+  $site-title-sub-font-style: initial;
+
 /**
  * Letter Spacing
  */
@@ -36,6 +139,7 @@ $page-title-letter-spacing: -1px;
 $site-title-letter-spacing: inherit;
 $page-body-letter-spacing: inherit;
 $post-body-letter-spacing: inherit;
+
 /**
  * Line Heights
  */
