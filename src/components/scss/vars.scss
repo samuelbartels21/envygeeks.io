@@ -4,7 +4,7 @@ $min-width: $responsive-width;
 @import "colors";
 
 :root {
-  --primary-font-color: #{$grey-800};
+  --primary-font-color: var(--grey-800);
   --poppins-font-family: "Poppins", sans-serif;
   --montserrat-font-family: "Montserrat", sans-serif;
   --dank-mono-font-family: "Dank Mono", monospace;
@@ -15,11 +15,11 @@ $min-width: $responsive-width;
    */
   --min-width: #{$min-width};
   --body-font-weight: initial;
+  --body-color: var(--grey-800);
   --responsive-width: #{$responsive-width};
   --body-font-family: var(--lora-font-family);
   --layout-width: #{$layout-width};
   --layout-gutter: 0 auto 4rem;
-  --body-color: #{$grey-800};
   --body-font-size: 100%;
 
     /**
@@ -59,6 +59,19 @@ $min-width: $responsive-width;
     --navigation-hover-color: var(--orange-600);
     --navigation-font-size: 0.875rem;
     --navigation-color: inherit;
+
+  /**
+   * Layouts/Page.vue
+   */
+  --page-line-height: 1.9rem;
+  --page-font-family: inherit;
+  --page-title-font-size: 3rem;
+  --page-title-alignment: center;
+  --page-title-font: var(--lora-font-family);
+  --page-title-text-style: italic;
+  --page-title-line-height: 4rem;
+  --page-color: var(--grey-800);
+  --page-font-size: 1.06rem;
 }
 
 /**

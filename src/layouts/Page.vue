@@ -14,10 +14,11 @@
   @import "../components/scss/vars";
 
   .page {
-    font-size: $body-font-size;
-    line-height: $body-line-height;
     margin: 3rem 0;
-    color: $grey8;
+    font-size: var(--page-font-size);
+    line-height: var(--page-line-height);
+    font-family: var(--page-font-family);
+    color: var(--page-color);
     float: left;
 
     p {
@@ -27,10 +28,11 @@
 
     &__title {
       h1 {
-        text-align: center;
-        line-height: $page-title-line-height;
-        font-size: $page-title-font-size;
-        font-style: italic;
+        font-family: var(--page-title-font);
+        text-align: var(--page-title-alignment);
+        line-height: var(--page-title-line-height);
+        font-style: var(--page-title-text-style);
+        font-size: var(--page-title-font-size);
         margin: 0 0 3rem;
       }
     }
