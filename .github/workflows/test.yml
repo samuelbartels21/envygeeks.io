@@ -1,0 +1,45 @@
+name: 'Push'
+on:
+  push:
+    ignore-branches:
+      - master
+jobs:
+  build:
+    name: 'Test Build'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - uses: actions/setup-node@v1
+        with:
+          node-version: '10.x'
+      - uses: actions/setup-ruby@v1
+        with:
+          ruby-version: '2.x'
+      - run: bundle install
+      - run: npm install > /dev/null
+      - run: script/build
+      - uses: actions/upload-artifact@master
+        with:
+          name: website
+          path: dist/
+  deploy:
+    name: 'Deploy'
+    runs-on: ubuntu-latest
+    env:
+      DEPLOY_USER: ${{ secrets.DEPLOY_USER }}
+      DEPLOY_PATH: ${{ secrets.DEPLOY_TEST_PATH }}
+      DEPLOY_SERVER: ${{ secrets.DEPLOY_SERVER }}
+      DEPLOY_KEY: ${{ secrets.DEPLOY_KEY }}
+    needs:
+      - build
+    steps:
+      - uses: actions/checkout@v1
+      - uses: actions/download-artifact@master
+        with:
+          name: website
+          path: dist/
+      - run: mkdir -p "${HOME}/.ssh"
+      - run: echo "${DEPLOY_KEY}" | tee "${HOME}/.ssh/id_rsa" >/dev/null
+      - run: chmod og-rwx "${HOME}/.ssh" && chmod og-rwx "${HOME}/.ssh/id_rsa"
+      - run: ssh-keyscan -H "${DEPLOY_SERVER}" >> ~/.ssh/known_hosts
+      - run: script/deploy
