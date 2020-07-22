@@ -33,6 +33,7 @@
   @import "../components/scss/vars";
 
   html, body {
+    font-size: var(--body-font-size);
     width: 100%;
   }
 
@@ -40,7 +41,6 @@
     padding: 0;
     font-weight: var(--body-font-weight);
     font-family: var(--body-font-family);
-    font-size: var(--body-font-size);
     color: var(--body-color);
     margin: 0;
   }
