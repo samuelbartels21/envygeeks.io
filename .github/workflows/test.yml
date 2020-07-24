@@ -26,10 +26,10 @@ jobs:
     name: 'Deploy'
     runs-on: ubuntu-latest
     env:
-      DEPLOY_USER: ${{ secrets.DEPLOY_USER }}
-      DEPLOY_BRANCH_PATH: ${{ secrets.DEPLOY_BRANCH_PATH }}
-      DEPLOY_SERVER: ${{ secrets.DEPLOY_SERVER }}
       DEPLOY_KEY: ${{ secrets.DEPLOY_KEY }}
+      DEPLOY_PATH: /srv/nginx/beta.envygeeks.io
+      DEPLOY_SERVER: envygeeks.io
+      DEPLOY_USER: deploy
     needs:
       - build
     steps:
