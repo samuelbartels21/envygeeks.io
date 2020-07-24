@@ -3,5 +3,5 @@
 set -e
 [ "$DEBUG" ] && set -x
 path=${DEPLOY_PATH:-$DEPLOY_BRANCH_PATH}
-rsync -av dist/ "${DEPLOY_USER}"@"${DEPLOY_SERVER}":"${DEPLOY_PATH}" \
+rsync -av --inplace dist/ "${DEPLOY_USER}"@"${DEPLOY_SERVER}":"${DEPLOY_PATH}" \
   --delete
