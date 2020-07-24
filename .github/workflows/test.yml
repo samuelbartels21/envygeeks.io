@@ -1,11 +1,11 @@
-name: 'Push'
+name: 'Test Push'
 on:
   push:
-    branches:
+    branches-ignore:
       - trunk
 jobs:
   build:
-    name: 'Build'
+    name: 'Push'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
@@ -27,7 +27,7 @@ jobs:
     runs-on: ubuntu-latest
     env:
       DEPLOY_USER: ${{ secrets.DEPLOY_USER }}
-      DEPLOY_PATH: ${{ secrets.DEPLOY_PATH }}
+      DEPLOY_PATH: ${{ secrets.DEPLOY_TEST_PATH }}
       DEPLOY_SERVER: ${{ secrets.DEPLOY_SERVER }}
       DEPLOY_KEY: ${{ secrets.DEPLOY_KEY }}
     needs:
