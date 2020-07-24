@@ -1,4 +1,4 @@
-name: 'Push'
+name: 'Test Push'
 on:
   push:
     branches-ignore:
@@ -18,7 +18,7 @@ jobs:
       - run: bundle install
       - run: npm install > /dev/null
       - run: script/build
-      - uses: actions/upload-artifact@master
+      - uses: actions/upload-artifact@main
         with:
           name: website
           path: dist/
