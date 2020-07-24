@@ -26,8 +26,8 @@ jobs:
     name: 'Deploy'
     runs-on: ubuntu-latest
     env:
+      DEPLOY_PATH: beta.envygeeks.io
       DEPLOY_KEY: ${{ secrets.DEPLOY_KEY }}
-      DEPLOY_PATH: /srv/nginx/beta.envygeeks.io
       DEPLOY_SERVER: envygeeks.io
       DEPLOY_USER: deploy
     needs:
