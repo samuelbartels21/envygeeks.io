@@ -8,3 +8,4 @@ npx html-minifier --output-dir=dist/ \
   --collapse-boolean-attributes --remove-style-link-type-attributes \
   --remove-script-type-attributes --remove-redundant-attributes \
   --remove-attribute-quotes --quote-character=\"
+npx postcss dist/assets/css/*.css -r
