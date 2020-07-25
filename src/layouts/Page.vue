@@ -26,13 +26,13 @@
       padding: 0;
     }
 
-    &__title {
+    .page__title {
       h1 {
-        font-family: var(--page-title-font);
         text-align: var(--page-title-alignment);
-        line-height: var(--page-title-line-height);
         font-style: var(--page-title-text-style);
+        line-height: var(--page-title-line-height);
         font-size: var(--page-title-font-size);
+        font-family: var(--page-title-font);
         margin: 0 0 3rem;
       }
     }
