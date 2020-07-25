@@ -105,7 +105,7 @@
   }
 </script>
 
-<style lang=scss>
+<style lang=scss scoped>
   @import "./scss/colors";
   @import "./scss/vars";
 
@@ -117,148 +117,147 @@
     width: 100%;
     float: left;
 
-    h2, h3, h4, h5, h6 {
-      font-family: $post-title-font-family;
-      letter-spacing: $post-title-letter-spacing;
-      color: $blue-600;
-    }
-
-    p {
-      margin: 2rem 0;
-      padding: 0;
-    }
-
-    blockquote {
-      display: block;
-      font-style: italic;
-      border-left: 4px solid $grey3;
-      box-sizing: border-box;
-      padding: 0 0.5rem;
+    &::v-deep {
+      h2, h3, h4, h5, h6 {
+        font-family: $post-title-font-family;
+        letter-spacing: $post-title-letter-spacing;
+        color: $blue-600;
+      }
 
       p {
-        margin: 0.5rem 0;
+        margin: 2rem 0;
+        padding: 0;
       }
-    }
 
-    /**
-     * Code
-     */
-    :not(pre) code[class*=language-] {
-      font-size: 0.9rem;
-      background-color: $grey1;
-      border: 1px solid $grey3;
-      border-radius: .3rem;
-      padding: .1rem;
-    }
+      blockquote {
+        display: block;
+        font-style: italic;
+        border-left: 4px solid $grey3;
+        box-sizing: border-box;
+        padding: 0 0.5rem;
 
-    pre[class*="language-"] {
-      color: #abb2bf;
-      margin: 2rem 0;
-      background: none;
-      word-break: normal;
-      line-height: 1.3rem;
-      background: #282c34;
-      font-family: $mono-font;
-      box-sizing: border-box;
-      word-spacing: normal;
-      padding: 1rem 1rem;
-      position: relative;
-      word-wrap: normal;
-      text-align: left;
-      white-space: pre;
-      font-size: 1rem;
-      overflow: auto;
-      hyphens: none;
-      width: 100%;
-      tab-size: 8;
+        p {
+          margin: 0.5rem 0;
+        }
+      }
 
-      > code {
+      :not(pre) code {
+        font-size: 0.9rem;
+        background-color: $grey1;
+        border: 1px solid $grey3;
+        border-radius: .3rem;
+        padding: .1rem;
+      }
+
+      pre[class*="language-"] {
+        color: #abb2bf;
+        margin: 2rem 0;
         background: none;
-        font-size: inherit;
-        border: none;
-      }
+        word-break: normal;
+        line-height: 1.3rem;
+        background: #282c34;
+        font-family: $mono-font;
+        box-sizing: border-box;
+        word-spacing: normal;
+        padding: 1rem 1rem;
+        position: relative;
+        word-wrap: normal;
+        text-align: left;
+        white-space: pre;
+        font-size: 1rem;
+        overflow: auto;
+        hyphens: none;
+        width: 100%;
+        tab-size: 8;
 
-       ::selection,
-      &::selection {
-        text-shadow: none;
-        background: #9aa2b1;
-      }
-
-      &[data-expanded="true"] {
-        width: 100vw;
-        margin-left: -50vw;
-        left: 50%;
-      }
-
-      .token {
-        &.prolog,
-        &.comment,
-        &.doctype,
-        &.cdata {
-          color: #5C6370;
+        > code {
+          background: none;
+          font-size: inherit;
+          border: none;
         }
 
-        &.punctuation {
-          color: #abb2bf;
+         ::selection,
+        &::selection {
+          text-shadow: none;
+          background: #9aa2b1;
         }
 
-        &.selector,
-        &.tag {
-          color: #e06c75;
+        &[data-expanded="true"] {
+          width: 100vw;
+          margin-left: -50vw;
+          left: 50%;
         }
 
-        &.boolean,
-        &.property,
-        &.attr-name,
-        &.constant,
-        &.number,
-        &.symbol,
-        &.deleted {
-          color: #d19a66;
-        }
+        .token {
+          &.prolog,
+          &.comment,
+          &.doctype,
+          &.cdata {
+            color: #5C6370;
+          }
 
-        &.char,
-        &.string,
-        &.attr-value,
-        &.builtin,
-        &.inserted {
-          color: #98c379;
-        }
+          &.punctuation {
+            color: #abb2bf;
+          }
 
-        &.url,
-        &.operator,
-        &.entity,
-        .language-css &.string,
-        .style &.string {
-          color: #56b6c2;
-        }
+          &.selector,
+          &.tag {
+            color: #e06c75;
+          }
 
-        &.atrule,
-        &.keyword {
-          color: #c678dd;
-        }
+          &.boolean,
+          &.property,
+          &.attr-name,
+          &.constant,
+          &.number,
+          &.symbol,
+          &.deleted {
+            color: #d19a66;
+          }
 
-        &.function {
-          color: #61afef;
-        }
+          &.char,
+          &.string,
+          &.attr-value,
+          &.builtin,
+          &.inserted {
+            color: #98c379;
+          }
 
-        &.regex,
-        &.important,
-        &.variable {
-          color: #c678dd;
-        }
+          &.url,
+          &.operator,
+          &.entity,
+          .language-css &.string,
+          .style &.string {
+            color: #56b6c2;
+          }
 
-        &.important,
-        &.bold {
-          font-weight: bold;
-        }
+          &.atrule,
+          &.keyword {
+            color: #c678dd;
+          }
 
-        &.italic {
-          font-style: italic;
-        }
+          &.function {
+            color: #61afef;
+          }
 
-        &.entity {
-          cursor: help;
+          &.regex,
+          &.important,
+          &.variable {
+            color: #c678dd;
+          }
+
+          &.important,
+          &.bold {
+            font-weight: bold;
+          }
+
+          &.italic {
+            font-style: italic;
+          }
+
+          &.entity {
+            cursor: help;
+          }
         }
       }
     }
@@ -375,11 +374,9 @@
   }
 
   @media (max-width: ($layout-width + 50px)) {
-    .post {
-      .post__title {
-        h1 {
-          line-height: 2.2rem;
-        }
+    .post__title {
+      h1 {
+        line-height: 2.2rem;
       }
     }
   }
