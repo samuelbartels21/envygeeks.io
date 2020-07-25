@@ -49,13 +49,13 @@
   }
 </page-query>
 
-<style lang="scss">
+<style lang="scss" scoped>
   @import "../components/scss/colors";
   @import "../components/scss/vars";
 
   .posts {
     .post {
-      border-bottom: 1px dashed $grey4;
+      border-bottom: 1px dashed var(--grey-400);
     }
   }
 </style>
