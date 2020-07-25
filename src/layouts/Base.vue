@@ -27,8 +27,8 @@
 </template>
 
 <style lang=scss>
-  @import "../components/scss/fonts";
   @import "../components/scss/normalize";
+  @import "../components/scss/external_fonts";
   @import "../components/scss/colors";
   @import "../components/scss/vars";
 
