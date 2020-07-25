@@ -2,13 +2,13 @@
 <template>
   <div class="layout">
     <header class="header">
-      <div class="title">
-        <span class="title__main">
+      <div class="header__title">
+        <span class="header__title--main">
           <g-link to="/" rel="me">
             {{ $static.meta.title }}
           </g-link>
         </span>
-        <span class="title__sub">
+        <span class="header__title--sub">
           {{ $static.meta.subTitle }}
         </span>
       </div>
@@ -27,9 +27,9 @@
 </template>
 
 <style lang=scss>
-  @import "../components/scss/normalize";
-  @import "../components/scss/external_fonts";
   @import "../components/scss/colors";
+  @import "../components/scss/external_fonts";
+  @import "../components/scss/normalize";
   @import "../components/scss/vars";
 
   html, body {
@@ -51,12 +51,17 @@
       color: var(--anchor-hover-color);
     }
   }
+</style>
+
+<style lang=scss scoped>
+  @import "../components/scss/colors";
+  @import "../components/scss/vars";
 
   .layout {
     flex-direction: row;
+    justify-content: center;
     max-width: var(--layout-width);
     margin: var(--layout-gutter);
-    justify-content: center;
     flex-flow: row wrap;
     display: flex;
   }
@@ -67,14 +72,14 @@
     align-items: center;
     width: 100%;
 
-    .title {
+    .header__title {
       align-items: center;
       font-family: var(--site-title-font-family);
       grid-template-areas: "a b";
       padding: 1rem 0;
       display: grid;
 
-      .title__main {
+      .header__title--main {
         grid-area: b;
         padding-left: 1rem;
         font-style: var(--site-title-font-style);
@@ -91,7 +96,7 @@
         }
       }
 
-      .title__sub {
+      .header__title--sub {
         display: block;
         font-size: var(--site-subtitle-font-size);
         line-height: var(--site-subtitle-line-height);
@@ -104,39 +109,39 @@
         grid-area: a;
       }
     }
+  }
 
-    .nav {
-      ul {
-        padding: 0;
-        text-align: right;
-        list-style-type: none;
-        margin: 0;
+  .nav {
+    ul {
+      padding: 0;
+      text-align: right;
+      list-style-type: none;
+      margin: 0;
 
-        li {
-          display: inline-block;
+      li {
+        display: inline-block;
+      }
+    }
+
+    .nav__item {
+      a {
+        text-decoration: none;
+        font-size: var(--navigation-font-size);
+        font-family: var(--navigation-font-family);
+        text-transform: var(--navigation-text-transform);
+        font-weight: var(--navigation-font-weight);
+        color: var(--navigation-color);
+        padding: 1rem .5rem;
+        display: block;
+
+        &:hover {
+          color: var(--navigation-hover-color);
         }
       }
 
-      .nav__item {
+      &:last-child {
         a {
-          text-decoration: none;
-          font-size: var(--navigation-font-size);
-          font-family: var(--navigation-font-family);
-          text-transform: var(--navigation-text-transform);
-          font-weight: var(--navigation-font-weight);
-          color: var(--navigation-color);
-          padding: 1rem .5rem;
-          display: block;
-
-          &:hover {
-            color: var(--navigation-hover-color);
-          }
-        }
-
-        &:last-child {
-          a {
-            padding-right: 0;
-          }
+          padding-right: 0;
         }
       }
     }
@@ -144,9 +149,9 @@
 
   @media (max-width: $responsive-width) {
     .header {
-      .title {
-        .title__main { padding: 0; }
-        .title__sub  {
+      .header__title {
+        .header__title--main { padding: 0; }
+        .header__title--sub  {
           display: none;
         }
       }
