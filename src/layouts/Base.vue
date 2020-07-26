@@ -147,7 +147,7 @@
     }
   }
 
-  @media (max-width: $responsive-width) {
+  @media (max-width: $medium-screen) {
     .header {
       .header__title {
         .header__title--main { padding: 0; }
