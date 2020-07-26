@@ -1,21 +1,5 @@
 <template>
   <PageLayout page-title="About Me">
-    <DonutChart class="chart__programming"
-      :labels="[
-        'Ruby',
-        'JavaScript',
-        'Other',
-        'Go'
-      ]"
-
-      :values="[
-        60,
-        15,
-        5,
-        20
-      ]"
-    />
-
     <g-image
       height="200"
       alt="Jordon Bedwell Avatar"
@@ -33,8 +17,35 @@
     high quality open source software.</p>
 
     <h2>Skills</h2>
-    <div class="skills">
-      <div class="skills__set">
+    <div class="percentages">
+      <p class=percentage__item>
+        <span class=percentage__item--numb>56%</span>
+        <span class=percentage__item--name>
+          Ruby
+        </span>
+      </p>
+      <p class=percentage__item>
+        <span class=percentage__item--numb>21%</span>
+        <span class=percentage__item--name>
+          JavaScript
+        </span>
+      </p>
+      <p class=percentage__item>
+        <span class=percentage__item--numb>17%</span>
+        <span class=percentage__item--name>
+          GoLang
+        </span>
+      </p>
+      <p class=percentage__item>
+        <span class=percentage__item--numb>6%</span>
+        <span class=percentage__item--name>
+          Other
+        </span>
+      </p>
+    </div>
+
+    <div class=skills>
+      <div class=skills__set>
         <h3>OS's</h3>
         <ul>
           <li>macOS</li>
@@ -43,7 +54,7 @@
           <li>OpenBSD</li>
         </ul>
       </div>
-      <div class="skills__set">
+      <div class=skills__set>
         <h3>Clouds</h3>
         <ul>
           <li>AWS</li>
@@ -59,6 +70,12 @@
           <li>Kubernetes</li>
           <li>ECS</li>
           <li>LXD</li>
+          <li class="empty small">
+            <!-- Empty -->
+          </li>
+          <li class="empty small">
+            <!-- Empty -->
+          </li>
         </ul>
       </div>
       <div class="skills__set">
@@ -70,6 +87,12 @@
           <li>Github</li>
           <li>AWS</li>
           <li>GCE</li>
+          <li class="empty large">
+            <!-- Empty -->
+          </li>
+          <li class="empty large">
+            <!-- Empty -->
+          </li>
         </ul>
       </div>
       <div class="skills__set">
@@ -93,6 +116,15 @@
           <li>Ruby on Rails</li>
           <li>Hanami</li>
           <li>jQuery</li>
+          <li class=empty>
+            <!-- Empty -->
+          </li>
+          <li class=empty>
+            <!-- Empty -->
+          </li>
+          <li class=empty>
+            <!-- Empty -->
+          </li>
         </ul>
       </div>
     </div>
@@ -103,8 +135,8 @@
       id="hacking"
     />
 
-    <p>I'm a <a-ext href="https://docker.com" text="Docker"/> user, a Linux
-    & Unix user, a mainly Ruby, and Go programmer, and I maintain a great many
+    <p>I'm a <a-ext href="https://kubernetes.io" text="Kubernetes"/> user, a Linux
+    & Unix user, and mail a Ruby programmer, I also maintain a great many
     <a-ext href="https://jekyllrb.com" text="Jekyll"/> plugins, and other various
     projects, that hopefully you love and enjoy. I’ve built tools like <a-gh
     repo="docker-template" name="Docker Template"/>, plugins like <a-gh
@@ -130,93 +162,167 @@
   }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
   @import "../components/scss/colors";
   @import "../components/scss/vars";
 
   h2 {
-    border-bottom: 1px dashed $grey3;
+    border-bottom: 1px dashed var(--grey-400);
     padding-bottom: 1rem;
   }
 
-  /**
-   * Chart
-   * First
-   */
-  .chart {
-    &__programming {
-      width: 240px;
-      text-align: right;
-      shape-outside: circle();
-      border-radius: 50%;
-      margin: 1rem 0;
-      height: 240px;
-      float: right;
+  .percentages {
+    border-radius: 6px;
+    background-color: var(--grey-200);
+    box-shadow: 1px 4px 2px var(--grey-100);
+    border: 1px solid var(--grey-400);
+    grid-template-areas: 'a b c d';
+    display: grid;
+
+    .percentage__item {
+      display: inline-block;
+      border-right: 1px solid var(--grey-600);
+      text-align: center;
+
+      .percentage__item--name {
+        color: var(--blue-800);
+        display:block;
+      }
+
+      .percentage__item--numb {
+        font-size: 2rem;
+        color: var(--purple-800);
+        display: block;
+      }
+
+      &:last-child {
+        border-right: none;
+      }
     }
   }
 
-  /**
-   * Clara Oswald
-   * GIF
-   */
   .hacking {
     width: 100%;
     height: auto;
   }
 
-  /**
-   * First IMG
-   * Avatar
-   */
   .avatar {
     height: 8.3rem;
-    padding: .8rem 1rem 0 0;
+    margin: .5rem 1.2rem 0 0;
     width: 8.3rem;
     float: left;
 
   }
 
-  /**
-   * Skills list
-   */
   .skills {
-    padding-bottom: 1rem;
     grid-template-areas: 'a b c';
-    border-bottom: 1px dashed $grey3;
-    margin-bottom: 2rem;
+    border: 1px solid var(--grey-400);
+    background-color: var(--grey-200);
+    border-radius: 6px;
+    margin: 2rem 0;
     display: grid;
 
-    &__set {
+    .skills__set {
+      border-bottom: 1px solid var(--grey-400);
+
       ul {
-        margin: 0;
-        list-style-position: inside;
         padding: 0;
+        list-style-position: inside;
+        margin: 0;
+
+        li {
+          list-style-type: none;
+          border-bottom: 1px solid var(--grey-300);
+          border-right: 1px solid var(--grey-300);
+          padding: 0.4rem 1rem;
+
+          &:last-child {
+            border-bottom: none;
+          }
+        }
       }
 
       h3 {
+        padding: 1rem;
+        font-size: 1rem;
+        letter-spacing: -1px;
+        font-family: var(--poppins-font-family);
+        border-right: 1px solid var(--grey-400);
+        border-bottom: 1px solid var(--grey-400);
+        box-shadow: 0 1px 2px var(--grey-300);
+        background-color: var(--grey-300);
+        font-weight: bold;
         color: $orange;
+        margin: 0;
+      }
+
+      .empty::after {
+        content: " ";
+        white-space: pre;
       }
     }
   }
 
-  @media (max-width: 800px) {
-    .chart {
-      &__programming {
-        width: 8rem;
-        margin-top: 1rem;
-        height: 8rem;
+  @media (min-width: $small-screen) {
+    .skills {
+      .skills__set {
+        &:nth-child(3),
+        &:nth-child(6) {
+          ul {
+            li {
+              border-right: none;
+            }
+          }
+
+          h3 {
+            border-right: none;
+          }
+        }
+      }
+
+      .skills__set:nth-child(3) ~ div {
+        border-bottom: none;
       }
     }
 
+    .small {
+      display: none;
+    }
+  }
+
+  @media (max-width: $medium-screen) {
     .avatar {
       width: 5rem;
       height: 5rem;
     }
   }
 
-  @media (max-width: 520px) {
+  @media (max-width: $small-screen) {
     .skills {
       grid-template-areas: 'a b';
+      .skills__set {
+        &:nth-child(2),
+        &:nth-child(4),
+        &:nth-child(6) {
+          ul {
+            li {
+              border-right: none;
+            }
+          }
+
+          h3 {
+            border-right: none;
+          }
+        }
+      }
+
+      .skills__set:nth-child(4) ~ div {
+        border-bottom: none;
+      }
+    }
+
+    .large {
+      display: none;
     }
   }
 </style>
