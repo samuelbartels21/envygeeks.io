@@ -1,6 +1,7 @@
 $layout-width: 750px;
-$responsive-width: $layout-width + 50px;
-$min-width: $responsive-width;
+$medium-screen: $layout-width + 50px;
+$normal-screen: $layout-width + 50px;
+$small-screen: 520px;
 @import "colors";
 
 :root {
@@ -13,11 +14,12 @@ $min-width: $responsive-width;
   /**
    * Layout/Base.vue
    */
-  --min-width: #{$min-width};
   --body-font-weight: initial;
   --body-color: var(--grey-800);
-  --responsive-width: #{$responsive-width};
+  --medium-screen: #{$medium-screen};
+  --normal-screen: #{$normal-screen};
   --body-font-family: var(--lora-font-family);
+  --small-screen: #{$small-screen};
   --layout-width: #{$layout-width};
   --layout-gutter: 0 auto 4rem;
   --body-font-size: 100%;
