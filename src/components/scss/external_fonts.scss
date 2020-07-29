@@ -13,7 +13,7 @@
 }
 @font-face {
   font-style: normal;
-  font-display: swap;
+  font-display: fallback;
   font-family: "Lora";
   font-weight: 500;
   src: local('☺'),
@@ -23,7 +23,7 @@
 }
 @font-face {
   font-style: normal;
-  font-display: swap;
+  font-display: fallback;
   font-family: "Lora";
   font-weight: 600;
   src: local('☺'),
@@ -33,7 +33,7 @@
 }
 @font-face {
   font-style: normal;
-  font-display: swap;
+  font-display: fallback;
   font-family: "Lora";
   font-weight: 700;
   src: local('☺'),
@@ -46,7 +46,7 @@
    */
   @font-face {
     font-style: italic;
-    font-display: swap;
+    font-display: fallback;
     font-family: "Lora";
     font-weight: 400;
     src: local('☺'),
@@ -56,7 +56,7 @@
   }
   @font-face {
     font-style: italic;
-    font-display: swap;
+    font-display: fallback;
     font-family: "Lora";
     font-weight: 500;
     src: local('☺'),
@@ -66,7 +66,7 @@
   }
   @font-face {
     font-style: italic;
-    font-display: swap;
+    font-display: fallback;
     font-family: "Lora";
     font-weight: 600;
     src: local('☺'),
@@ -76,7 +76,7 @@
   }
   @font-face {
     font-style: italic;
-    font-display: swap;
+    font-display: fallback;
     font-family: "Lora";
     font-weight: 700;
     src: local('☺'),
@@ -91,7 +91,7 @@
 @font-face {
   font-style: normal;
   font-family: "Montserrat";
-  font-display: swap;
+  font-display: fallback;
   font-weight: 100;
   src: local('☺'),
     url(/assets/fonts/montserrat-100.woff2)
@@ -101,7 +101,7 @@
 @font-face {
   font-style: normal;
   font-family: "Montserrat";
-  font-display: swap;
+  font-display: fallback;
   font-weight: 200;
   src: local('☺'),
     url(/assets/fonts/montserrat-200.woff2)
@@ -111,7 +111,7 @@
 @font-face {
   font-style: normal;
   font-family: "Montserrat";
-  font-display: swap;
+  font-display: fallback;
   font-weight: 300;
   src: local('☺'),
     url(/assets/fonts/montserrat-300.woff2)
@@ -121,7 +121,7 @@
 @font-face {
   font-style: normal;
   font-family: "Montserrat";
-  font-display: swap;
+  font-display: fallback;
   font-weight: 400;
   src: local('☺'),
     url(/assets/fonts/montserrat-400.woff2)
@@ -131,7 +131,7 @@
 @font-face {
   font-style: normal;
   font-family: "Montserrat";
-  font-display: swap;
+  font-display: fallback;
   font-weight: 500;
   src: local('☺'),
     url(/assets/fonts/montserrat-500.woff2)
@@ -141,7 +141,7 @@
 @font-face {
   font-style: normal;
   font-family: "Montserrat";
-  font-display: swap;
+  font-display: fallback;
   font-weight: 600;
   src: local('☺'),
     url(/assets/fonts/montserrat-600.woff2)
@@ -151,7 +151,7 @@
 @font-face {
   font-style: normal;
   font-family: "Montserrat";
-  font-display: swap;
+  font-display: fallback;
   font-weight: 700;
   src: local('☺'),
     url(/assets/fonts/montserrat-700.woff2)
@@ -161,7 +161,7 @@
 @font-face {
   font-style: normal;
   font-family: "Montserrat";
-  font-display: swap;
+  font-display: fallback;
   font-weight: 800;
   src: local('☺'),
     url(/assets/fonts/montserrat-800.woff2)
@@ -171,7 +171,7 @@
 @font-face {
   font-style: normal;
   font-family: "Montserrat";
-  font-display: swap;
+  font-display: fallback;
   font-weight: 900;
   src: local('☺'),
     url(/assets/fonts/montserrat-900.woff2)
@@ -184,7 +184,7 @@
   @font-face {
     font-style: italic;
     font-family: "Montserrat";
-    font-display: swap;
+    font-display: fallback;
     font-weight: 100;
     src: local('☺'),
       url(/assets/fonts/montserrat-italic-100.woff2)
@@ -194,7 +194,7 @@
   @font-face {
     font-style: italic;
     font-family: "Montserrat";
-    font-display: swap;
+    font-display: fallback;
     font-weight: 200;
     src: local('☺'),
       url(/assets/fonts/montserrat-italic-200.woff2)
@@ -204,7 +204,7 @@
   @font-face {
     font-style: italic;
     font-family: "Montserrat";
-    font-display: swap;
+    font-display: fallback;
     font-weight: 300;
     src: local('☺'),
       url(/assets/fonts/montserrat-italic-300.woff2)
@@ -214,7 +214,7 @@
   @font-face {
     font-style: italic;
     font-family: "Montserrat";
-    font-display: swap;
+    font-display: fallback;
     font-weight: 400;
     src: local('☺'),
       url(/assets/fonts/montserrat-italic-400.woff2)
@@ -224,7 +224,7 @@
   @font-face {
     font-style: italic;
     font-family: "Montserrat";
-    font-display: swap;
+    font-display: fallback;
     font-weight: 500;
     src: local('☺'),
       url(/assets/fonts/montserrat-italic-500.woff2)
@@ -234,7 +234,7 @@
   @font-face {
     font-style: italic;
     font-family: "Montserrat";
-    font-display: swap;
+    font-display: fallback;
     font-weight: 600;
     src: local('☺'),
       url(/assets/fonts/montserrat-italic-600.woff2)
@@ -244,7 +244,7 @@
   @font-face {
     font-style: italic;
     font-family: "Montserrat";
-    font-display: swap;
+    font-display: fallback;
     font-weight: 700;
     src: local('☺'),
       url(/assets/fonts/montserrat-italic-700.woff2)
@@ -254,7 +254,7 @@
   @font-face {
     font-style: italic;
     font-family: "Montserrat";
-    font-display: swap;
+    font-display: fallback;
     font-weight: 800;
     src: local('☺'),
       url(/assets/fonts/montserrat-italic-800.woff2)
@@ -264,7 +264,7 @@
   @font-face {
     font-style: italic;
     font-family: "Montserrat";
-    font-display: swap;
+    font-display: fallback;
     font-weight: 900;
     src: local('☺'),
       url(/assets/fonts/montserrat-italic-900.woff2)
@@ -277,7 +277,7 @@
 @font-face {
   font-style: normal;
   font-family: "Poppins";
-  font-display: swap;
+  font-display: fallback;
   font-weight: 100;
   src: local('☺'),
     url(/assets/fonts/poppins-100.woff2)
@@ -287,7 +287,7 @@
 @font-face {
   font-style: normal;
   font-family: "Poppins";
-  font-display: swap;
+  font-display: fallback;
   font-weight: 200;
   src: local('☺'),
     url(/assets/fonts/poppins-200.woff2)
@@ -297,7 +297,7 @@
 @font-face {
   font-style: normal;
   font-family: "Poppins";
-  font-display: swap;
+  font-display: fallback;
   font-weight: 300;
   src: local('☺'),
     url(/assets/fonts/poppins-300.woff2)
@@ -307,7 +307,7 @@
 @font-face {
   font-style: normal;
   font-family: "Poppins";
-  font-display: swap;
+  font-display: fallback;
   font-weight: 400;
   src: local('☺'),
     url(/assets/fonts/poppins-400.woff2)
@@ -317,7 +317,7 @@
 @font-face {
   font-style: normal;
   font-family: "Poppins";
-  font-display: swap;
+  font-display: fallback;
   font-weight: 500;
   src: local('☺'),
     url(/assets/fonts/poppins-500.woff2)
@@ -327,7 +327,7 @@
 @font-face {
   font-style: normal;
   font-family: "Poppins";
-  font-display: swap;
+  font-display: fallback;
   font-weight: 600;
   src: local('☺'),
     url(/assets/fonts/poppins-600.woff2)
@@ -337,7 +337,7 @@
 @font-face {
   font-style: normal;
   font-family: "Poppins";
-  font-display: swap;
+  font-display: fallback;
   font-weight: 700;
   src: local('☺'),
     url(/assets/fonts/poppins-700.woff2)
@@ -347,7 +347,7 @@
 @font-face {
   font-style: normal;
   font-family: "Poppins";
-  font-display: swap;
+  font-display: fallback;
   font-weight: 800;
   src: local('☺'),
     url(/assets/fonts/poppins-800.woff2)
@@ -357,7 +357,7 @@
 @font-face {
   font-style: normal;
   font-family: "Poppins";
-  font-display: swap;
+  font-display: fallback;
   font-weight: 900;
   src: local('☺'),
     url(/assets/fonts/poppins-900.woff2)
@@ -370,7 +370,7 @@
   @font-face {
     font-style: italic;
     font-family: "Poppins";
-    font-display: swap;
+    font-display: fallback;
     font-weight: 100;
     src: local('☺'),
       url(/assets/fonts/poppins-italic-100.woff2)
@@ -380,7 +380,7 @@
   @font-face {
     font-style: italic;
     font-family: "Poppins";
-    font-display: swap;
+    font-display: fallback;
     font-weight: 200;
     src: local('☺'),
       url(/assets/fonts/poppins-italic-200.woff2)
@@ -390,7 +390,7 @@
   @font-face {
     font-style: italic;
     font-family: "Poppins";
-    font-display: swap;
+    font-display: fallback;
     font-weight: 300;
     src: local('☺'),
       url(/assets/fonts/poppins-italic-300.woff2)
@@ -400,7 +400,7 @@
   @font-face {
     font-style: italic;
     font-family: "Poppins";
-    font-display: swap;
+    font-display: fallback;
     font-weight: 400;
     src: local('☺'),
       url(/assets/fonts/poppins-italic-400.woff2)
@@ -410,7 +410,7 @@
   @font-face {
     font-style: italic;
     font-family: "Poppins";
-    font-display: swap;
+    font-display: fallback;
     font-weight: 500;
     src: local('☺'),
       url(/assets/fonts/poppins-italic-500.woff2)
@@ -420,7 +420,7 @@
   @font-face {
     font-style: italic;
     font-family: "Poppins";
-    font-display: swap;
+    font-display: fallback;
     font-weight: 600;
     src: local('☺'),
       url(/assets/fonts/poppins-italic-600.woff2)
@@ -430,7 +430,7 @@
   @font-face {
     font-style: italic;
     font-family: "Poppins";
-    font-display: swap;
+    font-display: fallback;
     font-weight: 700;
     src: local('☺'),
       url(/assets/fonts/poppins-italic-700.woff2)
@@ -440,7 +440,7 @@
   @font-face {
     font-style: italic;
     font-family: "Poppins";
-    font-display: swap;
+    font-display: fallback;
     font-weight: 800;
     src: local('☺'),
       url(/assets/fonts/poppins-italic-800.woff2)
@@ -450,7 +450,7 @@
   @font-face {
     font-style: italic;
     font-family: "Poppins";
-    font-display: swap;
+    font-display: fallback;
     font-weight: 900;
     src: local('☺'),
       url(/assets/fonts/poppins-italic-900.woff2)
@@ -468,7 +468,7 @@
   font-weight: normal;
   font-family: "Dank Mono";
   unicode-range: U+0000-007F;
-  font-display: swap;
+  font-display: fallback;
   font-style: normal;
   src: local('☺'),
     url(/assets/fonts/dank-400_1.woff2)
@@ -479,7 +479,7 @@
   font-weight: normal;
   font-family: "Dank Mono";
   unicode-range: U+0080-1AFF;
-  font-display: swap;
+  font-display: fallback;
   font-style: normal;
   src: local('☺'),
     url(/assets/fonts/dank-400_2.woff2)
@@ -490,7 +490,7 @@
   font-weight: normal;
   font-family: "Dank Mono";
   unicode-range: U+1B00-218F;
-  font-display: swap;
+  font-display: fallback;
   font-style: normal;
   src: local('☺'),
     url(/assets/fonts/dank-400_3.woff2)
@@ -501,7 +501,7 @@
   font-weight: normal;
   font-family: "Dank Mono";
   unicode-range: U+2190-21FF;
-  font-display: swap;
+  font-display: fallback;
   font-style: normal;
   src: local('☺'),
     url(/assets/fonts/dank-400_4.woff2)
@@ -512,7 +512,7 @@
   font-weight: normal;
   unicode-range: U+2200-10FFFF;
   font-family: "Dank Mono";
-  font-display: swap;
+  font-display: fallback;
   font-style: normal;
   src: local('☺'),
     url(/assets/fonts/dank-400_5.woff2)
@@ -523,7 +523,7 @@
   font-weight: normal;
   unicode-range: U+0000-007F;
   font-family: "Dank Mono";
-  font-display: swap;
+  font-display: fallback;
   font-style: italic;
   src: local('☺'),
     url(/assets/fonts/dank-italic-400_1.woff2)
@@ -534,7 +534,7 @@
   font-weight: normal;
   unicode-range: U+0080-1AFF;
   font-family: "Dank Mono";
-  font-display: swap;
+  font-display: fallback;
   font-style: italic;
   src: local('☺'),
     url(/assets/fonts/dank-italic-400_2.woff2)
@@ -545,7 +545,7 @@
   font-weight: normal;
   unicode-range: U+1B00-218F;
   font-family: "Dank Mono";
-  font-display: swap;
+  font-display: fallback;
   font-style: italic;
   src: local('☺'),
     url(/assets/fonts/dank-italic-400_3.woff2)
@@ -556,7 +556,7 @@
   font-weight: normal;
   unicode-range: U+2190-21FF;
   font-family: "Dank Mono";
-  font-display: swap;
+  font-display: fallback;
   font-style: italic;
   src: local('☺'),
     url(/assets/fonts/dank-italic-400_4.woff2)
@@ -567,7 +567,7 @@
   font-weight: normal;
   unicode-range: U+2200-10FFFF;
   font-family: "Dank Mono";
-  font-display: swap;
+  font-display: fallback;
   font-style: italic;
   src: local('☺'),
     url(/assets/fonts/dank-italic-400_5.woff2)
