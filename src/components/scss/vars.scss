@@ -11,6 +11,10 @@ $small-screen: 520px;
   --dank-mono-font-family: "Dank Mono", monospace;
   --lora-font-family: "Lora", serif;
 
+  --system-font-family: -apple-system, BlinkMacSystemFont,
+      avenir next, avenir, helvetica neue, helvetica, Ubuntu,
+      roboto, noto, segoe ui, arial, sans-serif;
+
   /**
    * Layout/Base.vue
    */
@@ -18,7 +22,7 @@ $small-screen: 520px;
   --body-color: var(--grey-800);
   --medium-screen: #{$medium-screen};
   --normal-screen: #{$normal-screen};
-  --body-font-family: var(--lora-font-family);
+  --body-font-family: var(--system-font-family);
   --small-screen: #{$small-screen};
   --layout-width: #{$layout-width};
   --layout-gutter: 0 auto 4rem;
@@ -57,7 +61,7 @@ $small-screen: 520px;
      */
     --navigation-font-weight: 800;
     --navigation-text-transform: uppercase;
-    --navigation-font-family: var(--poppins-font-family);
+    --navigation-font-family: var(--system-font-family);
     --navigation-hover-color: var(--orange-600);
     --navigation-font-size: 0.875rem;
     --navigation-color: inherit;
