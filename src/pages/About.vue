@@ -19,26 +19,26 @@
     <h2>Skills</h2>
     <div class="percentages">
       <p class=percentage__item>
-        <span class=percentage__item--numb>56%</span>
-        <span class=percentage__item--name>
+        <span class=item__numb>56%</span>
+        <span class=item__name>
           Ruby
         </span>
       </p>
       <p class=percentage__item>
-        <span class=percentage__item--numb>21%</span>
-        <span class=percentage__item--name>
+        <span class=item__numb>21%</span>
+        <span class=item__name>
           JavaScript
         </span>
       </p>
       <p class=percentage__item>
-        <span class=percentage__item--numb>17%</span>
-        <span class=percentage__item--name>
+        <span class=item__numb>17%</span>
+        <span class=item__name>
           GoLang
         </span>
       </p>
       <p class=percentage__item>
-        <span class=percentage__item--numb>6%</span>
-        <span class=percentage__item--name>
+        <span class=item__numb>6%</span>
+        <span class=item__name>
           Other
         </span>
       </p>
@@ -173,22 +173,22 @@
   .percentages {
     border-radius: 6px;
     background-color: var(--grey-200);
-    box-shadow: 1px 4px 2px var(--grey-100);
-    border: 1px solid var(--grey-400);
+    box-shadow: 0 2px 4px var(--grey-200);
+    border: 1px solid var(--grey-300);
     grid-template-areas: 'a b c d';
     display: grid;
 
     .percentage__item {
       display: inline-block;
-      border-right: 1px solid var(--grey-600);
+      border-right: 1px solid var(--grey-400);
       text-align: center;
 
-      .percentage__item--name {
+      .item__name {
         color: var(--blue-800);
         display:block;
       }
 
-      .percentage__item--numb {
+      .item__numb {
         font-size: 2rem;
         color: var(--purple-800);
         display: block;
@@ -215,15 +215,15 @@
 
   .skills {
     grid-template-areas: 'a b c';
-    border: 1px solid var(--grey-400);
+    border: 1px solid var(--grey-300);
     box-shadow: 1px 4px 2px var(--grey-100);
-    background-color: var(--grey-200);
+    /*background-color: var(--grey-200);*/
     border-radius: 6px;
     margin: 2rem 0;
     display: grid;
 
     .skills__set {
-      border-bottom: 1px solid var(--grey-400);
+      border-bottom: 1px solid var(--grey-300);
 
       ul {
         padding: 0;
@@ -232,12 +232,16 @@
 
         li {
           list-style-type: none;
-          border-bottom: 1px solid var(--grey-300);
-          border-right: 1px solid var(--grey-300);
+          border-bottom: 1px solid var(--grey-200);
+          border-right: 1px solid var(--grey-200);
           padding: 0.4rem 1rem;
 
           &:last-child {
             border-bottom: none;
+          }
+
+          &:nth-child(even) {
+            background-color: var(--grey-100);
           }
         }
       }
@@ -245,13 +249,14 @@
       h3 {
         padding: 1rem;
         font-size: 1rem;
-        letter-spacing: -1px;
-        font-family: var(--poppins-font-family);
-        border-right: 1px solid var(--grey-400);
-        border-bottom: 1px solid var(--grey-400);
-        box-shadow: 0 1px 2px var(--grey-300);
-        background-color: var(--grey-300);
-        font-weight: bold;
+        letter-spacing: -0.8px;
+        font-family: var(--system-font-family);
+        border-right: 1px solid var(--grey-300);
+        border-bottom: 1px solid var(--grey-300);
+        box-shadow: 0 1px 2px var(--grey-200);
+        background-color: var(--grey-200);
+        line-height: 1rem;
+        font-weight: 600;
         color: $orange;
         margin: 0;
       }
