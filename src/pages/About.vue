@@ -129,15 +129,16 @@
       </div>
     </div>
 
+    <h2>More</h2>
     <g-image
       class="hacking"
       src="../assets/hacking.gif"
       id="hacking"
     />
 
-    <p>I'm a <a-ext href="https://kubernetes.io" text="Kubernetes"/> user, a Linux
-    & Unix user, and mail a Ruby programmer, I also maintain a great many
-    <a-ext href="https://jekyllrb.com" text="Jekyll"/> plugins, and other various
+    <p>I'm a <a-ext href="kubernetes.io" text="Kubernetes"/> user, a
+    Unix & Linux user, and a Rubyist, and I also maintain a great many
+    <a-ext href="jekyllrb.com" text="Jekyll"/> plugins, and other various
     projects, that hopefully you love and enjoy. I’ve built tools like <a-gh
     repo="docker-template" name="Docker Template"/>, plugins like <a-gh
     repo="jekyll-assets" name="Jekyll Assets"/>, and Docker images like <a-gh
@@ -148,12 +149,10 @@
 </template>
 
 <script>
-  import DonutChart from "../components/charts/Donut"
   import PageLayout from "../layouts/Page"
 
   export default {
     components: {
-      DonutChart,
       PageLayout
     },
     metaInfo: {
@@ -217,6 +216,7 @@
   .skills {
     grid-template-areas: 'a b c';
     border: 1px solid var(--grey-400);
+    box-shadow: 1px 4px 2px var(--grey-100);
     background-color: var(--grey-200);
     border-radius: 6px;
     margin: 2rem 0;

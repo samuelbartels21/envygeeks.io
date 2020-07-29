@@ -1,6 +1,6 @@
 <template>
-  <a v-if="this.text" :href="href" :rel="rel" target="_blank">{{ text }}</a>
-  <a v-else :href="href" :rel="rel" target="_blank"><slot/></a>
+  <a v-if="this.text" :href="link" :rel="rel" target="_blank">{{ text }}</a>
+  <a v-else :href="link" :rel="rel" target="_blank"><slot/></a>
 </template>
 
 <script>
@@ -17,6 +17,14 @@
       }
     },
     computed: {
+      link() {
+        let regex = RegExp('^https?://')
+        if (regex.test(this.href)) {
+          return this.href
+        }
+
+        return `https://${this.href}`
+      },
       rel() {
         return "noopener noreferrer nofollow"
       }
