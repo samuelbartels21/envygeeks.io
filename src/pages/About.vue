@@ -214,11 +214,10 @@
   }
 
   .skills {
-    grid-template-areas: 'a b c';
-    border: 1px solid var(--grey-300);
-    box-shadow: 1px 4px 2px var(--grey-100);
-    /*background-color: var(--grey-200);*/
     border-radius: 6px;
+    grid-template-areas: 'a b c';
+    box-shadow: 1px 4px 2px var(--grey-100);
+    border: 1px solid var(--grey-300);
     margin: 2rem 0;
     display: grid;
 
