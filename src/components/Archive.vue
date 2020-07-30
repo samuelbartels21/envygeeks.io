@@ -12,13 +12,6 @@
           </h3>
         </header>
         <footer class="meta right">
-          <ul class="meta__tags">
-            <li v-for="tag in edge.node.tags">
-              <a :href="tag.path">
-                #{{ tag.title }}
-              </a>
-            </li>
-          </ul>
           <time class="meta__time" :datetime="edge.node.date">
             {{ edge.node.date | formatTime("MM/dd") }}
           </time>
@@ -76,25 +69,23 @@
   }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
   @import "./scss/colors";
 
   .archives {
     float: left;
     width: 100%;
 
-    .archive {
-      &__year {
-        h2 {
-          margin: 3rem 0;
-          float: left;
-        }
+    .archive__year {
+      h2 {
+        margin: 3rem 0;
+        float: left;
       }
     }
 
     .post {
       width: 100%;
-      border-bottom: 1px dashed $grey2;
+      border-bottom: 1px dashed var(--archives-post-splitter-color);
       padding: 1rem 0;
       float: left;
 
@@ -102,9 +93,9 @@
         h3 {
           padding: 0;
           font-size: inherit;
+          letter-spacing: var(--archives-post-letter-spacing);
           line-height: inherit;
           font-weight: inherit;
-          font-style: italic;
           margin: 0;
 
           a {
@@ -113,32 +104,9 @@
         }
       }
 
-      .meta {
-        &__tags {
-          margin: 0;
-          float: left;
-          padding: 0;
-
-          li {
-            display: inline-block;
-
-            a {
-              margin-right: .3rem;
-              text-decoration: none;
-              color: $grey7;
-
-              &:hover {
-                color: $pink;
-              }
-            }
-          }
-        }
-
-        &__time {
-          color: $purple;
-        }
+      .meta__time {
+        color: var(--archives-post-time-color);
       }
-
     }
   }
 

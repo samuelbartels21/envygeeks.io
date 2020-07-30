@@ -80,6 +80,26 @@ $small-screen: 520px;
   --page-title-line-height: 4rem;
   --page-color: var(--grey-800);
   --page-font-size: 1.06rem;
+
+  /**
+   * Components/Archives.vue
+   * Pages/Archives.vue
+   */
+  --archives-tag-letter-spacing: -0.02rem;
+  --archives-tag-background-color: var(--blue-600);
+  --archives-tag-background-hover-color: var(--teal-500);
+  --archives-tag-box-shadow-color: var(--grey-200);
+  --archives-tag-hover-color: var(--teal-200);
+  --archives-tag-color: var(--blue-200);
+  --archives-tag-font-size: 0.9rem;
+
+    /**
+     * Post List
+     * Archives
+     */
+    --archives-post-time-color: var(--purple-500);
+    --archives-post-splitter-color: var(--grey-400);
+    --archives-post-letter-spacing: -0.02rem;
 }
 
 /**

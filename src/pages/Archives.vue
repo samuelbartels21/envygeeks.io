@@ -15,7 +15,7 @@
   </PageLayout>
 </template>
 
-<style lang=scss>
+<style lang=scss scoped>
   @import "../components/scss/colors";
   @import "../components/scss/vars";
 
@@ -33,34 +33,33 @@
       display: flex;
       padding: 0;
     }
+  }
 
-    .tag {
-      &__item {
-        color: #fff;
-        padding: .4rem 1rem;
-        list-style-type: none;
-        line-height: $body-line-height;
-        box-shadow: 1px 1px 2px $grey2;
-        background-color: $blue;
-        border-radius: 1000px;
-        font-size: 0.9rem;
-        margin: .4rem;
+  .tag__item {
+    line-height: 1em;
+    list-style-type: none;
+    letter-spacing: var(--archives-tag-letter-spacing);
+    box-shadow: 1px 1px 2px var(--archives-tag-box-shadow-color);
+    background-color: var(--archives-tag-background-color);
+    font-size: var(--archives-tag-font-size);
+    border-radius: 1024rem;
+    padding: .6rem 1rem;
+    margin: .4rem;
 
-        &:hover {
-          background-color: $teal;
-        }
+    &:hover {
+      background-color: var(--archives-tag-background-hover-color);
+    }
 
-        a {
-          font-style: italic;
-          font-family: $lora-font;
-          text-decoration: none;
-          color: #fff;
-        }
+    a {
+      color: var(--archives-tag-color);
+      text-decoration: none;
+      &:hover {
+        color: var(--archives-tag-hover-color);
       }
     }
   }
 
-  @media (max-width: 800px) {
+  @media (max-width: $medium-screen) {
     .tags {
       ul {
         width: 100%;
@@ -80,17 +79,8 @@
   };
 </script>
 
-<page-query>
+<page-query lang=graphql>
   query {
-    tags: allTag(sortBy: "slug", order: ASC) {
-      edges {
-        node {
-          title
-          path
-        }
-      }
-    }
-
     posts: allPost(sortBy: "date", order: DESC) {
       edges {
         node {
