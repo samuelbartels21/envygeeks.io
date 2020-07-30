@@ -305,7 +305,7 @@
     grid-column-start: 2;
     display: inline-block;
     list-style-type: none;
-    line-height: 1.2em;
+    line-height: 1em;
     padding: 0;
 
     ul {
@@ -314,20 +314,24 @@
     }
 
     li {
+      font-size: 0.9rem;
       line-height: inherit;
       display: inline;
 
-      a {
-        font-style: italic;
-        text-decoration: none;
-        background-color: $purple-200;
-        border-radius: 120px;
-        color: $purple-600;
-        padding: 3px 12px;
-
-        &:hover {
-          color: $blue;
+      &:hover {
+        a {
+          background-color: var(--blue-300);
+          color: var(--blue-700);
         }
+      }
+
+      a {
+        text-decoration: none;
+        color: var(--purple-600);
+        background-color: var(--purple-200);
+        letter-spacing: -0.02rem;
+        border-radius: 120px;
+        padding: 3px 12px;
       }
 
       &::after {
