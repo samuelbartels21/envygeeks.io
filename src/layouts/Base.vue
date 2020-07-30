@@ -128,6 +128,7 @@
         text-decoration: none;
         font-size: var(--navigation-font-size);
         font-family: var(--navigation-font-family);
+        letter-spacing: var(--navigation-letter-spacing);
         text-transform: var(--navigation-text-transform);
         font-weight: var(--navigation-font-weight);
         color: var(--navigation-color);
