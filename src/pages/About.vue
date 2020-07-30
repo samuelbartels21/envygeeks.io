@@ -254,9 +254,9 @@
         border-bottom: 1px solid var(--grey-300);
         box-shadow: 0 1px 2px var(--grey-200);
         background-color: var(--grey-200);
+        color: var(--orange-500);
         line-height: 1rem;
         font-weight: 600;
-        color: $orange;
         margin: 0;
       }
 
