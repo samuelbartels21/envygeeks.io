@@ -81,17 +81,21 @@
 
 <page-query lang=graphql>
   query {
+    tags: allTag(sortBy: "slug", order: ASC) {
+      edges {
+        node {
+          title
+          path
+        }
+      }
+    }
+
     posts: allPost(sortBy: "date", order: DESC) {
       edges {
         node {
           date
           title
           path
-
-          tags(limit: 1) {
-            title
-            path
-          }
         }
       }
     }
