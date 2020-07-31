@@ -303,6 +303,7 @@
     color: $blue;
     line-height: 1.2em;
     margin: .23rem 0 0 .5rem;
+    letter-spacing: -0.04rem;
     grid-column-start: 2;
     white-space: nowrap;
     padding: 0;
@@ -350,12 +351,14 @@
 
   .meta__date {
     margin: 0 0 0 .5rem;
+    letter-spacing: -0.04rem;
     grid-column: 2 / -1;
   }
 
   .post__read {
     float: left;
     margin-bottom: 1rem;
+    letter-spacing: -0.04rem;
     text-align: right;
     width: 100%;
 
