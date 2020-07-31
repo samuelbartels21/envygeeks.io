@@ -10,7 +10,7 @@ tags: [
 ]
 ---
 
-You can alter the owner of multiple tables at once by scripting PL/pgSQL 
+You can alter the owner of multiple tables at once by scripting PL/pgSQL
 
 ```sql
 alter database :database owner to :owner;
@@ -22,7 +22,7 @@ do $$ declare t text; begin
     loop
         execute format(
             (
-                'alter table ' || :database || '.' || :schema 
+                'alter table ' || :database || '.' || :schema
                     || '.%s owner to ' || :owner
             ), t
         );
