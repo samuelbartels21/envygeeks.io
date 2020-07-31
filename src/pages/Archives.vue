@@ -11,6 +11,7 @@
     </div>
     <ArchivePartial
       :posts="$page.posts"
+      order=desc
     />
   </PageLayout>
 </template>
@@ -90,7 +91,7 @@
       }
     }
 
-    posts: allPost(sortBy: "date", order: DESC) {
+    posts: allPost(sortBy: "date") {
       edges {
         node {
           date

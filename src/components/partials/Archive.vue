@@ -1,9 +1,9 @@
 <template>
   <div class="archives">
-    <div class="archive__year" v-for="edges,year in gPosts">
-      <h2>{{ year }}</h2>
+    <div class="archive__year" v-for="posts in Array.from(groupedPosts)">
+      <h2>{{ posts[0] }}</h2>
 
-      <article class="post" v-for="edge in edges">
+      <article class="post" v-for="edge in posts[1]">
         <header class="left">
           <h3>
             <a :href="edge.node.path">
@@ -27,28 +27,34 @@
   /**
    * group the posts by year
    * @param posts [Object] the posts object
-   * @return [Object<Array>]
+   * @param order [String] the order
+   * @return Map<any, Array>
    */
-  function grouped(posts) {
-    let grouped = {
-      //
-    }
+  function group(posts, order) {
+    let g = {}
 
     posts.forEach(post => {
-      let date = DateTime.fromISO(post.node.date);
-      let y = date.year;
-      if (!grouped[y]) {
-        grouped[y] = [
+      let d = DateTime.fromISO(post.node.date);
+      let y = d.year;
+      if (!g[y]) {
+        g[y] = [
           //
         ]
       }
 
-      grouped[y].push(
+      g[y].push(
         post
       );
     });
 
-    return grouped;
+    let o = new Map()
+    let o_k = Object.keys(g).sort()
+    if (order === "desc") o_k = o_k.reverse()
+    o_k.forEach(k => {
+      o.set(k, g[k])
+    })
+
+    return o
   }
 
   export default {
@@ -57,12 +63,18 @@
       posts: {
         required: false,
         type: Object
+      },
+      order: {
+        default: 'asc',
+        required: false,
+        type: String,
       }
     },
     computed: {
-      gPosts() {
-        return grouped(
-          this.posts.edges
+      groupedPosts() {
+        return group(
+          this.posts.edges,
+          this.order
         )
       }
     }
