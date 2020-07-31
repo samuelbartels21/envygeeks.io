@@ -129,7 +129,7 @@
     h2, h3, h4, h5, h6 {
       color: var(--blue-600);
       font-family: var(--system-font-family);
-      letter-spacing: -1px;
+      letter-spacing: -0.06rem;
     }
 
     p {
@@ -370,7 +370,7 @@
   .post__title {
     h1 {
       line-height: 4rem;
-      letter-spacing: -1px;
+      letter-spacing: -0.06rem;
       font-family: var(--system-font-family);
       color: var(--pink-600);
       font-size: 1.7rem;

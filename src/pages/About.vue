@@ -249,7 +249,7 @@
       h3 {
         padding: 1rem;
         font-size: 1rem;
-        letter-spacing: -0.8px;
+        letter-spacing: -0.05rem;
         font-family: var(--system-font-family);
         border-right: 1px solid var(--grey-300);
         border-bottom: 1px solid var(--grey-300);
