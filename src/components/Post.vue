@@ -128,7 +128,7 @@
   .post__content::v-deep {
     h2, h3, h4, h5, h6 {
       color: var(--blue-600);
-      font-family: var(--poppins-font-family);
+      font-family: var(--system-font-family);
       letter-spacing: -1px;
     }
 
@@ -368,7 +368,7 @@
     h1 {
       line-height: 4rem;
       letter-spacing: -1px;
-      font-family: var(--poppins-font-family);
+      font-family: var(--system-font-family);
       color: var(--pink-600);
       font-size: 1.7rem;
       margin: 0 0 3rem;

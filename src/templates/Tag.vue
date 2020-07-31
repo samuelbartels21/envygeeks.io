@@ -9,7 +9,7 @@
   </PostLayout>
 </template>
 
-<style lang="scss">
+<style lang="scss" scoped>
   @import "../components/scss/vars";
 
   .page__title {
@@ -19,6 +19,7 @@
     h1 {
       font-size: 3rem;
       text-align: center;
+      font-family: var(--lora-font-family);
       font-style: italic;
       line-height: 4rem;
       margin: 0 0 3rem;

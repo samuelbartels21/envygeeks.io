@@ -9,7 +9,7 @@
   </BaseLayout>
 </template>
 
-<style lang="scss">
+<style lang="scss" scoped>
   @import "../components/scss/colors";
   @import "../components/scss/vars";
 
