@@ -33,7 +33,7 @@
 </page-query>
 
 <script>
-  import PostPartial from "../components/Post";
+  import PostPartial from "../components/partials/Post";
   import PostLayout from "../layouts/Post";
   export default {
     components: {

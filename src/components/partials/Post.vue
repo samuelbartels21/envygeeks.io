@@ -106,8 +106,8 @@
 </script>
 
 <style lang=scss scoped>
-  @import "./scss/colors";
-  @import "./scss/vars";
+  @import "../scss/colors";
+  @import "../scss/vars";
 
   .post {
     font-size: 1.06rem;

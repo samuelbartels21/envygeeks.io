@@ -5,7 +5,7 @@
 
 <script>
   export default {
-    name: "a-gh",
+    name: "a-github",
     props: {
       repo: {
         required: true,
