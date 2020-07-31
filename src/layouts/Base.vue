@@ -66,6 +66,13 @@
     display: flex;
   }
 
+  @media (max-width: $medium-screen) {
+    .layout {
+      width: auto;
+      margin: 0 1rem;
+    }
+  }
+
   .header {
     display: flex;
     justify-content: space-between;
