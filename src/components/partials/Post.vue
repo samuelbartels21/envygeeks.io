@@ -329,15 +329,15 @@
 
       &:hover {
         a {
-          background-color: var(--blue-300);
-          color: var(--blue-700);
+          background-color: var(--blue-600);
+          color: var(--blue-200);
         }
       }
 
       a {
         text-decoration: none;
-        color: var(--purple-600);
-        background-color: var(--purple-200);
+        color: var(--purple-200);
+        background-color: var(--purple-600);
         letter-spacing: -0.02rem;
         border-radius: 120px;
         padding: .4rem .7rem;
