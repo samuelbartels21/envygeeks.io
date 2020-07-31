@@ -5,7 +5,7 @@
 
 <script>
   export default {
-    name: "a-external",
+    name: "e-external",
     props: {
       href: {
         required: true,

@@ -1,11 +1,11 @@
 <template>
-  <a-ext v-if="this.name" :href="href" :text="name"/>
-  <a-ext v-else :href="href"><slot/></a-ext>
+  <e-external v-if="this.name" :href="href" :text="name"/>
+  <e-external v-else :href="href"><slot/></e-external>
 </template>
 
 <script>
   export default {
-    name: "a-github",
+    name: "e-github",
     props: {
       repo: {
         required: true,

@@ -27,7 +27,7 @@
 
     <footer ref="footer" class="post__meta">
       <div class="meta__avatar">
-        <a-ext :href="author.website">
+        <e-external :href="author.website">
           <g-image
             height="46"
             :src="author.avatar"
@@ -35,11 +35,11 @@
             fit="contain"
             width="46"
           />
-        </a-ext>
+        </e-external>
       </div>
 
       <span class="meta__author">
-        <a-ext
+        <e-external
           :href="post.author.website"
           :text="post.author.name"
         />
