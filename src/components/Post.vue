@@ -339,7 +339,7 @@
         background-color: var(--purple-200);
         letter-spacing: -0.02rem;
         border-radius: 120px;
-        padding: 3px 12px;
+        padding: .4rem .7rem;
       }
 
       &::after {
