@@ -174,7 +174,7 @@
     border-radius: 6px;
     background-color: var(--grey-200);
     box-shadow: 0 2px 4px var(--grey-200);
-    border: 1px solid var(--grey-300);
+    border: 1px solid var(--grey-400);
     grid-template-areas: 'a b c d';
     display: grid;
 
@@ -217,7 +217,8 @@
     border-radius: 6px;
     grid-template-areas: 'a b c';
     box-shadow: 1px 4px 2px var(--grey-100);
-    border: 1px solid var(--grey-300);
+    border: 1px solid var(--grey-400);
+    overflow: hidden;
     margin: 2rem 0;
     display: grid;
 
