@@ -15,10 +15,9 @@
 
   .page {
     margin: 3rem 0;
-    font-size: var(--page-font-size);
-    line-height: var(--page-line-height);
-    font-family: var(--page-font-family);
-    color: var(--page-color);
+    font-size: 1.06rem;
+    color: var(--grey-800);
+    line-height: 1.9rem;
     float: left;
 
     p {
@@ -28,12 +27,12 @@
 
     .page__title {
       h1 {
-        text-align: var(--page-title-alignment);
-        font-style: var(--page-title-text-style);
-        line-height: var(--page-title-line-height);
-        font-size: var(--page-title-font-size);
-        font-family: var(--page-title-font);
         margin: 0 0 3rem;
+        text-align: center;
+        font-family: var(--lora-font-family);
+        font-style: italic;
+        line-height: 4rem;
+        font-size: 3rem;
       }
     }
   }

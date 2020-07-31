@@ -20,9 +20,9 @@
     </header>
 
     <div
-      ref="postContent"
-      className="post__content"
+      class="post__content"
       v-html="post.content"
+      ref="postContent"
     />
 
     <footer ref="footer" class="post__meta">
@@ -110,154 +110,162 @@
   @import "./scss/vars";
 
   .post {
-    color: $grey-800;
-    font-size: $post-body-font-size;
-    line-height: $post-body-line-height;
-    max-width: $layout-width;
+    font-size: 1.06rem;
+    color: var(--grey-800);
+    max-width: var(--layout-width);
+    line-height: 1.9rem;
     width: 100%;
     float: left;
+  }
 
-    &::v-deep {
-      h2, h3, h4, h5, h6 {
-        font-family: $post-title-font-family;
-        letter-spacing: $post-title-letter-spacing;
-        color: $blue-600;
-      }
+  /**
+   * Because the content is dynamic, and it
+   * comes from another part of the system vue.js,
+   * and gridsome know very little about it before
+   * it gets parsed, so we need to make sure it's
+   * deep to cover all our bases!
+   */
+  .post__content::v-deep {
+    h2, h3, h4, h5, h6 {
+      color: var(--blue-600);
+      font-family: var(--poppins-font-family);
+      letter-spacing: -1px;
+    }
+
+    p {
+      margin: 2rem 0;
+      padding: 0;
+    }
+
+    blockquote {
+      display: block;
+      font-style: italic;
+      border-left: 4px solid var(--blue-600);
+      box-sizing: border-box;
+      padding: 0 0.5rem;
 
       p {
-        margin: 2rem 0;
-        padding: 0;
+        margin: 0.5rem 0;
       }
+    }
 
-      blockquote {
-        display: block;
-        font-style: italic;
-        border-left: 4px solid $grey3;
-        box-sizing: border-box;
-        padding: 0 0.5rem;
+    :not(pre) code {
+      font-size: 0.9rem;
+      color: var(--grey-700);
+      background-color: var(--grey-200);
+      border: 1px solid var(--grey-400);
+      border-radius: .3rem;
+      padding: .2rem .1rem;
+    }
 
-        p {
-          margin: 0.5rem 0;
-        }
-      }
+    pre[class*="language-"] {
+      color: #abb2bf;
+      margin: 2rem 0;
+      background: none;
+      word-break: normal;
+      line-height: 1.3rem;
+      background: #282c34;
+      font-family: var(--dank-mono-font-family);
+      box-sizing: border-box;
+      word-spacing: normal;
+      padding: 1rem 1rem;
+      position: relative;
+      word-wrap: normal;
+      text-align: left;
+      white-space: pre;
+      font-size: 1rem;
+      overflow: auto;
+      hyphens: none;
+      width: 100%;
+      tab-size: 8;
 
-      :not(pre) code {
-        font-size: 0.9rem;
-        background-color: $grey1;
-        border: 1px solid $grey3;
-        border-radius: .3rem;
-        padding: .1rem;
-      }
-
-      pre[class*="language-"] {
-        color: #abb2bf;
-        margin: 2rem 0;
+      > code {
         background: none;
-        word-break: normal;
-        line-height: 1.3rem;
-        background: #282c34;
-        font-family: $mono-font;
-        box-sizing: border-box;
-        word-spacing: normal;
-        padding: 1rem 1rem;
-        position: relative;
-        word-wrap: normal;
-        text-align: left;
-        white-space: pre;
-        font-size: 1rem;
-        overflow: auto;
-        hyphens: none;
-        width: 100%;
-        tab-size: 8;
+        font-size: inherit;
+        border: none;
+      }
 
-        > code {
-          background: none;
-          font-size: inherit;
-          border: none;
+       ::selection,
+      &::selection {
+        text-shadow: none;
+        background: #9aa2b1;
+      }
+
+      &[data-expanded="true"] {
+        width: 100vw;
+        margin-left: -50vw;
+        left: 50%;
+      }
+
+      .token {
+        &.prolog,
+        &.comment,
+        &.doctype,
+        &.cdata {
+          color: #5C6370;
         }
 
-         ::selection,
-        &::selection {
-          text-shadow: none;
-          background: #9aa2b1;
+        &.punctuation {
+          color: #abb2bf;
         }
 
-        &[data-expanded="true"] {
-          width: 100vw;
-          margin-left: -50vw;
-          left: 50%;
+        &.selector,
+        &.tag {
+          color: #e06c75;
         }
 
-        .token {
-          &.prolog,
-          &.comment,
-          &.doctype,
-          &.cdata {
-            color: #5C6370;
-          }
+        &.boolean,
+        &.property,
+        &.attr-name,
+        &.constant,
+        &.number,
+        &.symbol,
+        &.deleted {
+          color: #d19a66;
+        }
 
-          &.punctuation {
-            color: #abb2bf;
-          }
+        &.char,
+        &.string,
+        &.attr-value,
+        &.builtin,
+        &.inserted {
+          color: #98c379;
+        }
 
-          &.selector,
-          &.tag {
-            color: #e06c75;
-          }
+        &.url,
+        &.operator,
+        &.entity,
+        .language-css &.string,
+        .style &.string {
+          color: #56b6c2;
+        }
 
-          &.boolean,
-          &.property,
-          &.attr-name,
-          &.constant,
-          &.number,
-          &.symbol,
-          &.deleted {
-            color: #d19a66;
-          }
+        &.atrule,
+        &.keyword {
+          color: #c678dd;
+        }
 
-          &.char,
-          &.string,
-          &.attr-value,
-          &.builtin,
-          &.inserted {
-            color: #98c379;
-          }
+        &.function {
+          color: #61afef;
+        }
 
-          &.url,
-          &.operator,
-          &.entity,
-          .language-css &.string,
-          .style &.string {
-            color: #56b6c2;
-          }
+        &.regex,
+        &.important,
+        &.variable {
+          color: #c678dd;
+        }
 
-          &.atrule,
-          &.keyword {
-            color: #c678dd;
-          }
+        &.important,
+        &.bold {
+          font-weight: bold;
+        }
 
-          &.function {
-            color: #61afef;
-          }
+        &.italic {
+          font-style: italic;
+        }
 
-          &.regex,
-          &.important,
-          &.variable {
-            color: #c678dd;
-          }
-
-          &.important,
-          &.bold {
-            font-weight: bold;
-          }
-
-          &.italic {
-            font-style: italic;
-          }
-
-          &.entity {
-            cursor: help;
-          }
+        &.entity {
+          cursor: help;
         }
       }
     }
@@ -358,26 +366,26 @@
 
   .post__title {
     h1 {
-      color: $pink-600;
-      font-family: $post-title-font-family;
-      letter-spacing: $post-title-letter-spacing;
-      font-weight: $post-title-font-weight;
-      line-height: $post-title-line-height;
-      font-size: $post-title-font-size;
+      line-height: 4rem;
+      letter-spacing: -1px;
+      font-family: var(--poppins-font-family);
+      color: var(--pink-600);
+      font-size: 1.7rem;
       margin: 0 0 3rem;
+      font-weight: 800;
 
       a {
         text-decoration: none;
         color: inherit;
 
         &:hover {
-          color: $purple-600;
+          color: var(--purple-600);
         }
       }
     }
   }
 
-  @media (max-width: ($layout-width + 50px)) {
+  @media (max-width: $medium-screen) {
     .post__title {
       h1 {
         line-height: 2.2rem;
@@ -385,9 +393,9 @@
     }
   }
 
-  @media (max-width: 380px) {
+  @media (max-width: $small-screen) {
     .post {
-      line-height: $post-body-small-screen-line-height;
+      line-height: 1.6rem;
     }
   }
 </style>

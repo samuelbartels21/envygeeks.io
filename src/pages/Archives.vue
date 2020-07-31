@@ -38,23 +38,23 @@
   .tag__item {
     line-height: 1em;
     list-style-type: none;
-    letter-spacing: var(--archives-tag-letter-spacing);
-    box-shadow: 1px 1px 2px var(--archives-tag-box-shadow-color);
-    background-color: var(--archives-tag-background-color);
-    font-size: var(--archives-tag-font-size);
+    letter-spacing: -0.02rem;
+    box-shadow: 1px 1px 2px var(--grey-200);
+    background-color: var(--blue-600);
     border-radius: 1024rem;
     padding: .6rem 1rem;
+    font-size: 0.9rem;
     margin: .4rem;
 
     &:hover {
-      background-color: var(--archives-tag-background-hover-color);
+      background-color: var(--teal-500);
     }
 
     a {
-      color: var(--archives-tag-color);
+      color: var(--blue-200);
       text-decoration: none;
       &:hover {
-        color: var(--archives-tag-hover-color);
+        color: var(--teal-200);
       }
     }
   }

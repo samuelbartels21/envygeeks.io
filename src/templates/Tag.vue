@@ -17,10 +17,10 @@
     margin: 3rem 0;
 
     h1 {
+      font-size: 3rem;
       text-align: center;
-      line-height: $page-title-line-height;
-      font-size: $page-title-font-size;
       font-style: italic;
+      line-height: 4rem;
       margin: 0 0 3rem;
     }
   }

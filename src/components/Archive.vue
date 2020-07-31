@@ -85,7 +85,7 @@
 
     .post {
       width: 100%;
-      border-bottom: 1px dashed var(--archives-post-splitter-color);
+      border-bottom: 1px dashed var(--grey-400);
       padding: 1rem 0;
       float: left;
 
@@ -93,7 +93,7 @@
         h3 {
           padding: 0;
           font-size: inherit;
-          letter-spacing: var(--archives-post-letter-spacing);
+          letter-spacing: -0.02rem;
           line-height: inherit;
           font-weight: inherit;
           margin: 0;
@@ -105,7 +105,7 @@
       }
 
       .meta__time {
-        color: var(--archives-post-time-color);
+        color: var(--purple-500);
       }
     }
   }
