@@ -162,7 +162,8 @@
       background: none;
       word-break: normal;
       line-height: 1.3rem;
-      background: #282c34;
+      letter-spacing: normal;
+      background: var(--grey-900);
       font-family: var(--dank-mono-font-family);
       box-sizing: border-box;
       word-spacing: normal;
@@ -183,10 +184,11 @@
         border: none;
       }
 
-       ::selection,
-      &::selection {
+      ::selection, &::selection {
         text-shadow: none;
-        background: #9aa2b1;
+        background: var(
+          --blue-600
+        );
       }
 
       &[data-expanded="true"] {
@@ -200,16 +202,22 @@
         &.comment,
         &.doctype,
         &.cdata {
-          color: #5C6370;
+          color: var(
+            --grey-600
+          );
         }
 
         &.punctuation {
-          color: #abb2bf;
+          color: var(
+            --grey-400
+          );
         }
 
         &.selector,
         &.tag {
-          color: #e06c75;
+          color: var(
+            --orange-400
+          );
         }
 
         &.boolean,
@@ -219,7 +227,9 @@
         &.number,
         &.symbol,
         &.deleted {
-          color: #d19a66;
+          color: var(
+            --yellow-600
+          );
         }
 
         &.char,
@@ -227,7 +237,9 @@
         &.attr-value,
         &.builtin,
         &.inserted {
-          color: #98c379;
+          color: var(
+            --green-400
+          );
         }
 
         &.url,
@@ -235,22 +247,30 @@
         &.entity,
         .language-css &.string,
         .style &.string {
-          color: #56b6c2;
+          color: var(
+            --blue-400
+          );
         }
 
         &.atrule,
         &.keyword {
-          color: #c678dd;
+          color: var(
+            --purple-400
+          );
         }
 
         &.function {
-          color: #61afef;
+          color: var(
+            --blue-400
+          );
         }
 
         &.regex,
         &.important,
         &.variable {
-          color: #c678dd;
+          color: var(
+            --purple-400
+          );
         }
 
         &.important,
