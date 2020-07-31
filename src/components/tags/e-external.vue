@@ -17,6 +17,9 @@
       }
     },
     computed: {
+      rel() {
+        return "noopener noreferrer nofollow"
+      },
       link() {
         let regex = RegExp('^https?://')
         if (regex.test(this.href)) {
@@ -24,9 +27,6 @@
         }
 
         return `https://${this.href}`
-      },
-      rel() {
-        return "noopener noreferrer nofollow"
       }
     }
   }
