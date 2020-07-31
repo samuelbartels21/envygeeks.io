@@ -22,12 +22,11 @@
     },
     computed: {
       href() {
-        console.log(this.name);
-        return `https://github.com/${this.ghUser}/${
+        return `https://github.com/${this.githubUser}/${
           this.repo
         }`
       },
-      ghUser() {
+      githubUser() {
         return this.user ||
           this.$static.meta
             .githubUser

@@ -46,9 +46,7 @@
       </span>
 
       <div class="meta__date">
-        <time :datetime="post.date">
-          {{ post.date | relativeTime }}
-        </time>
+        <e-from-now :time="post.date" />
       </div>
     </footer>
 

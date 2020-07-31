@@ -12,9 +12,11 @@
           </h3>
         </header>
         <footer class="meta right">
-          <time class="meta__time" :datetime="edge.node.date">
-            {{ edge.node.date | formatTime("MM/dd") }}
-          </time>
+          <e-format-time
+            :time="edge.node.date"
+            className="meta__time"
+            format="MM/DD"
+          />
         </footer>
       </article>
     </div>
