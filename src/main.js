@@ -13,6 +13,30 @@ export default function (Vue, { router, head, isClient }) {
   Vue.component("e-github", e_github)
 
   /**
+   * Remove unwanted headers
+   * We don't need these.
+   */
+  head.link = head.link.filter(h => {
+    return !h.rel || (
+      h.rel && (
+        h.rel !== "icon" && h.rel !== "apple-touch-icon"
+      )
+    )
+  })
+
+  /**
+   * Remove unwanted metadata
+   * Generators add a lot.
+   */
+  head.meta = head.meta.filter(m => {
+    return !m.name || (
+      m.name && (
+        m.name !== "generator"
+      )
+    )
+  })
+
+  /**
    * gridsome.config.js: headers
    * Edit headers inside of that file
    * they'll be mapped out here
