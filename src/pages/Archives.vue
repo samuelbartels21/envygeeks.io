@@ -39,7 +39,6 @@
   .tag__item {
     line-height: 1em;
     list-style-type: none;
-    letter-spacing: -0.02rem;
     box-shadow: 1px 1px 2px var(--grey-200);
     background-color: var(--blue-600);
     border-radius: 1024rem;

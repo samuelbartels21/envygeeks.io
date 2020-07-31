@@ -105,7 +105,6 @@
         h3 {
           padding: 0;
           font-size: inherit;
-          letter-spacing: -0.02rem;
           line-height: inherit;
           font-weight: inherit;
           margin: 0;

@@ -303,7 +303,6 @@
     color: $blue;
     line-height: 1.2em;
     margin: .23rem 0 0 .5rem;
-    letter-spacing: -0.04rem;
     grid-column-start: 2;
     white-space: nowrap;
     padding: 0;
@@ -338,7 +337,6 @@
         text-decoration: none;
         color: var(--purple-200);
         background-color: var(--purple-600);
-        letter-spacing: -0.02rem;
         border-radius: 120px;
         padding: .4rem .7rem;
       }
@@ -351,7 +349,6 @@
 
   .meta__date {
     margin: 0 0 0 .5rem;
-    letter-spacing: -0.04rem;
     grid-column: 2 / -1;
   }
 

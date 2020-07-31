@@ -234,6 +234,7 @@
           list-style-type: none;
           border-bottom: 1px solid var(--grey-200);
           border-right: 1px solid var(--grey-200);
+          font-size: 0.99rem;
           padding: 0.4rem 1rem;
 
           &:last-child {

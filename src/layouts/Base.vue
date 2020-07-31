@@ -41,6 +41,7 @@
     padding: 0;
     color: var(--grey-800);
     font-family: var(--system-font-family);
+    letter-spacing: -0.02rem;
     margin: 0;
   }
 
@@ -123,12 +124,9 @@
       a {
         color: inherit;
         text-decoration: none;
-        text-transform: uppercase;
         font-family: var(--system-font-family);
-        letter-spacing:-0.06rem;
-        font-size: 0.875rem;
-        font-weight: 800;
         padding: 1rem .5rem;
+        font-size: 0.96rem;
         display: block;
 
         &:hover {
