@@ -9,6 +9,13 @@ module.exports = {
   siteUrl: "envygeeks.io",
   titleTemplate: "%s",
   useSSL: true,
+  permalinks: {
+    trailingSlash: false
+  },
+  icon: {
+    touchicon: null,
+    favicon: null
+  },
   siteNav: [
     {
       id: 1,

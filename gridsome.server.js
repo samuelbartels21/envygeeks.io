@@ -1,6 +1,5 @@
-const config = require("./gridsome.config.js")
 const skippable = require("./gridsome.config.js").skipOnMeta
-const join = require("path").join
+const config = require("./gridsome.config.js")
 
 module.exports = function(api) {
   api.loadSource(store => {
