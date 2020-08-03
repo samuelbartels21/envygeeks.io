@@ -46,9 +46,9 @@
   }
 
   a {
-    color: var(--blue-600);
+    color: var(--blue-500);
     &:hover {
-      color: var(--purple-600);
+      color: var(--purple-500);
     }
   }
 </style>
