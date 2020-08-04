@@ -8,7 +8,7 @@
             {{ $static.meta.title }}
           </g-link>
         </span>
-        <span class="title__main">
+        <span class="title__sub">
           {{ $static.meta.subTitle }}
         </span>
       </div>
