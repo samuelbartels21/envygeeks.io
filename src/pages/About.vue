@@ -189,7 +189,7 @@
 
       .item__name {
         color: var(--blue-800);
-        display:block;
+        display: block;
       }
 
       .item__numb {
@@ -211,7 +211,7 @@
 
   .avatar {
     height: 8.3rem;
-    margin: .5rem 1.2rem 0 0;
+    margin: 0.5rem 1.2rem 0 0;
     width: 8.3rem;
     float: left;
 
@@ -310,6 +310,7 @@
   @media (max-width: $small-screen) {
     .skills {
       grid-template-areas: 'a b';
+
       .skills__set {
         &:nth-child(2),
         &:nth-child(4),

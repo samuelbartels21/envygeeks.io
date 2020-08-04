@@ -16,10 +16,12 @@
         type: String
       }
     },
+    data() {
+      return {
+        rel: "noopener noreferrer nofollow"
+      }
+    },
     computed: {
-      rel() {
-        return "noopener noreferrer nofollow"
-      },
       link() {
         let regex = RegExp('^https?://')
         if (regex.test(this.href)) {

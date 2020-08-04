@@ -42,9 +42,9 @@
     box-shadow: 1px 1px 2px var(--grey-200);
     background-color: var(--blue-600);
     border-radius: 1024rem;
-    padding: .6rem 1rem;
+    padding: 0.6rem 1rem;
     font-size: 0.9rem;
-    margin: .4rem;
+    margin: 0.4rem;
 
     &:hover {
       background-color: var(--teal-500);

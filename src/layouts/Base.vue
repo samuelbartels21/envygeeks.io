@@ -3,12 +3,12 @@
   <div class="layout">
     <header class="header">
       <div class="header__title">
-        <span class="header__title--main">
+        <span class="title__main">
           <g-link to="/" rel="me">
             {{ $static.meta.title }}
           </g-link>
         </span>
-        <span class="header__title--sub">
+        <span class="title__main">
           {{ $static.meta.subTitle }}
         </span>
       </div>
@@ -58,7 +58,6 @@
   @import "../components/scss/vars";
 
   .layout {
-    flex-direction: row;
     justify-content: center;
     max-width: var(--layout-width);
     margin: 0 auto 4rem;
@@ -86,7 +85,7 @@
       padding: 1rem 0;
       display: grid;
 
-      .header__title--main {
+      .title__main {
         grid-area: b;
         padding-left: 1rem;
         font-style: italic;
@@ -100,7 +99,7 @@
         }
       }
 
-      .header__title--sub {
+      .title__sub {
         font-size: 1.4rem;
         font-weight: bold;
         line-height: 1.4rem;
@@ -128,6 +127,12 @@
     }
 
     .nav__item {
+      &:last-child {
+        a {
+          padding-right: 0;
+        }
+      }
+
       a {
         color: inherit;
         text-decoration: none;
@@ -140,20 +145,14 @@
           color: var(--orange-600);
         }
       }
-
-      &:last-child {
-        a {
-          padding-right: 0;
-        }
-      }
     }
   }
 
   @media (max-width: $medium-screen) {
     .header {
       .header__title {
-        .header__title--main { padding: 0; }
-        .header__title--sub  {
+        .title__main { padding: 0; }
+        .title__sub  {
           display: none;
         }
       }

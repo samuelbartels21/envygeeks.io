@@ -124,7 +124,11 @@
    * deep to cover all our bases!
    */
   .post__content::v-deep {
-    h2, h3, h4, h5, h6 {
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
       color: var(--blue-600);
       font-family: var(--system-font-family);
       letter-spacing: -0.06rem;
@@ -152,14 +156,13 @@
       color: var(--grey-700);
       background-color: var(--grey-200);
       border: 1px solid var(--grey-400);
-      border-radius: .3rem;
-      padding: .2rem .1rem;
+      padding: 0.2rem 0.1rem;
+      border-radius: 0.3rem;
     }
 
     pre[class*="language-"] {
       color: #abb2bf;
       margin: 2rem 0;
-      background: none;
       word-break: normal;
       line-height: 1.3rem;
       letter-spacing: normal;
@@ -320,7 +323,7 @@
   .meta__author {
     color: $blue;
     line-height: 1.2em;
-    margin: .23rem 0 0 .5rem;
+    margin: 0.23rem 0 0 .5rem;
     grid-column-start: 2;
     white-space: nowrap;
     padding: 0;
@@ -355,8 +358,8 @@
         text-decoration: none;
         color: var(--purple-200);
         background-color: var(--purple-600);
+        padding: 0.4rem 0.7rem;
         border-radius: 120px;
-        padding: .4rem .7rem;
       }
 
       &::after {
@@ -366,7 +369,7 @@
   }
 
   .meta__date {
-    margin: 0 0 0 .5rem;
+    margin: 0 0 0 0.5rem;
     grid-column: 2 / -1;
   }
 
