@@ -24,7 +24,6 @@
 </template>
 
 <script>
-  import { DateTime } from "luxon"
 
   /**
    * group the posts by year
@@ -36,8 +35,8 @@
     let g = {}
 
     posts.forEach(post => {
-      let d = DateTime.fromISO(post.node.date);
-      let y = d.year;
+      let d = new Date(post.node.date)
+      let y = d.getFullYear()
       if (!g[y]) {
         g[y] = [
           //
@@ -46,8 +45,8 @@
 
       g[y].push(
         post
-      );
-    });
+      )
+    })
 
     let o = new Map()
     let o_k = Object.keys(g).sort()
