@@ -2,6 +2,13 @@
 
 set -e
 [ "$DEBUG" ] && set -x
+domain=envygeeks.io
+base=/var/www
+
+: "${DEPLOY_SERVER:=envygeeks.io}"
+: "${DEPLOY_PATH:=beta.envygeeks.io}"
+: "${DEPLOY_USER:=deploy}"
+
 rsync -av dist/ \
   "${DEPLOY_USER}"@"${DEPLOY_SERVER}":"${DEPLOY_PATH}" \
   --delete
