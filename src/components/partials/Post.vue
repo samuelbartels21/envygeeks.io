@@ -104,8 +104,7 @@
 </script>
 
 <style lang=scss scoped>
-  @import "../scss/colors";
-  @import "../scss/vars";
+  @import "../scss/scss_vars";
 
   .post {
     font-size: 1.06rem;
@@ -308,7 +307,7 @@
       width: 2.9rem;
       height: 2.9rem;
       border-radius: 50%;
-      border: 2px solid $grey2;
+      border: 2px solid var(--grey-300);
       padding: 1px;
       float: left;
 
@@ -321,7 +320,6 @@
   }
 
   .meta__author {
-    color: $blue;
     line-height: 1.2em;
     margin: 0.23rem 0 0 .5rem;
     grid-column-start: 2;

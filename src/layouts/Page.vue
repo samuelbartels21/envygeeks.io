@@ -10,9 +10,6 @@
 </template>
 
 <style lang="scss" scoped>
-  @import "../components/scss/colors";
-  @import "../components/scss/vars";
-
   .page {
     margin: 3rem 0;
     font-size: 1.06rem;

@@ -10,8 +10,6 @@
 </template>
 
 <style lang="scss" scoped>
-  @import "../components/scss/vars";
-
   .page__title {
     text-align: center;
     margin: 3rem 0;

@@ -83,8 +83,6 @@
 </script>
 
 <style lang="scss" scoped>
-  @import "../scss/colors";
-
   .archives {
     float: left;
     width: 100%;

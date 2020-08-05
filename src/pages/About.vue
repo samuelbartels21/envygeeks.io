@@ -166,8 +166,7 @@
 </script>
 
 <style lang="scss" scoped>
-  @import "../components/scss/colors";
-  @import "../components/scss/vars";
+  @import "../components/scss/scss_vars.scss";
 
   h2 {
     border-bottom: 1px dashed var(--grey-400);

@@ -1,7 +1,4 @@
-$layout-width: 750px;
-$medium-screen: $layout-width + 50px;
-$normal-screen: $layout-width + 50px;
-$small-screen: 520px;
+@import "scss_vars";
 @import "colors";
 
 :root {

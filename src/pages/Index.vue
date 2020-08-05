@@ -50,9 +50,6 @@
 </page-query>
 
 <style lang="scss" scoped>
-  @import "../components/scss/colors";
-  @import "../components/scss/vars";
-
   .posts {
     .post {
       border-bottom: 1px dashed var(--grey-400);
