@@ -8,6 +8,7 @@
     "start": "gridsome develop"
   },
   "dependencies": {
+    "@gridsome/plugin-critical": "envygeeks/gridsome-plugin-critical#trunk",
     "@gridsome/remark-prismjs": "^0.3.0",
     "@gridsome/source-filesystem": "^0.6.2",
     "@gridsome/transformer-json": "^0.2.1",
