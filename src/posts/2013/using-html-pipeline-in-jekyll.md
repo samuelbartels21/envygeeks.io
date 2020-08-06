@@ -15,6 +15,8 @@ in Markdown processors they had.  This reduced the necessary hacks to get better
 Pygments support, and even gives me the flexibility to add anything I want to
 the pipeline of my content.
 
+<!-- MORE -->
+
 ## Removing Jekyll's Markdowns.
 
 Instead of patching their classes or even caring about what they had going on I

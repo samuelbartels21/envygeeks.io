@@ -17,6 +17,8 @@ forward to. I can say that I'm a little bit excited for once about a Rails
 release, because of some of the features I've been using since long before Rails
 thought about it.
 
+<!-- MORE -->
+
 One of my absolute favorites coming into Rails 4 is the addition of "native"
 support for PostgreSQL arrays. To some people this can have an impact on how
 they build their code and can even simplify the management of not-only that code

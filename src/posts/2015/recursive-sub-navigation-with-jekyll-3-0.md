@@ -13,6 +13,8 @@ all updated and a lot of them had some hefty customization's but with Jekyll 3.0
 customization is easier.  Here is how you can go about making recursive
 navigation with Jekyll 3.0 with minimal code:
 
+<!-- MORE -->
+
 <p class="code-file">
   _plugins/nav.rb
 </p>

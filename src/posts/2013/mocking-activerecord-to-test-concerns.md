@@ -17,6 +17,8 @@ in a more independent way. _**I was doing this long before Rails 4 was out but
 now that Rails 4 is promoting skinny models and controllers it might be good for
 me to explain how I test "concerns".**_
 
+<!-- MORE -->
+
 ## The back story on why.
 
 When I first started working with Rails I had always thought that a lot of Rails

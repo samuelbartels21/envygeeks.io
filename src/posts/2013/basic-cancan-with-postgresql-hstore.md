@@ -18,6 +18,8 @@ features, and post some tutorials on what I am doing with Rails 4. The second in
 this series is doing a basic CanCan style permissions handler with PostgreSQL's
 `hstore`.
 
+<!-- MORE -->
+
 Before Rails 4 I would always opt to use CanCan because I did not want to have
 to build my own serializer or to use the `hstore` gem which had a some minor
 bugs in some data I would store, but when Rails 4 first did it's RC I decided

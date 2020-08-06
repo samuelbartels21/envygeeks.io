@@ -20,9 +20,9 @@
     </header>
 
     <div
-      class="post__content"
-      v-html="post.content"
-      ref="postContent"
+      class=post__content
+      v-html=postContent
+      ref=content
     />
 
     <footer ref="footer" class="post__meta">
@@ -56,17 +56,15 @@
   </article>
 </template>
 
-<script>
-  function trimPostContent(ctx, el) {
-    if (!ctx.trim) return;
-
-    while (el.childNodes.length > ctx.limit) {
-      el.removeChild(
-        el.lastChild
-      )
+<static-query>
+  query {
+    meta: metadata {
+      readMoreIdentifier
     }
   }
+</static-query>
 
+<script>
   export default {
     name: "PostPartial",
     props: {
@@ -93,12 +91,15 @@
             }`
           ),
         }
+      },
+      postContent() {
+        if (!this.trim) return this.post.content
+        let c = this.post.content.split(
+          this.$static.meta.readMoreIdentifier
+        )
+
+        return c[0]
       }
-    },
-    mounted() {
-      trimPostContent(this,
-        this.$refs.postContent
-      );
     }
   }
 </script>

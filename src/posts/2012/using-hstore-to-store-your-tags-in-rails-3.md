@@ -18,6 +18,8 @@ and oldest is to create a one-to-many relation with a possible join with
 to think_ I came up with, it uses `hstore` to reduce the need for an extra query
 in some cases.
 
+<!-- MORE -->
+
 ## Why?
 
 By using `hstore` you require less queries, 2 less than `ActiveRecord::Model`'s

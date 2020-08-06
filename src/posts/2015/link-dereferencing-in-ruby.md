@@ -14,6 +14,8 @@ Ruby.  I needed to dereference the links inside of the root.  Why can't you do
 that for me instead, Ruby? Even with some of that safety? It can't... then I
 came up with a solution that allows me to dereference safely.
 
+<!-- MORE -->
+
 ```ruby
 class String
 

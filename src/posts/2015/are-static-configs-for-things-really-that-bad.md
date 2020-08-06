@@ -15,6 +15,8 @@ came to me that I have some static configurations in there, configurations that
 one user, might want to change. Then the question came along: "how often do I
 even get requests for that?"
 
+<!-- MORE -->
+
 Lets take the following:
 
 ```ruby

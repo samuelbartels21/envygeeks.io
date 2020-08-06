@@ -12,6 +12,8 @@ More tips for Jekyll 3.0: Breadcrumbs.  Over the years I've seen some overly
 complicated breadcrumb plugins for Jekyll, lots which do complicated Ruby for a
 trivial topic.  For Jekyll 3.0 lets show you how to do super simple breadcrumbs.
 
+<!-- MORE -->
+
 <p class="code-file">
   _plugins/breadcrumbs.rb
 </p>

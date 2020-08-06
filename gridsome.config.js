@@ -3,6 +3,7 @@ module.exports = {
   twitterUser: "envygeeks",
   siteName: "Jordon Bedwell - EnvyGeeks",
   siteDescription: "The website of Jordon Bedwell",
+  readMoreIdentifier: "<!-- MORE -->",
   siteTitle: "Jordon Bedwell",
   siteSubTitle: "EnvyGeeks",
   githubUser: "envygeeks",
