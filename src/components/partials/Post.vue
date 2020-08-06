@@ -359,15 +359,15 @@
 
       &:hover {
         a {
-          background-color: var(--blue-600);
-          color: var(--blue-200);
+          background-color: var(--pink-800);
+          color: var(--pink-200);
         }
       }
 
       a {
         text-decoration: none;
         color: var(--purple-200);
-        background-color: var(--purple-600);
+        background-color: var(--purple-800);
         padding: 0.4rem 0.7rem;
         border-radius: 120px;
       }

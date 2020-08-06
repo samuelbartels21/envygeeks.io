@@ -26,7 +26,7 @@
   </div>
 </template>
 
-<style lang=scss>
+<style lang=scss >
   @import "../components/scss/colors";
   @import "../components/scss/external_fonts";
   @import "../components/scss/normalize";
@@ -40,15 +40,16 @@
   body {
     padding: 0;
     color: var(--grey-800);
+    background-color: var(--grey-100);
     font-family: var(--system-font-family);
     letter-spacing: -0.02rem;
     margin: 0;
   }
 
   a {
-    color: var(--blue-500);
+    color: var(--blue-700);
     &:hover {
-      color: var(--purple-500);
+      color: var(--purple-700);
     }
   }
 </style>
