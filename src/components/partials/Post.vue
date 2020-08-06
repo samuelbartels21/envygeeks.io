@@ -132,6 +132,16 @@
       color: var(--blue-600);
       font-family: var(--system-font-family);
       letter-spacing: -0.06rem;
+
+      a {
+        color: var(--blue-700);
+        text-decoration: none;
+        &:hover {
+          color: var(
+            --pink-700
+          )
+        }
+      }
     }
 
     p {

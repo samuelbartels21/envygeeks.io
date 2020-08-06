@@ -79,12 +79,23 @@ module.exports = {
   transformers: {
     remark: {
       externalLinksTarget: "_blank",
-      anchorClassName: "icon icon-link",
       externalLinksRel: [
         "nofollow",
         "noreferrer",
         "noopener"
       ],
+      autolinkHeadings: {
+        behavior: 'wrap',
+        content: {
+          type: 'element',
+          tagName: 'span',
+          properties: {
+            className: [
+              'this', 'is', 'disabled'
+            ]
+          }
+        }
+      },
       plugins: [
         "@gridsome/remark-prismjs"
       ]
