@@ -30,6 +30,7 @@
         <e-external :href="author.website">
           <g-image
             height="46"
+            immediate=true
             :src="author.avatar"
             :alt="author.avatarAlt"
             fit="contain"
