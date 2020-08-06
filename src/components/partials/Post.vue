@@ -416,14 +416,6 @@
     }
   }
 
-  @media (max-width: $medium-screen) {
-    .post__title {
-      h1 {
-        line-height: 2.2rem;
-      }
-    }
-  }
-
   @media (max-width: $small-screen) {
     .post {
       line-height: 1.6rem;
