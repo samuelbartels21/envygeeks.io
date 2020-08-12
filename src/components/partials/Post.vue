@@ -130,18 +130,33 @@
     h4,
     h5,
     h6 {
+      font-size: 1.7rem;
+      line-height: 4rem;
       color: var(--blue-600);
       font-family: var(--system-font-family);
+      border-top: 0.15rem dashed var(--grey-400);
       letter-spacing: -0.06rem;
+      padding-top: 2rem;
+      font-weight: 800;
 
       a {
-        color: var(--blue-700);
+        color: var(--blue-600);
         text-decoration: none;
+
         &:hover {
           color: var(
-            --pink-700
+            --pink-600
           )
         }
+      }
+    }
+
+    h3,
+    h4,
+    h5,
+    h6 {
+      a {
+        color: var(--teal-600);
       }
     }
 
@@ -164,10 +179,10 @@
 
     :not(pre) code {
       font-size: 0.9rem;
-      color: var(--grey-700);
+      color: var(--grey-800);
       background-color: var(--grey-200);
       border: 1px solid var(--grey-400);
-      padding: 0.2rem 0.1rem;
+      padding: 0.2rem 0.4rem;
       border-radius: 0.3rem;
     }
 
@@ -410,7 +425,7 @@
         color: inherit;
 
         &:hover {
-          color: var(--purple-600);
+          color: var(--purple-800);
         }
       }
     }
