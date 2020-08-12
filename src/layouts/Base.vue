@@ -136,8 +136,7 @@
       a {
         color: inherit;
         text-decoration: none;
-        font-family: var(--system-font-family);
-        padding: 1rem .5rem;
+        padding: 1rem 0.5rem;
         font-size: 0.96rem;
         display: block;
 
