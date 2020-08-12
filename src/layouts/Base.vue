@@ -39,10 +39,10 @@
 
   body {
     padding: 0;
-    color: var(--grey-800);
-    background-color: var(--grey-100);
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
     font-family: var(--system-font-family);
-    letter-spacing: -0.02rem;
+    color: var(--grey-800);
     margin: 0;
   }
 
