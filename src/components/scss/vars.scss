@@ -11,10 +11,8 @@
   --poppins-font-family: "Poppins", sans-serif;
   --montserrat-font-family: "Montserrat", sans-serif;
   --dank-mono-font-family: "Dank Mono", monospace;
-  --lora-font-family: "Lora", serif;
-
-  /** TODO switch this to --system-sans-serif-font-family */
   --system-font-family: -apple-system, BlinkMacSystemFont,
-      avenir next, avenir, helvetica neue, helvetica, Ubuntu,
-      roboto, noto, calibri, segoe ui, arial, sans-serif;
+      "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji",
+      "Segoe UI Emoji", "Segoe UI Symbol";
+  --lora-font-family: "Lora", serif;
 }
