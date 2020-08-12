@@ -9,13 +9,13 @@
     />
 
     <p>
-      Hey, I’m Jordon Bedwell. I’m a programmer, and systems person for
-      hire. I’m also a firm believer in Time Travel. I love  Doctor Who,
-      Family Guy, Downton Abbey, and helping people achieve their goals
-      as much as I can. You might know me, you probably don’t. I’m sure
-      I’ve touched  a project that you’ve used before, knowingly or not,
-      and I plan to keep helping out Open Source for as long as I can,
-      because everybody deserves high quality open source software.
+      Hey, I’m Jordon Bedwell. I’m a programmer and systems admin for hire.
+      I’m also a firm believer in Time Travel. I love  Doctor Who, Family
+      Guy, Downton Abbey, and helping people achieve their goals as much
+      as I can through software. You might know me, you probably don’t.
+      I’m sure I’ve touched  a project that you’ve used before, knowingly
+      or not, and I plan to keep helping out Open Source for as long as I
+      can, because everybody deserves high quality open source software.
     </p>
 
     <h2>Skills</h2>
@@ -209,9 +209,10 @@
   }
 
   .avatar {
-    height: 8.3rem;
+    height: 6.4rem;
     margin: 0.5rem 1.2rem 0 0;
-    width: 8.3rem;
+    border: 1px solid var(--grey-800);
+    width: 6.4rem;
     float: left;
 
   }
