@@ -97,7 +97,11 @@ module.exports = {
         }
       },
       plugins: [
-        "@gridsome/remark-prismjs"
+        [
+          "@gridsome/remark-prismjs", {
+            // Next Release -- showLineNumbers: true
+          }
+        ]
       ]
     }
   },
