@@ -125,46 +125,6 @@
    * deep to cover all our bases!
    */
   .post__content::v-deep {
-    h2,
-    h3,
-    h4,
-    h5,
-    h6 {
-      font-size: 1.7rem;
-      line-height: 4rem;
-      color: var(--blue-600);
-      font-family: var(--system-font-family);
-      border-top: 0.15rem dashed var(--grey-400);
-      letter-spacing: -0.06rem;
-      padding-top: 2rem;
-      font-weight: 800;
-
-      a {
-        color: var(--blue-600);
-        text-decoration: none;
-
-        &:hover {
-          color: var(
-            --pink-600
-          )
-        }
-      }
-    }
-
-    h3,
-    h4,
-    h5,
-    h6 {
-      a {
-        color: var(--teal-600);
-      }
-    }
-
-    p {
-      margin: 2rem 0;
-      padding: 0;
-    }
-
     blockquote {
       display: block;
       font-style: italic;
@@ -186,38 +146,52 @@
       border-radius: 0.3rem;
     }
 
+    pre.language-sql::before { content: 'SQL'; }
+    pre.language-scss::before { content: 'SCSS'; }
+    pre.language-yaml::before { content: 'YAML'; }
+    pre.language-text::before { content: 'Plain Text'; }
+    pre.language-liquid::before { content: 'Liquid'; }
+    pre.language-ruby::before { content: 'Ruby'; }
+    pre.language-html::before { content: 'HTML'; }
+    pre.language-css::before { content: 'CSS'; }
+
     pre[class*="language-"] {
-      color: #abb2bf;
       margin: 2rem 0;
       word-break: normal;
       line-height: 1.3rem;
       letter-spacing: normal;
-      background: var(--grey-900);
+      background: var(--grey-200);
+      border: 0.15rem solid var(--grey-300);
       font-family: var(--dank-mono-font-family);
+      color: var(--grey-800);
       box-sizing: border-box;
       word-spacing: normal;
-      padding: 1rem 1rem;
       position: relative;
       word-wrap: normal;
       text-align: left;
       white-space: pre;
       font-size: 1rem;
-      overflow: auto;
       hyphens: none;
       width: 100%;
       tab-size: 8;
 
-      > code {
-        background: none;
+      &::before {
+        width: 100%;
+        box-sizing: border-box;
+        font-family: var(--system-font-family);
+        background-color: var(--grey-300);
         font-size: inherit;
-        border: none;
+        display: block;
+        padding: 1rem;
       }
 
-      ::selection, &::selection {
-        text-shadow: none;
-        background: var(
-          --blue-600
-        );
+      > code {
+        padding: 1rem;
+        overflow: auto;
+        background: none;
+        font-size: inherit;
+        display: block;
+        border: none;
       }
 
       &[data-expanded="true"] {
@@ -231,74 +205,64 @@
         &.comment,
         &.doctype,
         &.cdata {
-          color: var(
-            --grey-600
-          );
+          color: inherit;
         }
 
         &.punctuation {
-          color: var(
-            --grey-400
-          );
+          color: inherit;
         }
 
-        &.selector,
-        &.tag {
-          color: var(
-            --orange-400
-          );
-        }
-
+        &.number,
         &.boolean,
         &.property,
-        &.attr-name,
         &.constant,
-        &.number,
+        &.deleted,
         &.symbol,
-        &.deleted {
+        &.tag {
           color: var(
-            --yellow-600
-          );
+            --pink-800
+          )
         }
 
-        &.char,
         &.string,
-        &.attr-value,
+        &.selector,
+        &.attr-name,
+        &.inserted,
         &.builtin,
-        &.inserted {
+        &.char {
           color: var(
-            --green-400
-          );
+            --green-800
+          )
         }
 
-        &.url,
-        &.operator,
         &.entity,
-        .language-css &.string,
-        .style &.string {
+        &.operator,
+        &.url {
           color: var(
-            --blue-400
+            --yellow-800
           );
         }
 
         &.atrule,
+        &.attr-value,
         &.keyword {
           color: var(
-            --purple-400
-          );
+            --blue-700
+          )
         }
 
+        &.class-name,
         &.function {
           color: var(
-            --blue-400
-          );
+            --pink-700
+          )
         }
 
         &.regex,
         &.important,
         &.variable {
           color: var(
-            --purple-400
+            --yellow-800
           );
         }
 
@@ -313,6 +277,44 @@
 
         &.entity {
           cursor: help;
+        }
+      }
+
+      .language-liquid {
+        .token {
+          &.operator,
+          &.number {
+            color: inherit;
+          }
+        }
+      }
+
+      .language-css,
+      .style {
+        .token {
+          &.string {
+            color: var(
+              --yellow-800
+            )
+          }
+        }
+      }
+
+      .language-scss {
+        .token {
+          &.url {
+            color: inherit;
+          }
+        }
+      }
+
+      .language-html {
+        .token {
+          &.tag {
+            > .punctuation {
+              color: var(--pink-800);
+            }
+          }
         }
       }
     }
@@ -434,6 +436,13 @@
   @media (max-width: $small-screen) {
     .post {
       line-height: 1.6rem;
+    }
+
+    .post__title {
+      h1 {
+        margin-top: 1.1rem;
+        line-height: 2rem;
+      }
     }
   }
 </style>

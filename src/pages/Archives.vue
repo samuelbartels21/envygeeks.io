@@ -39,21 +39,21 @@
     line-height: 1em;
     list-style-type: none;
     box-shadow: 1px 1px 2px var(--grey-200);
-    background-color: var(--blue-600);
+    background-color: var(--purple-800);
     border-radius: 1024rem;
     padding: 0.6rem 1rem;
     font-size: 0.9rem;
-    margin: 0.4rem;
+    margin: 0.2rem;
 
     &:hover {
-      background-color: var(--teal-500);
+      background-color: var(--pink-800);
     }
 
     a {
-      color: var(--blue-200);
+      color: var(--purple-200);
       text-decoration: none;
       &:hover {
-        color: var(--teal-200);
+        color: var(--pink-200);
       }
     }
   }

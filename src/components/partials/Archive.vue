@@ -89,6 +89,7 @@
 
     .archive__year {
       h2 {
+        width: 100%;
         margin: 3rem 0;
         float: left;
       }
@@ -96,26 +97,37 @@
 
     .post {
       width: 100%;
-      border-bottom: 1px dashed var(--grey-400);
+      border-bottom: 1px dashed var(--grey-200);
       padding: 1rem 0;
       float: left;
+
+      &:last-child {
+        border-bottom: none;
+      }
 
       header {
         h3 {
           padding: 0;
           font-size: inherit;
           line-height: inherit;
+          letter-spacing: -0.03rem;
           font-weight: inherit;
+          border-top: none;
           margin: 0;
 
           a {
             text-decoration: none;
+            color: var(
+              --purple-800
+            );
           }
         }
       }
 
       .meta__time {
-        color: var(--purple-500);
+        color: var(
+          --pink-800
+        );
       }
     }
   }

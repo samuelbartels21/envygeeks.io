@@ -54,6 +54,46 @@
       color: var(--purple-700);
     }
   }
+
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-size: 1.7rem;
+    line-height: 4rem;
+    color: var(--blue-600);
+    font-family: var(--system-font-family);
+    border-top: 0.15rem dashed var(--grey-400);
+    letter-spacing: -0.06rem;
+    padding-top: 2rem;
+    font-weight: 800;
+
+    a {
+      color: var(--blue-600);
+      text-decoration: none;
+
+      &:hover {
+        color: var(
+          --pink-600
+        )
+      }
+    }
+  }
+
+  h3,
+  h4,
+  h5,
+  h6 {
+    a {
+      color: var(--teal-600);
+    }
+  }
+
+  p {
+    margin: 2rem 0;
+    padding: 0;
+  }
 </style>
 
 <style lang=scss scoped>
@@ -143,7 +183,9 @@
         display: block;
 
         &:hover {
-          color: var(--orange-600);
+          color: var(
+            --pink-600
+          );
         }
       }
     }

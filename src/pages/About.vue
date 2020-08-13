@@ -169,11 +169,6 @@
 <style lang="scss" scoped>
   @import "../components/scss/scss_vars.scss";
 
-  h2 {
-    border-bottom: 1px dashed var(--grey-400);
-    padding-bottom: 1rem;
-  }
-
   .percentages {
     border-radius: 6px;
     background-color: var(--grey-200);
@@ -194,7 +189,8 @@
 
       .item__numb {
         font-size: 2rem;
-        color: var(--purple-800);
+        color: var(--pink-600);
+        font-weight: 800;
         display: block;
       }
 
@@ -255,15 +251,16 @@
       h3 {
         padding: 1rem;
         font-size: 1rem;
-        letter-spacing: -0.05rem;
+        border-top: none;
+        letter-spacing: -0.03rem;
         font-family: var(--system-font-family);
         border-right: 1px solid var(--grey-300);
         border-bottom: 1px solid var(--grey-300);
         box-shadow: 0 1px 2px var(--grey-200);
         background-color: var(--grey-200);
-        color: var(--orange-500);
+        color: var(--purple-800);
         line-height: 1rem;
-        font-weight: 600;
+        font-weight: 800;
         margin: 0;
       }
 
