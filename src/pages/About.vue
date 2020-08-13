@@ -134,6 +134,7 @@
     <h2>More</h2>
     <g-image
       class="hacking"
+      alt="Furiously Typing"
       src="../assets/hacking.gif"
       id="hacking"
     />
