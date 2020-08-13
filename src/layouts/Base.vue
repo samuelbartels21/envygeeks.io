@@ -1,4 +1,3 @@
-
 <template>
   <div class="layout">
     <header class="header">
@@ -25,6 +24,12 @@
     <slot />
   </div>
 </template>
+
+<script>
+  export default {
+    name: 'BaseLayout'
+  }
+</script>
 
 <style lang=scss >
   @import "../components/scss/colors";

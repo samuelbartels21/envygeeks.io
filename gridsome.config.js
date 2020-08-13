@@ -107,7 +107,10 @@ module.exports = {
   },
   skipOnMeta: [
     "headers",
+    "templates",
     "transformers",
+    "skipOnMeta",
+    "permalinks",
     "plugins"
   ]
 }

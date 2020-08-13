@@ -1,51 +1,20 @@
 import e_from_now from "./components/tags/e-from-now"
 import e_external from "./components/tags/e-external"
 import e_format_time from "./components/tags/e-format-time"
+import import_html_headers from "../plugins/import_html_headers"
+import remove_headers from "../plugins/remove_headers"
 import e_github from "./components/tags/e-github"
-import { headers } from "../gridsome.config.js"
-import BaseLayout from "./layouts/Base.vue"
+import filter_meta from "../plugins/filter_meta"
+import base_layout from "./layouts/Base.vue"
+
 
 export default function (Vue, { router, head, isClient }) {
-  Vue.component("BaseLayout", BaseLayout)
-  Vue.component("e-from-now", e_from_now)
-  Vue.component("e-format-time", e_format_time)
-  Vue.component("e-external", e_external)
-  Vue.component("e-github", e_github)
-
-  /**
-   * Remove unwanted headers
-   * We don't need these.
-   */
-  head.link = head.link.filter(h => {
-    return !h.rel || (
-      h.rel && (
-        h.rel !== "icon" && h.rel !== "apple-touch-icon"
-      )
-    )
-  })
-
-  /**
-   * Remove unwanted metadata
-   * Generators add a lot.
-   */
-  head.meta = head.meta.filter(m => {
-    return !m.name || (
-      m.name && (
-        m.name !== "generator"
-      )
-    )
-  })
-
-  /**
-   * gridsome.config.js: headers
-   * Edit headers inside of that file
-   * they'll be mapped out here
-   */
-  Object.keys(headers).forEach(type => {
-    headers[type].forEach(header => {
-      head[type].push(
-        header
-      )
-    })
-  })
+  Vue.component(e_from_now.name , e_from_now)
+  Vue.component(base_layout.name, base_layout)
+  Vue.component(e_format_time.name, e_format_time)
+  Vue.component(e_external.name, e_external)
+  Vue.component(e_github.name, e_github)
+  import_html_headers(router, head)
+  remove_headers(router, head)
+  filter_meta(router, head)
 }
