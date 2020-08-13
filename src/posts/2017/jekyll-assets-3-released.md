@@ -238,19 +238,15 @@ Jekyll, and do the following:
 
 require "jekyll/assets"
 
-module MyNameSpace
-  module Assets
-    class Default
-      class Video < Jekyll::Assets::Default
-        content_types %r!video/[a-zA-Z]+!
+module EnvyGeeks
+  class Video < Jekyll::Assets::Default
+    content_types %r!video/[a-zA-Z]+!
 
-        # --
-        def set_autoplay
-          unless args.key?(:autoplay)
-            args[:autoplay] = true
-          end
-        end
-      end
+    def set_autoplay
+      return if args.key?(:autoplay)
+      args.update({
+        autoplay: true
+      })
     end
   end
 end
