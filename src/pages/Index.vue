@@ -52,7 +52,10 @@
 <style lang="scss" scoped>
   .posts {
     .post {
-      border-bottom: 1px dashed var(--grey-400);
+      border-bottom: 0.15rem dashed var(--grey-400);
+      &:last-child {
+        border-bottom: none;
+      }
     }
   }
 </style>
