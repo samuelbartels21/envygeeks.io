@@ -32,7 +32,8 @@
   @import "../components/scss/normalize";
   @import "../components/scss/vars";
 
-  html, body {
+  html,
+  body {
     font-size: 100%;
     width: 100%;
   }
@@ -48,6 +49,7 @@
 
   a {
     color: var(--blue-700);
+
     &:hover {
       color: var(--purple-700);
     }
