@@ -1,9 +1,10 @@
 <template>
   <PostLayout>
     <PostPartial
-      :excerpt="false"
+      :excerpt=false
+      :hideTitle=true
       :post="$page.snippet"
-      :main="true"
+      :main=true
     />
   </PostLayout>
 </template>

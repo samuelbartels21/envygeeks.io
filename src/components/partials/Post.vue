@@ -8,7 +8,7 @@
       </ul>
     </aside>
 
-    <header ref="header" class="post__title">
+    <header v-if="!hideTitle" ref="header" class="post__title">
       <h1>
         <template v-if="main">
           {{ post.title }}
@@ -72,6 +72,10 @@
       main: Boolean,
       trim: Boolean,
       post: Object,
+      hideTitle: {
+        type: Boolean,
+        default: false
+      },
       readMore: {
         type: Boolean,
         default: true

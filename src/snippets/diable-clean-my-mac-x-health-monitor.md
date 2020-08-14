@@ -7,8 +7,6 @@ tags:
   - macos
 ---
 
-If you do not wish for CleanMyMac X HealthMonitor to always run; disable it
-
 ```shell
 launchctl remove com.macpaw.CleanMyMac4.HealthMonitor
 ```
