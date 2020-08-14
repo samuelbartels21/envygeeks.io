@@ -77,6 +77,11 @@
     },
     computed: {
       snippetsAndPosts() {
+        this.$page.posts.edges.map((e) => e.node.type = 'post')
+        this.$page.snippets.edges.map((e) => {
+          e.node.type = 'snippet'
+        })
+
         return {
           edges: this.$page.posts.edges.concat(
             this.$page.snippets.edges
@@ -104,10 +109,6 @@
           date
           title
           path
-
-          fileInfo {
-            directory
-          }
         }
       }
     }
@@ -118,10 +119,6 @@
           date
           title
           path
-
-          fileInfo {
-            directory
-          }
         }
       }
     }

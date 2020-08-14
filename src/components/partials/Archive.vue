@@ -5,7 +5,7 @@
 
       <article class="post" v-for="edge in posts[1]">
         <header class="left">
-          <span v-if="edge.node.fileInfo.directory === 'src/snippets'" class="post__type">Snip</span>
+          <span v-if="edge.node.type === 'snippet'" class="post__type">Snip</span>
           <span v-else class="post__type">
             Post
           </span>
