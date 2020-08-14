@@ -67,12 +67,30 @@ module.exports = {
     {
       use: "@gridsome/source-filesystem",
       options: {
+        path: "src/snippets/**/*.md",
+        typeName: "Snippet",
+        refs: {
+          author: {
+            typeName: "Author",
+            create: false
+          },
+          tags: {
+            typeName: "Tag",
+            create: true
+          }
+        }
+      }
+    },
+    {
+      use: "@gridsome/source-filesystem",
+      options: {
         path: "src/authors/**/*.json",
         typeName: "Author"
       }
     }
   ],
   templates: {
+    Snippet: "/snippets/:title",
     Post: "/blog/:year/:month/:day/:title",
     Tag: "/tag/:id"
   },

@@ -10,7 +10,7 @@
       </ul>
     </div>
     <ArchivePartial
-      :posts="$page.posts"
+      :posts="snippetsAndPosts"
       order=desc
     />
   </PageLayout>
@@ -24,7 +24,7 @@
     float: left;
 
     ul {
-      width: 80%;
+      width: 64%;
       margin: 0 auto;
       font-size: 1rem;
       align-items: center;
@@ -74,13 +74,22 @@
     components: {
       ArchivePartial,
       PageLayout
+    },
+    computed: {
+      snippetsAndPosts() {
+        return {
+          edges: this.$page.posts.edges.concat(
+            this.$page.snippets.edges
+          )
+        }
+      }
     }
   };
 </script>
 
 <page-query lang=graphql>
   query {
-    tags: allTag(sortBy: "slug", order: ASC) {
+    tags: allTag(sortBy: "title", order: ASC) {
       edges {
         node {
           title
@@ -95,6 +104,24 @@
           date
           title
           path
+
+          fileInfo {
+            directory
+          }
+        }
+      }
+    }
+
+    snippets: allSnippet(sortBy: "date") {
+      edges {
+        node {
+          date
+          title
+          path
+
+          fileInfo {
+            directory
+          }
         }
       }
     }

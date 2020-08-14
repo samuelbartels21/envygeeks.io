@@ -5,6 +5,10 @@
 
       <article class="post" v-for="edge in posts[1]">
         <header class="left">
+          <span v-if="edge.node.fileInfo.directory === 'src/snippets'" class="post__type">Snip</span>
+          <span v-else class="post__type">
+            Post
+          </span>
           <h3>
             <a :href="edge.node.path">
               {{ edge.node.title }}
@@ -108,11 +112,12 @@
       header {
         h3 {
           padding: 0;
-          font-size: inherit;
-          line-height: inherit;
+          font-size: 1rem;
+          line-height: 2.124rem;
           letter-spacing: -0.03rem;
           font-weight: inherit;
           border-top: none;
+          float: right;
           margin: 0;
 
           a {
@@ -132,7 +137,17 @@
     }
   }
 
-  .left  { float: left; }
+  .post__type {
+    font-size: 0.8rem;
+    border-radius: 0.3rem;
+    background-color: var(--pink-800);
+    padding: 0.06rem 0.2rem;
+    color: var(--pink-200);
+    margin-right: 0.4rem;
+    line-height: 0.8rem;
+  }
+
+  .left { float: left; }
   .right {
     float: right;
   }
