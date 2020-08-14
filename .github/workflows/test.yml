@@ -1,4 +1,4 @@
-name: 'Beta Testing'
+name: 'Testing'
 on:
   push:
     branches-ignore:
