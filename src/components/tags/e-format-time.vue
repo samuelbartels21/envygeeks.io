@@ -13,7 +13,7 @@
   )
 
   export default {
-    name: "e-formatted-time",
+    name: "e-format-time",
     props: {
       time: {
         required: true,
